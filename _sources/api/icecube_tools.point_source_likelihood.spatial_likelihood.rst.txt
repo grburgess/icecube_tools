@@ -1,0 +1,7 @@
+icecube\_tools.point\_source\_likelihood.spatial\_likelihood module
+===================================================================
+
+.. automodule:: icecube_tools.point_source_likelihood.spatial_likelihood
+   :members:
+   :undoc-members:
+   :show-inheritance:

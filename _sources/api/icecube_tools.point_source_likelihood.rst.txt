@@ -1,0 +1,21 @@
+icecube\_tools.point\_source\_likelihood package
+================================================
+
+Submodules
+----------
+
+.. toctree::
+   :maxdepth: 4
+
+   icecube_tools.point_source_likelihood.energy_likelihood
+   icecube_tools.point_source_likelihood.point_source_likelihood
+   icecube_tools.point_source_likelihood.prior
+   icecube_tools.point_source_likelihood.spatial_likelihood
+
+Module contents
+---------------
+
+.. automodule:: icecube_tools.point_source_likelihood
+   :members:
+   :undoc-members:
+   :show-inheritance:

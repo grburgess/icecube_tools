@@ -1,0 +1,7 @@
+icecube\_tools.utils.data module
+================================
+
+.. automodule:: icecube_tools.utils.data
+   :members:
+   :undoc-members:
+   :show-inheritance:

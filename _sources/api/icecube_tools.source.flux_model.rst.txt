@@ -1,0 +1,7 @@
+icecube\_tools.source.flux\_model module
+========================================
+
+.. automodule:: icecube_tools.source.flux_model
+   :members:
+   :undoc-members:
+   :show-inheritance:

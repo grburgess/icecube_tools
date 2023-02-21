@@ -1,0 +1,7 @@
+icecube\_tools.detector.detector module
+=======================================
+
+.. automodule:: icecube_tools.detector.detector
+   :members:
+   :undoc-members:
+   :show-inheritance:

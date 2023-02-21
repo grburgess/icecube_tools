@@ -1,0 +1,1463 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Simulation &mdash; icecube_tools v3.2 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+        <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Point source likelihood" href="point_source_likelihood.html" />
+    <link rel="prev" title="Source model interface" href="source_model.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            icecube_tools
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="public_data_access.html">Data access</a></li>
+<li class="toctree-l1"><a class="reference internal" href="detector_model.html">Detector model interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="detector_model.html#Effective-area,-angular-resolution-and-energy-resolution-of-earlier-releases">Effective area, angular resolution and energy resolution of earlier releases</a></li>
+<li class="toctree-l1"><a class="reference internal" href="source_model.html">Source model interface</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Simulation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#Defining-a-source-and-detector-model">Defining a source and detector model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Expected-number-of-neutrino-events">Expected number of neutrino events</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Set-up-and-run-simulation">Set up and run simulation</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="#Time-dependent-simulation">Time dependent simulation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="point_source_likelihood.html">Point source likelihood</a></li>
+<li class="toctree-l1"><a class="reference internal" href="point_source_likelihood.html#Time-dependent-point-source-analysis">Time dependent point source analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="point_source_analysis.html">MapScan</a></li>
+<li class="toctree-l1"><a class="reference internal" href="events.html">Event classes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/api.html">API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/api.html#icecube-tools">icecube_tools</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">icecube_tools</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Simulation</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/notebooks/simulation.ipynb.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  
+<style>
+/* CSS for nbsphinx extension */
+
+/* remove conflicting styling from Sphinx themes */
+div.nbinput.container div.prompt *,
+div.nboutput.container div.prompt *,
+div.nbinput.container div.input_area pre,
+div.nboutput.container div.output_area pre,
+div.nbinput.container div.input_area .highlight,
+div.nboutput.container div.output_area .highlight {
+    border: none;
+    padding: 0;
+    margin: 0;
+    box-shadow: none;
+}
+
+div.nbinput.container > div[class*=highlight],
+div.nboutput.container > div[class*=highlight] {
+    margin: 0;
+}
+
+div.nbinput.container div.prompt *,
+div.nboutput.container div.prompt * {
+    background: none;
+}
+
+div.nboutput.container div.output_area .highlight,
+div.nboutput.container div.output_area pre {
+    background: unset;
+}
+
+div.nboutput.container div.output_area div.highlight {
+    color: unset;  /* override Pygments text color */
+}
+
+/* avoid gaps between output lines */
+div.nboutput.container div[class*=highlight] pre {
+    line-height: normal;
+}
+
+/* input/output containers */
+div.nbinput.container,
+div.nboutput.container {
+    display: -webkit-flex;
+    display: flex;
+    align-items: flex-start;
+    margin: 0;
+    width: 100%;
+}
+@media (max-width: 540px) {
+    div.nbinput.container,
+    div.nboutput.container {
+        flex-direction: column;
+    }
+}
+
+/* input container */
+div.nbinput.container {
+    padding-top: 5px;
+}
+
+/* last container */
+div.nblast.container {
+    padding-bottom: 5px;
+}
+
+/* input prompt */
+div.nbinput.container div.prompt pre {
+    color: #307FC1;
+}
+
+/* output prompt */
+div.nboutput.container div.prompt pre {
+    color: #BF5B3D;
+}
+
+/* all prompts */
+div.nbinput.container div.prompt,
+div.nboutput.container div.prompt {
+    width: 4.5ex;
+    padding-top: 5px;
+    position: relative;
+    user-select: none;
+}
+
+div.nbinput.container div.prompt > div,
+div.nboutput.container div.prompt > div {
+    position: absolute;
+    right: 0;
+    margin-right: 0.3ex;
+}
+
+@media (max-width: 540px) {
+    div.nbinput.container div.prompt,
+    div.nboutput.container div.prompt {
+        width: unset;
+        text-align: left;
+        padding: 0.4em;
+    }
+    div.nboutput.container div.prompt.empty {
+        padding: 0;
+    }
+
+    div.nbinput.container div.prompt > div,
+    div.nboutput.container div.prompt > div {
+        position: unset;
+    }
+}
+
+/* disable scrollbars and line breaks on prompts */
+div.nbinput.container div.prompt pre,
+div.nboutput.container div.prompt pre {
+    overflow: hidden;
+    white-space: pre;
+}
+
+/* input/output area */
+div.nbinput.container div.input_area,
+div.nboutput.container div.output_area {
+    -webkit-flex: 1;
+    flex: 1;
+    overflow: auto;
+}
+@media (max-width: 540px) {
+    div.nbinput.container div.input_area,
+    div.nboutput.container div.output_area {
+        width: 100%;
+    }
+}
+
+/* input area */
+div.nbinput.container div.input_area {
+    border: 1px solid #e0e0e0;
+    border-radius: 2px;
+    /*background: #f5f5f5;*/
+}
+
+/* override MathJax center alignment in output cells */
+div.nboutput.container div[class*=MathJax] {
+    text-align: left !important;
+}
+
+/* override sphinx.ext.imgmath center alignment in output cells */
+div.nboutput.container div.math p {
+    text-align: left;
+}
+
+/* standard error */
+div.nboutput.container div.output_area.stderr {
+    background: #fdd;
+}
+
+/* ANSI colors */
+.ansi-black-fg { color: #3E424D; }
+.ansi-black-bg { background-color: #3E424D; }
+.ansi-black-intense-fg { color: #282C36; }
+.ansi-black-intense-bg { background-color: #282C36; }
+.ansi-red-fg { color: #E75C58; }
+.ansi-red-bg { background-color: #E75C58; }
+.ansi-red-intense-fg { color: #B22B31; }
+.ansi-red-intense-bg { background-color: #B22B31; }
+.ansi-green-fg { color: #00A250; }
+.ansi-green-bg { background-color: #00A250; }
+.ansi-green-intense-fg { color: #007427; }
+.ansi-green-intense-bg { background-color: #007427; }
+.ansi-yellow-fg { color: #DDB62B; }
+.ansi-yellow-bg { background-color: #DDB62B; }
+.ansi-yellow-intense-fg { color: #B27D12; }
+.ansi-yellow-intense-bg { background-color: #B27D12; }
+.ansi-blue-fg { color: #208FFB; }
+.ansi-blue-bg { background-color: #208FFB; }
+.ansi-blue-intense-fg { color: #0065CA; }
+.ansi-blue-intense-bg { background-color: #0065CA; }
+.ansi-magenta-fg { color: #D160C4; }
+.ansi-magenta-bg { background-color: #D160C4; }
+.ansi-magenta-intense-fg { color: #A03196; }
+.ansi-magenta-intense-bg { background-color: #A03196; }
+.ansi-cyan-fg { color: #60C6C8; }
+.ansi-cyan-bg { background-color: #60C6C8; }
+.ansi-cyan-intense-fg { color: #258F8F; }
+.ansi-cyan-intense-bg { background-color: #258F8F; }
+.ansi-white-fg { color: #C5C1B4; }
+.ansi-white-bg { background-color: #C5C1B4; }
+.ansi-white-intense-fg { color: #A1A6B2; }
+.ansi-white-intense-bg { background-color: #A1A6B2; }
+
+.ansi-default-inverse-fg { color: #FFFFFF; }
+.ansi-default-inverse-bg { background-color: #000000; }
+
+.ansi-bold { font-weight: bold; }
+.ansi-underline { text-decoration: underline; }
+
+
+div.nbinput.container div.input_area div[class*=highlight] > pre,
+div.nboutput.container div.output_area div[class*=highlight] > pre,
+div.nboutput.container div.output_area div[class*=highlight].math,
+div.nboutput.container div.output_area.rendered_html,
+div.nboutput.container div.output_area > div.output_javascript,
+div.nboutput.container div.output_area:not(.rendered_html) > img{
+    padding: 5px;
+    margin: 0;
+}
+
+/* fix copybtn overflow problem in chromium (needed for 'sphinx_copybutton') */
+div.nbinput.container div.input_area > div[class^='highlight'],
+div.nboutput.container div.output_area > div[class^='highlight']{
+    overflow-y: hidden;
+}
+
+/* hide copybtn icon on prompts (needed for 'sphinx_copybutton') */
+.prompt .copybtn {
+    display: none;
+}
+
+/* Some additional styling taken form the Jupyter notebook CSS */
+.jp-RenderedHTMLCommon table,
+div.rendered_html table {
+  border: none;
+  border-collapse: collapse;
+  border-spacing: 0;
+  color: black;
+  font-size: 12px;
+  table-layout: fixed;
+}
+.jp-RenderedHTMLCommon thead,
+div.rendered_html thead {
+  border-bottom: 1px solid black;
+  vertical-align: bottom;
+}
+.jp-RenderedHTMLCommon tr,
+.jp-RenderedHTMLCommon th,
+.jp-RenderedHTMLCommon td,
+div.rendered_html tr,
+div.rendered_html th,
+div.rendered_html td {
+  text-align: right;
+  vertical-align: middle;
+  padding: 0.5em 0.5em;
+  line-height: normal;
+  white-space: normal;
+  max-width: none;
+  border: none;
+}
+.jp-RenderedHTMLCommon th,
+div.rendered_html th {
+  font-weight: bold;
+}
+.jp-RenderedHTMLCommon tbody tr:nth-child(odd),
+div.rendered_html tbody tr:nth-child(odd) {
+  background: #f5f5f5;
+}
+.jp-RenderedHTMLCommon tbody tr:hover,
+div.rendered_html tbody tr:hover {
+  background: rgba(66, 165, 245, 0.2);
+}
+
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast.container,
+.nboutput.nblast.container {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast.container + .nbinput.container {
+    margin-top: -19px;
+}
+
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+
+/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
+.math {
+    text-align: unset;
+}
+</style>
+<section id="Simulation">
+<h1>Simulation<a class="headerlink" href="#Simulation" title="Permalink to this heading"></a></h1>
+<p>We can bring together the detector and source modelling to calculate the expected number of neutrino events and run simulations.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+<span class="kn">from</span> <span class="nn">matplotlib.patches</span> <span class="kn">import</span> <span class="n">Circle</span>
+<span class="kn">from</span> <span class="nn">matplotlib.collections</span> <span class="kn">import</span> <span class="n">PatchCollection</span>
+<span class="kn">import</span> <span class="nn">h5py</span>
+</pre></div>
+</div>
+</div>
+<section id="Defining-a-source-and-detector-model">
+<h2>Defining a source and detector model<a class="headerlink" href="#Defining-a-source-and-detector-model" title="Permalink to this heading"></a></h2>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">icecube_tools.detector.effective_area</span> <span class="kn">import</span> <span class="n">EffectiveArea</span>
+<span class="kn">from</span> <span class="nn">icecube_tools.detector.energy_resolution</span> <span class="kn">import</span> <span class="n">EnergyResolution</span>
+<span class="kn">from</span> <span class="nn">icecube_tools.detector.angular_resolution</span> <span class="kn">import</span> <span class="n">AngularResolution</span>
+<span class="kn">from</span> <span class="nn">icecube_tools.detector.detector</span> <span class="kn">import</span> <span class="n">IceCube</span>
+<span class="kn">from</span> <span class="nn">icecube_tools.source.flux_model</span> <span class="kn">import</span> <span class="n">PowerLawFlux</span>
+<span class="kn">from</span> <span class="nn">icecube_tools.source.source_model</span> <span class="kn">import</span> <span class="n">DiffuseSource</span><span class="p">,</span> <span class="n">PointSource</span>
+<span class="kn">from</span> <span class="nn">icecube_tools.detector.r2021</span> <span class="kn">import</span> <span class="n">R2021IRF</span>
+<span class="kn">from</span> <span class="nn">icecube_tools.utils.data</span> <span class="kn">import</span> <span class="n">SimEvents</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Define detector (see detector model notebook for more info)</span>
+<span class="n">aeff</span> <span class="o">=</span> <span class="n">EffectiveArea</span><span class="o">.</span><span class="n">from_dataset</span><span class="p">(</span><span class="s2">&quot;20210126&quot;</span><span class="p">,</span> <span class="s2">&quot;IC86_II&quot;</span><span class="p">)</span>
+<span class="n">irf</span> <span class="o">=</span> <span class="n">R2021IRF</span><span class="o">.</span><span class="n">from_period</span><span class="p">(</span><span class="s2">&quot;IC86_II&quot;</span><span class="p">)</span>
+<span class="c1"># IceCube expects an instance of EffectiveAerea, AngularResolution and</span>
+<span class="c1"># EnergyResolution, optionally the period (here IC86_I)</span>
+<span class="c1"># R2021IRF inherits from AngularResolution and EnergyResolution</span>
+<span class="c1"># just to be able to be used as both</span>
+<span class="n">detector</span> <span class="o">=</span> <span class="n">IceCube</span><span class="p">(</span><span class="n">aeff</span><span class="p">,</span> <span class="n">irf</span><span class="p">,</span> <span class="n">irf</span><span class="p">,</span> <span class="s2">&quot;IC86_II&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Define simple sources (see source model notebook for more info)</span>
+<span class="n">diff_flux_norm</span> <span class="o">=</span> <span class="mf">3e-21</span>  <span class="c1"># Flux normalisation in units of GeV^-1 cm^-2 s^-1 sr^-1</span>
+<span class="n">point_flux_norm</span> <span class="o">=</span> <span class="mf">5e-19</span>  <span class="c1"># Flux normalisation in units of GeV^-1 cm^-2 s^-1</span>
+<span class="n">norm_energy</span> <span class="o">=</span> <span class="mf">1e5</span>  <span class="c1"># Energy of normalisation in units of GeV</span>
+<span class="n">min_energy</span> <span class="o">=</span> <span class="mf">1e2</span>  <span class="c1"># GeV</span>
+<span class="n">max_energy</span> <span class="o">=</span> <span class="mf">1e8</span>  <span class="c1"># GeV</span>
+
+<span class="n">diff_power_law</span> <span class="o">=</span> <span class="n">PowerLawFlux</span><span class="p">(</span><span class="n">diff_flux_norm</span><span class="p">,</span> <span class="n">norm_energy</span><span class="p">,</span> <span class="mf">3.7</span><span class="p">,</span> <span class="n">min_energy</span><span class="p">,</span> <span class="n">max_energy</span><span class="p">)</span>
+<span class="n">diff_source</span> <span class="o">=</span> <span class="n">DiffuseSource</span><span class="p">(</span><span class="n">diff_power_law</span><span class="p">,</span> <span class="n">z</span><span class="o">=</span><span class="mf">0.0</span><span class="p">)</span>
+
+<span class="n">point_power_law</span> <span class="o">=</span> <span class="n">PowerLawFlux</span><span class="p">(</span>
+    <span class="n">point_flux_norm</span><span class="p">,</span> <span class="n">norm_energy</span><span class="p">,</span> <span class="mf">2.5</span><span class="p">,</span> <span class="n">min_energy</span><span class="p">,</span> <span class="n">max_energy</span>
+<span class="p">)</span>
+<span class="n">point_source</span> <span class="o">=</span> <span class="n">PointSource</span><span class="p">(</span><span class="n">point_power_law</span><span class="p">,</span> <span class="n">z</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">coord</span><span class="o">=</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">deg2rad</span><span class="p">(</span><span class="mi">30</span><span class="p">)))</span>
+<span class="n">sources</span> <span class="o">=</span> <span class="p">[</span><span class="n">diff_source</span><span class="p">,</span> <span class="n">point_source</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</section>
+<section id="Expected-number-of-neutrino-events">
+<h2>Expected number of neutrino events<a class="headerlink" href="#Expected-number-of-neutrino-events" title="Permalink to this heading"></a></h2>
+<p>Sometimes we just want to predict the number of events from sources in a detector without specifying all detector properties or running a simulation. We can do this with the <code class="docutils literal notranslate"><span class="pre">NeutrinoCalculator</span></code>. For this, we just need a source list and an effective area.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">icecube_tools.neutrino_calculator</span> <span class="kn">import</span> <span class="n">NeutrinoCalculator</span><span class="p">,</span> <span class="n">PhiSolver</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">nu_calc</span> <span class="o">=</span> <span class="n">NeutrinoCalculator</span><span class="p">(</span><span class="n">sources</span><span class="p">,</span> <span class="n">aeff</span><span class="p">)</span>
+<span class="n">nu_calc</span><span class="p">(</span>
+    <span class="n">time</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>  <span class="c1"># years</span>
+    <span class="n">min_energy</span><span class="o">=</span><span class="n">min_energy</span><span class="p">,</span>
+    <span class="n">max_energy</span><span class="o">=</span><span class="n">max_energy</span><span class="p">,</span>  <span class="c1"># energy range</span>
+    <span class="n">min_cosz</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span>
+    <span class="n">max_cosz</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+<span class="p">)</span>  <span class="c1"># cos(zenith) range</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+[185.18577999563072, 24.514085562926446]
+</pre></div></div>
+</div>
+<p>The calculator returns a list of expected neutrino event numbers, one for each source.</p>
+<p>We may also want to do the inverse, and find the <code class="docutils literal notranslate"><span class="pre">PointSource</span></code> flux normalisation corresponding to an expected number of events. For this there is the <code class="docutils literal notranslate"><span class="pre">PhiSolver</span></code> class.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">phi_solver</span> <span class="o">=</span> <span class="n">PhiSolver</span><span class="p">(</span>
+    <span class="n">aeff</span><span class="p">,</span> <span class="n">norm_energy</span><span class="p">,</span> <span class="n">min_energy</span><span class="p">,</span> <span class="n">max_energy</span><span class="p">,</span> <span class="n">time</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">min_cosz</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span> <span class="n">max_cosz</span><span class="o">=</span><span class="mi">1</span>
+<span class="p">)</span>
+<span class="n">phi_norm</span> <span class="o">=</span> <span class="n">phi_solver</span><span class="p">(</span><span class="n">Nnu</span><span class="o">=</span><span class="mi">15</span><span class="p">,</span> <span class="n">dec</span><span class="o">=-</span><span class="mi">30</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="mf">2.0</span><span class="p">)</span>  <span class="c1"># degrees  # spectral index</span>
+<span class="n">phi_norm</span>  <span class="c1"># GeV^-1 cm^-2 s^-1</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area stderr docutils container">
+<div class="highlight"><pre>
+/opt/hostedtoolcache/Python/3.9.16/x64/lib/python3.9/site-packages/scipy/optimize/_minpack_py.py:178: RuntimeWarning: The iteration is not making good progress, as measured by the
+  improvement from the last ten iterations.
+  warnings.warn(msg, RuntimeWarning)
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+1.1263915034742588e-17
+</pre></div></div>
+</div>
+</section>
+<section id="Set-up-and-run-simulation">
+<h2>Set up and run simulation<a class="headerlink" href="#Set-up-and-run-simulation" title="Permalink to this heading"></a></h2>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">icecube_tools.simulator</span> <span class="kn">import</span> <span class="n">Simulator</span><span class="p">,</span> <span class="n">TimeDependentSimulator</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Set up simulation</span>
+<span class="n">simulator</span> <span class="o">=</span> <span class="n">Simulator</span><span class="p">(</span><span class="n">sources</span><span class="p">,</span> <span class="n">detector</span><span class="p">,</span> <span class="s2">&quot;IC86_II&quot;</span><span class="p">)</span>
+<span class="n">simulator</span><span class="o">.</span><span class="n">time</span> <span class="o">=</span> <span class="mi">1</span>  <span class="c1"># year</span>
+
+<span class="c1"># Run simulation</span>
+<span class="n">simulator</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">show_progress</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">seed</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area stderr docutils container">
+<div class="highlight"><pre>
+Resetting rng
+Sampling: 100%|██████████| 204/204 [00:02&lt;00:00, 74.41it/s]
+</pre></div></div>
+</div>
+<p>This way, the simulator calculates the expected number of neutrinos from these sources given the observation period, effective area and relevant source properties. We note that we could also run a simulation for a fixed number of neutrinos if we want, simply by passing the optional argument <code class="docutils literal notranslate"><span class="pre">N</span></code> to <code class="docutils literal notranslate"><span class="pre">simulator.run()</span></code>.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">simulator</span><span class="o">.</span><span class="n">write_to_h5</span><span class="p">(</span><span class="s2">&quot;h5_test.hdf5&quot;</span><span class="p">,</span> <span class="n">sources</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">simulator</span><span class="o">.</span><span class="n">arrival_energy</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+{&#39;IC86_II&#39;: array([7.14210028e+02, 3.23388666e+02, 1.80111166e+03, 1.98115885e+02,
+        2.30965248e+02, 1.72795141e+02, 5.17489092e+03, 4.40330898e+02,
+        1.55148412e+03, 2.65048351e+02, 1.58823383e+02, 1.15940566e+03,
+        1.51603933e+02, 1.75155020e+02, 1.03268577e+02, 4.28410295e+02,
+        8.98147427e+02, 7.58773870e+02, 6.71234648e+02, 2.58801769e+03,
+        3.14632116e+02, 5.38505911e+02, 3.97374350e+02, 1.62723177e+03,
+        2.67854713e+02, 2.70530741e+02, 7.70529405e+02, 3.11075540e+03,
+        1.81460670e+02, 5.40258039e+02, 1.64259728e+03, 5.75003650e+02,
+        1.26075824e+02, 4.85847409e+02, 2.82589224e+02, 7.96531291e+02,
+        1.82201472e+02, 2.92805711e+02, 3.46598724e+03, 1.65938649e+03,
+        3.55002367e+02, 6.77278871e+02, 6.13118787e+02, 6.89669017e+02,
+        1.89599680e+02, 3.29083688e+02, 7.65201578e+02, 5.92951977e+02,
+        1.23201044e+02, 1.89469848e+02, 1.13214053e+03, 3.01162303e+02,
+        3.64580129e+02, 8.15601770e+02, 4.70529693e+02, 2.02309186e+03,
+        2.05857939e+02, 4.91791232e+02, 2.87311325e+03, 8.21048861e+02,
+        3.91184938e+02, 4.30137055e+02, 5.29922706e+02, 1.00996620e+03,
+        2.38449683e+02, 1.02752455e+02, 4.23989510e+02, 1.05066750e+03,
+        1.95056355e+02, 1.07369025e+03, 2.70848742e+02, 3.18249906e+02,
+        1.71764214e+03, 1.59613947e+02, 1.37478269e+02, 1.94141437e+02,
+        4.18211025e+02, 1.27672800e+02, 1.08949260e+02, 1.63544282e+02,
+        6.85499242e+02, 1.84326964e+02, 2.05133385e+02, 1.17666210e+03,
+        7.05352860e+02, 2.21446363e+03, 2.01502670e+03, 8.79407962e+02,
+        4.40316998e+03, 2.53375474e+03, 1.54376790e+03, 1.08136805e+03,
+        3.68466551e+02, 2.64817571e+03, 1.59717932e+03, 1.22745212e+03,
+        7.65861056e+02, 5.37127551e+02, 1.41923310e+03, 1.59390963e+02,
+        2.77473906e+03, 2.19652298e+02, 3.42252044e+02, 6.70479213e+02,
+        1.10436384e+02, 2.77288345e+02, 4.70209566e+03, 1.17712691e+03,
+        4.32041866e+02, 2.42537709e+02, 1.01314289e+03, 9.05912018e+03,
+        7.39467551e+02, 3.41565543e+02, 5.17477369e+03, 3.71347583e+03,
+        3.23357371e+02, 4.51528603e+02, 1.04352750e+03, 6.39632012e+03,
+        6.40531654e+02, 4.60792627e+02, 6.08783284e+02, 1.15210766e+03,
+        2.51840914e+02, 5.27568582e+02, 3.65572310e+02, 2.77826546e+02,
+        4.29059200e+03, 5.26348947e+02, 1.05541561e+03, 2.21413634e+02,
+        2.19357897e+02, 6.41860702e+02, 5.82442097e+02, 6.53618668e+02,
+        3.00471612e+02, 2.28235261e+02, 2.73136020e+02, 1.70293876e+02,
+        4.18007659e+02, 5.09273733e+02, 1.00042466e+03, 4.01359599e+02,
+        1.60565717e+03, 7.59810670e+02, 1.13569750e+03, 3.56077995e+02,
+        1.49788565e+02, 3.51375264e+02, 1.45843944e+02, 1.35379004e+03,
+        3.38255530e+02, 4.32458488e+02, 5.92388998e+02, 4.91396382e+02,
+        6.04551411e+02, 9.05194302e+02, 2.16493903e+02, 4.37172069e+02,
+        4.77975439e+02, 1.47892788e+03, 4.53852893e+02, 9.04913521e+02,
+        1.14871441e+03, 5.66528707e+02, 1.05478475e+03, 4.52292923e+02,
+        1.71851377e+02, 5.77266445e+03, 2.58710470e+03, 1.11650640e+02,
+        4.70778073e+02, 2.75845792e+02, 2.10638110e+02, 1.40116908e+03,
+        2.89858082e+02, 6.72511978e+02, 8.90762649e+03, 1.53453338e+03,
+        1.59749785e+05, 2.09796322e+03, 2.98033901e+03, 8.80871324e+03,
+        3.35833694e+02, 9.29094004e+04, 2.94160476e+02, 1.09173386e+04,
+        9.42745008e+03, 2.02827753e+03, 7.91925136e+03, 1.00908484e+04,
+        2.33238637e+03, 5.29891770e+04, 1.67900626e+03, 1.74840132e+03,
+        3.41649982e+02, 4.10342640e+02, 8.15988127e+03, 7.41030425e+02,
+        1.23042915e+03, 1.83331443e+04, 7.60556927e+03, 3.16304367e+03])}
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">events</span> <span class="o">=</span> <span class="n">SimEvents</span><span class="o">.</span><span class="n">load_from_h5</span><span class="p">(</span><span class="s2">&quot;h5_test.hdf5&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area stderr docutils container">
+<div class="highlight"><pre>
+Resetting rng
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">events</span><span class="o">.</span><span class="n">period</span><span class="p">(</span><span class="s2">&quot;IC86_II&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+dict_keys([&#39;true_energy&#39;, &#39;reco_energy&#39;, &#39;arrival_energy&#39;, &#39;ang_err&#39;, &#39;ra&#39;, &#39;dec&#39;, &#39;source_label&#39;])
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">len</span><span class="p">(</span><span class="n">events</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+1
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">for i in [1.5, 2.0, 2.5, 3.0, 3.5, 3.7]:</span>
+<span class="sd">    norm_energy = 1e5 # Energy of normalisation in units of GeV</span>
+<span class="sd">    min_energy = 1e2 # GeV</span>
+<span class="sd">    max_energy = 1e8 # GeV</span>
+<span class="sd">    phi_solver = PhiSolver(aeff, norm_energy, min_energy, max_energy,</span>
+<span class="sd">                           time=1, min_cosz=-1, max_cosz=1)</span>
+<span class="sd">    phi_norm = phi_solver(Nnu=2000,</span>
+<span class="sd">                          dec=30, # degrees</span>
+<span class="sd">                          index=i) # spectral index</span>
+<span class="sd">    phi_norm # GeV^-1 cm^-2 s^-1</span>
+<span class="sd">    point_power_law = PowerLawFlux(phi_norm, norm_energy, i,</span>
+<span class="sd">                                   min_energy, max_energy)</span>
+<span class="sd">    point_source = PointSource(point_power_law, z=0., coord=(np.pi, np.deg2rad(30)))</span>
+<span class="sd">    sources = [point_source]</span>
+<span class="sd">    simulator = Simulator(sources, detector)</span>
+<span class="sd">    simulator.time = 1 # year</span>
+
+<span class="sd">    # Run simulation</span>
+<span class="sd">    simulator.run(show_progress=True, seed=42)</span>
+<span class="sd">    simulator.save(f&quot;data/sim_output_{i:.1f}.h5&quot;)</span>
+<span class="sd">&quot;&quot;&quot;</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&#39;\nfor i in [1.5, 2.0, 2.5, 3.0, 3.5, 3.7]:\n    norm_energy = 1e5 # Energy of normalisation in units of GeV\n    min_energy = 1e2 # GeV\n    max_energy = 1e8 # GeV\n    phi_solver = PhiSolver(aeff, norm_energy, min_energy, max_energy, \n                           time=1, min_cosz=-1, max_cosz=1)\n    phi_norm = phi_solver(Nnu=2000, \n                          dec=30, # degrees\n                          index=i) # spectral index\n    phi_norm # GeV^-1 cm^-2 s^-1\n    point_power_law = PowerLawFlux(phi_norm, norm_energy, i, \n                                   min_energy, max_energy)\n    point_source = PointSource(point_power_law, z=0., coord=(np.pi, np.deg2rad(30)))\n    sources = [point_source]\n    simulator = Simulator(sources, detector)\n    simulator.time = 1 # year\n\n    # Run simulation\n    simulator.run(show_progress=True, seed=42)\n    simulator.save(f&#34;data/sim_output_{i:.1f}.h5&#34;)\n&#39;
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot energies</span>
+<span class="n">bins</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">geomspace</span><span class="p">(</span><span class="mf">1e2</span><span class="p">,</span> <span class="n">max_energy</span><span class="p">)</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">events</span><span class="o">.</span><span class="n">true_energy</span><span class="p">[</span><span class="s2">&quot;IC86_II&quot;</span><span class="p">],</span> <span class="n">bins</span><span class="o">=</span><span class="n">bins</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.7</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;E_true&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">events</span><span class="o">.</span><span class="n">reco_energy</span><span class="p">[</span><span class="s2">&quot;IC86_II&quot;</span><span class="p">],</span> <span class="n">bins</span><span class="o">=</span><span class="n">bins</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.7</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;E_reco&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xscale</span><span class="p">(</span><span class="s2">&quot;log&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_yscale</span><span class="p">(</span><span class="s2">&quot;log&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;E [GeV]&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&lt;matplotlib.legend.Legend at 0x7f37a6109d90&gt;
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/notebooks_simulation_21_1.png" src="../_images/notebooks_simulation_21_1.png" />
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot directions</span>
+<span class="n">ps_sel</span> <span class="o">=</span> <span class="n">events</span><span class="o">.</span><span class="n">source_label</span><span class="p">[</span><span class="s2">&quot;IC86_II&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">subplot_kw</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;projection&quot;</span><span class="p">:</span> <span class="s2">&quot;aitoff&quot;</span><span class="p">})</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">set_size_inches</span><span class="p">((</span><span class="mi">12</span><span class="p">,</span> <span class="mi">7</span><span class="p">))</span>
+
+<span class="n">circles</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">r</span><span class="p">,</span> <span class="n">d</span><span class="p">,</span> <span class="n">a</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span>
+    <span class="n">events</span><span class="o">.</span><span class="n">ra</span><span class="p">[</span><span class="s2">&quot;IC86_II&quot;</span><span class="p">][</span><span class="o">~</span><span class="n">ps_sel</span><span class="p">],</span>
+    <span class="n">events</span><span class="o">.</span><span class="n">dec</span><span class="p">[</span><span class="s2">&quot;IC86_II&quot;</span><span class="p">][</span><span class="o">~</span><span class="n">ps_sel</span><span class="p">],</span>
+    <span class="n">events</span><span class="o">.</span><span class="n">ang_err</span><span class="p">[</span><span class="s2">&quot;IC86_II&quot;</span><span class="p">][</span><span class="o">~</span><span class="n">ps_sel</span><span class="p">],</span>
+<span class="p">):</span>
+    <span class="n">circle</span> <span class="o">=</span> <span class="n">Circle</span><span class="p">((</span><span class="n">r</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="n">d</span><span class="p">),</span> <span class="n">radius</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">deg2rad</span><span class="p">(</span><span class="n">a</span><span class="p">))</span>
+    <span class="n">circles</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">circle</span><span class="p">)</span>
+<span class="n">df_nu</span> <span class="o">=</span> <span class="n">PatchCollection</span><span class="p">(</span><span class="n">circles</span><span class="p">)</span>
+
+<span class="n">circles</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">r</span><span class="p">,</span> <span class="n">d</span><span class="p">,</span> <span class="n">a</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span>
+    <span class="n">events</span><span class="o">.</span><span class="n">ra</span><span class="p">[</span><span class="s2">&quot;IC86_II&quot;</span><span class="p">][</span><span class="n">ps_sel</span><span class="p">],</span>
+    <span class="n">events</span><span class="o">.</span><span class="n">dec</span><span class="p">[</span><span class="s2">&quot;IC86_II&quot;</span><span class="p">][</span><span class="n">ps_sel</span><span class="p">],</span>
+    <span class="n">events</span><span class="o">.</span><span class="n">ang_err</span><span class="p">[</span><span class="s2">&quot;IC86_II&quot;</span><span class="p">][</span><span class="n">ps_sel</span><span class="p">],</span>
+<span class="p">):</span>
+    <span class="n">circle</span> <span class="o">=</span> <span class="n">Circle</span><span class="p">((</span><span class="n">r</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="n">d</span><span class="p">),</span> <span class="n">radius</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">deg2rad</span><span class="p">(</span><span class="n">a</span><span class="p">))</span>
+    <span class="n">circles</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">circle</span><span class="p">)</span>
+<span class="n">ps_nu</span> <span class="o">=</span> <span class="n">PatchCollection</span><span class="p">(</span><span class="n">circles</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;r&quot;</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">add_collection</span><span class="p">(</span><span class="n">df_nu</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">add_collection</span><span class="p">(</span><span class="n">ps_nu</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s2">&quot;example_simulation.png&quot;</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">150</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/notebooks_simulation_22_0.png" src="../_images/notebooks_simulation_22_0.png" />
+</div>
+</div>
+</section>
+</section>
+<section id="Time-dependent-simulation">
+<h1>Time dependent simulation<a class="headerlink" href="#Time-dependent-simulation" title="Permalink to this heading"></a></h1>
+<p>We can simulate an observation campaign spanning multiple data periods of IceCube through a “meta class” <code class="docutils literal notranslate"><span class="pre">TimeDependentSimulator</span></code>:</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tsim</span> <span class="o">=</span> <span class="n">TimeDependentSimulator</span><span class="p">([</span><span class="s2">&quot;IC86_I&quot;</span><span class="p">,</span> <span class="s2">&quot;IC86_II&quot;</span><span class="p">],</span> <span class="n">sources</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area stderr docutils container">
+<div class="highlight"><pre>
+Resetting rng
+/opt/hostedtoolcache/Python/3.9.16/x64/lib/python3.9/site-packages/icecube_tools/detector/r2021.py:82: RuntimeWarning: divide by zero encountered in log10
+  self.dataset[:, 6:-1] = np.log10(self.dataset[:, 6:-1])
+Empty true energy bins at: [(0, 0), (1, 0)]
+Resetting rng
+Resetting rng
+Need to set simulation times, defaults to 1 year each.
+</pre></div></div>
+</div>
+<p>We need to set simulation times for all periods. Since for past periods the simulation time shouldn’t be larger than the actual observation time (that is time span - down time of the detector) we need to take care, or rather, we let the class <code class="docutils literal notranslate"><span class="pre">Uptime</span></code> take care:</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">icecube_tools.utils.data</span> <span class="kn">import</span> <span class="n">Uptime</span>
+</pre></div>
+</div>
+</div>
+<p>It lets us calculate the actual observation time through, e.g. IC86_II, vs the time covered:</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">uptime</span> <span class="o">=</span> <span class="n">Uptime</span><span class="p">()</span>
+<span class="n">uptime</span><span class="o">.</span><span class="n">time_obs</span><span class="p">(</span><span class="s2">&quot;IC86_II&quot;</span><span class="p">),</span> <span class="n">uptime</span><span class="o">.</span><span class="n">time_span</span><span class="p">(</span><span class="s2">&quot;IC86_II&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+({&#39;IC86_II&#39;: 0.9089039325939252}, {&#39;IC86_II&#39;: 1.0157235341273203})
+</pre></div></div>
+</div>
+<p>We can further define a start and end time of an observation and let it calculate the observation time in each period. Viable possible options are - start and end time in MJD - start time in MJD and duration in years - end time in MJD and duration in years</p>
+<p>If the start time is before the earliest period (IC_40), the start time will be set to the earliest possible date.</p>
+<p>If the end time is past the last period (IC86_II), then we get an according message and simulate into the future.</p>
+<p>We can of course bypass this time setting and operate directly on the instances of Simulator, for example if we’d want to build up large statistics for subsequent likelihood analysis.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">times</span> <span class="o">=</span> <span class="n">uptime</span><span class="o">.</span><span class="n">find_obs_time</span><span class="p">(</span><span class="n">start</span><span class="o">=</span><span class="mi">55569</span><span class="p">,</span> <span class="n">duration</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">times</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+{&#39;IC86_I&#39;: 1.2241905309188956, &#39;IC86_II&#39;: 1.5943562119196362}
+</pre></div></div>
+</div>
+<p>The returned dictionary can be used to set the simulation times for an instance of <code class="docutils literal notranslate"><span class="pre">TimeDependentSimulator</span></code>:</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tsim</span><span class="o">.</span><span class="n">time</span> <span class="o">=</span> <span class="n">times</span>
+</pre></div>
+</div>
+</div>
+<p>The simulation is started by calling <code class="docutils literal notranslate"><span class="pre">run()</span></code>, results can be saved by <code class="docutils literal notranslate"><span class="pre">save(file_prefix)</span></code>, with the filename being <code class="docutils literal notranslate"><span class="pre">{file_prefix}_{p}.h5</span></code> with period <code class="docutils literal notranslate"><span class="pre">p</span></code>.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[23]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tsim</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">show_progress</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area stderr docutils container">
+<div class="highlight"><pre>
+Sampling: 100%|██████████| 249/249 [00:03&lt;00:00, 63.00it/s]
+Sampling: 100%|██████████| 316/316 [00:03&lt;00:00, 102.46it/s]
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[24]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tsim</span><span class="o">.</span><span class="n">_true_energy</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[24]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+{&#39;IC86_I&#39;: array([1.31136354e+03, 4.27063531e+02, 2.30184376e+02, 1.06374367e+03,
+        9.65196547e+02, 6.03473714e+02, 3.18216255e+02, 1.11522099e+02,
+        1.10364467e+03, 3.98678374e+02, 3.25677732e+02, 2.64671131e+03,
+        1.82239810e+02, 6.81451624e+02, 1.03196805e+02, 7.52423746e+02,
+        6.91520129e+02, 3.43067451e+02, 1.32118104e+02, 5.03712664e+02,
+        1.65186094e+03, 2.22002832e+02, 4.05366906e+02, 1.19678467e+02,
+        2.15730519e+02, 3.03886656e+02, 1.09936544e+02, 1.60661190e+03,
+        2.55587051e+02, 1.89660972e+03, 3.36077369e+02, 8.94069020e+02,
+        6.95015316e+02, 1.64593963e+03, 4.77121640e+02, 2.97344866e+02,
+        1.04660493e+02, 3.84705606e+02, 1.17600587e+03, 6.17634418e+03,
+        3.71575557e+02, 1.88668614e+02, 3.26333895e+02, 3.28943364e+02,
+        9.14343772e+02, 1.61466056e+02, 2.81243362e+03, 1.00848477e+02,
+        4.71939113e+02, 2.59603872e+03, 1.15309446e+02, 7.95225683e+02,
+        1.96062714e+02, 6.89950356e+02, 3.14670130e+02, 1.62633405e+02,
+        2.56200449e+02, 4.34035676e+02, 2.00867160e+02, 2.52191398e+02,
+        7.44179973e+02, 6.79013026e+02, 1.38371178e+03, 2.61397527e+03,
+        4.55500288e+02, 4.40925778e+02, 6.02752350e+02, 3.01582267e+03,
+        1.27403042e+03, 6.98460586e+02, 3.27351230e+03, 1.02597142e+03,
+        4.22028261e+02, 9.21762382e+02, 8.65082757e+03, 4.97189647e+02,
+        6.67306896e+02, 1.77618163e+03, 4.87773883e+03, 3.43506584e+02,
+        2.16892914e+02, 4.39681806e+02, 3.64438999e+02, 2.83509111e+02,
+        7.89518630e+02, 5.98721867e+02, 1.03448768e+04, 1.71691251e+02,
+        8.60054826e+02, 8.67413296e+02, 1.07570854e+02, 3.05797689e+02,
+        2.41383308e+03, 1.04160275e+02, 3.68018893e+02, 4.94501917e+02,
+        2.04899927e+02, 6.37716590e+02, 2.79675306e+02, 4.78385125e+02,
+        4.85607169e+02, 3.27908624e+02, 1.47187045e+02, 1.65595047e+03,
+        2.74799475e+02, 1.00336502e+02, 3.89901431e+02, 9.20401865e+02,
+        3.50262569e+03, 1.08104945e+03, 5.39903226e+02, 2.93425123e+02,
+        3.03122414e+02, 6.87827202e+02, 1.35309920e+02, 1.06404398e+03,
+        2.18044984e+02, 1.09135233e+03, 1.14775033e+03, 5.35045771e+02,
+        1.69625181e+02, 1.22148038e+02, 6.57436699e+02, 1.88433529e+02,
+        4.49923211e+02, 1.09789994e+02, 5.86089797e+02, 1.73188280e+02,
+        1.56434551e+02, 1.08612781e+03, 5.05130666e+02, 3.19035391e+02,
+        4.14744644e+02, 2.92599180e+02, 1.49527817e+02, 1.47356073e+03,
+        1.62260871e+02, 7.20682832e+02, 4.21613742e+02, 2.56497041e+02,
+        3.64581285e+02, 3.10690887e+03, 1.27308238e+03, 2.00538171e+02,
+        2.57553628e+02, 4.31147649e+02, 6.55627515e+02, 3.86226818e+02,
+        6.14336084e+02, 3.35752350e+02, 5.86685847e+02, 2.67865948e+02,
+        1.97596114e+03, 2.56662069e+02, 1.73755000e+02, 4.01264792e+03,
+        4.10705983e+02, 5.47121261e+02, 2.67677531e+02, 2.91733044e+02,
+        1.39527126e+02, 6.07660575e+02, 1.44834814e+03, 1.40411247e+03,
+        5.64963499e+02, 1.31849372e+03, 3.52296123e+02, 1.01882969e+03,
+        2.20452151e+02, 3.45611444e+02, 5.34832674e+02, 4.06020957e+02,
+        1.68690190e+02, 1.32079954e+02, 4.04100023e+03, 1.00829682e+03,
+        1.32947097e+03, 7.63215097e+02, 4.46416889e+02, 5.49817949e+02,
+        2.51620230e+02, 1.07554975e+03, 2.97155843e+02, 4.06115294e+02,
+        2.73333851e+02, 4.44643730e+02, 2.83168259e+02, 1.37657150e+03,
+        4.68202977e+02, 1.62762010e+03, 1.94327723e+03, 4.49487711e+03,
+        4.15400038e+02, 4.94292322e+02, 1.78968186e+03, 2.97821088e+02,
+        1.45483083e+02, 1.40432099e+02, 5.52046974e+02, 4.14960589e+02,
+        5.77580909e+02, 9.18825008e+02, 7.24685475e+02, 1.14802878e+03,
+        1.30681333e+03, 4.35621652e+02, 3.44689882e+02, 2.61255964e+02,
+        3.10322536e+02, 7.04633570e+02, 1.18707019e+02, 1.28694916e+02,
+        4.71867442e+02, 2.14811254e+04, 4.47999666e+04, 8.48517378e+02,
+        3.60603910e+02, 4.39647640e+03, 2.14495503e+03, 5.52002343e+03,
+        1.10678300e+03, 1.11787563e+04, 2.12074202e+03, 4.41627692e+02,
+        1.58360071e+05, 7.12644388e+02, 4.59849238e+04, 1.86987749e+04,
+        7.95265458e+03, 4.23869706e+03, 4.66794955e+04, 6.18118246e+03,
+        3.98549555e+03, 7.80835409e+04, 1.22952939e+04, 2.52622559e+03,
+        1.01831238e+04, 6.30308516e+04, 1.71450854e+03, 1.27139255e+03,
+        2.20319102e+04, 2.43868826e+03, 4.09233699e+02, 1.35198787e+03,
+        7.58557236e+03, 1.20792431e+03, 5.88424225e+04, 3.87072127e+03,
+        3.02568463e+02]),
+ &#39;IC86_II&#39;: array([6.65178000e+02, 1.69202240e+02, 2.70476857e+03, 2.22532330e+02,
+        7.19423381e+02, 1.13766385e+02, 1.30603424e+03, 5.58388205e+02,
+        3.68746173e+03, 2.15584938e+02, 2.80958796e+02, 1.33308733e+02,
+        3.01898389e+02, 1.39813514e+03, 7.67652790e+02, 1.18644139e+02,
+        1.60418667e+02, 1.18927673e+02, 1.94152348e+02, 1.20647657e+02,
+        1.84892419e+03, 1.23866437e+02, 1.85021692e+02, 3.27927993e+02,
+        1.03784105e+03, 2.66121847e+02, 1.59777184e+02, 4.30933676e+02,
+        5.18373462e+02, 7.50982951e+02, 1.66269575e+02, 6.58233916e+02,
+        1.51190325e+03, 1.04923778e+03, 2.64524340e+02, 4.41578550e+02,
+        4.07240880e+02, 9.32726469e+02, 2.17336905e+02, 3.32431860e+02,
+        1.23573757e+02, 1.03679164e+02, 6.94710624e+02, 6.68487094e+02,
+        8.40306955e+02, 2.21645235e+02, 1.29245283e+02, 6.85027143e+02,
+        8.13918448e+02, 1.65426683e+02, 2.39219345e+03, 3.06016722e+02,
+        2.61718003e+02, 3.05764700e+02, 2.69910452e+02, 1.83544528e+02,
+        4.44547025e+02, 2.86730873e+02, 1.10389935e+03, 1.25325297e+02,
+        4.22101626e+03, 6.15945017e+03, 2.55803767e+02, 1.79332883e+02,
+        2.06041240e+03, 1.61003224e+03, 1.37078069e+03, 1.07311171e+03,
+        1.20971758e+02, 2.02501494e+02, 1.07416230e+03, 7.07679778e+02,
+        1.67336806e+02, 3.04802866e+02, 4.56771151e+03, 8.05686417e+02,
+        3.14500483e+02, 4.82319658e+03, 2.60614850e+02, 7.04458465e+02,
+        1.12632500e+02, 3.74473349e+02, 4.36163409e+02, 8.67413296e+02,
+        2.06326990e+02, 1.76019722e+02, 2.41155015e+02, 1.13811219e+02,
+        9.43623635e+02, 3.29860664e+02, 1.79882873e+02, 3.34318148e+02,
+        1.31992586e+03, 1.22387036e+02, 1.43191147e+02, 3.79654559e+02,
+        3.36964460e+02, 3.11454875e+02, 2.19690931e+02, 2.95527443e+02,
+        3.10010525e+02, 1.29184104e+02, 1.10580317e+03, 1.16162187e+03,
+        3.11336792e+02, 7.92791991e+02, 1.59235278e+03, 1.09109480e+03,
+        3.72625488e+02, 6.33205453e+02, 4.14826408e+02, 2.46094264e+02,
+        3.03025149e+02, 1.40991119e+03, 5.77999371e+02, 1.18096043e+03,
+        1.63153742e+02, 7.16313845e+02, 4.50795084e+02, 3.29990283e+03,
+        1.43576711e+02, 4.22842253e+03, 5.24726757e+02, 1.90804542e+02,
+        3.55086622e+02, 6.27756534e+02, 2.17547649e+02, 2.80924909e+02,
+        2.79659122e+03, 7.09348154e+02, 8.28622010e+02, 6.41114406e+02,
+        1.00204918e+03, 3.05562157e+02, 2.90201108e+02, 5.30753736e+02,
+        1.16784633e+03, 3.40143344e+02, 3.05782600e+02, 3.47336744e+02,
+        6.67377164e+02, 5.37899181e+02, 6.44498454e+02, 1.53199925e+03,
+        4.19584638e+02, 3.56988825e+02, 6.28530741e+03, 3.56260211e+02,
+        7.12537477e+02, 8.33404942e+02, 2.34376557e+03, 2.65030333e+02,
+        1.20994627e+02, 2.78243043e+02, 2.98643778e+04, 1.11067402e+02,
+        1.79421774e+02, 1.07237060e+03, 4.81262508e+02, 9.19826281e+02,
+        1.42244149e+02, 4.97342678e+02, 4.18378362e+02, 2.00665845e+02,
+        2.34744288e+02, 2.16779097e+02, 9.20077893e+03, 1.22747649e+03,
+        1.20804514e+03, 2.50517919e+02, 4.02159228e+02, 2.24396126e+02,
+        5.54308513e+02, 2.88177352e+02, 3.68421049e+02, 8.76690657e+02,
+        5.10745881e+02, 1.25673248e+02, 1.76143720e+02, 3.96563266e+02,
+        1.03902719e+03, 9.91346700e+02, 1.38249539e+02, 1.88610588e+02,
+        1.42677589e+03, 1.16043776e+02, 2.34677986e+02, 2.81986011e+02,
+        1.22762033e+03, 1.04722061e+03, 2.34810333e+02, 2.95624720e+02,
+        3.27291700e+02, 1.19924757e+03, 1.94255656e+02, 2.43644485e+02,
+        4.93441800e+02, 1.73991933e+03, 1.08504026e+03, 3.07011748e+02,
+        1.87423935e+02, 1.35792754e+02, 5.39206242e+02, 4.06313620e+02,
+        2.09736205e+02, 1.53822175e+03, 2.31752024e+02, 4.50352595e+02,
+        4.24977180e+02, 1.30686690e+03, 1.04931223e+03, 3.02663294e+02,
+        1.44774795e+03, 1.91793551e+02, 2.23987098e+02, 6.37797383e+02,
+        1.68250239e+03, 1.69300530e+02, 3.35040745e+02, 1.60601584e+02,
+        2.61755687e+04, 2.99807512e+02, 1.53710895e+02, 1.62621282e+02,
+        3.23475882e+02, 1.19419458e+03, 1.45075052e+03, 4.53485543e+02,
+        1.92821797e+02, 4.46152356e+02, 4.42277574e+02, 2.59487930e+02,
+        1.31734226e+03, 1.86236803e+02, 6.83896153e+03, 3.20889036e+02,
+        1.58513658e+02, 3.59066579e+03, 1.78098079e+02, 2.64473078e+02,
+        5.04245957e+02, 1.59362864e+02, 1.16260243e+03, 1.20359205e+02,
+        4.20308199e+02, 7.02833351e+02, 2.91019535e+02, 4.41396227e+02,
+        1.20839659e+02, 1.21208230e+02, 1.34644773e+03, 2.58815431e+02,
+        3.98574188e+02, 9.58397078e+02, 1.36230488e+03, 1.78108096e+02,
+        3.51515588e+02, 1.66876380e+03, 9.39780610e+02, 2.20089046e+02,
+        8.42975894e+02, 4.51536732e+02, 1.81306886e+02, 1.05227613e+02,
+        2.70520643e+02, 2.71864562e+02, 2.28594277e+02, 2.81118532e+02,
+        6.78860066e+02, 2.57263459e+02, 3.73466646e+02, 2.87401921e+02,
+        1.60369465e+02, 1.59788960e+02, 2.13223356e+02, 3.02589229e+02,
+        2.03208274e+02, 5.04716500e+02, 1.60789914e+05, 1.24800129e+03,
+        2.19685165e+03, 1.22424610e+03, 8.41563717e+04, 2.76888249e+04,
+        9.27385988e+03, 5.51087867e+02, 1.42872470e+04, 1.15181175e+04,
+        4.06659577e+02, 1.12136867e+03, 1.21498462e+04, 5.18129790e+03,
+        4.61284945e+02, 4.75776903e+02, 1.02976886e+04, 3.99582598e+02,
+        4.09717088e+03, 3.17295644e+04, 6.25315281e+03, 2.10418469e+04,
+        7.15418376e+02, 2.78997991e+03, 4.97138102e+02, 8.62516403e+03,
+        1.31516329e+04, 2.77956411e+04, 4.80118425e+04, 2.48169009e+04,
+        2.23447961e+03, 2.39212831e+04, 5.51330759e+03, 1.62995400e+03,
+        2.60956972e+04, 6.38836650e+03, 3.01223239e+03, 4.29326872e+02])}
+</pre></div></div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[25]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tsim</span><span class="o">.</span><span class="n">write_to_h5</span><span class="p">(</span><span class="s2">&quot;multi_test.hdf5&quot;</span><span class="p">,</span> <span class="n">sources</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[26]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tsim</span><span class="o">.</span><span class="n">arrival_energy</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[26]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+{&#39;IC86_I&#39;: array([1.31136354e+03, 4.27063531e+02, 2.30184376e+02, 1.06374367e+03,
+        9.65196547e+02, 6.03473714e+02, 3.18216255e+02, 1.11522099e+02,
+        1.10364467e+03, 3.98678374e+02, 3.25677732e+02, 2.64671131e+03,
+        1.82239810e+02, 6.81451624e+02, 1.03196805e+02, 7.52423746e+02,
+        6.91520129e+02, 3.43067451e+02, 1.32118104e+02, 5.03712664e+02,
+        1.65186094e+03, 2.22002832e+02, 4.05366906e+02, 1.19678467e+02,
+        2.15730519e+02, 3.03886656e+02, 1.09936544e+02, 1.60661190e+03,
+        2.55587051e+02, 1.89660972e+03, 3.36077369e+02, 8.94069020e+02,
+        6.95015316e+02, 1.64593963e+03, 4.77121640e+02, 2.97344866e+02,
+        1.04660493e+02, 3.84705606e+02, 1.17600587e+03, 6.17634418e+03,
+        3.71575557e+02, 1.88668614e+02, 3.26333895e+02, 3.28943364e+02,
+        9.14343772e+02, 1.61466056e+02, 2.81243362e+03, 1.00848477e+02,
+        4.71939113e+02, 2.59603872e+03, 1.15309446e+02, 7.95225683e+02,
+        1.96062714e+02, 6.89950356e+02, 3.14670130e+02, 1.62633405e+02,
+        2.56200449e+02, 4.34035676e+02, 2.00867160e+02, 2.52191398e+02,
+        7.44179973e+02, 6.79013026e+02, 1.38371178e+03, 2.61397527e+03,
+        4.55500288e+02, 4.40925778e+02, 6.02752350e+02, 3.01582267e+03,
+        1.27403042e+03, 6.98460586e+02, 3.27351230e+03, 1.02597142e+03,
+        4.22028261e+02, 9.21762382e+02, 8.65082757e+03, 4.97189647e+02,
+        6.67306896e+02, 1.77618163e+03, 4.87773883e+03, 3.43506584e+02,
+        2.16892914e+02, 4.39681806e+02, 3.64438999e+02, 2.83509111e+02,
+        7.89518630e+02, 5.98721867e+02, 1.03448768e+04, 1.71691251e+02,
+        8.60054826e+02, 8.67413296e+02, 1.07570854e+02, 3.05797689e+02,
+        2.41383308e+03, 1.04160275e+02, 3.68018893e+02, 4.94501917e+02,
+        2.04899927e+02, 6.37716590e+02, 2.79675306e+02, 4.78385125e+02,
+        4.85607169e+02, 3.27908624e+02, 1.47187045e+02, 1.65595047e+03,
+        2.74799475e+02, 1.00336502e+02, 3.89901431e+02, 9.20401865e+02,
+        3.50262569e+03, 1.08104945e+03, 5.39903226e+02, 2.93425123e+02,
+        3.03122414e+02, 6.87827202e+02, 1.35309920e+02, 1.06404398e+03,
+        2.18044984e+02, 1.09135233e+03, 1.14775033e+03, 5.35045771e+02,
+        1.69625181e+02, 1.22148038e+02, 6.57436699e+02, 1.88433529e+02,
+        4.49923211e+02, 1.09789994e+02, 5.86089797e+02, 1.73188280e+02,
+        1.56434551e+02, 1.08612781e+03, 5.05130666e+02, 3.19035391e+02,
+        4.14744644e+02, 2.92599180e+02, 1.49527817e+02, 1.47356073e+03,
+        1.62260871e+02, 7.20682832e+02, 4.21613742e+02, 2.56497041e+02,
+        3.64581285e+02, 3.10690887e+03, 1.27308238e+03, 2.00538171e+02,
+        2.57553628e+02, 4.31147649e+02, 6.55627515e+02, 3.86226818e+02,
+        6.14336084e+02, 3.35752350e+02, 5.86685847e+02, 2.67865948e+02,
+        1.97596114e+03, 2.56662069e+02, 1.73755000e+02, 4.01264792e+03,
+        4.10705983e+02, 5.47121261e+02, 2.67677531e+02, 2.91733044e+02,
+        1.39527126e+02, 6.07660575e+02, 1.44834814e+03, 1.40411247e+03,
+        5.64963499e+02, 1.31849372e+03, 3.52296123e+02, 1.01882969e+03,
+        2.20452151e+02, 3.45611444e+02, 5.34832674e+02, 4.06020957e+02,
+        1.68690190e+02, 1.32079954e+02, 4.04100023e+03, 1.00829682e+03,
+        1.32947097e+03, 7.63215097e+02, 4.46416889e+02, 5.49817949e+02,
+        2.51620230e+02, 1.07554975e+03, 2.97155843e+02, 4.06115294e+02,
+        2.73333851e+02, 4.44643730e+02, 2.83168259e+02, 1.37657150e+03,
+        4.68202977e+02, 1.62762010e+03, 1.94327723e+03, 4.49487711e+03,
+        4.15400038e+02, 4.94292322e+02, 1.78968186e+03, 2.97821088e+02,
+        1.45483083e+02, 1.40432099e+02, 5.52046974e+02, 4.14960589e+02,
+        5.77580909e+02, 9.18825008e+02, 7.24685475e+02, 1.14802878e+03,
+        1.30681333e+03, 4.35621652e+02, 3.44689882e+02, 2.61255964e+02,
+        3.10322536e+02, 7.04633570e+02, 1.18707019e+02, 1.28694916e+02,
+        4.71867442e+02, 2.14811254e+04, 4.47999666e+04, 8.48517378e+02,
+        3.60603910e+02, 4.39647640e+03, 2.14495503e+03, 5.52002343e+03,
+        1.10678300e+03, 1.11787563e+04, 2.12074202e+03, 4.41627692e+02,
+        1.58360071e+05, 7.12644388e+02, 4.59849238e+04, 1.86987749e+04,
+        7.95265458e+03, 4.23869706e+03, 4.66794955e+04, 6.18118246e+03,
+        3.98549555e+03, 7.80835409e+04, 1.22952939e+04, 2.52622559e+03,
+        1.01831238e+04, 6.30308516e+04, 1.71450854e+03, 1.27139255e+03,
+        2.20319102e+04, 2.43868826e+03, 4.09233699e+02, 1.35198787e+03,
+        7.58557236e+03, 1.20792431e+03, 5.88424225e+04, 3.87072127e+03,
+        3.02568463e+02]),
+ &#39;IC86_II&#39;: array([6.65178000e+02, 1.69202240e+02, 2.70476857e+03, 2.22532330e+02,
+        7.19423381e+02, 1.13766385e+02, 1.30603424e+03, 5.58388205e+02,
+        3.68746173e+03, 2.15584938e+02, 2.80958796e+02, 1.33308733e+02,
+        3.01898389e+02, 1.39813514e+03, 7.67652790e+02, 1.18644139e+02,
+        1.60418667e+02, 1.18927673e+02, 1.94152348e+02, 1.20647657e+02,
+        1.84892419e+03, 1.23866437e+02, 1.85021692e+02, 3.27927993e+02,
+        1.03784105e+03, 2.66121847e+02, 1.59777184e+02, 4.30933676e+02,
+        5.18373462e+02, 7.50982951e+02, 1.66269575e+02, 6.58233916e+02,
+        1.51190325e+03, 1.04923778e+03, 2.64524340e+02, 4.41578550e+02,
+        4.07240880e+02, 9.32726469e+02, 2.17336905e+02, 3.32431860e+02,
+        1.23573757e+02, 1.03679164e+02, 6.94710624e+02, 6.68487094e+02,
+        8.40306955e+02, 2.21645235e+02, 1.29245283e+02, 6.85027143e+02,
+        8.13918448e+02, 1.65426683e+02, 2.39219345e+03, 3.06016722e+02,
+        2.61718003e+02, 3.05764700e+02, 2.69910452e+02, 1.83544528e+02,
+        4.44547025e+02, 2.86730873e+02, 1.10389935e+03, 1.25325297e+02,
+        4.22101626e+03, 6.15945017e+03, 2.55803767e+02, 1.79332883e+02,
+        2.06041240e+03, 1.61003224e+03, 1.37078069e+03, 1.07311171e+03,
+        1.20971758e+02, 2.02501494e+02, 1.07416230e+03, 7.07679778e+02,
+        1.67336806e+02, 3.04802866e+02, 4.56771151e+03, 8.05686417e+02,
+        3.14500483e+02, 4.82319658e+03, 2.60614850e+02, 7.04458465e+02,
+        1.12632500e+02, 3.74473349e+02, 4.36163409e+02, 8.67413296e+02,
+        2.06326990e+02, 1.76019722e+02, 2.41155015e+02, 1.13811219e+02,
+        9.43623635e+02, 3.29860664e+02, 1.79882873e+02, 3.34318148e+02,
+        1.31992586e+03, 1.22387036e+02, 1.43191147e+02, 3.79654559e+02,
+        3.36964460e+02, 3.11454875e+02, 2.19690931e+02, 2.95527443e+02,
+        3.10010525e+02, 1.29184104e+02, 1.10580317e+03, 1.16162187e+03,
+        3.11336792e+02, 7.92791991e+02, 1.59235278e+03, 1.09109480e+03,
+        3.72625488e+02, 6.33205453e+02, 4.14826408e+02, 2.46094264e+02,
+        3.03025149e+02, 1.40991119e+03, 5.77999371e+02, 1.18096043e+03,
+        1.63153742e+02, 7.16313845e+02, 4.50795084e+02, 3.29990283e+03,
+        1.43576711e+02, 4.22842253e+03, 5.24726757e+02, 1.90804542e+02,
+        3.55086622e+02, 6.27756534e+02, 2.17547649e+02, 2.80924909e+02,
+        2.79659122e+03, 7.09348154e+02, 8.28622010e+02, 6.41114406e+02,
+        1.00204918e+03, 3.05562157e+02, 2.90201108e+02, 5.30753736e+02,
+        1.16784633e+03, 3.40143344e+02, 3.05782600e+02, 3.47336744e+02,
+        6.67377164e+02, 5.37899181e+02, 6.44498454e+02, 1.53199925e+03,
+        4.19584638e+02, 3.56988825e+02, 6.28530741e+03, 3.56260211e+02,
+        7.12537477e+02, 8.33404942e+02, 2.34376557e+03, 2.65030333e+02,
+        1.20994627e+02, 2.78243043e+02, 2.98643778e+04, 1.11067402e+02,
+        1.79421774e+02, 1.07237060e+03, 4.81262508e+02, 9.19826281e+02,
+        1.42244149e+02, 4.97342678e+02, 4.18378362e+02, 2.00665845e+02,
+        2.34744288e+02, 2.16779097e+02, 9.20077893e+03, 1.22747649e+03,
+        1.20804514e+03, 2.50517919e+02, 4.02159228e+02, 2.24396126e+02,
+        5.54308513e+02, 2.88177352e+02, 3.68421049e+02, 8.76690657e+02,
+        5.10745881e+02, 1.25673248e+02, 1.76143720e+02, 3.96563266e+02,
+        1.03902719e+03, 9.91346700e+02, 1.38249539e+02, 1.88610588e+02,
+        1.42677589e+03, 1.16043776e+02, 2.34677986e+02, 2.81986011e+02,
+        1.22762033e+03, 1.04722061e+03, 2.34810333e+02, 2.95624720e+02,
+        3.27291700e+02, 1.19924757e+03, 1.94255656e+02, 2.43644485e+02,
+        4.93441800e+02, 1.73991933e+03, 1.08504026e+03, 3.07011748e+02,
+        1.87423935e+02, 1.35792754e+02, 5.39206242e+02, 4.06313620e+02,
+        2.09736205e+02, 1.53822175e+03, 2.31752024e+02, 4.50352595e+02,
+        4.24977180e+02, 1.30686690e+03, 1.04931223e+03, 3.02663294e+02,
+        1.44774795e+03, 1.91793551e+02, 2.23987098e+02, 6.37797383e+02,
+        1.68250239e+03, 1.69300530e+02, 3.35040745e+02, 1.60601584e+02,
+        2.61755687e+04, 2.99807512e+02, 1.53710895e+02, 1.62621282e+02,
+        3.23475882e+02, 1.19419458e+03, 1.45075052e+03, 4.53485543e+02,
+        1.92821797e+02, 4.46152356e+02, 4.42277574e+02, 2.59487930e+02,
+        1.31734226e+03, 1.86236803e+02, 6.83896153e+03, 3.20889036e+02,
+        1.58513658e+02, 3.59066579e+03, 1.78098079e+02, 2.64473078e+02,
+        5.04245957e+02, 1.59362864e+02, 1.16260243e+03, 1.20359205e+02,
+        4.20308199e+02, 7.02833351e+02, 2.91019535e+02, 4.41396227e+02,
+        1.20839659e+02, 1.21208230e+02, 1.34644773e+03, 2.58815431e+02,
+        3.98574188e+02, 9.58397078e+02, 1.36230488e+03, 1.78108096e+02,
+        3.51515588e+02, 1.66876380e+03, 9.39780610e+02, 2.20089046e+02,
+        8.42975894e+02, 4.51536732e+02, 1.81306886e+02, 1.05227613e+02,
+        2.70520643e+02, 2.71864562e+02, 2.28594277e+02, 2.81118532e+02,
+        6.78860066e+02, 2.57263459e+02, 3.73466646e+02, 2.87401921e+02,
+        1.60369465e+02, 1.59788960e+02, 2.13223356e+02, 3.02589229e+02,
+        2.03208274e+02, 5.04716500e+02, 1.60789914e+05, 1.24800129e+03,
+        2.19685165e+03, 1.22424610e+03, 8.41563717e+04, 2.76888249e+04,
+        9.27385988e+03, 5.51087867e+02, 1.42872470e+04, 1.15181175e+04,
+        4.06659577e+02, 1.12136867e+03, 1.21498462e+04, 5.18129790e+03,
+        4.61284945e+02, 4.75776903e+02, 1.02976886e+04, 3.99582598e+02,
+        4.09717088e+03, 3.17295644e+04, 6.25315281e+03, 2.10418469e+04,
+        7.15418376e+02, 2.78997991e+03, 4.97138102e+02, 8.62516403e+03,
+        1.31516329e+04, 2.77956411e+04, 4.80118425e+04, 2.48169009e+04,
+        2.23447961e+03, 2.39212831e+04, 5.51330759e+03, 1.62995400e+03,
+        2.60956972e+04, 6.38836650e+03, 3.01223239e+03, 4.29326872e+02])}
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[27]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">events</span> <span class="o">=</span> <span class="n">SimEvents</span><span class="o">.</span><span class="n">load_from_h5</span><span class="p">(</span><span class="s2">&quot;multi_test.hdf5&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area stderr docutils container">
+<div class="highlight"><pre>
+Resetting rng
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[28]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">events</span><span class="o">.</span><span class="n">arrival_energy</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[28]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+{&#39;IC86_I&#39;: array([1.31136354e+03, 4.27063531e+02, 2.30184376e+02, 1.06374367e+03,
+        9.65196547e+02, 6.03473714e+02, 3.18216255e+02, 1.11522099e+02,
+        1.10364467e+03, 3.98678374e+02, 3.25677732e+02, 2.64671131e+03,
+        1.82239810e+02, 6.81451624e+02, 1.03196805e+02, 7.52423746e+02,
+        6.91520129e+02, 3.43067451e+02, 1.32118104e+02, 5.03712664e+02,
+        1.65186094e+03, 2.22002832e+02, 4.05366906e+02, 1.19678467e+02,
+        2.15730519e+02, 3.03886656e+02, 1.09936544e+02, 1.60661190e+03,
+        2.55587051e+02, 1.89660972e+03, 3.36077369e+02, 8.94069020e+02,
+        6.95015316e+02, 1.64593963e+03, 4.77121640e+02, 2.97344866e+02,
+        1.04660493e+02, 3.84705606e+02, 1.17600587e+03, 6.17634418e+03,
+        3.71575557e+02, 1.88668614e+02, 3.26333895e+02, 3.28943364e+02,
+        9.14343772e+02, 1.61466056e+02, 2.81243362e+03, 1.00848477e+02,
+        4.71939113e+02, 2.59603872e+03, 1.15309446e+02, 7.95225683e+02,
+        1.96062714e+02, 6.89950356e+02, 3.14670130e+02, 1.62633405e+02,
+        2.56200449e+02, 4.34035676e+02, 2.00867160e+02, 2.52191398e+02,
+        7.44179973e+02, 6.79013026e+02, 1.38371178e+03, 2.61397527e+03,
+        4.55500288e+02, 4.40925778e+02, 6.02752350e+02, 3.01582267e+03,
+        1.27403042e+03, 6.98460586e+02, 3.27351230e+03, 1.02597142e+03,
+        4.22028261e+02, 9.21762382e+02, 8.65082757e+03, 4.97189647e+02,
+        6.67306896e+02, 1.77618163e+03, 4.87773883e+03, 3.43506584e+02,
+        2.16892914e+02, 4.39681806e+02, 3.64438999e+02, 2.83509111e+02,
+        7.89518630e+02, 5.98721867e+02, 1.03448768e+04, 1.71691251e+02,
+        8.60054826e+02, 8.67413296e+02, 1.07570854e+02, 3.05797689e+02,
+        2.41383308e+03, 1.04160275e+02, 3.68018893e+02, 4.94501917e+02,
+        2.04899927e+02, 6.37716590e+02, 2.79675306e+02, 4.78385125e+02,
+        4.85607169e+02, 3.27908624e+02, 1.47187045e+02, 1.65595047e+03,
+        2.74799475e+02, 1.00336502e+02, 3.89901431e+02, 9.20401865e+02,
+        3.50262569e+03, 1.08104945e+03, 5.39903226e+02, 2.93425123e+02,
+        3.03122414e+02, 6.87827202e+02, 1.35309920e+02, 1.06404398e+03,
+        2.18044984e+02, 1.09135233e+03, 1.14775033e+03, 5.35045771e+02,
+        1.69625181e+02, 1.22148038e+02, 6.57436699e+02, 1.88433529e+02,
+        4.49923211e+02, 1.09789994e+02, 5.86089797e+02, 1.73188280e+02,
+        1.56434551e+02, 1.08612781e+03, 5.05130666e+02, 3.19035391e+02,
+        4.14744644e+02, 2.92599180e+02, 1.49527817e+02, 1.47356073e+03,
+        1.62260871e+02, 7.20682832e+02, 4.21613742e+02, 2.56497041e+02,
+        3.64581285e+02, 3.10690887e+03, 1.27308238e+03, 2.00538171e+02,
+        2.57553628e+02, 4.31147649e+02, 6.55627515e+02, 3.86226818e+02,
+        6.14336084e+02, 3.35752350e+02, 5.86685847e+02, 2.67865948e+02,
+        1.97596114e+03, 2.56662069e+02, 1.73755000e+02, 4.01264792e+03,
+        4.10705983e+02, 5.47121261e+02, 2.67677531e+02, 2.91733044e+02,
+        1.39527126e+02, 6.07660575e+02, 1.44834814e+03, 1.40411247e+03,
+        5.64963499e+02, 1.31849372e+03, 3.52296123e+02, 1.01882969e+03,
+        2.20452151e+02, 3.45611444e+02, 5.34832674e+02, 4.06020957e+02,
+        1.68690190e+02, 1.32079954e+02, 4.04100023e+03, 1.00829682e+03,
+        1.32947097e+03, 7.63215097e+02, 4.46416889e+02, 5.49817949e+02,
+        2.51620230e+02, 1.07554975e+03, 2.97155843e+02, 4.06115294e+02,
+        2.73333851e+02, 4.44643730e+02, 2.83168259e+02, 1.37657150e+03,
+        4.68202977e+02, 1.62762010e+03, 1.94327723e+03, 4.49487711e+03,
+        4.15400038e+02, 4.94292322e+02, 1.78968186e+03, 2.97821088e+02,
+        1.45483083e+02, 1.40432099e+02, 5.52046974e+02, 4.14960589e+02,
+        5.77580909e+02, 9.18825008e+02, 7.24685475e+02, 1.14802878e+03,
+        1.30681333e+03, 4.35621652e+02, 3.44689882e+02, 2.61255964e+02,
+        3.10322536e+02, 7.04633570e+02, 1.18707019e+02, 1.28694916e+02,
+        4.71867442e+02, 2.14811254e+04, 4.47999666e+04, 8.48517378e+02,
+        3.60603910e+02, 4.39647640e+03, 2.14495503e+03, 5.52002343e+03,
+        1.10678300e+03, 1.11787563e+04, 2.12074202e+03, 4.41627692e+02,
+        1.58360071e+05, 7.12644388e+02, 4.59849238e+04, 1.86987749e+04,
+        7.95265458e+03, 4.23869706e+03, 4.66794955e+04, 6.18118246e+03,
+        3.98549555e+03, 7.80835409e+04, 1.22952939e+04, 2.52622559e+03,
+        1.01831238e+04, 6.30308516e+04, 1.71450854e+03, 1.27139255e+03,
+        2.20319102e+04, 2.43868826e+03, 4.09233699e+02, 1.35198787e+03,
+        7.58557236e+03, 1.20792431e+03, 5.88424225e+04, 3.87072127e+03,
+        3.02568463e+02]),
+ &#39;IC86_II&#39;: array([6.65178000e+02, 1.69202240e+02, 2.70476857e+03, 2.22532330e+02,
+        7.19423381e+02, 1.13766385e+02, 1.30603424e+03, 5.58388205e+02,
+        3.68746173e+03, 2.15584938e+02, 2.80958796e+02, 1.33308733e+02,
+        3.01898389e+02, 1.39813514e+03, 7.67652790e+02, 1.18644139e+02,
+        1.60418667e+02, 1.18927673e+02, 1.94152348e+02, 1.20647657e+02,
+        1.84892419e+03, 1.23866437e+02, 1.85021692e+02, 3.27927993e+02,
+        1.03784105e+03, 2.66121847e+02, 1.59777184e+02, 4.30933676e+02,
+        5.18373462e+02, 7.50982951e+02, 1.66269575e+02, 6.58233916e+02,
+        1.51190325e+03, 1.04923778e+03, 2.64524340e+02, 4.41578550e+02,
+        4.07240880e+02, 9.32726469e+02, 2.17336905e+02, 3.32431860e+02,
+        1.23573757e+02, 1.03679164e+02, 6.94710624e+02, 6.68487094e+02,
+        8.40306955e+02, 2.21645235e+02, 1.29245283e+02, 6.85027143e+02,
+        8.13918448e+02, 1.65426683e+02, 2.39219345e+03, 3.06016722e+02,
+        2.61718003e+02, 3.05764700e+02, 2.69910452e+02, 1.83544528e+02,
+        4.44547025e+02, 2.86730873e+02, 1.10389935e+03, 1.25325297e+02,
+        4.22101626e+03, 6.15945017e+03, 2.55803767e+02, 1.79332883e+02,
+        2.06041240e+03, 1.61003224e+03, 1.37078069e+03, 1.07311171e+03,
+        1.20971758e+02, 2.02501494e+02, 1.07416230e+03, 7.07679778e+02,
+        1.67336806e+02, 3.04802866e+02, 4.56771151e+03, 8.05686417e+02,
+        3.14500483e+02, 4.82319658e+03, 2.60614850e+02, 7.04458465e+02,
+        1.12632500e+02, 3.74473349e+02, 4.36163409e+02, 8.67413296e+02,
+        2.06326990e+02, 1.76019722e+02, 2.41155015e+02, 1.13811219e+02,
+        9.43623635e+02, 3.29860664e+02, 1.79882873e+02, 3.34318148e+02,
+        1.31992586e+03, 1.22387036e+02, 1.43191147e+02, 3.79654559e+02,
+        3.36964460e+02, 3.11454875e+02, 2.19690931e+02, 2.95527443e+02,
+        3.10010525e+02, 1.29184104e+02, 1.10580317e+03, 1.16162187e+03,
+        3.11336792e+02, 7.92791991e+02, 1.59235278e+03, 1.09109480e+03,
+        3.72625488e+02, 6.33205453e+02, 4.14826408e+02, 2.46094264e+02,
+        3.03025149e+02, 1.40991119e+03, 5.77999371e+02, 1.18096043e+03,
+        1.63153742e+02, 7.16313845e+02, 4.50795084e+02, 3.29990283e+03,
+        1.43576711e+02, 4.22842253e+03, 5.24726757e+02, 1.90804542e+02,
+        3.55086622e+02, 6.27756534e+02, 2.17547649e+02, 2.80924909e+02,
+        2.79659122e+03, 7.09348154e+02, 8.28622010e+02, 6.41114406e+02,
+        1.00204918e+03, 3.05562157e+02, 2.90201108e+02, 5.30753736e+02,
+        1.16784633e+03, 3.40143344e+02, 3.05782600e+02, 3.47336744e+02,
+        6.67377164e+02, 5.37899181e+02, 6.44498454e+02, 1.53199925e+03,
+        4.19584638e+02, 3.56988825e+02, 6.28530741e+03, 3.56260211e+02,
+        7.12537477e+02, 8.33404942e+02, 2.34376557e+03, 2.65030333e+02,
+        1.20994627e+02, 2.78243043e+02, 2.98643778e+04, 1.11067402e+02,
+        1.79421774e+02, 1.07237060e+03, 4.81262508e+02, 9.19826281e+02,
+        1.42244149e+02, 4.97342678e+02, 4.18378362e+02, 2.00665845e+02,
+        2.34744288e+02, 2.16779097e+02, 9.20077893e+03, 1.22747649e+03,
+        1.20804514e+03, 2.50517919e+02, 4.02159228e+02, 2.24396126e+02,
+        5.54308513e+02, 2.88177352e+02, 3.68421049e+02, 8.76690657e+02,
+        5.10745881e+02, 1.25673248e+02, 1.76143720e+02, 3.96563266e+02,
+        1.03902719e+03, 9.91346700e+02, 1.38249539e+02, 1.88610588e+02,
+        1.42677589e+03, 1.16043776e+02, 2.34677986e+02, 2.81986011e+02,
+        1.22762033e+03, 1.04722061e+03, 2.34810333e+02, 2.95624720e+02,
+        3.27291700e+02, 1.19924757e+03, 1.94255656e+02, 2.43644485e+02,
+        4.93441800e+02, 1.73991933e+03, 1.08504026e+03, 3.07011748e+02,
+        1.87423935e+02, 1.35792754e+02, 5.39206242e+02, 4.06313620e+02,
+        2.09736205e+02, 1.53822175e+03, 2.31752024e+02, 4.50352595e+02,
+        4.24977180e+02, 1.30686690e+03, 1.04931223e+03, 3.02663294e+02,
+        1.44774795e+03, 1.91793551e+02, 2.23987098e+02, 6.37797383e+02,
+        1.68250239e+03, 1.69300530e+02, 3.35040745e+02, 1.60601584e+02,
+        2.61755687e+04, 2.99807512e+02, 1.53710895e+02, 1.62621282e+02,
+        3.23475882e+02, 1.19419458e+03, 1.45075052e+03, 4.53485543e+02,
+        1.92821797e+02, 4.46152356e+02, 4.42277574e+02, 2.59487930e+02,
+        1.31734226e+03, 1.86236803e+02, 6.83896153e+03, 3.20889036e+02,
+        1.58513658e+02, 3.59066579e+03, 1.78098079e+02, 2.64473078e+02,
+        5.04245957e+02, 1.59362864e+02, 1.16260243e+03, 1.20359205e+02,
+        4.20308199e+02, 7.02833351e+02, 2.91019535e+02, 4.41396227e+02,
+        1.20839659e+02, 1.21208230e+02, 1.34644773e+03, 2.58815431e+02,
+        3.98574188e+02, 9.58397078e+02, 1.36230488e+03, 1.78108096e+02,
+        3.51515588e+02, 1.66876380e+03, 9.39780610e+02, 2.20089046e+02,
+        8.42975894e+02, 4.51536732e+02, 1.81306886e+02, 1.05227613e+02,
+        2.70520643e+02, 2.71864562e+02, 2.28594277e+02, 2.81118532e+02,
+        6.78860066e+02, 2.57263459e+02, 3.73466646e+02, 2.87401921e+02,
+        1.60369465e+02, 1.59788960e+02, 2.13223356e+02, 3.02589229e+02,
+        2.03208274e+02, 5.04716500e+02, 1.60789914e+05, 1.24800129e+03,
+        2.19685165e+03, 1.22424610e+03, 8.41563717e+04, 2.76888249e+04,
+        9.27385988e+03, 5.51087867e+02, 1.42872470e+04, 1.15181175e+04,
+        4.06659577e+02, 1.12136867e+03, 1.21498462e+04, 5.18129790e+03,
+        4.61284945e+02, 4.75776903e+02, 1.02976886e+04, 3.99582598e+02,
+        4.09717088e+03, 3.17295644e+04, 6.25315281e+03, 2.10418469e+04,
+        7.15418376e+02, 2.78997991e+03, 4.97138102e+02, 8.62516403e+03,
+        1.31516329e+04, 2.77956411e+04, 4.80118425e+04, 2.48169009e+04,
+        2.23447961e+03, 2.39212831e+04, 5.51330759e+03, 1.62995400e+03,
+        2.60956972e+04, 6.38836650e+03, 3.01223239e+03, 4.29326872e+02])}
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[29]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">for i in [3.9]:</span>
+<span class="sd">    norm_energy = 1e5 # Energy of normalisation in units of GeV</span>
+<span class="sd">    min_energy = 1e2 # GeV</span>
+<span class="sd">    max_energy = 1e8 # GeV</span>
+<span class="sd">    phi_solver = PhiSolver(aeff, norm_energy, min_energy, max_energy,</span>
+<span class="sd">                           time=1, min_cosz=-1, max_cosz=1)</span>
+<span class="sd">    phi_norm = phi_solver(Nnu=2000,</span>
+<span class="sd">                          dec=30, # degrees</span>
+<span class="sd">                          index=i) # spectral index</span>
+<span class="sd">    phi_norm # GeV^-1 cm^-2 s^-1</span>
+<span class="sd">    point_power_law = PowerLawFlux(phi_norm, norm_energy, i,</span>
+<span class="sd">                                   min_energy, max_energy)</span>
+<span class="sd">    point_source = PointSource(point_power_law, z=0., coord=(np.pi, np.deg2rad(30)))</span>
+<span class="sd">    sources = [point_source]</span>
+<span class="sd">    tsim = TimeDependentSimulator([&quot;IC86_I&quot;, &quot;IC86_II&quot;], sources)</span>
+<span class="sd">    for sim in tsim.simulators.values():</span>
+<span class="sd">        sim.time = 1</span>
+<span class="sd">    tsim.run(show_progress=True)</span>
+<span class="sd">    tsim.save(f&quot;index_{i}&quot;)</span>
+<span class="sd">&quot;&quot;&quot;</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[29]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&#39;\nfor i in [3.9]:\n    norm_energy = 1e5 # Energy of normalisation in units of GeV\n    min_energy = 1e2 # GeV\n    max_energy = 1e8 # GeV\n    phi_solver = PhiSolver(aeff, norm_energy, min_energy, max_energy, \n                           time=1, min_cosz=-1, max_cosz=1)\n    phi_norm = phi_solver(Nnu=2000, \n                          dec=30, # degrees\n                          index=i) # spectral index\n    phi_norm # GeV^-1 cm^-2 s^-1\n    point_power_law = PowerLawFlux(phi_norm, norm_energy, i, \n                                   min_energy, max_energy)\n    point_source = PointSource(point_power_law, z=0., coord=(np.pi, np.deg2rad(30)))\n    sources = [point_source]\n    tsim = TimeDependentSimulator([&#34;IC86_I&#34;, &#34;IC86_II&#34;], sources)\n    for sim in tsim.simulators.values():\n        sim.time = 1\n    tsim.run(show_progress=True)\n    tsim.save(f&#34;index_{i}&#34;)\n&#39;
+</pre></div></div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+</div>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="source_model.html" class="btn btn-neutral float-left" title="Source model interface" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="point_source_likelihood.html" class="btn btn-neutral float-right" title="Point source likelihood" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021, Francesca Capel.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

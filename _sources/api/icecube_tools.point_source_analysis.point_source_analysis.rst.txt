@@ -1,0 +1,7 @@
+icecube\_tools.point\_source\_analysis.point\_source\_analysis module
+=====================================================================
+
+.. automodule:: icecube_tools.point_source_analysis.point_source_analysis
+   :members:
+   :undoc-members:
+   :show-inheritance:

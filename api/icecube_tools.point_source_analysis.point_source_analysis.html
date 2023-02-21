@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>icecube_tools.point_source_analysis.point_source_analysis module &mdash; icecube_tools v3.2 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="icecube_tools.point_source_likelihood package" href="icecube_tools.point_source_likelihood.html" />
+    <link rel="prev" title="icecube_tools.point_source_analysis package" href="icecube_tools.point_source_analysis.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            icecube_tools
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/public_data_access.html">Data access</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/detector_model.html">Detector model interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/detector_model.html#Effective-area,-angular-resolution-and-energy-resolution-of-earlier-releases">Effective area, angular resolution and energy resolution of earlier releases</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/source_model.html">Source model interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/simulation.html">Simulation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/simulation.html#Time-dependent-simulation">Time dependent simulation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/point_source_likelihood.html">Point source likelihood</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/point_source_likelihood.html#Time-dependent-point-source-analysis">Time dependent point source analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/point_source_analysis.html">MapScan</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/events.html">Event classes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api.html">API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api.html#icecube-tools">icecube_tools</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">icecube_tools</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="api.html">API</a></li>
+          <li class="breadcrumb-item"><a href="icecube_tools.html">icecube_tools package</a></li>
+          <li class="breadcrumb-item"><a href="icecube_tools.point_source_analysis.html">icecube_tools.point_source_analysis package</a></li>
+      <li class="breadcrumb-item active">icecube_tools.point_source_analysis.point_source_analysis module</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/api/icecube_tools.point_source_analysis.point_source_analysis.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  
+<style>
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast.container,
+.nboutput.nblast.container {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast.container + .nbinput.container {
+    margin-top: -19px;
+}
+
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+
+/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
+.math {
+    text-align: unset;
+}
+</style>
+<section id="module-icecube_tools.point_source_analysis.point_source_analysis">
+<span id="icecube-tools-point-source-analysis-point-source-analysis-module"></span><h1>icecube_tools.point_source_analysis.point_source_analysis module<a class="headerlink" href="#module-icecube_tools.point_source_analysis.point_source_analysis" title="Permalink to this heading"></a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="icecube_tools.point_source_analysis.point_source_analysis.MapScan">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">icecube_tools.point_source_analysis.point_source_analysis.</span></span><span class="sig-name descname"><span class="pre">MapScan</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">events</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="icecube_tools.utils.data.html#icecube_tools.utils.data.Events" title="icecube_tools.utils.data.Events"><span class="pre">Events</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">output_path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#icecube_tools.point_source_analysis.point_source_analysis.MapScan" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#icecube_tools.point_source_analysis.point_source_analysis.PointSourceAnalysis" title="icecube_tools.point_source_analysis.point_source_analysis.PointSourceAnalysis"><code class="xref py py-class docutils literal notranslate"><span class="pre">PointSourceAnalysis</span></code></a></p>
+<p>Class for performing point source scans of the entire sky
+or some smaller patches.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="icecube_tools.point_source_analysis.point_source_analysis.MapScan.apply_cuts">
+<span class="sig-name descname"><span class="pre">apply_cuts</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#icecube_tools.point_source_analysis.point_source_analysis.MapScan.apply_cuts" title="Permalink to this definition"></a></dt>
+<dd><p>Apply cuts of energy and dec that are provided in the yaml config.
+Actual cuts are only applied to displayed data of <cite>self.events</cite>
+in terms of masked properties. All data stored in private variables
+stays in place.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="icecube_tools.point_source_analysis.point_source_analysis.MapScan.config_structure">
+<span class="sig-name descname"><span class="pre">config_structure</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'data':</span> <span class="pre">{'cuts':</span> <span class="pre">{'equator':</span> <span class="pre">{'emin':</span> <span class="pre">&lt;class</span> <span class="pre">'float'&gt;},</span> <span class="pre">'max_dec':</span> <span class="pre">&lt;class</span> <span class="pre">'float'&gt;,</span> <span class="pre">'min_dec':</span> <span class="pre">&lt;class</span> <span class="pre">'float'&gt;,</span> <span class="pre">'northern':</span> <span class="pre">{'emin':</span> <span class="pre">&lt;class</span> <span class="pre">'float'&gt;},</span> <span class="pre">'southern':</span> <span class="pre">{'emin':</span> <span class="pre">&lt;class</span> <span class="pre">'float'&gt;}},</span> <span class="pre">'likelihood':</span> <span class="pre">&lt;class</span> <span class="pre">'str'&gt;,</span> <span class="pre">'periods':</span> <span class="pre">&lt;class</span> <span class="pre">'list'&gt;},</span> <span class="pre">'sources':</span> <span class="pre">{'dec':</span> <span class="pre">&lt;class</span> <span class="pre">'list'&gt;,</span> <span class="pre">'npix':</span> <span class="pre">&lt;class</span> <span class="pre">'int'&gt;,</span> <span class="pre">'nside':</span> <span class="pre">&lt;class</span> <span class="pre">'int'&gt;,</span> <span class="pre">'ra':</span> <span class="pre">&lt;class</span> <span class="pre">'list'&gt;},</span> <span class="pre">'ts':</span> <span class="pre">{'ntrials':</span> <span class="pre">&lt;class</span> <span class="pre">'int'&gt;,</span> <span class="pre">'seed':</span> <span class="pre">&lt;class</span> <span class="pre">'int'&gt;}}</span></em><a class="headerlink" href="#icecube_tools.point_source_analysis.point_source_analysis.MapScan.config_structure" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="icecube_tools.point_source_analysis.point_source_analysis.MapScan.generate_sources">
+<span class="sig-name descname"><span class="pre">generate_sources</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nside</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#icecube_tools.point_source_analysis.point_source_analysis.MapScan.generate_sources" title="Permalink to this definition"></a></dt>
+<dd><p>Generate sources from config-specified specifics.
+Provided ra, dec lists take priority over npix and nside.
+:param nside: If healpy’s nside should be used in calculating test sources.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="icecube_tools.point_source_analysis.point_source_analysis.MapScan.load_config">
+<span class="sig-name descname"><span class="pre">load_config</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#icecube_tools.point_source_analysis.point_source_analysis.MapScan.load_config" title="Permalink to this definition"></a></dt>
+<dd><p>Load analysis config from file
+:param path: Path to config file</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="icecube_tools.point_source_analysis.point_source_analysis.MapScan.load_output">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">load_output</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">events</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="icecube_tools.utils.data.html#icecube_tools.utils.data.Events" title="icecube_tools.utils.data.Events"><span class="pre">Events</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#icecube_tools.point_source_analysis.point_source_analysis.MapScan.load_output" title="Permalink to this definition"></a></dt>
+<dd><p>Load previously saved hdf5 file
+:param path: Path to hdf5 file</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="icecube_tools.point_source_analysis.point_source_analysis.MapScan.perform_scan">
+<span class="sig-name descname"><span class="pre">perform_scan</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">show_progress</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">minos</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#icecube_tools.point_source_analysis.point_source_analysis.MapScan.perform_scan" title="Permalink to this definition"></a></dt>
+<dd><p>Perform scan over provided source list whose coordinates are stored in <cite>self.ra_test, self.dec_test</cite>
+:param show_progress: True if progress bar should be displayd
+:param minos: True if additionally <cite>Minuit.minos()</cite> should be called for calculating errors</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="icecube_tools.point_source_analysis.point_source_analysis.MapScan.write_config">
+<span class="sig-name descname"><span class="pre">write_config</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">source_list</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#icecube_tools.point_source_analysis.point_source_analysis.MapScan.write_config" title="Permalink to this definition"></a></dt>
+<dd><p>Write config used in analysis to file
+:param path: Path to config file
+:param source_list: True if source list (ra, dec) should be written to config</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="icecube_tools.point_source_analysis.point_source_analysis.MapScan.write_output">
+<span class="sig-name descname"><span class="pre">write_output</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">source_list</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#icecube_tools.point_source_analysis.point_source_analysis.MapScan.write_output" title="Permalink to this definition"></a></dt>
+<dd><p>Save analysis results to hdf5 and additionally the used config, path is saved in results hdf5.
+:param path: Path to file
+:param source_list: True if source list should be written to additionally saved yaml config</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="icecube_tools.point_source_analysis.point_source_analysis.MapScanTSDistribution">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">icecube_tools.point_source_analysis.point_source_analysis.</span></span><span class="sig-name descname"><span class="pre">MapScanTSDistribution</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">events</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="icecube_tools.utils.data.html#icecube_tools.utils.data.Events" title="icecube_tools.utils.data.Events"><span class="pre">Events</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">output_path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#icecube_tools.point_source_analysis.point_source_analysis.MapScanTSDistribution" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#icecube_tools.point_source_analysis.point_source_analysis.MapScan" title="icecube_tools.point_source_analysis.point_source_analysis.MapScan"><code class="xref py py-class docutils literal notranslate"><span class="pre">MapScan</span></code></a></p>
+<p>Class to create TS distributions (and subsequently local p-values.
+Inherhits from the ‘normal’ MapScan.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="icecube_tools.point_source_analysis.point_source_analysis.MapScanTSDistribution.perform_scan">
+<span class="sig-name descname"><span class="pre">perform_scan</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">show_progress</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">minos</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#icecube_tools.point_source_analysis.point_source_analysis.MapScanTSDistribution.perform_scan" title="Permalink to this definition"></a></dt>
+<dd><p>Perform multiple (<cite>ntrials</cite>) fits of the same declination</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="icecube_tools.point_source_analysis.point_source_analysis.PointSourceAnalysis">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">icecube_tools.point_source_analysis.point_source_analysis.</span></span><span class="sig-name descname"><span class="pre">PointSourceAnalysis</span></span><a class="headerlink" href="#icecube_tools.point_source_analysis.point_source_analysis.PointSourceAnalysis" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ABC</span></code></p>
+<p>Meta class</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="icecube_tools.point_source_analysis.point_source_analysis.PointSourceAnalysis.apply_cuts">
+<em class="property"><span class="pre">abstract</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">apply_cuts</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#icecube_tools.point_source_analysis.point_source_analysis.PointSourceAnalysis.apply_cuts" title="Permalink to this definition"></a></dt>
+<dd><p>Make cuts on loaded data</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="icecube_tools.point_source_analysis.point_source_analysis.PointSourceAnalysis.load_config">
+<em class="property"><span class="pre">abstract</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">load_config</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#icecube_tools.point_source_analysis.point_source_analysis.PointSourceAnalysis.load_config" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="icecube_tools.point_source_analysis.point_source_analysis.PointSourceAnalysis.which">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">which</span></span><a class="headerlink" href="#icecube_tools.point_source_analysis.point_source_analysis.PointSourceAnalysis.which" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="icecube_tools.point_source_analysis.point_source_analysis.PointSourceAnalysis.write_config">
+<em class="property"><span class="pre">abstract</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">write_config</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#icecube_tools.point_source_analysis.point_source_analysis.PointSourceAnalysis.write_config" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="icecube_tools.point_source_analysis.point_source_analysis.PointSourceAnalysis.write_output">
+<em class="property"><span class="pre">abstract</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">write_output</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#icecube_tools.point_source_analysis.point_source_analysis.PointSourceAnalysis.write_output" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="icecube_tools.point_source_analysis.html" class="btn btn-neutral float-left" title="icecube_tools.point_source_analysis package" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="icecube_tools.point_source_likelihood.html" class="btn btn-neutral float-right" title="icecube_tools.point_source_likelihood package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021, Francesca Capel.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

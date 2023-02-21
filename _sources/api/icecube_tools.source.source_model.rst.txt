@@ -1,0 +1,7 @@
+icecube\_tools.source.source\_model module
+==========================================
+
+.. automodule:: icecube_tools.source.source_model
+   :members:
+   :undoc-members:
+   :show-inheritance:

@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>icecube_tools package &mdash; icecube_tools v3.2 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="icecube_tools.detector package" href="icecube_tools.detector.html" />
+    <link rel="prev" title="API" href="api.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            icecube_tools
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/public_data_access.html">Data access</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/detector_model.html">Detector model interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/detector_model.html#Effective-area,-angular-resolution-and-energy-resolution-of-earlier-releases">Effective area, angular resolution and energy resolution of earlier releases</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/source_model.html">Source model interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/simulation.html">Simulation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/simulation.html#Time-dependent-simulation">Time dependent simulation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/point_source_likelihood.html">Point source likelihood</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/point_source_likelihood.html#Time-dependent-point-source-analysis">Time dependent point source analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/point_source_analysis.html">MapScan</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/events.html">Event classes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api.html">API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api.html#icecube-tools">icecube_tools</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">icecube_tools</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="api.html">API</a></li>
+      <li class="breadcrumb-item active">icecube_tools package</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/api/icecube_tools.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  
+<style>
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast.container,
+.nboutput.nblast.container {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast.container + .nbinput.container {
+    margin-top: -19px;
+}
+
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+
+/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
+.math {
+    text-align: unset;
+}
+</style>
+<section id="icecube-tools-package">
+<h1>icecube_tools package<a class="headerlink" href="#icecube-tools-package" title="Permalink to this heading"></a></h1>
+<section id="subpackages">
+<h2>Subpackages<a class="headerlink" href="#subpackages" title="Permalink to this heading"></a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="icecube_tools.detector.html">icecube_tools.detector package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="icecube_tools.detector.html#submodules">Submodules</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="icecube_tools.detector.angular_resolution.html">icecube_tools.detector.angular_resolution module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="icecube_tools.detector.angular_resolution.html#icecube_tools.detector.angular_resolution.AngularResolution"><code class="docutils literal notranslate"><span class="pre">AngularResolution</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="icecube_tools.detector.angular_resolution.html#icecube_tools.detector.angular_resolution.FixedAngularResolution"><code class="docutils literal notranslate"><span class="pre">FixedAngularResolution</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="icecube_tools.detector.angular_resolution.html#icecube_tools.detector.angular_resolution.FromPlotAngResReader"><code class="docutils literal notranslate"><span class="pre">FromPlotAngResReader</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="icecube_tools.detector.angular_resolution.html#icecube_tools.detector.angular_resolution.IceCubeAngResReader"><code class="docutils literal notranslate"><span class="pre">IceCubeAngResReader</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="icecube_tools.detector.angular_resolution.html#icecube_tools.detector.angular_resolution.R2015AngResReader"><code class="docutils literal notranslate"><span class="pre">R2015AngResReader</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="icecube_tools.detector.angular_resolution.html#icecube_tools.detector.angular_resolution.R2018AngResReader"><code class="docutils literal notranslate"><span class="pre">R2018AngResReader</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="icecube_tools.detector.angular_resolution.html#icecube_tools.detector.angular_resolution.icrs_to_unit_vector"><code class="docutils literal notranslate"><span class="pre">icrs_to_unit_vector()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="icecube_tools.detector.angular_resolution.html#icecube_tools.detector.angular_resolution.unit_vector_to_icrs"><code class="docutils literal notranslate"><span class="pre">unit_vector_to_icrs()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="icecube_tools.detector.detector.html">icecube_tools.detector.detector module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="icecube_tools.detector.detector.html#icecube_tools.detector.detector.Detector"><code class="docutils literal notranslate"><span class="pre">Detector</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="icecube_tools.detector.detector.html#icecube_tools.detector.detector.IceCube"><code class="docutils literal notranslate"><span class="pre">IceCube</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="icecube_tools.detector.detector.html#icecube_tools.detector.detector.TimeDependentDetector"><code class="docutils literal notranslate"><span class="pre">TimeDependentDetector</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="icecube_tools.detector.detector.html#icecube_tools.detector.detector.TimeDependentIceCube"><code class="docutils literal notranslate"><span class="pre">TimeDependentIceCube</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="icecube_tools.detector.effective_area.html">icecube_tools.detector.effective_area module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="icecube_tools.detector.effective_area.html#icecube_tools.detector.effective_area.Braun2008AeffReader"><code class="docutils literal notranslate"><span class="pre">Braun2008AeffReader</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="icecube_tools.detector.effective_area.html#icecube_tools.detector.effective_area.EffectiveArea"><code class="docutils literal notranslate"><span class="pre">EffectiveArea</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="icecube_tools.detector.effective_area.html#icecube_tools.detector.effective_area.IceCubeAeffReader"><code class="docutils literal notranslate"><span class="pre">IceCubeAeffReader</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="icecube_tools.detector.effective_area.html#icecube_tools.detector.effective_area.R2013AeffReader"><code class="docutils literal notranslate"><span class="pre">R2013AeffReader</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="icecube_tools.detector.effective_area.html#icecube_tools.detector.effective_area.R2015AeffReader"><code class="docutils literal notranslate"><span class="pre">R2015AeffReader</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="icecube_tools.detector.effective_area.html#icecube_tools.detector.effective_area.R2018AeffReader"><code class="docutils literal notranslate"><span class="pre">R2018AeffReader</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="icecube_tools.detector.effective_area.html#icecube_tools.detector.effective_area.R2021AeffReader"><code class="docutils literal notranslate"><span class="pre">R2021AeffReader</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="icecube_tools.detector.energy_resolution.html">icecube_tools.detector.energy_resolution module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="icecube_tools.detector.energy_resolution.html#icecube_tools.detector.energy_resolution.EnergyResolution"><code class="docutils literal notranslate"><span class="pre">EnergyResolution</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="icecube_tools.detector.energy_resolution.html#icecube_tools.detector.energy_resolution.EnergyResolutionBase"><code class="docutils literal notranslate"><span class="pre">EnergyResolutionBase</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="icecube_tools.detector.r2021.html">icecube_tools.detector.r2021 module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="icecube_tools.detector.r2021.html#icecube_tools.detector.r2021.DummyPDF"><code class="docutils literal notranslate"><span class="pre">DummyPDF</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="icecube_tools.detector.r2021.html#icecube_tools.detector.r2021.R2021IRF"><code class="docutils literal notranslate"><span class="pre">R2021IRF</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="icecube_tools.detector.reco_energy_sampler.html">icecube_tools.detector.reco_energy_sampler module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="icecube_tools.detector.reco_energy_sampler.html#icecube_tools.detector.reco_energy_sampler.RecoEnergySampler"><code class="docutils literal notranslate"><span class="pre">RecoEnergySampler</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="icecube_tools.detector.html#module-icecube_tools.detector">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="icecube_tools.point_source_analysis.html">icecube_tools.point_source_analysis package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="icecube_tools.point_source_analysis.html#submodules">Submodules</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="icecube_tools.point_source_analysis.point_source_analysis.html">icecube_tools.point_source_analysis.point_source_analysis module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="icecube_tools.point_source_analysis.point_source_analysis.html#icecube_tools.point_source_analysis.point_source_analysis.MapScan"><code class="docutils literal notranslate"><span class="pre">MapScan</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="icecube_tools.point_source_analysis.point_source_analysis.html#icecube_tools.point_source_analysis.point_source_analysis.MapScanTSDistribution"><code class="docutils literal notranslate"><span class="pre">MapScanTSDistribution</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="icecube_tools.point_source_analysis.point_source_analysis.html#icecube_tools.point_source_analysis.point_source_analysis.PointSourceAnalysis"><code class="docutils literal notranslate"><span class="pre">PointSourceAnalysis</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="icecube_tools.point_source_analysis.html#module-icecube_tools.point_source_analysis">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="icecube_tools.point_source_likelihood.html">icecube_tools.point_source_likelihood package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="icecube_tools.point_source_likelihood.html#submodules">Submodules</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="icecube_tools.point_source_likelihood.energy_likelihood.html">icecube_tools.point_source_likelihood.energy_likelihood module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="icecube_tools.point_source_likelihood.energy_likelihood.html#icecube_tools.point_source_likelihood.energy_likelihood.MarginalisedEnergyLikelihood"><code class="docutils literal notranslate"><span class="pre">MarginalisedEnergyLikelihood</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="icecube_tools.point_source_likelihood.energy_likelihood.html#icecube_tools.point_source_likelihood.energy_likelihood.MarginalisedEnergyLikelihood2021"><code class="docutils literal notranslate"><span class="pre">MarginalisedEnergyLikelihood2021</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="icecube_tools.point_source_likelihood.energy_likelihood.html#icecube_tools.point_source_likelihood.energy_likelihood.MarginalisedEnergyLikelihoodBraun2008"><code class="docutils literal notranslate"><span class="pre">MarginalisedEnergyLikelihoodBraun2008</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="icecube_tools.point_source_likelihood.energy_likelihood.html#icecube_tools.point_source_likelihood.energy_likelihood.MarginalisedEnergyLikelihoodFixed"><code class="docutils literal notranslate"><span class="pre">MarginalisedEnergyLikelihoodFixed</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="icecube_tools.point_source_likelihood.energy_likelihood.html#icecube_tools.point_source_likelihood.energy_likelihood.MarginalisedEnergyLikelihoodFromSim"><code class="docutils literal notranslate"><span class="pre">MarginalisedEnergyLikelihoodFromSim</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="icecube_tools.point_source_likelihood.energy_likelihood.html#icecube_tools.point_source_likelihood.energy_likelihood.MarginalisedEnergyLikelihoodFromSimFixedIndex"><code class="docutils literal notranslate"><span class="pre">MarginalisedEnergyLikelihoodFromSimFixedIndex</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="icecube_tools.point_source_likelihood.energy_likelihood.html#icecube_tools.point_source_likelihood.energy_likelihood.MarginalisedIntegratedEnergyLikelihood"><code class="docutils literal notranslate"><span class="pre">MarginalisedIntegratedEnergyLikelihood</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="icecube_tools.point_source_likelihood.energy_likelihood.html#icecube_tools.point_source_likelihood.energy_likelihood.read_input_from_file"><code class="docutils literal notranslate"><span class="pre">read_input_from_file()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="icecube_tools.point_source_likelihood.energy_likelihood.html#icecube_tools.point_source_likelihood.energy_likelihood.reweight_spectrum"><code class="docutils literal notranslate"><span class="pre">reweight_spectrum()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="icecube_tools.point_source_likelihood.point_source_likelihood.html">icecube_tools.point_source_likelihood.point_source_likelihood module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="icecube_tools.point_source_likelihood.point_source_likelihood.html#icecube_tools.point_source_likelihood.point_source_likelihood.EnergyDependentSpatialPointSourceLikelihood"><code class="docutils literal notranslate"><span class="pre">EnergyDependentSpatialPointSourceLikelihood</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="icecube_tools.point_source_likelihood.point_source_likelihood.html#icecube_tools.point_source_likelihood.point_source_likelihood.PointSourceLikelihood"><code class="docutils literal notranslate"><span class="pre">PointSourceLikelihood</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="icecube_tools.point_source_likelihood.point_source_likelihood.html#icecube_tools.point_source_likelihood.point_source_likelihood.SimplePointSourceLikelihood"><code class="docutils literal notranslate"><span class="pre">SimplePointSourceLikelihood</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="icecube_tools.point_source_likelihood.point_source_likelihood.html#icecube_tools.point_source_likelihood.point_source_likelihood.SimpleWithEnergyPointSourceLikelihood"><code class="docutils literal notranslate"><span class="pre">SimpleWithEnergyPointSourceLikelihood</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="icecube_tools.point_source_likelihood.point_source_likelihood.html#icecube_tools.point_source_likelihood.point_source_likelihood.SpatialOnlyPointSourceLikelihood"><code class="docutils literal notranslate"><span class="pre">SpatialOnlyPointSourceLikelihood</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="icecube_tools.point_source_likelihood.point_source_likelihood.html#icecube_tools.point_source_likelihood.point_source_likelihood.TimeDependentPointSourceLikelihood"><code class="docutils literal notranslate"><span class="pre">TimeDependentPointSourceLikelihood</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="icecube_tools.point_source_likelihood.prior.html">icecube_tools.point_source_likelihood.prior module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="icecube_tools.point_source_likelihood.prior.html#icecube_tools.point_source_likelihood.prior.GaussianPrior"><code class="docutils literal notranslate"><span class="pre">GaussianPrior</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="icecube_tools.point_source_likelihood.prior.html#icecube_tools.point_source_likelihood.prior.Prior"><code class="docutils literal notranslate"><span class="pre">Prior</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="icecube_tools.point_source_likelihood.spatial_likelihood.html">icecube_tools.point_source_likelihood.spatial_likelihood module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="icecube_tools.point_source_likelihood.spatial_likelihood.html#icecube_tools.point_source_likelihood.spatial_likelihood.EnergyDependentSpatialGaussianLikelihood"><code class="docutils literal notranslate"><span class="pre">EnergyDependentSpatialGaussianLikelihood</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="icecube_tools.point_source_likelihood.spatial_likelihood.html#icecube_tools.point_source_likelihood.spatial_likelihood.EventDependentSpatialGaussianLikelihood"><code class="docutils literal notranslate"><span class="pre">EventDependentSpatialGaussianLikelihood</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="icecube_tools.point_source_likelihood.spatial_likelihood.html#icecube_tools.point_source_likelihood.spatial_likelihood.SpatialGaussianLikelihood"><code class="docutils literal notranslate"><span class="pre">SpatialGaussianLikelihood</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="icecube_tools.point_source_likelihood.spatial_likelihood.html#icecube_tools.point_source_likelihood.spatial_likelihood.SpatialLikelihood"><code class="docutils literal notranslate"><span class="pre">SpatialLikelihood</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="icecube_tools.point_source_likelihood.html#module-icecube_tools.point_source_likelihood">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="icecube_tools.source.html">icecube_tools.source package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="icecube_tools.source.html#submodules">Submodules</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="icecube_tools.source.flux_model.html">icecube_tools.source.flux_model module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="icecube_tools.source.flux_model.html#icecube_tools.source.flux_model.BrokenPowerLawFlux"><code class="docutils literal notranslate"><span class="pre">BrokenPowerLawFlux</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="icecube_tools.source.flux_model.html#icecube_tools.source.flux_model.FluxModel"><code class="docutils literal notranslate"><span class="pre">FluxModel</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="icecube_tools.source.flux_model.html#icecube_tools.source.flux_model.PowerLawFlux"><code class="docutils literal notranslate"><span class="pre">PowerLawFlux</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="icecube_tools.source.power_law.html">icecube_tools.source.power_law module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="icecube_tools.source.power_law.html#icecube_tools.source.power_law.BoundedPowerLaw"><code class="docutils literal notranslate"><span class="pre">BoundedPowerLaw</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="icecube_tools.source.power_law.html#icecube_tools.source.power_law.BrokenBoundedPowerLaw"><code class="docutils literal notranslate"><span class="pre">BrokenBoundedPowerLaw</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="icecube_tools.source.source_model.html">icecube_tools.source.source_model module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="icecube_tools.source.source_model.html#icecube_tools.source.source_model.DiffuseSource"><code class="docutils literal notranslate"><span class="pre">DiffuseSource</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="icecube_tools.source.source_model.html#icecube_tools.source.source_model.PointSource"><code class="docutils literal notranslate"><span class="pre">PointSource</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="icecube_tools.source.source_model.html#icecube_tools.source.source_model.Source"><code class="docutils literal notranslate"><span class="pre">Source</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="icecube_tools.source.html#module-icecube_tools.source">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="icecube_tools.utils.html">icecube_tools.utils package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="icecube_tools.utils.html#submodules">Submodules</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="icecube_tools.utils.bpl_sampling.html">icecube_tools.utils.bpl_sampling module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="icecube_tools.utils.bpl_sampling.html#icecube_tools.utils.bpl_sampling.bpl"><code class="docutils literal notranslate"><span class="pre">bpl()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="icecube_tools.utils.bpl_sampling.html#icecube_tools.utils.bpl_sampling.integrate_pl"><code class="docutils literal notranslate"><span class="pre">integrate_pl()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="icecube_tools.utils.bpl_sampling.html#icecube_tools.utils.bpl_sampling.sample_bpl"><code class="docutils literal notranslate"><span class="pre">sample_bpl()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="icecube_tools.utils.coordinate_transforms.html">icecube_tools.utils.coordinate_transforms module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="icecube_tools.utils.coordinate_transforms.html#icecube_tools.utils.coordinate_transforms.icrs_to_spherical"><code class="docutils literal notranslate"><span class="pre">icrs_to_spherical()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="icecube_tools.utils.coordinate_transforms.html#icecube_tools.utils.coordinate_transforms.spherical_to_cart"><code class="docutils literal notranslate"><span class="pre">spherical_to_cart()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="icecube_tools.utils.coordinate_transforms.html#icecube_tools.utils.coordinate_transforms.spherical_to_icrs"><code class="docutils literal notranslate"><span class="pre">spherical_to_icrs()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="icecube_tools.utils.data.html">icecube_tools.utils.data module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="icecube_tools.utils.data.html#icecube_tools.utils.data.Events"><code class="docutils literal notranslate"><span class="pre">Events</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="icecube_tools.utils.data.html#icecube_tools.utils.data.IceCubeData"><code class="docutils literal notranslate"><span class="pre">IceCubeData</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="icecube_tools.utils.data.html#icecube_tools.utils.data.RealEvents"><code class="docutils literal notranslate"><span class="pre">RealEvents</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="icecube_tools.utils.data.html#icecube_tools.utils.data.SimEvents"><code class="docutils literal notranslate"><span class="pre">SimEvents</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="icecube_tools.utils.data.html#icecube_tools.utils.data.Uptime"><code class="docutils literal notranslate"><span class="pre">Uptime</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="icecube_tools.utils.data.html#icecube_tools.utils.data.crawl_delay"><code class="docutils literal notranslate"><span class="pre">crawl_delay()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="icecube_tools.utils.data.html#icecube_tools.utils.data.ddict"><code class="docutils literal notranslate"><span class="pre">ddict</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="icecube_tools.utils.data.html#icecube_tools.utils.data.find_files"><code class="docutils literal notranslate"><span class="pre">find_files()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="icecube_tools.utils.data.html#icecube_tools.utils.data.find_folders"><code class="docutils literal notranslate"><span class="pre">find_folders()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="icecube_tools.utils.vMF.html">icecube_tools.utils.vMF module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="icecube_tools.utils.vMF.html#icecube_tools.utils.vMF.get_kappa"><code class="docutils literal notranslate"><span class="pre">get_kappa()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="icecube_tools.utils.vMF.html#icecube_tools.utils.vMF.get_theta_p"><code class="docutils literal notranslate"><span class="pre">get_theta_p()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="icecube_tools.utils.html#module-icecube_tools.utils">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this heading"></a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="icecube_tools.cosmology.html">icecube_tools.cosmology module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="icecube_tools.cosmology.html#icecube_tools.cosmology.E_fac"><code class="docutils literal notranslate"><span class="pre">E_fac()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="icecube_tools.cosmology.html#icecube_tools.cosmology.comoving_distance"><code class="docutils literal notranslate"><span class="pre">comoving_distance()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="icecube_tools.cosmology.html#icecube_tools.cosmology.differential_comoving_volume"><code class="docutils literal notranslate"><span class="pre">differential_comoving_volume()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="icecube_tools.cosmology.html#icecube_tools.cosmology.luminosity_distance"><code class="docutils literal notranslate"><span class="pre">luminosity_distance()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="icecube_tools.cosmology.html#icecube_tools.cosmology.phi"><code class="docutils literal notranslate"><span class="pre">phi()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="icecube_tools.cosmology.html#icecube_tools.cosmology.xx"><code class="docutils literal notranslate"><span class="pre">xx()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="icecube_tools.detection_probability.html">icecube_tools.detection_probability module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="icecube_tools.detection_probability.html#icecube_tools.detection_probability.fit_func"><code class="docutils literal notranslate"><span class="pre">fit_func()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="icecube_tools.detection_probability.html#icecube_tools.detection_probability.get_TS_threshold"><code class="docutils literal notranslate"><span class="pre">get_TS_threshold()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="icecube_tools.detection_probability.html#icecube_tools.detection_probability.get_detection_probability"><code class="docutils literal notranslate"><span class="pre">get_detection_probability()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="icecube_tools.detection_probability.html#icecube_tools.detection_probability.get_detection_probability_Braun2008"><code class="docutils literal notranslate"><span class="pre">get_detection_probability_Braun2008()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="icecube_tools.detection_probability.html#icecube_tools.detection_probability.get_simulated_params"><code class="docutils literal notranslate"><span class="pre">get_simulated_params()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="icecube_tools.detection_probability.html#icecube_tools.detection_probability.solve_func"><code class="docutils literal notranslate"><span class="pre">solve_func()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="icecube_tools.neutrino_calculator.html">icecube_tools.neutrino_calculator module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="icecube_tools.neutrino_calculator.html#icecube_tools.neutrino_calculator.NeutrinoCalculator"><code class="docutils literal notranslate"><span class="pre">NeutrinoCalculator</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="icecube_tools.neutrino_calculator.html#icecube_tools.neutrino_calculator.NeutrinoCalculator.effective_area"><code class="docutils literal notranslate"><span class="pre">NeutrinoCalculator.effective_area</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="icecube_tools.neutrino_calculator.html#icecube_tools.neutrino_calculator.NeutrinoCalculator.source"><code class="docutils literal notranslate"><span class="pre">NeutrinoCalculator.source</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="icecube_tools.neutrino_calculator.html#icecube_tools.neutrino_calculator.PhiSolver"><code class="docutils literal notranslate"><span class="pre">PhiSolver</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="icecube_tools.neutrino_calculator.html#icecube_tools.neutrino_calculator.zSolver"><code class="docutils literal notranslate"><span class="pre">zSolver</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="icecube_tools.neutrino_calculator.html#icecube_tools.neutrino_calculator.zSolver.get_L"><code class="docutils literal notranslate"><span class="pre">zSolver.get_L()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="icecube_tools.simulator.html">icecube_tools.simulator module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="icecube_tools.simulator.html#icecube_tools.simulator.Braun2008Simulator"><code class="docutils literal notranslate"><span class="pre">Braun2008Simulator</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="icecube_tools.simulator.html#icecube_tools.simulator.Braun2008Simulator.run"><code class="docutils literal notranslate"><span class="pre">Braun2008Simulator.run()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="icecube_tools.simulator.html#icecube_tools.simulator.Simulator"><code class="docutils literal notranslate"><span class="pre">Simulator</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="icecube_tools.simulator.html#icecube_tools.simulator.Simulator.detector"><code class="docutils literal notranslate"><span class="pre">Simulator.detector</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="icecube_tools.simulator.html#icecube_tools.simulator.Simulator.run"><code class="docutils literal notranslate"><span class="pre">Simulator.run()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="icecube_tools.simulator.html#icecube_tools.simulator.Simulator.run_energy"><code class="docutils literal notranslate"><span class="pre">Simulator.run_energy()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="icecube_tools.simulator.html#icecube_tools.simulator.Simulator.save"><code class="docutils literal notranslate"><span class="pre">Simulator.save()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="icecube_tools.simulator.html#icecube_tools.simulator.Simulator.sources"><code class="docutils literal notranslate"><span class="pre">Simulator.sources</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="icecube_tools.simulator.html#icecube_tools.simulator.TimeDependentSimulator"><code class="docutils literal notranslate"><span class="pre">TimeDependentSimulator</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="icecube_tools.simulator.html#icecube_tools.simulator.TimeDependentSimulator.get_expected_number"><code class="docutils literal notranslate"><span class="pre">TimeDependentSimulator.get_expected_number()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="icecube_tools.simulator.html#icecube_tools.simulator.TimeDependentSimulator.run"><code class="docutils literal notranslate"><span class="pre">TimeDependentSimulator.run()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="icecube_tools.simulator.html#icecube_tools.simulator.TimeDependentSimulator.save"><code class="docutils literal notranslate"><span class="pre">TimeDependentSimulator.save()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="icecube_tools.simulator.html#icecube_tools.simulator.TimeDependentSimulator.sources"><code class="docutils literal notranslate"><span class="pre">TimeDependentSimulator.sources</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="icecube_tools.simulator.html#icecube_tools.simulator.TimeDependentSimulator.time"><code class="docutils literal notranslate"><span class="pre">TimeDependentSimulator.time</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="icecube_tools.simulator.html#icecube_tools.simulator.lists_to_tuple"><code class="docutils literal notranslate"><span class="pre">lists_to_tuple()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="icecube_tools.simulator.html#icecube_tools.simulator.sphere_sample"><code class="docutils literal notranslate"><span class="pre">sphere_sample()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="icecube_tools.simulator.html#icecube_tools.simulator.spherical_to_icrs"><code class="docutils literal notranslate"><span class="pre">spherical_to_icrs()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+<section id="module-icecube_tools">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-icecube_tools" title="Permalink to this heading"></a></h2>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="api.html" class="btn btn-neutral float-left" title="API" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="icecube_tools.detector.html" class="btn btn-neutral float-right" title="icecube_tools.detector package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021, Francesca Capel.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

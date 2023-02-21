@@ -1,0 +1,7 @@
+icecube\_tools.source.power\_law module
+=======================================
+
+.. automodule:: icecube_tools.source.power_law
+   :members:
+   :undoc-members:
+   :show-inheritance:

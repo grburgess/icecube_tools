@@ -1,0 +1,7 @@
+icecube\_tools.point\_source\_likelihood.point\_source\_likelihood module
+=========================================================================
+
+.. automodule:: icecube_tools.point_source_likelihood.point_source_likelihood
+   :members:
+   :undoc-members:
+   :show-inheritance:

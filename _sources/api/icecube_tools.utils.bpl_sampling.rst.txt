@@ -1,0 +1,7 @@
+icecube\_tools.utils.bpl\_sampling module
+=========================================
+
+.. automodule:: icecube_tools.utils.bpl_sampling
+   :members:
+   :undoc-members:
+   :show-inheritance:

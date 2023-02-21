@@ -1,0 +1,7 @@
+icecube\_tools.utils.vMF module
+===============================
+
+.. automodule:: icecube_tools.utils.vMF
+   :members:
+   :undoc-members:
+   :show-inheritance:

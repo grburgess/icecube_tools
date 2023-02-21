@@ -1,0 +1,7 @@
+icecube\_tools.detector.reco\_energy\_sampler module
+====================================================
+
+.. automodule:: icecube_tools.detector.reco_energy_sampler
+   :members:
+   :undoc-members:
+   :show-inheritance:

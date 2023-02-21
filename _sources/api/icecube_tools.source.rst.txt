@@ -1,0 +1,20 @@
+icecube\_tools.source package
+=============================
+
+Submodules
+----------
+
+.. toctree::
+   :maxdepth: 4
+
+   icecube_tools.source.flux_model
+   icecube_tools.source.power_law
+   icecube_tools.source.source_model
+
+Module contents
+---------------
+
+.. automodule:: icecube_tools.source
+   :members:
+   :undoc-members:
+   :show-inheritance:

@@ -1,0 +1,21 @@
+icecube\_tools.utils package
+============================
+
+Submodules
+----------
+
+.. toctree::
+   :maxdepth: 4
+
+   icecube_tools.utils.bpl_sampling
+   icecube_tools.utils.coordinate_transforms
+   icecube_tools.utils.data
+   icecube_tools.utils.vMF
+
+Module contents
+---------------
+
+.. automodule:: icecube_tools.utils
+   :members:
+   :undoc-members:
+   :show-inheritance:

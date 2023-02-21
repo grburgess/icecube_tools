@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>icecube_tools.source package &mdash; icecube_tools v3.2 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="icecube_tools.source.flux_model module" href="icecube_tools.source.flux_model.html" />
+    <link rel="prev" title="icecube_tools.point_source_likelihood.spatial_likelihood module" href="icecube_tools.point_source_likelihood.spatial_likelihood.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            icecube_tools
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/public_data_access.html">Data access</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/detector_model.html">Detector model interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/detector_model.html#Effective-area,-angular-resolution-and-energy-resolution-of-earlier-releases">Effective area, angular resolution and energy resolution of earlier releases</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/source_model.html">Source model interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/simulation.html">Simulation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/simulation.html#Time-dependent-simulation">Time dependent simulation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/point_source_likelihood.html">Point source likelihood</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/point_source_likelihood.html#Time-dependent-point-source-analysis">Time dependent point source analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/point_source_analysis.html">MapScan</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/events.html">Event classes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api.html">API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api.html#icecube-tools">icecube_tools</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">icecube_tools</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="api.html">API</a></li>
+          <li class="breadcrumb-item"><a href="icecube_tools.html">icecube_tools package</a></li>
+      <li class="breadcrumb-item active">icecube_tools.source package</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/api/icecube_tools.source.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  
+<style>
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast.container,
+.nboutput.nblast.container {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast.container + .nbinput.container {
+    margin-top: -19px;
+}
+
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+
+/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
+.math {
+    text-align: unset;
+}
+</style>
+<section id="icecube-tools-source-package">
+<h1>icecube_tools.source package<a class="headerlink" href="#icecube-tools-source-package" title="Permalink to this heading"></a></h1>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this heading"></a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="icecube_tools.source.flux_model.html">icecube_tools.source.flux_model module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="icecube_tools.source.flux_model.html#icecube_tools.source.flux_model.BrokenPowerLawFlux"><code class="docutils literal notranslate"><span class="pre">BrokenPowerLawFlux</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="icecube_tools.source.flux_model.html#icecube_tools.source.flux_model.BrokenPowerLawFlux.integrated_spectrum"><code class="docutils literal notranslate"><span class="pre">BrokenPowerLawFlux.integrated_spectrum()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="icecube_tools.source.flux_model.html#icecube_tools.source.flux_model.BrokenPowerLawFlux.redshift_factor"><code class="docutils literal notranslate"><span class="pre">BrokenPowerLawFlux.redshift_factor()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="icecube_tools.source.flux_model.html#icecube_tools.source.flux_model.BrokenPowerLawFlux.sample"><code class="docutils literal notranslate"><span class="pre">BrokenPowerLawFlux.sample()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="icecube_tools.source.flux_model.html#icecube_tools.source.flux_model.BrokenPowerLawFlux.spectrum"><code class="docutils literal notranslate"><span class="pre">BrokenPowerLawFlux.spectrum()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="icecube_tools.source.flux_model.html#icecube_tools.source.flux_model.FluxModel"><code class="docutils literal notranslate"><span class="pre">FluxModel</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="icecube_tools.source.flux_model.html#icecube_tools.source.flux_model.FluxModel.integrated_spectrum"><code class="docutils literal notranslate"><span class="pre">FluxModel.integrated_spectrum()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="icecube_tools.source.flux_model.html#icecube_tools.source.flux_model.FluxModel.redshift_factor"><code class="docutils literal notranslate"><span class="pre">FluxModel.redshift_factor()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="icecube_tools.source.flux_model.html#icecube_tools.source.flux_model.FluxModel.spectrum"><code class="docutils literal notranslate"><span class="pre">FluxModel.spectrum()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="icecube_tools.source.flux_model.html#icecube_tools.source.flux_model.PowerLawFlux"><code class="docutils literal notranslate"><span class="pre">PowerLawFlux</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="icecube_tools.source.flux_model.html#icecube_tools.source.flux_model.PowerLawFlux.integrated_spectrum"><code class="docutils literal notranslate"><span class="pre">PowerLawFlux.integrated_spectrum()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="icecube_tools.source.flux_model.html#icecube_tools.source.flux_model.PowerLawFlux.redshift_factor"><code class="docutils literal notranslate"><span class="pre">PowerLawFlux.redshift_factor()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="icecube_tools.source.flux_model.html#icecube_tools.source.flux_model.PowerLawFlux.sample"><code class="docutils literal notranslate"><span class="pre">PowerLawFlux.sample()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="icecube_tools.source.flux_model.html#icecube_tools.source.flux_model.PowerLawFlux.spectrum"><code class="docutils literal notranslate"><span class="pre">PowerLawFlux.spectrum()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="icecube_tools.source.flux_model.html#icecube_tools.source.flux_model.PowerLawFlux.total_flux_density"><code class="docutils literal notranslate"><span class="pre">PowerLawFlux.total_flux_density()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="icecube_tools.source.power_law.html">icecube_tools.source.power_law module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="icecube_tools.source.power_law.html#icecube_tools.source.power_law.BoundedPowerLaw"><code class="docutils literal notranslate"><span class="pre">BoundedPowerLaw</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="icecube_tools.source.power_law.html#icecube_tools.source.power_law.BoundedPowerLaw.cdf"><code class="docutils literal notranslate"><span class="pre">BoundedPowerLaw.cdf()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="icecube_tools.source.power_law.html#icecube_tools.source.power_law.BoundedPowerLaw.inv_cdf"><code class="docutils literal notranslate"><span class="pre">BoundedPowerLaw.inv_cdf()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="icecube_tools.source.power_law.html#icecube_tools.source.power_law.BoundedPowerLaw.pdf"><code class="docutils literal notranslate"><span class="pre">BoundedPowerLaw.pdf()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="icecube_tools.source.power_law.html#icecube_tools.source.power_law.BoundedPowerLaw.samples"><code class="docutils literal notranslate"><span class="pre">BoundedPowerLaw.samples()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="icecube_tools.source.power_law.html#icecube_tools.source.power_law.BrokenBoundedPowerLaw"><code class="docutils literal notranslate"><span class="pre">BrokenBoundedPowerLaw</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="icecube_tools.source.power_law.html#icecube_tools.source.power_law.BrokenBoundedPowerLaw.samples"><code class="docutils literal notranslate"><span class="pre">BrokenBoundedPowerLaw.samples()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="icecube_tools.source.source_model.html">icecube_tools.source.source_model module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="icecube_tools.source.source_model.html#icecube_tools.source.source_model.DiffuseSource"><code class="docutils literal notranslate"><span class="pre">DiffuseSource</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="icecube_tools.source.source_model.html#icecube_tools.source.source_model.PointSource"><code class="docutils literal notranslate"><span class="pre">PointSource</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="icecube_tools.source.source_model.html#icecube_tools.source.source_model.PointSource.coord"><code class="docutils literal notranslate"><span class="pre">PointSource.coord</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="icecube_tools.source.source_model.html#icecube_tools.source.source_model.Source"><code class="docutils literal notranslate"><span class="pre">Source</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="icecube_tools.source.source_model.html#icecube_tools.source.source_model.Source.flux_model"><code class="docutils literal notranslate"><span class="pre">Source.flux_model</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="icecube_tools.source.source_model.html#icecube_tools.source.source_model.Source.redshift_factor"><code class="docutils literal notranslate"><span class="pre">Source.redshift_factor</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="icecube_tools.source.source_model.html#icecube_tools.source.source_model.Source.source_type"><code class="docutils literal notranslate"><span class="pre">Source.source_type</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="icecube_tools.source.source_model.html#icecube_tools.source.source_model.Source.z"><code class="docutils literal notranslate"><span class="pre">Source.z</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+<section id="module-icecube_tools.source">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-icecube_tools.source" title="Permalink to this heading"></a></h2>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="icecube_tools.point_source_likelihood.spatial_likelihood.html" class="btn btn-neutral float-left" title="icecube_tools.point_source_likelihood.spatial_likelihood module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="icecube_tools.source.flux_model.html" class="btn btn-neutral float-right" title="icecube_tools.source.flux_model module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021, Francesca Capel.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

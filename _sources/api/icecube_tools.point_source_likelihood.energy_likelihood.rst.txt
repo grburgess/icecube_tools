@@ -1,0 +1,7 @@
+icecube\_tools.point\_source\_likelihood.energy\_likelihood module
+==================================================================
+
+.. automodule:: icecube_tools.point_source_likelihood.energy_likelihood
+   :members:
+   :undoc-members:
+   :show-inheritance:

@@ -1,0 +1,33 @@
+icecube\_tools package
+======================
+
+Subpackages
+-----------
+
+.. toctree::
+   :maxdepth: 4
+
+   icecube_tools.detector
+   icecube_tools.point_source_analysis
+   icecube_tools.point_source_likelihood
+   icecube_tools.source
+   icecube_tools.utils
+
+Submodules
+----------
+
+.. toctree::
+   :maxdepth: 4
+
+   icecube_tools.cosmology
+   icecube_tools.detection_probability
+   icecube_tools.neutrino_calculator
+   icecube_tools.simulator
+
+Module contents
+---------------
+
+.. automodule:: icecube_tools
+   :members:
+   :undoc-members:
+   :show-inheritance:

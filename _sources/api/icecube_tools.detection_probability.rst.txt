@@ -1,0 +1,7 @@
+icecube\_tools.detection\_probability module
+============================================
+
+.. automodule:: icecube_tools.detection_probability
+   :members:
+   :undoc-members:
+   :show-inheritance:

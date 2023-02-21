@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>icecube_tools.detection_probability module &mdash; icecube_tools v3.2 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="icecube_tools.neutrino_calculator module" href="icecube_tools.neutrino_calculator.html" />
+    <link rel="prev" title="icecube_tools.cosmology module" href="icecube_tools.cosmology.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            icecube_tools
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/public_data_access.html">Data access</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/detector_model.html">Detector model interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/detector_model.html#Effective-area,-angular-resolution-and-energy-resolution-of-earlier-releases">Effective area, angular resolution and energy resolution of earlier releases</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/source_model.html">Source model interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/simulation.html">Simulation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/simulation.html#Time-dependent-simulation">Time dependent simulation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/point_source_likelihood.html">Point source likelihood</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/point_source_likelihood.html#Time-dependent-point-source-analysis">Time dependent point source analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/point_source_analysis.html">MapScan</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/events.html">Event classes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api.html">API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api.html#icecube-tools">icecube_tools</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">icecube_tools</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="api.html">API</a></li>
+          <li class="breadcrumb-item"><a href="icecube_tools.html">icecube_tools package</a></li>
+      <li class="breadcrumb-item active">icecube_tools.detection_probability module</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/api/icecube_tools.detection_probability.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  
+<style>
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast.container,
+.nboutput.nblast.container {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast.container + .nbinput.container {
+    margin-top: -19px;
+}
+
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+
+/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
+.math {
+    text-align: unset;
+}
+</style>
+<section id="module-icecube_tools.detection_probability">
+<span id="icecube-tools-detection-probability-module"></span><h1>icecube_tools.detection_probability module<a class="headerlink" href="#module-icecube_tools.detection_probability" title="Permalink to this heading"></a></h1>
+<dl class="py function">
+<dt class="sig sig-object py" id="icecube_tools.detection_probability.fit_func">
+<span class="sig-prename descclassname"><span class="pre">icecube_tools.detection_probability.</span></span><span class="sig-name descname"><span class="pre">fit_func</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">a</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">b</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#icecube_tools.detection_probability.fit_func" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="icecube_tools.detection_probability.get_TS_threshold">
+<span class="sig-prename descclassname"><span class="pre">icecube_tools.detection_probability.</span></span><span class="sig-name descname"><span class="pre">get_TS_threshold</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">TS</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">level</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">above</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">5</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#icecube_tools.detection_probability.get_TS_threshold" title="Permalink to this definition"></a></dt>
+<dd><p>Return TS at specified threshold level.
+Used to approximate the 5 sigma level.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>TS</strong> – TS values</p></li>
+<li><p><strong>level</strong> – Threshold level (e.g. 5.7e-7 for 5 sigma)</p></li>
+<li><p><strong>above</strong> – Fit above this value, defining the tail</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="icecube_tools.detection_probability.get_detection_probability">
+<span class="sig-prename descclassname"><span class="pre">icecube_tools.detection_probability.</span></span><span class="sig-name descname"><span class="pre">get_detection_probability</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">index</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dec</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">TS_threshold</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#icecube_tools.detection_probability.get_detection_probability" title="Permalink to this definition"></a></dt>
+<dd><p>Find the detection probability as a function 
+of the expected number of source counts in 
+a detector.</p>
+<p>Returns Nsrc_list and Pdet
+:param filename: Filename
+:param index: Spectral index
+:param dec: Declination
+:param TS_threshold: TS &lt;=&gt; 5sigma threshold</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="icecube_tools.detection_probability.get_detection_probability_Braun2008">
+<span class="sig-prename descclassname"><span class="pre">icecube_tools.detection_probability.</span></span><span class="sig-name descname"><span class="pre">get_detection_probability_Braun2008</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">index</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">TS_threshold</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#icecube_tools.detection_probability.get_detection_probability_Braun2008" title="Permalink to this definition"></a></dt>
+<dd><p>Find the detection probability as a function 
+of the expected number of source counts in 
+a detector.</p>
+<p>Returns Nsrc_list and Pdet
+:param filename: Filename
+:param index: spectral index
+:param TS_threshold: TS &lt;=&gt; 5sigma threshold</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="icecube_tools.detection_probability.get_simulated_params">
+<span class="sig-prename descclassname"><span class="pre">icecube_tools.detection_probability.</span></span><span class="sig-name descname"><span class="pre">get_simulated_params</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#icecube_tools.detection_probability.get_simulated_params" title="Permalink to this definition"></a></dt>
+<dd><p>Returns the available declinations 
+and spectral indices in the file.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="icecube_tools.detection_probability.solve_func">
+<span class="sig-prename descclassname"><span class="pre">icecube_tools.detection_probability.</span></span><span class="sig-name descname"><span class="pre">solve_func</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">a</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">b</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">level</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#icecube_tools.detection_probability.solve_func" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="icecube_tools.cosmology.html" class="btn btn-neutral float-left" title="icecube_tools.cosmology module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="icecube_tools.neutrino_calculator.html" class="btn btn-neutral float-right" title="icecube_tools.neutrino_calculator module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021, Francesca Capel.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

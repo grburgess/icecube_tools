@@ -1,0 +1,7 @@
+icecube\_tools.detector.angular\_resolution module
+==================================================
+
+.. automodule:: icecube_tools.detector.angular_resolution
+   :members:
+   :undoc-members:
+   :show-inheritance:

@@ -1,0 +1,7 @@
+icecube\_tools.detector.energy\_resolution module
+=================================================
+
+.. automodule:: icecube_tools.detector.energy_resolution
+   :members:
+   :undoc-members:
+   :show-inheritance:

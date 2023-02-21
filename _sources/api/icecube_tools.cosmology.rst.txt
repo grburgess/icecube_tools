@@ -1,0 +1,7 @@
+icecube\_tools.cosmology module
+===============================
+
+.. automodule:: icecube_tools.cosmology
+   :members:
+   :undoc-members:
+   :show-inheritance:

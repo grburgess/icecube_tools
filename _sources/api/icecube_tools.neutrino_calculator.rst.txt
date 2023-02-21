@@ -1,0 +1,7 @@
+icecube\_tools.neutrino\_calculator module
+==========================================
+
+.. automodule:: icecube_tools.neutrino_calculator
+   :members:
+   :undoc-members:
+   :show-inheritance:

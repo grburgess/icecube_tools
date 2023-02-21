@@ -1,0 +1,7 @@
+icecube\_tools.simulator module
+===============================
+
+.. automodule:: icecube_tools.simulator
+   :members:
+   :undoc-members:
+   :show-inheritance:

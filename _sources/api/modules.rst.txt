@@ -1,0 +1,7 @@
+icecube_tools
+=============
+
+.. toctree::
+   :maxdepth: 4
+
+   icecube_tools

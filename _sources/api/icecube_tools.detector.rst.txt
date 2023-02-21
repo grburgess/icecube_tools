@@ -1,0 +1,23 @@
+icecube\_tools.detector package
+===============================
+
+Submodules
+----------
+
+.. toctree::
+   :maxdepth: 4
+
+   icecube_tools.detector.angular_resolution
+   icecube_tools.detector.detector
+   icecube_tools.detector.effective_area
+   icecube_tools.detector.energy_resolution
+   icecube_tools.detector.r2021
+   icecube_tools.detector.reco_energy_sampler
+
+Module contents
+---------------
+
+.. automodule:: icecube_tools.detector
+   :members:
+   :undoc-members:
+   :show-inheritance:

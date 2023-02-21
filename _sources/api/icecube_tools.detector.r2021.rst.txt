@@ -1,0 +1,7 @@
+icecube\_tools.detector.r2021 module
+====================================
+
+.. automodule:: icecube_tools.detector.r2021
+   :members:
+   :undoc-members:
+   :show-inheritance:

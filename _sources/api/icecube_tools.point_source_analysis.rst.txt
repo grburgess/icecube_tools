@@ -1,0 +1,18 @@
+icecube\_tools.point\_source\_analysis package
+==============================================
+
+Submodules
+----------
+
+.. toctree::
+   :maxdepth: 4
+
+   icecube_tools.point_source_analysis.point_source_analysis
+
+Module contents
+---------------
+
+.. automodule:: icecube_tools.point_source_analysis
+   :members:
+   :undoc-members:
+   :show-inheritance:

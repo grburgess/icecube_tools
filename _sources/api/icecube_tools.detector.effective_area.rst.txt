@@ -1,0 +1,7 @@
+icecube\_tools.detector.effective\_area module
+==============================================
+
+.. automodule:: icecube_tools.detector.effective_area
+   :members:
+   :undoc-members:
+   :show-inheritance:

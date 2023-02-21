@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>API &mdash; icecube_tools v3.2 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="icecube_tools package" href="icecube_tools.html" />
+    <link rel="prev" title="Event classes" href="../notebooks/events.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            icecube_tools
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/public_data_access.html">Data access</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/detector_model.html">Detector model interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/detector_model.html#Effective-area,-angular-resolution-and-energy-resolution-of-earlier-releases">Effective area, angular resolution and energy resolution of earlier releases</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/source_model.html">Source model interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/simulation.html">Simulation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/simulation.html#Time-dependent-simulation">Time dependent simulation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/point_source_likelihood.html">Point source likelihood</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/point_source_likelihood.html#Time-dependent-point-source-analysis">Time dependent point source analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/point_source_analysis.html">MapScan</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/events.html">Event classes</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#icecube-tools">icecube_tools</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="icecube_tools.html">icecube_tools package</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">icecube_tools</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">API</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/api/api.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  
+<style>
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast.container,
+.nboutput.nblast.container {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast.container + .nbinput.container {
+    margin-top: -19px;
+}
+
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+
+/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
+.math {
+    text-align: unset;
+}
+</style>
+<section id="api">
+<h1>API<a class="headerlink" href="#api" title="Permalink to this heading"></a></h1>
+</section>
+<section id="icecube-tools">
+<h1>icecube_tools<a class="headerlink" href="#icecube-tools" title="Permalink to this heading"></a></h1>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="icecube_tools.html">icecube_tools package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="icecube_tools.html#subpackages">Subpackages</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="icecube_tools.detector.html">icecube_tools.detector package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="icecube_tools.detector.html#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="icecube_tools.detector.html#module-icecube_tools.detector">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="icecube_tools.point_source_analysis.html">icecube_tools.point_source_analysis package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="icecube_tools.point_source_analysis.html#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="icecube_tools.point_source_analysis.html#module-icecube_tools.point_source_analysis">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="icecube_tools.point_source_likelihood.html">icecube_tools.point_source_likelihood package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="icecube_tools.point_source_likelihood.html#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="icecube_tools.point_source_likelihood.html#module-icecube_tools.point_source_likelihood">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="icecube_tools.source.html">icecube_tools.source package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="icecube_tools.source.html#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="icecube_tools.source.html#module-icecube_tools.source">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="icecube_tools.utils.html">icecube_tools.utils package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="icecube_tools.utils.html#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="icecube_tools.utils.html#module-icecube_tools.utils">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="icecube_tools.html#submodules">Submodules</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="icecube_tools.cosmology.html">icecube_tools.cosmology module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="icecube_tools.cosmology.html#icecube_tools.cosmology.E_fac"><code class="docutils literal notranslate"><span class="pre">E_fac()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="icecube_tools.cosmology.html#icecube_tools.cosmology.comoving_distance"><code class="docutils literal notranslate"><span class="pre">comoving_distance()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="icecube_tools.cosmology.html#icecube_tools.cosmology.differential_comoving_volume"><code class="docutils literal notranslate"><span class="pre">differential_comoving_volume()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="icecube_tools.cosmology.html#icecube_tools.cosmology.luminosity_distance"><code class="docutils literal notranslate"><span class="pre">luminosity_distance()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="icecube_tools.cosmology.html#icecube_tools.cosmology.phi"><code class="docutils literal notranslate"><span class="pre">phi()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="icecube_tools.cosmology.html#icecube_tools.cosmology.xx"><code class="docutils literal notranslate"><span class="pre">xx()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="icecube_tools.detection_probability.html">icecube_tools.detection_probability module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="icecube_tools.detection_probability.html#icecube_tools.detection_probability.fit_func"><code class="docutils literal notranslate"><span class="pre">fit_func()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="icecube_tools.detection_probability.html#icecube_tools.detection_probability.get_TS_threshold"><code class="docutils literal notranslate"><span class="pre">get_TS_threshold()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="icecube_tools.detection_probability.html#icecube_tools.detection_probability.get_detection_probability"><code class="docutils literal notranslate"><span class="pre">get_detection_probability()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="icecube_tools.detection_probability.html#icecube_tools.detection_probability.get_detection_probability_Braun2008"><code class="docutils literal notranslate"><span class="pre">get_detection_probability_Braun2008()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="icecube_tools.detection_probability.html#icecube_tools.detection_probability.get_simulated_params"><code class="docutils literal notranslate"><span class="pre">get_simulated_params()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="icecube_tools.detection_probability.html#icecube_tools.detection_probability.solve_func"><code class="docutils literal notranslate"><span class="pre">solve_func()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="icecube_tools.neutrino_calculator.html">icecube_tools.neutrino_calculator module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="icecube_tools.neutrino_calculator.html#icecube_tools.neutrino_calculator.NeutrinoCalculator"><code class="docutils literal notranslate"><span class="pre">NeutrinoCalculator</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="icecube_tools.neutrino_calculator.html#icecube_tools.neutrino_calculator.PhiSolver"><code class="docutils literal notranslate"><span class="pre">PhiSolver</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="icecube_tools.neutrino_calculator.html#icecube_tools.neutrino_calculator.zSolver"><code class="docutils literal notranslate"><span class="pre">zSolver</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="icecube_tools.simulator.html">icecube_tools.simulator module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="icecube_tools.simulator.html#icecube_tools.simulator.Braun2008Simulator"><code class="docutils literal notranslate"><span class="pre">Braun2008Simulator</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="icecube_tools.simulator.html#icecube_tools.simulator.Simulator"><code class="docutils literal notranslate"><span class="pre">Simulator</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="icecube_tools.simulator.html#icecube_tools.simulator.TimeDependentSimulator"><code class="docutils literal notranslate"><span class="pre">TimeDependentSimulator</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="icecube_tools.simulator.html#icecube_tools.simulator.lists_to_tuple"><code class="docutils literal notranslate"><span class="pre">lists_to_tuple()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="icecube_tools.simulator.html#icecube_tools.simulator.sphere_sample"><code class="docutils literal notranslate"><span class="pre">sphere_sample()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="icecube_tools.simulator.html#icecube_tools.simulator.spherical_to_icrs"><code class="docutils literal notranslate"><span class="pre">spherical_to_icrs()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="icecube_tools.html#module-icecube_tools">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../notebooks/events.html" class="btn btn-neutral float-left" title="Event classes" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="icecube_tools.html" class="btn btn-neutral float-right" title="icecube_tools package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021, Francesca Capel.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
