@@ -11,10 +11,11 @@
     <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-        <script src="../_static/doctools.js"></script>
-        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=914a23ff"></script>
+        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
@@ -84,52 +85,28 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  
-<style>
-/* CSS overrides for sphinx_rtd_theme */
-
-/* 24px margin */
-.nbinput.nblast.container,
-.nboutput.nblast.container {
-    margin-bottom: 19px;  /* padding has already 5px */
-}
-
-/* ... except between code cells! */
-.nblast.container + .nbinput.container {
-    margin-top: -19px;
-}
-
-.admonition > p:before {
-    margin-right: 4px;  /* make room for the exclamation icon */
-}
-
-/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
-.math {
-    text-align: unset;
-}
-</style>
-<section id="module-icecube_tools.neutrino_calculator">
-<span id="icecube-tools-neutrino-calculator-module"></span><h1>icecube_tools.neutrino_calculator module<a class="headerlink" href="#module-icecube_tools.neutrino_calculator" title="Permalink to this heading"></a></h1>
+  <section id="module-icecube_tools.neutrino_calculator">
+<span id="icecube-tools-neutrino-calculator-module"></span><h1>icecube_tools.neutrino_calculator module<a class="headerlink" href="#module-icecube_tools.neutrino_calculator" title="Link to this heading"></a></h1>
 <dl class="py class">
 <dt class="sig sig-object py" id="icecube_tools.neutrino_calculator.NeutrinoCalculator">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">icecube_tools.neutrino_calculator.</span></span><span class="sig-name descname"><span class="pre">NeutrinoCalculator</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sources</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">effective_area</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#icecube_tools.neutrino_calculator.NeutrinoCalculator" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">icecube_tools.neutrino_calculator.</span></span><span class="sig-name descname"><span class="pre">NeutrinoCalculator</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sources</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">effective_area</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">energy_resolution</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="icecube_tools.point_source_likelihood.energy_likelihood.html#icecube_tools.point_source_likelihood.energy_likelihood.MarginalisedIntegratedEnergyLikelihood" title="icecube_tools.point_source_likelihood.energy_likelihood.MarginalisedIntegratedEnergyLikelihood"><span class="pre">MarginalisedIntegratedEnergyLikelihood</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#icecube_tools.neutrino_calculator.NeutrinoCalculator" title="Link to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>Calculate the expected number of detected neutrinos.</p>
 <dl class="py property">
 <dt class="sig sig-object py" id="icecube_tools.neutrino_calculator.NeutrinoCalculator.effective_area">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">effective_area</span></span><a class="headerlink" href="#icecube_tools.neutrino_calculator.NeutrinoCalculator.effective_area" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">effective_area</span></span><a class="headerlink" href="#icecube_tools.neutrino_calculator.NeutrinoCalculator.effective_area" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py property">
 <dt class="sig sig-object py" id="icecube_tools.neutrino_calculator.NeutrinoCalculator.source">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">source</span></span><a class="headerlink" href="#icecube_tools.neutrino_calculator.NeutrinoCalculator.source" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">source</span></span><a class="headerlink" href="#icecube_tools.neutrino_calculator.NeutrinoCalculator.source" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 </dd></dl>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="icecube_tools.neutrino_calculator.PhiSolver">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">icecube_tools.neutrino_calculator.</span></span><span class="sig-name descname"><span class="pre">PhiSolver</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">effective_area</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Enorm</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">100000.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Emin</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">100.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Emax</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1000000000.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">time</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">min_cosz</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">-1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_cosz</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#icecube_tools.neutrino_calculator.PhiSolver" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">icecube_tools.neutrino_calculator.</span></span><span class="sig-name descname"><span class="pre">PhiSolver</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">effective_area</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Enorm</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">100000.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Emin</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">100.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Emax</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1000000000.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">time</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">min_cosz</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">-1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_cosz</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">energy_resolution</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="icecube_tools.point_source_likelihood.energy_likelihood.html#icecube_tools.point_source_likelihood.energy_likelihood.MarginalisedIntegratedEnergyLikelihood" title="icecube_tools.point_source_likelihood.energy_likelihood.MarginalisedIntegratedEnergyLikelihood"><span class="pre">MarginalisedIntegratedEnergyLikelihood</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#icecube_tools.neutrino_calculator.PhiSolver" title="Link to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>For flexible calculation of point source
 fluxes that give a certain number of expected
@@ -137,14 +114,20 @@ neutrinos in a detector.</p>
 </dd></dl>
 
 <dl class="py class">
+<dt class="sig sig-object py" id="icecube_tools.neutrino_calculator.TimeDependentPhiSolver">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">icecube_tools.neutrino_calculator.</span></span><span class="sig-name descname"><span class="pre">TimeDependentPhiSolver</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">data_periods</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sources</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">eres_dict</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{}</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#icecube_tools.neutrino_calculator.TimeDependentPhiSolver" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+</dd></dl>
+
+<dl class="py class">
 <dt class="sig sig-object py" id="icecube_tools.neutrino_calculator.zSolver">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">icecube_tools.neutrino_calculator.</span></span><span class="sig-name descname"><span class="pre">zSolver</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">Emin</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#icecube_tools.neutrino_calculator.zSolver" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">icecube_tools.neutrino_calculator.</span></span><span class="sig-name descname"><span class="pre">zSolver</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">Emin</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#icecube_tools.neutrino_calculator.zSolver" title="Link to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>To calculate the redshift corresponding to a flux normalisation,
 for a given L and gamma.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="icecube_tools.neutrino_calculator.zSolver.get_L">
-<span class="sig-name descname"><span class="pre">get_L</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">rate</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gamma</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#icecube_tools.neutrino_calculator.zSolver.get_L" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">get_L</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">rate</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gamma</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#icecube_tools.neutrino_calculator.zSolver.get_L" title="Link to this definition"></a></dt>
 <dd><p>Find luminosity for a given rate and index.
 This is useful as comparing constant L plots can be
 misleading.</p>

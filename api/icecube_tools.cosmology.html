@@ -11,10 +11,11 @@
     <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-        <script src="../_static/doctools.js"></script>
-        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=914a23ff"></script>
+        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
@@ -84,35 +85,11 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  
-<style>
-/* CSS overrides for sphinx_rtd_theme */
-
-/* 24px margin */
-.nbinput.nblast.container,
-.nboutput.nblast.container {
-    margin-bottom: 19px;  /* padding has already 5px */
-}
-
-/* ... except between code cells! */
-.nblast.container + .nbinput.container {
-    margin-top: -19px;
-}
-
-.admonition > p:before {
-    margin-right: 4px;  /* make room for the exclamation icon */
-}
-
-/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
-.math {
-    text-align: unset;
-}
-</style>
-<section id="module-icecube_tools.cosmology">
-<span id="icecube-tools-cosmology-module"></span><h1>icecube_tools.cosmology module<a class="headerlink" href="#module-icecube_tools.cosmology" title="Permalink to this heading"></a></h1>
+  <section id="module-icecube_tools.cosmology">
+<span id="icecube-tools-cosmology-module"></span><h1>icecube_tools.cosmology module<a class="headerlink" href="#module-icecube_tools.cosmology" title="Link to this heading"></a></h1>
 <dl class="py function">
 <dt class="sig sig-object py" id="icecube_tools.cosmology.E_fac">
-<span class="sig-prename descclassname"><span class="pre">icecube_tools.cosmology.</span></span><span class="sig-name descname"><span class="pre">E_fac</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">z</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#icecube_tools.cosmology.E_fac" title="Permalink to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">icecube_tools.cosmology.</span></span><span class="sig-name descname"><span class="pre">E_fac</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">z</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#icecube_tools.cosmology.E_fac" title="Link to this definition"></a></dt>
 <dd><p>E(z) = sqrt(Om * (1+z)^3)</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -128,7 +105,7 @@
 
 <dl class="py function">
 <dt class="sig sig-object py" id="icecube_tools.cosmology.comoving_distance">
-<span class="sig-prename descclassname"><span class="pre">icecube_tools.cosmology.</span></span><span class="sig-name descname"><span class="pre">comoving_distance</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">z</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#icecube_tools.cosmology.comoving_distance" title="Permalink to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">icecube_tools.cosmology.</span></span><span class="sig-name descname"><span class="pre">comoving_distance</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">z</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#icecube_tools.cosmology.comoving_distance" title="Link to this definition"></a></dt>
 <dd><p>Comoving distance.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -144,7 +121,7 @@
 
 <dl class="py function">
 <dt class="sig sig-object py" id="icecube_tools.cosmology.differential_comoving_volume">
-<span class="sig-prename descclassname"><span class="pre">icecube_tools.cosmology.</span></span><span class="sig-name descname"><span class="pre">differential_comoving_volume</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">z</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#icecube_tools.cosmology.differential_comoving_volume" title="Permalink to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">icecube_tools.cosmology.</span></span><span class="sig-name descname"><span class="pre">differential_comoving_volume</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">z</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#icecube_tools.cosmology.differential_comoving_volume" title="Link to this definition"></a></dt>
 <dd><p>Differential comoving volume.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -161,7 +138,7 @@
 
 <dl class="py function">
 <dt class="sig sig-object py" id="icecube_tools.cosmology.luminosity_distance">
-<span class="sig-prename descclassname"><span class="pre">icecube_tools.cosmology.</span></span><span class="sig-name descname"><span class="pre">luminosity_distance</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">z</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#icecube_tools.cosmology.luminosity_distance" title="Permalink to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">icecube_tools.cosmology.</span></span><span class="sig-name descname"><span class="pre">luminosity_distance</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">z</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#icecube_tools.cosmology.luminosity_distance" title="Link to this definition"></a></dt>
 <dd><p>Luminosity distance based on approximation used in Adachi &amp; Kasai 2012.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -178,14 +155,14 @@
 
 <dl class="py function">
 <dt class="sig sig-object py" id="icecube_tools.cosmology.phi">
-<span class="sig-prename descclassname"><span class="pre">icecube_tools.cosmology.</span></span><span class="sig-name descname"><span class="pre">phi</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#icecube_tools.cosmology.phi" title="Permalink to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">icecube_tools.cosmology.</span></span><span class="sig-name descname"><span class="pre">phi</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#icecube_tools.cosmology.phi" title="Link to this definition"></a></dt>
 <dd><p>Helper function for the computation of
 <a class="reference internal" href="#icecube_tools.cosmology.luminosity_distance" title="icecube_tools.cosmology.luminosity_distance"><code class="xref py py-func docutils literal notranslate"><span class="pre">icecube_tools.cosmology.luminosity_distance()</span></code></a>.</p>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="icecube_tools.cosmology.xx">
-<span class="sig-prename descclassname"><span class="pre">icecube_tools.cosmology.</span></span><span class="sig-name descname"><span class="pre">xx</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">z</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#icecube_tools.cosmology.xx" title="Permalink to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">icecube_tools.cosmology.</span></span><span class="sig-name descname"><span class="pre">xx</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">z</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#icecube_tools.cosmology.xx" title="Link to this definition"></a></dt>
 <dd><p>Helper function for the computation of
 <a class="reference internal" href="#icecube_tools.cosmology.luminosity_distance" title="icecube_tools.cosmology.luminosity_distance"><code class="xref py py-func docutils literal notranslate"><span class="pre">icecube_tools.cosmology.luminosity_distance()</span></code></a>.</p>
 </dd></dl>

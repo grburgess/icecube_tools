@@ -11,10 +11,11 @@
     <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-        <script src="../_static/doctools.js"></script>
-        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=914a23ff"></script>
+        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
@@ -84,37 +85,18 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  
-<style>
-/* CSS overrides for sphinx_rtd_theme */
-
-/* 24px margin */
-.nbinput.nblast.container,
-.nboutput.nblast.container {
-    margin-bottom: 19px;  /* padding has already 5px */
-}
-
-/* ... except between code cells! */
-.nblast.container + .nbinput.container {
-    margin-top: -19px;
-}
-
-.admonition > p:before {
-    margin-right: 4px;  /* make room for the exclamation icon */
-}
-
-/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
-.math {
-    text-align: unset;
-}
-</style>
-<section id="icecube-tools-point-source-likelihood-package">
-<h1>icecube_tools.point_source_likelihood package<a class="headerlink" href="#icecube-tools-point-source-likelihood-package" title="Permalink to this heading"></a></h1>
+  <section id="icecube-tools-point-source-likelihood-package">
+<h1>icecube_tools.point_source_likelihood package<a class="headerlink" href="#icecube-tools-point-source-likelihood-package" title="Link to this heading"></a></h1>
 <section id="submodules">
-<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this heading"></a></h2>
+<h2>Submodules<a class="headerlink" href="#submodules" title="Link to this heading"></a></h2>
 <div class="toctree-wrapper compound">
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="icecube_tools.point_source_likelihood.energy_likelihood.html">icecube_tools.point_source_likelihood.energy_likelihood module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="icecube_tools.point_source_likelihood.energy_likelihood.html#icecube_tools.point_source_likelihood.energy_likelihood.DataDrivenBackgroundEnergyLikelihood"><code class="docutils literal notranslate"><span class="pre">DataDrivenBackgroundEnergyLikelihood</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="icecube_tools.point_source_likelihood.energy_likelihood.html#icecube_tools.point_source_likelihood.energy_likelihood.DataDrivenBackgroundEnergyLikelihood.make_hist"><code class="docutils literal notranslate"><span class="pre">DataDrivenBackgroundEnergyLikelihood.make_hist()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="icecube_tools.point_source_likelihood.energy_likelihood.html#icecube_tools.point_source_likelihood.energy_likelihood.DataDrivenBackgroundEnergyLikelihood.sample"><code class="docutils literal notranslate"><span class="pre">DataDrivenBackgroundEnergyLikelihood.sample()</span></code></a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="icecube_tools.point_source_likelihood.energy_likelihood.html#icecube_tools.point_source_likelihood.energy_likelihood.MarginalisedEnergyLikelihood"><code class="docutils literal notranslate"><span class="pre">MarginalisedEnergyLikelihood</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="icecube_tools.point_source_likelihood.energy_likelihood.html#icecube_tools.point_source_likelihood.energy_likelihood.MarginalisedEnergyLikelihood2021"><code class="docutils literal notranslate"><span class="pre">MarginalisedEnergyLikelihood2021</span></code></a><ul>
 <li class="toctree-l3"><a class="reference internal" href="icecube_tools.point_source_likelihood.energy_likelihood.html#icecube_tools.point_source_likelihood.energy_likelihood.MarginalisedEnergyLikelihood2021.calc_loglike"><code class="docutils literal notranslate"><span class="pre">MarginalisedEnergyLikelihood2021.calc_loglike()</span></code></a></li>
@@ -132,6 +114,7 @@
 </li>
 <li class="toctree-l2"><a class="reference internal" href="icecube_tools.point_source_likelihood.energy_likelihood.html#icecube_tools.point_source_likelihood.energy_likelihood.MarginalisedIntegratedEnergyLikelihood"><code class="docutils literal notranslate"><span class="pre">MarginalisedIntegratedEnergyLikelihood</span></code></a><ul>
 <li class="toctree-l3"><a class="reference internal" href="icecube_tools.point_source_likelihood.energy_likelihood.html#icecube_tools.point_source_likelihood.energy_likelihood.MarginalisedIntegratedEnergyLikelihood.integrated_power_law"><code class="docutils literal notranslate"><span class="pre">MarginalisedIntegratedEnergyLikelihood.integrated_power_law()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="icecube_tools.point_source_likelihood.energy_likelihood.html#icecube_tools.point_source_likelihood.energy_likelihood.MarginalisedIntegratedEnergyLikelihood.p_det_above_threshold"><code class="docutils literal notranslate"><span class="pre">MarginalisedIntegratedEnergyLikelihood.p_det_above_threshold()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="icecube_tools.point_source_likelihood.energy_likelihood.html#icecube_tools.point_source_likelihood.energy_likelihood.MarginalisedIntegratedEnergyLikelihood.power_law_loge"><code class="docutils literal notranslate"><span class="pre">MarginalisedIntegratedEnergyLikelihood.power_law_loge()</span></code></a></li>
 </ul>
 </li>
@@ -145,8 +128,10 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="icecube_tools.point_source_likelihood.point_source_likelihood.html#icecube_tools.point_source_likelihood.point_source_likelihood.PointSourceLikelihood"><code class="docutils literal notranslate"><span class="pre">PointSourceLikelihood</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="icecube_tools.point_source_likelihood.point_source_likelihood.html#icecube_tools.point_source_likelihood.point_source_likelihood.PointSourceLikelihood.angular_distance"><code class="docutils literal notranslate"><span class="pre">PointSourceLikelihood.angular_distance()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="icecube_tools.point_source_likelihood.point_source_likelihood.html#icecube_tools.point_source_likelihood.point_source_likelihood.PointSourceLikelihood.get_test_statistic"><code class="docutils literal notranslate"><span class="pre">PointSourceLikelihood.get_test_statistic()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="icecube_tools.point_source_likelihood.point_source_likelihood.html#icecube_tools.point_source_likelihood.point_source_likelihood.PointSourceLikelihood.source_coord"><code class="docutils literal notranslate"><span class="pre">PointSourceLikelihood.source_coord</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="icecube_tools.point_source_likelihood.point_source_likelihood.html#icecube_tools.point_source_likelihood.point_source_likelihood.PointSourceLikelihood.update_events"><code class="docutils literal notranslate"><span class="pre">PointSourceLikelihood.update_events()</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="icecube_tools.point_source_likelihood.point_source_likelihood.html#icecube_tools.point_source_likelihood.point_source_likelihood.SimplePointSourceLikelihood"><code class="docutils literal notranslate"><span class="pre">SimplePointSourceLikelihood</span></code></a></li>
@@ -163,6 +148,7 @@
 <li class="toctree-l3"><a class="reference internal" href="icecube_tools.point_source_likelihood.point_source_likelihood.html#icecube_tools.point_source_likelihood.point_source_likelihood.TimeDependentPointSourceLikelihood.Ntot"><code class="docutils literal notranslate"><span class="pre">TimeDependentPointSourceLikelihood.Ntot</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="icecube_tools.point_source_likelihood.point_source_likelihood.html#icecube_tools.point_source_likelihood.point_source_likelihood.TimeDependentPointSourceLikelihood.Ntot_dict"><code class="docutils literal notranslate"><span class="pre">TimeDependentPointSourceLikelihood.Ntot_dict</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="icecube_tools.point_source_likelihood.point_source_likelihood.html#icecube_tools.point_source_likelihood.point_source_likelihood.TimeDependentPointSourceLikelihood.get_test_statistic"><code class="docutils literal notranslate"><span class="pre">TimeDependentPointSourceLikelihood.get_test_statistic()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="icecube_tools.point_source_likelihood.point_source_likelihood.html#icecube_tools.point_source_likelihood.point_source_likelihood.TimeDependentPointSourceLikelihood.ns_to_flux"><code class="docutils literal notranslate"><span class="pre">TimeDependentPointSourceLikelihood.ns_to_flux()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="icecube_tools.point_source_likelihood.point_source_likelihood.html#icecube_tools.point_source_likelihood.point_source_likelihood.TimeDependentPointSourceLikelihood.reset_events"><code class="docutils literal notranslate"><span class="pre">TimeDependentPointSourceLikelihood.reset_events()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="icecube_tools.point_source_likelihood.point_source_likelihood.html#icecube_tools.point_source_likelihood.point_source_likelihood.TimeDependentPointSourceLikelihood.source_coord"><code class="docutils literal notranslate"><span class="pre">TimeDependentPointSourceLikelihood.source_coord</span></code></a></li>
 </ul>
@@ -175,6 +161,7 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="icecube_tools.point_source_likelihood.spatial_likelihood.html">icecube_tools.point_source_likelihood.spatial_likelihood module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="icecube_tools.point_source_likelihood.spatial_likelihood.html#icecube_tools.point_source_likelihood.spatial_likelihood.DataDrivenBackgroundSpatialLikelihood"><code class="docutils literal notranslate"><span class="pre">DataDrivenBackgroundSpatialLikelihood</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="icecube_tools.point_source_likelihood.spatial_likelihood.html#icecube_tools.point_source_likelihood.spatial_likelihood.EnergyDependentSpatialGaussianLikelihood"><code class="docutils literal notranslate"><span class="pre">EnergyDependentSpatialGaussianLikelihood</span></code></a><ul>
 <li class="toctree-l3"><a class="reference internal" href="icecube_tools.point_source_likelihood.spatial_likelihood.html#icecube_tools.point_source_likelihood.spatial_likelihood.EnergyDependentSpatialGaussianLikelihood.get_low_res"><code class="docutils literal notranslate"><span class="pre">EnergyDependentSpatialGaussianLikelihood.get_low_res()</span></code></a></li>
 </ul>
@@ -188,7 +175,7 @@
 </div>
 </section>
 <section id="module-icecube_tools.point_source_likelihood">
-<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-icecube_tools.point_source_likelihood" title="Permalink to this heading"></a></h2>
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-icecube_tools.point_source_likelihood" title="Link to this heading"></a></h2>
 </section>
 </section>
 

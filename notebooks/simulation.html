@@ -7,14 +7,16 @@
   <title>Simulation &mdash; icecube_tools v3.2 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/nbsphinx-code-cells.css" type="text/css" />
   <!--[if lt IE 9]>
     <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-        <script src="../_static/doctools.js"></script>
-        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=914a23ff"></script>
+        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
         <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
         <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
@@ -89,287 +91,8 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  
-<style>
-/* CSS for nbsphinx extension */
-
-/* remove conflicting styling from Sphinx themes */
-div.nbinput.container div.prompt *,
-div.nboutput.container div.prompt *,
-div.nbinput.container div.input_area pre,
-div.nboutput.container div.output_area pre,
-div.nbinput.container div.input_area .highlight,
-div.nboutput.container div.output_area .highlight {
-    border: none;
-    padding: 0;
-    margin: 0;
-    box-shadow: none;
-}
-
-div.nbinput.container > div[class*=highlight],
-div.nboutput.container > div[class*=highlight] {
-    margin: 0;
-}
-
-div.nbinput.container div.prompt *,
-div.nboutput.container div.prompt * {
-    background: none;
-}
-
-div.nboutput.container div.output_area .highlight,
-div.nboutput.container div.output_area pre {
-    background: unset;
-}
-
-div.nboutput.container div.output_area div.highlight {
-    color: unset;  /* override Pygments text color */
-}
-
-/* avoid gaps between output lines */
-div.nboutput.container div[class*=highlight] pre {
-    line-height: normal;
-}
-
-/* input/output containers */
-div.nbinput.container,
-div.nboutput.container {
-    display: -webkit-flex;
-    display: flex;
-    align-items: flex-start;
-    margin: 0;
-    width: 100%;
-}
-@media (max-width: 540px) {
-    div.nbinput.container,
-    div.nboutput.container {
-        flex-direction: column;
-    }
-}
-
-/* input container */
-div.nbinput.container {
-    padding-top: 5px;
-}
-
-/* last container */
-div.nblast.container {
-    padding-bottom: 5px;
-}
-
-/* input prompt */
-div.nbinput.container div.prompt pre {
-    color: #307FC1;
-}
-
-/* output prompt */
-div.nboutput.container div.prompt pre {
-    color: #BF5B3D;
-}
-
-/* all prompts */
-div.nbinput.container div.prompt,
-div.nboutput.container div.prompt {
-    width: 4.5ex;
-    padding-top: 5px;
-    position: relative;
-    user-select: none;
-}
-
-div.nbinput.container div.prompt > div,
-div.nboutput.container div.prompt > div {
-    position: absolute;
-    right: 0;
-    margin-right: 0.3ex;
-}
-
-@media (max-width: 540px) {
-    div.nbinput.container div.prompt,
-    div.nboutput.container div.prompt {
-        width: unset;
-        text-align: left;
-        padding: 0.4em;
-    }
-    div.nboutput.container div.prompt.empty {
-        padding: 0;
-    }
-
-    div.nbinput.container div.prompt > div,
-    div.nboutput.container div.prompt > div {
-        position: unset;
-    }
-}
-
-/* disable scrollbars and line breaks on prompts */
-div.nbinput.container div.prompt pre,
-div.nboutput.container div.prompt pre {
-    overflow: hidden;
-    white-space: pre;
-}
-
-/* input/output area */
-div.nbinput.container div.input_area,
-div.nboutput.container div.output_area {
-    -webkit-flex: 1;
-    flex: 1;
-    overflow: auto;
-}
-@media (max-width: 540px) {
-    div.nbinput.container div.input_area,
-    div.nboutput.container div.output_area {
-        width: 100%;
-    }
-}
-
-/* input area */
-div.nbinput.container div.input_area {
-    border: 1px solid #e0e0e0;
-    border-radius: 2px;
-    /*background: #f5f5f5;*/
-}
-
-/* override MathJax center alignment in output cells */
-div.nboutput.container div[class*=MathJax] {
-    text-align: left !important;
-}
-
-/* override sphinx.ext.imgmath center alignment in output cells */
-div.nboutput.container div.math p {
-    text-align: left;
-}
-
-/* standard error */
-div.nboutput.container div.output_area.stderr {
-    background: #fdd;
-}
-
-/* ANSI colors */
-.ansi-black-fg { color: #3E424D; }
-.ansi-black-bg { background-color: #3E424D; }
-.ansi-black-intense-fg { color: #282C36; }
-.ansi-black-intense-bg { background-color: #282C36; }
-.ansi-red-fg { color: #E75C58; }
-.ansi-red-bg { background-color: #E75C58; }
-.ansi-red-intense-fg { color: #B22B31; }
-.ansi-red-intense-bg { background-color: #B22B31; }
-.ansi-green-fg { color: #00A250; }
-.ansi-green-bg { background-color: #00A250; }
-.ansi-green-intense-fg { color: #007427; }
-.ansi-green-intense-bg { background-color: #007427; }
-.ansi-yellow-fg { color: #DDB62B; }
-.ansi-yellow-bg { background-color: #DDB62B; }
-.ansi-yellow-intense-fg { color: #B27D12; }
-.ansi-yellow-intense-bg { background-color: #B27D12; }
-.ansi-blue-fg { color: #208FFB; }
-.ansi-blue-bg { background-color: #208FFB; }
-.ansi-blue-intense-fg { color: #0065CA; }
-.ansi-blue-intense-bg { background-color: #0065CA; }
-.ansi-magenta-fg { color: #D160C4; }
-.ansi-magenta-bg { background-color: #D160C4; }
-.ansi-magenta-intense-fg { color: #A03196; }
-.ansi-magenta-intense-bg { background-color: #A03196; }
-.ansi-cyan-fg { color: #60C6C8; }
-.ansi-cyan-bg { background-color: #60C6C8; }
-.ansi-cyan-intense-fg { color: #258F8F; }
-.ansi-cyan-intense-bg { background-color: #258F8F; }
-.ansi-white-fg { color: #C5C1B4; }
-.ansi-white-bg { background-color: #C5C1B4; }
-.ansi-white-intense-fg { color: #A1A6B2; }
-.ansi-white-intense-bg { background-color: #A1A6B2; }
-
-.ansi-default-inverse-fg { color: #FFFFFF; }
-.ansi-default-inverse-bg { background-color: #000000; }
-
-.ansi-bold { font-weight: bold; }
-.ansi-underline { text-decoration: underline; }
-
-
-div.nbinput.container div.input_area div[class*=highlight] > pre,
-div.nboutput.container div.output_area div[class*=highlight] > pre,
-div.nboutput.container div.output_area div[class*=highlight].math,
-div.nboutput.container div.output_area.rendered_html,
-div.nboutput.container div.output_area > div.output_javascript,
-div.nboutput.container div.output_area:not(.rendered_html) > img{
-    padding: 5px;
-    margin: 0;
-}
-
-/* fix copybtn overflow problem in chromium (needed for 'sphinx_copybutton') */
-div.nbinput.container div.input_area > div[class^='highlight'],
-div.nboutput.container div.output_area > div[class^='highlight']{
-    overflow-y: hidden;
-}
-
-/* hide copybtn icon on prompts (needed for 'sphinx_copybutton') */
-.prompt .copybtn {
-    display: none;
-}
-
-/* Some additional styling taken form the Jupyter notebook CSS */
-.jp-RenderedHTMLCommon table,
-div.rendered_html table {
-  border: none;
-  border-collapse: collapse;
-  border-spacing: 0;
-  color: black;
-  font-size: 12px;
-  table-layout: fixed;
-}
-.jp-RenderedHTMLCommon thead,
-div.rendered_html thead {
-  border-bottom: 1px solid black;
-  vertical-align: bottom;
-}
-.jp-RenderedHTMLCommon tr,
-.jp-RenderedHTMLCommon th,
-.jp-RenderedHTMLCommon td,
-div.rendered_html tr,
-div.rendered_html th,
-div.rendered_html td {
-  text-align: right;
-  vertical-align: middle;
-  padding: 0.5em 0.5em;
-  line-height: normal;
-  white-space: normal;
-  max-width: none;
-  border: none;
-}
-.jp-RenderedHTMLCommon th,
-div.rendered_html th {
-  font-weight: bold;
-}
-.jp-RenderedHTMLCommon tbody tr:nth-child(odd),
-div.rendered_html tbody tr:nth-child(odd) {
-  background: #f5f5f5;
-}
-.jp-RenderedHTMLCommon tbody tr:hover,
-div.rendered_html tbody tr:hover {
-  background: rgba(66, 165, 245, 0.2);
-}
-
-/* CSS overrides for sphinx_rtd_theme */
-
-/* 24px margin */
-.nbinput.nblast.container,
-.nboutput.nblast.container {
-    margin-bottom: 19px;  /* padding has already 5px */
-}
-
-/* ... except between code cells! */
-.nblast.container + .nbinput.container {
-    margin-top: -19px;
-}
-
-.admonition > p:before {
-    margin-right: 4px;  /* make room for the exclamation icon */
-}
-
-/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
-.math {
-    text-align: unset;
-}
-</style>
-<section id="Simulation">
-<h1>Simulation<a class="headerlink" href="#Simulation" title="Permalink to this heading"></a></h1>
+  <section id="Simulation">
+<h1>Simulation<a class="headerlink" href="#Simulation" title="Link to this heading"></a></h1>
 <p>We can bring together the detector and source modelling to calculate the expected number of neutrino events and run simulations.</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
@@ -384,7 +107,7 @@ div.rendered_html tbody tr:hover {
 </div>
 </div>
 <section id="Defining-a-source-and-detector-model">
-<h2>Defining a source and detector model<a class="headerlink" href="#Defining-a-source-and-detector-model" title="Permalink to this heading"></a></h2>
+<h2>Defining a source and detector model<a class="headerlink" href="#Defining-a-source-and-detector-model" title="Link to this heading"></a></h2>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
 </pre></div>
@@ -439,7 +162,7 @@ div.rendered_html tbody tr:hover {
 </div>
 </section>
 <section id="Expected-number-of-neutrino-events">
-<h2>Expected number of neutrino events<a class="headerlink" href="#Expected-number-of-neutrino-events" title="Permalink to this heading"></a></h2>
+<h2>Expected number of neutrino events<a class="headerlink" href="#Expected-number-of-neutrino-events" title="Link to this heading"></a></h2>
 <p>Sometimes we just want to predict the number of events from sources in a detector without specifying all detector properties or running a simulation. We can do this with the <code class="docutils literal notranslate"><span class="pre">NeutrinoCalculator</span></code>. For this, we just need a source list and an effective area.</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
@@ -470,7 +193,7 @@ div.rendered_html tbody tr:hover {
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-[185.18577999563072, 24.514085562926446]
+[185.18577999134666, 24.51408397397894]
 </pre></div></div>
 </div>
 <p>The calculator returns a list of expected neutrino event numbers, one for each source.</p>
@@ -492,7 +215,7 @@ div.rendered_html tbody tr:hover {
 </div>
 <div class="output_area stderr docutils container">
 <div class="highlight"><pre>
-/opt/hostedtoolcache/Python/3.9.16/x64/lib/python3.9/site-packages/scipy/optimize/_minpack_py.py:178: RuntimeWarning: The iteration is not making good progress, as measured by the
+/opt/hostedtoolcache/Python/3.9.17/x64/lib/python3.9/site-packages/scipy/optimize/_minpack_py.py:177: RuntimeWarning: The iteration is not making good progress, as measured by the
   improvement from the last ten iterations.
   warnings.warn(msg, RuntimeWarning)
 </pre></div></div>
@@ -503,12 +226,12 @@ div.rendered_html tbody tr:hover {
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-1.1263915034742588e-17
+1.1444338237452659e-17
 </pre></div></div>
 </div>
 </section>
 <section id="Set-up-and-run-simulation">
-<h2>Set up and run simulation<a class="headerlink" href="#Set-up-and-run-simulation" title="Permalink to this heading"></a></h2>
+<h2>Set up and run simulation<a class="headerlink" href="#Set-up-and-run-simulation" title="Link to this heading"></a></h2>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
 </pre></div>
@@ -536,7 +259,7 @@ div.rendered_html tbody tr:hover {
 <div class="output_area stderr docutils container">
 <div class="highlight"><pre>
 Resetting rng
-Sampling: 100%|██████████| 204/204 [00:02&lt;00:00, 74.41it/s]
+Sampling: 100%|██████████| 204/204 [00:01&lt;00:00, 129.76it/s]
 </pre></div></div>
 </div>
 <p>This way, the simulator calculates the expected number of neutrinos from these sources given the observation period, effective area and relevant source properties. We note that we could also run a simulation for a fixed number of neutrinos if we want, simply by passing the optional argument <code class="docutils literal notranslate"><span class="pre">N</span></code> to <code class="docutils literal notranslate"><span class="pre">simulator.run()</span></code>.</p>
@@ -567,52 +290,52 @@ Sampling: 100%|██████████| 204/204 [00:02&lt;00:00, 74.41it/
         1.55148412e+03, 2.65048351e+02, 1.58823383e+02, 1.15940566e+03,
         1.51603933e+02, 1.75155020e+02, 1.03268577e+02, 4.28410295e+02,
         8.98147427e+02, 7.58773870e+02, 6.71234648e+02, 2.58801769e+03,
-        3.14632116e+02, 5.38505911e+02, 3.97374350e+02, 1.62723177e+03,
-        2.67854713e+02, 2.70530741e+02, 7.70529405e+02, 3.11075540e+03,
-        1.81460670e+02, 5.40258039e+02, 1.64259728e+03, 5.75003650e+02,
-        1.26075824e+02, 4.85847409e+02, 2.82589224e+02, 7.96531291e+02,
-        1.82201472e+02, 2.92805711e+02, 3.46598724e+03, 1.65938649e+03,
-        3.55002367e+02, 6.77278871e+02, 6.13118787e+02, 6.89669017e+02,
-        1.89599680e+02, 3.29083688e+02, 7.65201578e+02, 5.92951977e+02,
-        1.23201044e+02, 1.89469848e+02, 1.13214053e+03, 3.01162303e+02,
-        3.64580129e+02, 8.15601770e+02, 4.70529693e+02, 2.02309186e+03,
-        2.05857939e+02, 4.91791232e+02, 2.87311325e+03, 8.21048861e+02,
-        3.91184938e+02, 4.30137055e+02, 5.29922706e+02, 1.00996620e+03,
-        2.38449683e+02, 1.02752455e+02, 4.23989510e+02, 1.05066750e+03,
-        1.95056355e+02, 1.07369025e+03, 2.70848742e+02, 3.18249906e+02,
-        1.71764214e+03, 1.59613947e+02, 1.37478269e+02, 1.94141437e+02,
-        4.18211025e+02, 1.27672800e+02, 1.08949260e+02, 1.63544282e+02,
-        6.85499242e+02, 1.84326964e+02, 2.05133385e+02, 1.17666210e+03,
-        7.05352860e+02, 2.21446363e+03, 2.01502670e+03, 8.79407962e+02,
-        4.40316998e+03, 2.53375474e+03, 1.54376790e+03, 1.08136805e+03,
-        3.68466551e+02, 2.64817571e+03, 1.59717932e+03, 1.22745212e+03,
-        7.65861056e+02, 5.37127551e+02, 1.41923310e+03, 1.59390963e+02,
-        2.77473906e+03, 2.19652298e+02, 3.42252044e+02, 6.70479213e+02,
-        1.10436384e+02, 2.77288345e+02, 4.70209566e+03, 1.17712691e+03,
-        4.32041866e+02, 2.42537709e+02, 1.01314289e+03, 9.05912018e+03,
-        7.39467551e+02, 3.41565543e+02, 5.17477369e+03, 3.71347583e+03,
-        3.23357371e+02, 4.51528603e+02, 1.04352750e+03, 6.39632012e+03,
-        6.40531654e+02, 4.60792627e+02, 6.08783284e+02, 1.15210766e+03,
-        2.51840914e+02, 5.27568582e+02, 3.65572310e+02, 2.77826546e+02,
-        4.29059200e+03, 5.26348947e+02, 1.05541561e+03, 2.21413634e+02,
-        2.19357897e+02, 6.41860702e+02, 5.82442097e+02, 6.53618668e+02,
-        3.00471612e+02, 2.28235261e+02, 2.73136020e+02, 1.70293876e+02,
-        4.18007659e+02, 5.09273733e+02, 1.00042466e+03, 4.01359599e+02,
-        1.60565717e+03, 7.59810670e+02, 1.13569750e+03, 3.56077995e+02,
-        1.49788565e+02, 3.51375264e+02, 1.45843944e+02, 1.35379004e+03,
-        3.38255530e+02, 4.32458488e+02, 5.92388998e+02, 4.91396382e+02,
-        6.04551411e+02, 9.05194302e+02, 2.16493903e+02, 4.37172069e+02,
-        4.77975439e+02, 1.47892788e+03, 4.53852893e+02, 9.04913521e+02,
-        1.14871441e+03, 5.66528707e+02, 1.05478475e+03, 4.52292923e+02,
-        1.71851377e+02, 5.77266445e+03, 2.58710470e+03, 1.11650640e+02,
-        4.70778073e+02, 2.75845792e+02, 2.10638110e+02, 1.40116908e+03,
-        2.89858082e+02, 6.72511978e+02, 8.90762649e+03, 1.53453338e+03,
-        1.59749785e+05, 2.09796322e+03, 2.98033901e+03, 8.80871324e+03,
-        3.35833694e+02, 9.29094004e+04, 2.94160476e+02, 1.09173386e+04,
-        9.42745008e+03, 2.02827753e+03, 7.91925136e+03, 1.00908484e+04,
-        2.33238637e+03, 5.29891770e+04, 1.67900626e+03, 1.74840132e+03,
-        3.41649982e+02, 4.10342640e+02, 8.15988127e+03, 7.41030425e+02,
-        1.23042915e+03, 1.83331443e+04, 7.60556927e+03, 3.16304367e+03])}
+        3.14632116e+02, 5.38505911e+02, 1.62723177e+03, 2.67854713e+02,
+        2.70530741e+02, 9.34743516e+02, 1.81460670e+02, 5.40258039e+02,
+        6.55468755e+02, 5.75003650e+02, 1.26075824e+02, 4.85847409e+02,
+        2.82589224e+02, 7.96531291e+02, 4.12075792e+02, 3.12642591e+02,
+        1.65938649e+03, 6.77278871e+02, 4.99813029e+02, 6.13118787e+02,
+        3.37696378e+02, 7.65201578e+02, 5.92951977e+02, 1.23201044e+02,
+        1.89469848e+02, 1.13214053e+03, 4.72584760e+02, 1.31327456e+02,
+        1.02745485e+03, 4.91791232e+02, 9.44514953e+02, 2.87311325e+03,
+        8.21048861e+02, 3.91184938e+02, 4.30137055e+02, 5.29922706e+02,
+        4.00587635e+02, 5.29919795e+02, 8.76724899e+02, 1.48299500e+02,
+        5.72771988e+02, 8.36602314e+02, 1.14681697e+04, 2.44752024e+02,
+        3.22245652e+02, 1.02005339e+03, 3.18125764e+02, 1.66246099e+03,
+        8.74941849e+02, 1.36462011e+03, 1.07369025e+03, 2.70848742e+02,
+        3.18249906e+02, 1.71764214e+03, 4.08723343e+03, 3.58361899e+02,
+        1.37478269e+02, 2.97152214e+02, 1.94141437e+02, 5.22309151e+02,
+        1.83344084e+02, 2.05133385e+02, 1.17666210e+03, 1.75173781e+03,
+        4.17638181e+02, 2.93957666e+02, 5.93200498e+02, 1.75312242e+02,
+        1.83150316e+02, 1.06684211e+03, 1.72164010e+02, 1.35537496e+03,
+        5.13959376e+02, 1.70974415e+03, 6.70479213e+02, 7.40572983e+02,
+        1.10229533e+02, 2.99456764e+03, 6.86612595e+02, 2.55393545e+03,
+        3.72667504e+02, 1.29488188e+02, 6.31630310e+02, 1.02579774e+03,
+        3.29540598e+02, 4.25228671e+02, 6.77594815e+02, 4.44957907e+02,
+        6.97754095e+03, 2.37937436e+02, 1.28082738e+03, 1.41709525e+02,
+        3.98169839e+02, 4.05308978e+02, 3.46877306e+02, 1.57425592e+02,
+        1.98626686e+02, 2.97095507e+02, 1.20618178e+02, 1.01980968e+02,
+        6.20139953e+02, 3.19540816e+02, 2.10449500e+02, 1.13580156e+03,
+        8.41845940e+02, 1.96038638e+02, 1.06209981e+03, 5.45361725e+02,
+        1.84471257e+02, 7.99520893e+02, 4.40335942e+02, 6.93721148e+02,
+        7.28053940e+02, 2.21926825e+02, 2.61556126e+02, 1.65237017e+02,
+        5.71202456e+02, 1.09426097e+02, 3.23701588e+02, 3.19474690e+02,
+        2.40385568e+02, 1.78635264e+02, 1.19881449e+03, 2.63517743e+02,
+        4.06868552e+02, 2.66571987e+02, 2.01011583e+02, 1.37241110e+03,
+        6.67508730e+02, 8.01605148e+03, 2.32136932e+02, 1.59438339e+03,
+        1.05395523e+03, 2.28668902e+03, 1.35765084e+03, 5.24799053e+02,
+        4.93518719e+02, 6.90747069e+02, 4.89414748e+02, 1.25429843e+03,
+        2.20727361e+03, 5.46678073e+03, 1.40921377e+03, 2.64497075e+02,
+        3.99558627e+03, 2.56225571e+02, 1.32036801e+02, 1.03610586e+03,
+        1.02781888e+02, 4.42497604e+02, 1.81710343e+03, 7.45241154e+02,
+        2.92215226e+02, 1.93830572e+02, 8.00767434e+02, 3.79451176e+03,
+        4.34868956e+02, 8.32340317e+02, 2.10793287e+03, 5.52735286e+03,
+        1.48117020e+04, 3.11953075e+03, 2.12032186e+02, 2.03660542e+03,
+        5.67091277e+03, 5.36020601e+04, 3.68926783e+03, 1.70175266e+05,
+        1.91436414e+03, 4.04042977e+03, 2.89062509e+03, 1.64153158e+03,
+        2.64551029e+03, 6.91903387e+04, 3.50694462e+03, 3.13186643e+04,
+        5.84675136e+03, 1.10803981e+03, 2.12842765e+05, 4.19174300e+02,
+        4.27329763e+02, 2.77406889e+03, 2.47314709e+03, 4.91004812e+04])}
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
@@ -725,7 +448,7 @@ dict_keys([&#39;true_energy&#39;, &#39;reco_energy&#39;, &#39;arrival_energy&#39
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-&lt;matplotlib.legend.Legend at 0x7f37a6109d90&gt;
+&lt;matplotlib.legend.Legend at 0x7f4254317850&gt;
 </pre></div></div>
 </div>
 <div class="nboutput nblast docutils container">
@@ -783,7 +506,7 @@ dict_keys([&#39;true_energy&#39;, &#39;reco_energy&#39;, &#39;arrival_energy&#39
 </section>
 </section>
 <section id="Time-dependent-simulation">
-<h1>Time dependent simulation<a class="headerlink" href="#Time-dependent-simulation" title="Permalink to this heading"></a></h1>
+<h1>Time dependent simulation<a class="headerlink" href="#Time-dependent-simulation" title="Link to this heading"></a></h1>
 <p>We can simulate an observation campaign spanning multiple data periods of IceCube through a “meta class” <code class="docutils literal notranslate"><span class="pre">TimeDependentSimulator</span></code>:</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
@@ -799,7 +522,7 @@ dict_keys([&#39;true_energy&#39;, &#39;reco_energy&#39;, &#39;arrival_energy&#39
 <div class="output_area stderr docutils container">
 <div class="highlight"><pre>
 Resetting rng
-/opt/hostedtoolcache/Python/3.9.16/x64/lib/python3.9/site-packages/icecube_tools/detector/r2021.py:82: RuntimeWarning: divide by zero encountered in log10
+/opt/hostedtoolcache/Python/3.9.17/x64/lib/python3.9/site-packages/icecube_tools/detector/r2021.py:82: RuntimeWarning: divide by zero encountered in log10
   self.dataset[:, 6:-1] = np.log10(self.dataset[:, 6:-1])
 Empty true energy bins at: [(0, 0), (1, 0)]
 Resetting rng
@@ -816,13 +539,13 @@ Need to set simulation times, defaults to 1 year each.
 </pre></div>
 </div>
 </div>
-<p>It lets us calculate the actual observation time through, e.g. IC86_II, vs the time covered:</p>
+<p>It lets us calculate the actual observation time through, e.g. IC86_II, vs the time covered:</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">uptime</span> <span class="o">=</span> <span class="n">Uptime</span><span class="p">()</span>
-<span class="n">uptime</span><span class="o">.</span><span class="n">time_obs</span><span class="p">(</span><span class="s2">&quot;IC86_II&quot;</span><span class="p">),</span> <span class="n">uptime</span><span class="o">.</span><span class="n">time_span</span><span class="p">(</span><span class="s2">&quot;IC86_II&quot;</span><span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">uptime</span> <span class="o">=</span> <span class="n">Uptime</span><span class="p">(</span><span class="s2">&quot;IC86_I&quot;</span><span class="p">,</span> <span class="s2">&quot;IC86_II&quot;</span><span class="p">)</span>
+<span class="n">uptime</span><span class="o">.</span><span class="n">_time_obs</span><span class="p">(</span><span class="s2">&quot;IC86_II&quot;</span><span class="p">),</span> <span class="n">uptime</span><span class="o">.</span><span class="n">time_span</span><span class="p">()[</span><span class="s2">&quot;IC86_II&quot;</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
@@ -832,7 +555,7 @@ Need to set simulation times, defaults to 1 year each.
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-({&#39;IC86_II&#39;: 0.9089039325939252}, {&#39;IC86_II&#39;: 1.0157235341273203})
+(0.9089039325939252, 1.0157235341273203)
 </pre></div></div>
 </div>
 <p>We can further define a start and end time of an observation and let it calculate the observation time in each period. Viable possible options are - start and end time in MJD - start time in MJD and duration in years - end time in MJD and duration in years</p>
@@ -843,7 +566,7 @@ Need to set simulation times, defaults to 1 year each.
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">times</span> <span class="o">=</span> <span class="n">uptime</span><span class="o">.</span><span class="n">find_obs_time</span><span class="p">(</span><span class="n">start</span><span class="o">=</span><span class="mi">55569</span><span class="p">,</span> <span class="n">duration</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">times</span> <span class="o">=</span> <span class="n">uptime</span><span class="o">.</span><span class="n">find_obs_time</span><span class="p">(</span><span class="n">start</span><span class="o">=</span><span class="mi">55869</span><span class="p">,</span> <span class="n">duration</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
 <span class="n">times</span>
 </pre></div>
 </div>
@@ -854,7 +577,7 @@ Need to set simulation times, defaults to 1 year each.
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-{&#39;IC86_I&#39;: 1.2241905309188956, &#39;IC86_II&#39;: 1.5943562119196362}
+{&#39;IC86_I&#39;: 0.4798785512080253, &#39;IC86_II&#39;: 2.425230588331747}
 </pre></div></div>
 </div>
 <p>The returned dictionary can be used to set the simulation times for an instance of <code class="docutils literal notranslate"><span class="pre">TimeDependentSimulator</span></code>:</p>
@@ -880,8 +603,8 @@ Need to set simulation times, defaults to 1 year each.
 </div>
 <div class="output_area stderr docutils container">
 <div class="highlight"><pre>
-Sampling: 100%|██████████| 249/249 [00:03&lt;00:00, 63.00it/s]
-Sampling: 100%|██████████| 316/316 [00:03&lt;00:00, 102.46it/s]
+Sampling: 100%|██████████| 94/94 [00:01&lt;00:00, 84.08it/s]
+Sampling: 100%|██████████| 486/486 [00:02&lt;00:00, 185.37it/s]
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
@@ -898,148 +621,152 @@ Sampling: 100%|██████████| 316/316 [00:03&lt;00:00, 102.46it
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-{&#39;IC86_I&#39;: array([1.31136354e+03, 4.27063531e+02, 2.30184376e+02, 1.06374367e+03,
-        9.65196547e+02, 6.03473714e+02, 3.18216255e+02, 1.11522099e+02,
-        1.10364467e+03, 3.98678374e+02, 3.25677732e+02, 2.64671131e+03,
-        1.82239810e+02, 6.81451624e+02, 1.03196805e+02, 7.52423746e+02,
-        6.91520129e+02, 3.43067451e+02, 1.32118104e+02, 5.03712664e+02,
-        1.65186094e+03, 2.22002832e+02, 4.05366906e+02, 1.19678467e+02,
-        2.15730519e+02, 3.03886656e+02, 1.09936544e+02, 1.60661190e+03,
-        2.55587051e+02, 1.89660972e+03, 3.36077369e+02, 8.94069020e+02,
-        6.95015316e+02, 1.64593963e+03, 4.77121640e+02, 2.97344866e+02,
-        1.04660493e+02, 3.84705606e+02, 1.17600587e+03, 6.17634418e+03,
-        3.71575557e+02, 1.88668614e+02, 3.26333895e+02, 3.28943364e+02,
-        9.14343772e+02, 1.61466056e+02, 2.81243362e+03, 1.00848477e+02,
-        4.71939113e+02, 2.59603872e+03, 1.15309446e+02, 7.95225683e+02,
-        1.96062714e+02, 6.89950356e+02, 3.14670130e+02, 1.62633405e+02,
-        2.56200449e+02, 4.34035676e+02, 2.00867160e+02, 2.52191398e+02,
-        7.44179973e+02, 6.79013026e+02, 1.38371178e+03, 2.61397527e+03,
-        4.55500288e+02, 4.40925778e+02, 6.02752350e+02, 3.01582267e+03,
-        1.27403042e+03, 6.98460586e+02, 3.27351230e+03, 1.02597142e+03,
-        4.22028261e+02, 9.21762382e+02, 8.65082757e+03, 4.97189647e+02,
-        6.67306896e+02, 1.77618163e+03, 4.87773883e+03, 3.43506584e+02,
-        2.16892914e+02, 4.39681806e+02, 3.64438999e+02, 2.83509111e+02,
-        7.89518630e+02, 5.98721867e+02, 1.03448768e+04, 1.71691251e+02,
-        8.60054826e+02, 8.67413296e+02, 1.07570854e+02, 3.05797689e+02,
-        2.41383308e+03, 1.04160275e+02, 3.68018893e+02, 4.94501917e+02,
-        2.04899927e+02, 6.37716590e+02, 2.79675306e+02, 4.78385125e+02,
-        4.85607169e+02, 3.27908624e+02, 1.47187045e+02, 1.65595047e+03,
-        2.74799475e+02, 1.00336502e+02, 3.89901431e+02, 9.20401865e+02,
-        3.50262569e+03, 1.08104945e+03, 5.39903226e+02, 2.93425123e+02,
-        3.03122414e+02, 6.87827202e+02, 1.35309920e+02, 1.06404398e+03,
-        2.18044984e+02, 1.09135233e+03, 1.14775033e+03, 5.35045771e+02,
-        1.69625181e+02, 1.22148038e+02, 6.57436699e+02, 1.88433529e+02,
-        4.49923211e+02, 1.09789994e+02, 5.86089797e+02, 1.73188280e+02,
-        1.56434551e+02, 1.08612781e+03, 5.05130666e+02, 3.19035391e+02,
-        4.14744644e+02, 2.92599180e+02, 1.49527817e+02, 1.47356073e+03,
-        1.62260871e+02, 7.20682832e+02, 4.21613742e+02, 2.56497041e+02,
-        3.64581285e+02, 3.10690887e+03, 1.27308238e+03, 2.00538171e+02,
-        2.57553628e+02, 4.31147649e+02, 6.55627515e+02, 3.86226818e+02,
-        6.14336084e+02, 3.35752350e+02, 5.86685847e+02, 2.67865948e+02,
-        1.97596114e+03, 2.56662069e+02, 1.73755000e+02, 4.01264792e+03,
-        4.10705983e+02, 5.47121261e+02, 2.67677531e+02, 2.91733044e+02,
-        1.39527126e+02, 6.07660575e+02, 1.44834814e+03, 1.40411247e+03,
-        5.64963499e+02, 1.31849372e+03, 3.52296123e+02, 1.01882969e+03,
-        2.20452151e+02, 3.45611444e+02, 5.34832674e+02, 4.06020957e+02,
-        1.68690190e+02, 1.32079954e+02, 4.04100023e+03, 1.00829682e+03,
-        1.32947097e+03, 7.63215097e+02, 4.46416889e+02, 5.49817949e+02,
-        2.51620230e+02, 1.07554975e+03, 2.97155843e+02, 4.06115294e+02,
-        2.73333851e+02, 4.44643730e+02, 2.83168259e+02, 1.37657150e+03,
-        4.68202977e+02, 1.62762010e+03, 1.94327723e+03, 4.49487711e+03,
-        4.15400038e+02, 4.94292322e+02, 1.78968186e+03, 2.97821088e+02,
-        1.45483083e+02, 1.40432099e+02, 5.52046974e+02, 4.14960589e+02,
-        5.77580909e+02, 9.18825008e+02, 7.24685475e+02, 1.14802878e+03,
-        1.30681333e+03, 4.35621652e+02, 3.44689882e+02, 2.61255964e+02,
-        3.10322536e+02, 7.04633570e+02, 1.18707019e+02, 1.28694916e+02,
-        4.71867442e+02, 2.14811254e+04, 4.47999666e+04, 8.48517378e+02,
-        3.60603910e+02, 4.39647640e+03, 2.14495503e+03, 5.52002343e+03,
-        1.10678300e+03, 1.11787563e+04, 2.12074202e+03, 4.41627692e+02,
-        1.58360071e+05, 7.12644388e+02, 4.59849238e+04, 1.86987749e+04,
-        7.95265458e+03, 4.23869706e+03, 4.66794955e+04, 6.18118246e+03,
-        3.98549555e+03, 7.80835409e+04, 1.22952939e+04, 2.52622559e+03,
-        1.01831238e+04, 6.30308516e+04, 1.71450854e+03, 1.27139255e+03,
-        2.20319102e+04, 2.43868826e+03, 4.09233699e+02, 1.35198787e+03,
-        7.58557236e+03, 1.20792431e+03, 5.88424225e+04, 3.87072127e+03,
-        3.02568463e+02]),
- &#39;IC86_II&#39;: array([6.65178000e+02, 1.69202240e+02, 2.70476857e+03, 2.22532330e+02,
-        7.19423381e+02, 1.13766385e+02, 1.30603424e+03, 5.58388205e+02,
-        3.68746173e+03, 2.15584938e+02, 2.80958796e+02, 1.33308733e+02,
-        3.01898389e+02, 1.39813514e+03, 7.67652790e+02, 1.18644139e+02,
-        1.60418667e+02, 1.18927673e+02, 1.94152348e+02, 1.20647657e+02,
-        1.84892419e+03, 1.23866437e+02, 1.85021692e+02, 3.27927993e+02,
-        1.03784105e+03, 2.66121847e+02, 1.59777184e+02, 4.30933676e+02,
-        5.18373462e+02, 7.50982951e+02, 1.66269575e+02, 6.58233916e+02,
-        1.51190325e+03, 1.04923778e+03, 2.64524340e+02, 4.41578550e+02,
-        4.07240880e+02, 9.32726469e+02, 2.17336905e+02, 3.32431860e+02,
-        1.23573757e+02, 1.03679164e+02, 6.94710624e+02, 6.68487094e+02,
-        8.40306955e+02, 2.21645235e+02, 1.29245283e+02, 6.85027143e+02,
-        8.13918448e+02, 1.65426683e+02, 2.39219345e+03, 3.06016722e+02,
-        2.61718003e+02, 3.05764700e+02, 2.69910452e+02, 1.83544528e+02,
-        4.44547025e+02, 2.86730873e+02, 1.10389935e+03, 1.25325297e+02,
-        4.22101626e+03, 6.15945017e+03, 2.55803767e+02, 1.79332883e+02,
-        2.06041240e+03, 1.61003224e+03, 1.37078069e+03, 1.07311171e+03,
-        1.20971758e+02, 2.02501494e+02, 1.07416230e+03, 7.07679778e+02,
-        1.67336806e+02, 3.04802866e+02, 4.56771151e+03, 8.05686417e+02,
-        3.14500483e+02, 4.82319658e+03, 2.60614850e+02, 7.04458465e+02,
-        1.12632500e+02, 3.74473349e+02, 4.36163409e+02, 8.67413296e+02,
-        2.06326990e+02, 1.76019722e+02, 2.41155015e+02, 1.13811219e+02,
-        9.43623635e+02, 3.29860664e+02, 1.79882873e+02, 3.34318148e+02,
-        1.31992586e+03, 1.22387036e+02, 1.43191147e+02, 3.79654559e+02,
-        3.36964460e+02, 3.11454875e+02, 2.19690931e+02, 2.95527443e+02,
-        3.10010525e+02, 1.29184104e+02, 1.10580317e+03, 1.16162187e+03,
-        3.11336792e+02, 7.92791991e+02, 1.59235278e+03, 1.09109480e+03,
-        3.72625488e+02, 6.33205453e+02, 4.14826408e+02, 2.46094264e+02,
-        3.03025149e+02, 1.40991119e+03, 5.77999371e+02, 1.18096043e+03,
-        1.63153742e+02, 7.16313845e+02, 4.50795084e+02, 3.29990283e+03,
-        1.43576711e+02, 4.22842253e+03, 5.24726757e+02, 1.90804542e+02,
-        3.55086622e+02, 6.27756534e+02, 2.17547649e+02, 2.80924909e+02,
-        2.79659122e+03, 7.09348154e+02, 8.28622010e+02, 6.41114406e+02,
-        1.00204918e+03, 3.05562157e+02, 2.90201108e+02, 5.30753736e+02,
-        1.16784633e+03, 3.40143344e+02, 3.05782600e+02, 3.47336744e+02,
-        6.67377164e+02, 5.37899181e+02, 6.44498454e+02, 1.53199925e+03,
-        4.19584638e+02, 3.56988825e+02, 6.28530741e+03, 3.56260211e+02,
-        7.12537477e+02, 8.33404942e+02, 2.34376557e+03, 2.65030333e+02,
-        1.20994627e+02, 2.78243043e+02, 2.98643778e+04, 1.11067402e+02,
-        1.79421774e+02, 1.07237060e+03, 4.81262508e+02, 9.19826281e+02,
-        1.42244149e+02, 4.97342678e+02, 4.18378362e+02, 2.00665845e+02,
-        2.34744288e+02, 2.16779097e+02, 9.20077893e+03, 1.22747649e+03,
-        1.20804514e+03, 2.50517919e+02, 4.02159228e+02, 2.24396126e+02,
-        5.54308513e+02, 2.88177352e+02, 3.68421049e+02, 8.76690657e+02,
-        5.10745881e+02, 1.25673248e+02, 1.76143720e+02, 3.96563266e+02,
-        1.03902719e+03, 9.91346700e+02, 1.38249539e+02, 1.88610588e+02,
-        1.42677589e+03, 1.16043776e+02, 2.34677986e+02, 2.81986011e+02,
-        1.22762033e+03, 1.04722061e+03, 2.34810333e+02, 2.95624720e+02,
-        3.27291700e+02, 1.19924757e+03, 1.94255656e+02, 2.43644485e+02,
-        4.93441800e+02, 1.73991933e+03, 1.08504026e+03, 3.07011748e+02,
-        1.87423935e+02, 1.35792754e+02, 5.39206242e+02, 4.06313620e+02,
-        2.09736205e+02, 1.53822175e+03, 2.31752024e+02, 4.50352595e+02,
-        4.24977180e+02, 1.30686690e+03, 1.04931223e+03, 3.02663294e+02,
-        1.44774795e+03, 1.91793551e+02, 2.23987098e+02, 6.37797383e+02,
-        1.68250239e+03, 1.69300530e+02, 3.35040745e+02, 1.60601584e+02,
-        2.61755687e+04, 2.99807512e+02, 1.53710895e+02, 1.62621282e+02,
-        3.23475882e+02, 1.19419458e+03, 1.45075052e+03, 4.53485543e+02,
-        1.92821797e+02, 4.46152356e+02, 4.42277574e+02, 2.59487930e+02,
-        1.31734226e+03, 1.86236803e+02, 6.83896153e+03, 3.20889036e+02,
-        1.58513658e+02, 3.59066579e+03, 1.78098079e+02, 2.64473078e+02,
-        5.04245957e+02, 1.59362864e+02, 1.16260243e+03, 1.20359205e+02,
-        4.20308199e+02, 7.02833351e+02, 2.91019535e+02, 4.41396227e+02,
-        1.20839659e+02, 1.21208230e+02, 1.34644773e+03, 2.58815431e+02,
-        3.98574188e+02, 9.58397078e+02, 1.36230488e+03, 1.78108096e+02,
-        3.51515588e+02, 1.66876380e+03, 9.39780610e+02, 2.20089046e+02,
-        8.42975894e+02, 4.51536732e+02, 1.81306886e+02, 1.05227613e+02,
-        2.70520643e+02, 2.71864562e+02, 2.28594277e+02, 2.81118532e+02,
-        6.78860066e+02, 2.57263459e+02, 3.73466646e+02, 2.87401921e+02,
-        1.60369465e+02, 1.59788960e+02, 2.13223356e+02, 3.02589229e+02,
-        2.03208274e+02, 5.04716500e+02, 1.60789914e+05, 1.24800129e+03,
-        2.19685165e+03, 1.22424610e+03, 8.41563717e+04, 2.76888249e+04,
-        9.27385988e+03, 5.51087867e+02, 1.42872470e+04, 1.15181175e+04,
-        4.06659577e+02, 1.12136867e+03, 1.21498462e+04, 5.18129790e+03,
-        4.61284945e+02, 4.75776903e+02, 1.02976886e+04, 3.99582598e+02,
-        4.09717088e+03, 3.17295644e+04, 6.25315281e+03, 2.10418469e+04,
-        7.15418376e+02, 2.78997991e+03, 4.97138102e+02, 8.62516403e+03,
-        1.31516329e+04, 2.77956411e+04, 4.80118425e+04, 2.48169009e+04,
-        2.23447961e+03, 2.39212831e+04, 5.51330759e+03, 1.62995400e+03,
-        2.60956972e+04, 6.38836650e+03, 3.01223239e+03, 4.29326872e+02])}
+{&#39;IC86_I&#39;: array([  188.64565779,  2838.69103169,   367.03045702,   302.86551638,
+         4041.54858527,   104.56850236,   522.75467614,   426.24773827,
+          484.33570281,   914.37828968,   284.48042369,   385.77928756,
+          305.09653451,   512.22894559,  4033.68565151,   827.09079631,
+         1059.19680016,   345.38516511,   685.74336857,   278.77527675,
+          117.99690533,   110.32573334,  1802.52451934,   778.4410995 ,
+          161.31934235,   423.99437872, 41263.84753565,   570.86216909,
+          620.64780466,   597.79735352,   957.76179785,   694.11484137,
+          184.95209007,   309.86561253,   116.95305688,   501.14146051,
+         2932.71252223,   147.56917441,  1447.49260734,   457.06727436,
+          404.93199983,   750.86366987,   247.89242896,   127.09485487,
+          305.99211461,   129.49500423,   182.51651381,  1066.13998262,
+          261.69269187,   641.28701347,   650.12902535,   164.81450688,
+          163.53010379,  1029.08167752,   450.77505447,   277.44953718,
+          670.65363765,   314.97978206,   258.4858178 ,  1059.98925543,
+         1220.68227825,   530.30995951,  1646.07310385,  3044.83223386,
+          827.79837771,   560.69996491,   275.41742031,   302.21602598,
+          148.95358241,  1512.00707072,   719.0062802 ,  1109.60521722,
+          189.48054451,   408.06317322,  1021.19858075,  1213.95201094,
+          694.71062439,  2079.26819735,   735.0578868 ,  2704.20119544,
+         1003.56221726,   167.2369306 , 25744.48204983, 36546.59337264,
+         9074.55922984,  7479.85693133,  1614.45914584,  7085.30665897,
+        13767.96493166,   774.95742683, 62746.83123524,  3962.12918635,
+         6214.93062513, 45855.05913768]),
+ &#39;IC86_II&#39;: array([1.59323877e+02, 3.81741447e+02, 9.62988295e+02, 4.00984486e+02,
+        2.10171395e+02, 3.21767941e+02, 1.06217717e+02, 2.00735487e+02,
+        1.16268257e+03, 2.97997709e+02, 3.24316790e+02, 4.02011083e+02,
+        2.91842080e+02, 2.11567051e+02, 4.80318064e+02, 1.56521406e+03,
+        6.86068788e+02, 2.59379206e+02, 1.00144005e+03, 1.14476618e+03,
+        1.65491687e+02, 3.81214108e+02, 8.24709899e+02, 1.13668495e+02,
+        2.51607529e+03, 3.33544877e+02, 1.11866026e+03, 3.00907799e+03,
+        6.03595872e+02, 5.17836858e+02, 2.03615617e+02, 1.85914114e+03,
+        6.58233916e+02, 6.86156668e+02, 1.49792233e+03, 6.48014004e+02,
+        5.14037912e+03, 7.77520524e+02, 4.85683512e+02, 3.14375554e+02,
+        2.75417420e+02, 1.02675601e+03, 2.08081656e+02, 9.88174506e+02,
+        1.96204729e+02, 2.34087613e+03, 1.00397823e+02, 2.64376290e+03,
+        6.19462865e+02, 5.22237147e+03, 2.52220227e+03, 1.13891278e+02,
+        1.00119781e+03, 2.59534732e+02, 1.30973494e+03, 3.00089430e+02,
+        1.04310789e+04, 3.04320259e+02, 1.23104678e+02, 1.81779976e+02,
+        1.70308710e+02, 5.65099493e+03, 1.04131081e+03, 3.27005845e+02,
+        3.30094188e+02, 6.76590957e+02, 1.31029121e+03, 2.72670591e+02,
+        4.20932988e+02, 1.04847667e+03, 2.36959681e+02, 1.18089792e+03,
+        1.26975274e+02, 1.92502476e+02, 7.08225183e+02, 3.25594625e+03,
+        1.55067439e+02, 1.65966191e+02, 4.66090336e+03, 7.08134640e+02,
+        2.56326181e+02, 3.79472395e+02, 3.63268623e+03, 2.76467422e+02,
+        2.53183177e+02, 1.01390798e+03, 5.76267020e+02, 3.20991352e+02,
+        1.51715603e+03, 2.48782213e+03, 4.62203222e+02, 1.74086568e+03,
+        1.84430970e+02, 2.11208941e+02, 2.68547399e+02, 1.61062819e+02,
+        7.16580758e+02, 4.09451456e+02, 2.39295424e+02, 1.48663078e+02,
+        1.58508336e+03, 5.06173047e+02, 1.36268559e+02, 9.72825356e+02,
+        2.17018557e+02, 1.46281094e+02, 2.43029725e+03, 1.27456647e+02,
+        6.69857184e+02, 2.19274186e+03, 2.05916832e+02, 2.08702107e+02,
+        1.84054099e+02, 2.86537156e+02, 3.18230846e+02, 7.52644531e+02,
+        1.95879084e+02, 1.25797580e+02, 7.17485580e+02, 1.76597855e+02,
+        1.20473330e+02, 2.11543378e+02, 8.28461622e+02, 5.21143844e+02,
+        2.04348900e+02, 1.62453212e+03, 1.61010505e+02, 2.00665845e+02,
+        5.69136591e+02, 5.89314850e+02, 5.37238154e+02, 4.57058975e+02,
+        3.56278995e+02, 2.02819324e+02, 6.90046169e+02, 3.18419745e+02,
+        2.57497610e+03, 4.65477835e+02, 2.18589326e+02, 1.35031348e+02,
+        2.87458044e+02, 3.78701103e+02, 7.81224555e+02, 1.68579440e+03,
+        2.86911716e+02, 4.10576212e+02, 2.35502615e+03, 1.71309128e+02,
+        1.70977453e+02, 2.87196258e+03, 5.91595330e+02, 4.30673371e+02,
+        1.94455667e+02, 5.81550700e+02, 1.95911854e+02, 5.55415973e+02,
+        2.13914938e+03, 2.31143364e+02, 5.44317658e+02, 1.69052361e+02,
+        6.46180994e+02, 3.07199342e+02, 1.99936534e+02, 3.45145882e+03,
+        3.56730128e+02, 2.97933686e+02, 3.94871752e+02, 1.17595432e+03,
+        4.08754869e+02, 1.69300530e+02, 1.19544407e+03, 9.93151450e+02,
+        1.60601584e+02, 1.01125877e+02, 2.68149491e+02, 2.10554685e+02,
+        8.59184686e+02, 2.72938083e+03, 1.83171080e+02, 6.88621681e+02,
+        5.07962061e+02, 1.00341324e+02, 4.65240954e+02, 4.37154394e+02,
+        1.05253682e+03, 1.05801366e+02, 2.88994246e+02, 1.59595964e+02,
+        1.05819004e+02, 1.01443459e+02, 3.65771614e+02, 1.66373182e+03,
+        3.36368321e+02, 2.64177898e+02, 4.21356569e+02, 3.09120445e+02,
+        8.52862535e+02, 1.00022660e+02, 6.33085657e+02, 1.61481844e+02,
+        2.45103583e+02, 1.71871600e+02, 3.32646324e+02, 2.92352233e+02,
+        3.94967947e+02, 1.98202738e+02, 1.60268481e+03, 1.99672905e+02,
+        1.77502278e+02, 9.85266144e+02, 1.98430635e+02, 1.74548624e+02,
+        2.00715075e+02, 2.81113996e+02, 1.41507422e+03, 1.80277767e+02,
+        8.36705736e+02, 1.47302146e+04, 8.16556108e+02, 2.70626805e+04,
+        1.24749765e+02, 2.79056575e+03, 6.35251197e+02, 5.48543169e+02,
+        2.84294944e+02, 4.40133787e+02, 1.15995704e+03, 3.33754058e+02,
+        1.55280403e+02, 2.90184603e+02, 2.62103955e+02, 1.20912549e+03,
+        6.03895622e+02, 1.20160550e+02, 2.87523081e+02, 2.87401921e+02,
+        1.93523631e+02, 1.41669227e+04, 6.83148406e+02, 1.65867448e+03,
+        1.61241233e+02, 1.93227375e+02, 5.67551749e+02, 1.22327132e+02,
+        3.17743442e+02, 3.05186594e+03, 5.71931011e+02, 4.10354388e+02,
+        4.37065609e+03, 2.55669992e+02, 3.15213042e+02, 1.65691721e+03,
+        1.34740974e+03, 7.64174973e+02, 5.81053915e+02, 4.32915092e+02,
+        4.42082343e+02, 3.23578053e+02, 1.64419896e+03, 2.95766511e+03,
+        1.38076551e+02, 1.71473926e+02, 2.66245568e+02, 1.65228394e+02,
+        3.33104086e+02, 2.88050234e+02, 1.59485879e+02, 3.48468644e+02,
+        1.67362854e+02, 6.59553509e+02, 9.28991248e+02, 1.62546281e+02,
+        1.95295819e+03, 5.24397041e+02, 3.37022112e+03, 1.30944198e+03,
+        9.77883749e+02, 7.12872851e+02, 3.03904344e+02, 1.80592808e+02,
+        2.81035498e+02, 3.07439996e+02, 1.06756266e+02, 5.50437566e+02,
+        2.75635823e+02, 2.23050735e+03, 1.39512039e+02, 2.11440957e+02,
+        2.68858330e+03, 2.80172757e+03, 5.21941566e+02, 1.81603238e+02,
+        4.01061601e+02, 4.79606634e+02, 6.34469320e+02, 1.27028920e+02,
+        3.03817155e+02, 5.04741898e+02, 3.65726877e+02, 1.27984240e+02,
+        6.30144157e+03, 5.22191489e+02, 4.13133477e+03, 1.38636473e+03,
+        5.96406789e+02, 1.34745494e+03, 1.31666007e+03, 1.49321928e+03,
+        1.31702146e+02, 1.94695018e+03, 1.06928738e+03, 4.07766477e+02,
+        3.40967608e+02, 2.66100378e+02, 2.17126630e+02, 1.86824809e+03,
+        3.29899279e+02, 3.67212432e+02, 2.02166956e+03, 1.05524348e+02,
+        4.83806758e+02, 1.83378482e+03, 6.36930795e+02, 3.26616101e+02,
+        8.73763802e+02, 2.27249068e+02, 4.32984613e+02, 1.17545591e+02,
+        4.87985937e+02, 2.76802242e+02, 1.10754785e+03, 1.59159598e+02,
+        2.93359310e+03, 1.96010409e+02, 2.52804192e+02, 2.77211875e+03,
+        2.99783738e+02, 4.74852374e+03, 4.16316265e+02, 2.64004011e+02,
+        1.39560926e+02, 1.12513167e+03, 2.66168323e+02, 1.61090115e+02,
+        5.60781477e+02, 5.52376781e+02, 2.56660762e+02, 4.39178640e+02,
+        5.42799974e+02, 1.22050658e+02, 1.24194903e+02, 1.24724404e+02,
+        7.79928900e+02, 2.09004211e+02, 2.87611626e+02, 4.03879687e+02,
+        1.80952904e+02, 1.11174699e+03, 1.65020518e+02, 4.10336023e+02,
+        7.50560904e+02, 3.35198534e+02, 2.77981008e+02, 2.54082327e+02,
+        5.12495665e+03, 5.86687599e+02, 1.71768138e+02, 1.60723964e+02,
+        5.10855057e+02, 4.45876421e+02, 3.32444285e+02, 7.20620523e+02,
+        1.63644529e+02, 2.98748728e+02, 3.81859842e+03, 3.47348490e+03,
+        1.47209105e+02, 1.34350764e+03, 1.29051489e+03, 1.18603003e+03,
+        3.41066716e+02, 2.44862561e+02, 5.37757712e+02, 2.16532664e+02,
+        4.44456477e+02, 1.04562480e+02, 1.97884135e+02, 8.26339848e+02,
+        4.16001867e+02, 5.22605718e+02, 1.77799442e+02, 1.68338806e+02,
+        3.59610298e+02, 8.28780294e+02, 1.59806658e+02, 2.89493926e+02,
+        4.29905711e+02, 4.33281022e+02, 1.87519178e+02, 1.18919877e+02,
+        3.52039218e+02, 4.26345419e+02, 8.96753237e+02, 3.97902755e+03,
+        1.03125251e+03, 5.76438458e+02, 2.44382158e+02, 3.50007828e+02,
+        2.67993277e+03, 1.05434487e+02, 3.26808970e+02, 4.22104029e+03,
+        1.88828728e+02, 4.25572849e+02, 6.67453662e+02, 4.79331170e+02,
+        6.49053688e+03, 2.75190191e+03, 4.51860437e+03, 1.91436026e+03,
+        2.94656923e+04, 3.38965650e+03, 4.44423912e+04, 9.21759593e+03,
+        7.08386015e+02, 4.83798920e+03, 7.93037927e+02, 1.40404536e+03,
+        1.83008398e+04, 4.52013589e+03, 5.10777850e+03, 1.99681363e+03,
+        1.94343103e+04, 6.51554728e+03, 2.23786498e+03, 5.51482263e+03,
+        5.74379966e+03, 2.26575784e+03, 2.57270546e+02, 5.14097569e+05,
+        1.20200138e+03, 7.56704756e+02, 4.49593609e+03, 1.98982493e+04,
+        6.02619632e+02, 5.33331582e+03, 1.59782001e+04, 5.56558803e+03,
+        5.51724489e+02, 1.85534451e+03, 3.87972065e+04, 2.67827236e+03,
+        2.90170244e+04, 4.16269376e+03, 1.65323263e+03, 1.49620876e+04,
+        3.76416730e+03, 4.48742658e+03, 3.10969459e+03, 8.98310040e+02,
+        7.35208900e+02, 3.09801595e+02, 6.27921222e+03, 2.61891309e+05,
+        1.39088312e+05, 5.68326225e+04, 1.83258433e+04, 4.32451022e+02,
+        1.43223339e+04, 3.39705494e+02, 1.07858042e+04, 2.92548784e+04,
+        5.52543959e+04, 1.74058099e+03, 4.23443919e+03, 4.40734078e+02,
+        1.52783232e+05, 2.42687594e+04, 1.51033840e+04, 1.25521981e+04,
+        5.45110292e+03, 1.26967892e+04, 1.04383107e+05, 1.23498668e+04,
+        1.89120940e+03, 1.06750211e+03])}
 </pre></div></div>
 </div>
 <div class="nbinput nblast docutils container">
@@ -1064,148 +791,152 @@ Sampling: 100%|██████████| 316/316 [00:03&lt;00:00, 102.46it
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-{&#39;IC86_I&#39;: array([1.31136354e+03, 4.27063531e+02, 2.30184376e+02, 1.06374367e+03,
-        9.65196547e+02, 6.03473714e+02, 3.18216255e+02, 1.11522099e+02,
-        1.10364467e+03, 3.98678374e+02, 3.25677732e+02, 2.64671131e+03,
-        1.82239810e+02, 6.81451624e+02, 1.03196805e+02, 7.52423746e+02,
-        6.91520129e+02, 3.43067451e+02, 1.32118104e+02, 5.03712664e+02,
-        1.65186094e+03, 2.22002832e+02, 4.05366906e+02, 1.19678467e+02,
-        2.15730519e+02, 3.03886656e+02, 1.09936544e+02, 1.60661190e+03,
-        2.55587051e+02, 1.89660972e+03, 3.36077369e+02, 8.94069020e+02,
-        6.95015316e+02, 1.64593963e+03, 4.77121640e+02, 2.97344866e+02,
-        1.04660493e+02, 3.84705606e+02, 1.17600587e+03, 6.17634418e+03,
-        3.71575557e+02, 1.88668614e+02, 3.26333895e+02, 3.28943364e+02,
-        9.14343772e+02, 1.61466056e+02, 2.81243362e+03, 1.00848477e+02,
-        4.71939113e+02, 2.59603872e+03, 1.15309446e+02, 7.95225683e+02,
-        1.96062714e+02, 6.89950356e+02, 3.14670130e+02, 1.62633405e+02,
-        2.56200449e+02, 4.34035676e+02, 2.00867160e+02, 2.52191398e+02,
-        7.44179973e+02, 6.79013026e+02, 1.38371178e+03, 2.61397527e+03,
-        4.55500288e+02, 4.40925778e+02, 6.02752350e+02, 3.01582267e+03,
-        1.27403042e+03, 6.98460586e+02, 3.27351230e+03, 1.02597142e+03,
-        4.22028261e+02, 9.21762382e+02, 8.65082757e+03, 4.97189647e+02,
-        6.67306896e+02, 1.77618163e+03, 4.87773883e+03, 3.43506584e+02,
-        2.16892914e+02, 4.39681806e+02, 3.64438999e+02, 2.83509111e+02,
-        7.89518630e+02, 5.98721867e+02, 1.03448768e+04, 1.71691251e+02,
-        8.60054826e+02, 8.67413296e+02, 1.07570854e+02, 3.05797689e+02,
-        2.41383308e+03, 1.04160275e+02, 3.68018893e+02, 4.94501917e+02,
-        2.04899927e+02, 6.37716590e+02, 2.79675306e+02, 4.78385125e+02,
-        4.85607169e+02, 3.27908624e+02, 1.47187045e+02, 1.65595047e+03,
-        2.74799475e+02, 1.00336502e+02, 3.89901431e+02, 9.20401865e+02,
-        3.50262569e+03, 1.08104945e+03, 5.39903226e+02, 2.93425123e+02,
-        3.03122414e+02, 6.87827202e+02, 1.35309920e+02, 1.06404398e+03,
-        2.18044984e+02, 1.09135233e+03, 1.14775033e+03, 5.35045771e+02,
-        1.69625181e+02, 1.22148038e+02, 6.57436699e+02, 1.88433529e+02,
-        4.49923211e+02, 1.09789994e+02, 5.86089797e+02, 1.73188280e+02,
-        1.56434551e+02, 1.08612781e+03, 5.05130666e+02, 3.19035391e+02,
-        4.14744644e+02, 2.92599180e+02, 1.49527817e+02, 1.47356073e+03,
-        1.62260871e+02, 7.20682832e+02, 4.21613742e+02, 2.56497041e+02,
-        3.64581285e+02, 3.10690887e+03, 1.27308238e+03, 2.00538171e+02,
-        2.57553628e+02, 4.31147649e+02, 6.55627515e+02, 3.86226818e+02,
-        6.14336084e+02, 3.35752350e+02, 5.86685847e+02, 2.67865948e+02,
-        1.97596114e+03, 2.56662069e+02, 1.73755000e+02, 4.01264792e+03,
-        4.10705983e+02, 5.47121261e+02, 2.67677531e+02, 2.91733044e+02,
-        1.39527126e+02, 6.07660575e+02, 1.44834814e+03, 1.40411247e+03,
-        5.64963499e+02, 1.31849372e+03, 3.52296123e+02, 1.01882969e+03,
-        2.20452151e+02, 3.45611444e+02, 5.34832674e+02, 4.06020957e+02,
-        1.68690190e+02, 1.32079954e+02, 4.04100023e+03, 1.00829682e+03,
-        1.32947097e+03, 7.63215097e+02, 4.46416889e+02, 5.49817949e+02,
-        2.51620230e+02, 1.07554975e+03, 2.97155843e+02, 4.06115294e+02,
-        2.73333851e+02, 4.44643730e+02, 2.83168259e+02, 1.37657150e+03,
-        4.68202977e+02, 1.62762010e+03, 1.94327723e+03, 4.49487711e+03,
-        4.15400038e+02, 4.94292322e+02, 1.78968186e+03, 2.97821088e+02,
-        1.45483083e+02, 1.40432099e+02, 5.52046974e+02, 4.14960589e+02,
-        5.77580909e+02, 9.18825008e+02, 7.24685475e+02, 1.14802878e+03,
-        1.30681333e+03, 4.35621652e+02, 3.44689882e+02, 2.61255964e+02,
-        3.10322536e+02, 7.04633570e+02, 1.18707019e+02, 1.28694916e+02,
-        4.71867442e+02, 2.14811254e+04, 4.47999666e+04, 8.48517378e+02,
-        3.60603910e+02, 4.39647640e+03, 2.14495503e+03, 5.52002343e+03,
-        1.10678300e+03, 1.11787563e+04, 2.12074202e+03, 4.41627692e+02,
-        1.58360071e+05, 7.12644388e+02, 4.59849238e+04, 1.86987749e+04,
-        7.95265458e+03, 4.23869706e+03, 4.66794955e+04, 6.18118246e+03,
-        3.98549555e+03, 7.80835409e+04, 1.22952939e+04, 2.52622559e+03,
-        1.01831238e+04, 6.30308516e+04, 1.71450854e+03, 1.27139255e+03,
-        2.20319102e+04, 2.43868826e+03, 4.09233699e+02, 1.35198787e+03,
-        7.58557236e+03, 1.20792431e+03, 5.88424225e+04, 3.87072127e+03,
-        3.02568463e+02]),
- &#39;IC86_II&#39;: array([6.65178000e+02, 1.69202240e+02, 2.70476857e+03, 2.22532330e+02,
-        7.19423381e+02, 1.13766385e+02, 1.30603424e+03, 5.58388205e+02,
-        3.68746173e+03, 2.15584938e+02, 2.80958796e+02, 1.33308733e+02,
-        3.01898389e+02, 1.39813514e+03, 7.67652790e+02, 1.18644139e+02,
-        1.60418667e+02, 1.18927673e+02, 1.94152348e+02, 1.20647657e+02,
-        1.84892419e+03, 1.23866437e+02, 1.85021692e+02, 3.27927993e+02,
-        1.03784105e+03, 2.66121847e+02, 1.59777184e+02, 4.30933676e+02,
-        5.18373462e+02, 7.50982951e+02, 1.66269575e+02, 6.58233916e+02,
-        1.51190325e+03, 1.04923778e+03, 2.64524340e+02, 4.41578550e+02,
-        4.07240880e+02, 9.32726469e+02, 2.17336905e+02, 3.32431860e+02,
-        1.23573757e+02, 1.03679164e+02, 6.94710624e+02, 6.68487094e+02,
-        8.40306955e+02, 2.21645235e+02, 1.29245283e+02, 6.85027143e+02,
-        8.13918448e+02, 1.65426683e+02, 2.39219345e+03, 3.06016722e+02,
-        2.61718003e+02, 3.05764700e+02, 2.69910452e+02, 1.83544528e+02,
-        4.44547025e+02, 2.86730873e+02, 1.10389935e+03, 1.25325297e+02,
-        4.22101626e+03, 6.15945017e+03, 2.55803767e+02, 1.79332883e+02,
-        2.06041240e+03, 1.61003224e+03, 1.37078069e+03, 1.07311171e+03,
-        1.20971758e+02, 2.02501494e+02, 1.07416230e+03, 7.07679778e+02,
-        1.67336806e+02, 3.04802866e+02, 4.56771151e+03, 8.05686417e+02,
-        3.14500483e+02, 4.82319658e+03, 2.60614850e+02, 7.04458465e+02,
-        1.12632500e+02, 3.74473349e+02, 4.36163409e+02, 8.67413296e+02,
-        2.06326990e+02, 1.76019722e+02, 2.41155015e+02, 1.13811219e+02,
-        9.43623635e+02, 3.29860664e+02, 1.79882873e+02, 3.34318148e+02,
-        1.31992586e+03, 1.22387036e+02, 1.43191147e+02, 3.79654559e+02,
-        3.36964460e+02, 3.11454875e+02, 2.19690931e+02, 2.95527443e+02,
-        3.10010525e+02, 1.29184104e+02, 1.10580317e+03, 1.16162187e+03,
-        3.11336792e+02, 7.92791991e+02, 1.59235278e+03, 1.09109480e+03,
-        3.72625488e+02, 6.33205453e+02, 4.14826408e+02, 2.46094264e+02,
-        3.03025149e+02, 1.40991119e+03, 5.77999371e+02, 1.18096043e+03,
-        1.63153742e+02, 7.16313845e+02, 4.50795084e+02, 3.29990283e+03,
-        1.43576711e+02, 4.22842253e+03, 5.24726757e+02, 1.90804542e+02,
-        3.55086622e+02, 6.27756534e+02, 2.17547649e+02, 2.80924909e+02,
-        2.79659122e+03, 7.09348154e+02, 8.28622010e+02, 6.41114406e+02,
-        1.00204918e+03, 3.05562157e+02, 2.90201108e+02, 5.30753736e+02,
-        1.16784633e+03, 3.40143344e+02, 3.05782600e+02, 3.47336744e+02,
-        6.67377164e+02, 5.37899181e+02, 6.44498454e+02, 1.53199925e+03,
-        4.19584638e+02, 3.56988825e+02, 6.28530741e+03, 3.56260211e+02,
-        7.12537477e+02, 8.33404942e+02, 2.34376557e+03, 2.65030333e+02,
-        1.20994627e+02, 2.78243043e+02, 2.98643778e+04, 1.11067402e+02,
-        1.79421774e+02, 1.07237060e+03, 4.81262508e+02, 9.19826281e+02,
-        1.42244149e+02, 4.97342678e+02, 4.18378362e+02, 2.00665845e+02,
-        2.34744288e+02, 2.16779097e+02, 9.20077893e+03, 1.22747649e+03,
-        1.20804514e+03, 2.50517919e+02, 4.02159228e+02, 2.24396126e+02,
-        5.54308513e+02, 2.88177352e+02, 3.68421049e+02, 8.76690657e+02,
-        5.10745881e+02, 1.25673248e+02, 1.76143720e+02, 3.96563266e+02,
-        1.03902719e+03, 9.91346700e+02, 1.38249539e+02, 1.88610588e+02,
-        1.42677589e+03, 1.16043776e+02, 2.34677986e+02, 2.81986011e+02,
-        1.22762033e+03, 1.04722061e+03, 2.34810333e+02, 2.95624720e+02,
-        3.27291700e+02, 1.19924757e+03, 1.94255656e+02, 2.43644485e+02,
-        4.93441800e+02, 1.73991933e+03, 1.08504026e+03, 3.07011748e+02,
-        1.87423935e+02, 1.35792754e+02, 5.39206242e+02, 4.06313620e+02,
-        2.09736205e+02, 1.53822175e+03, 2.31752024e+02, 4.50352595e+02,
-        4.24977180e+02, 1.30686690e+03, 1.04931223e+03, 3.02663294e+02,
-        1.44774795e+03, 1.91793551e+02, 2.23987098e+02, 6.37797383e+02,
-        1.68250239e+03, 1.69300530e+02, 3.35040745e+02, 1.60601584e+02,
-        2.61755687e+04, 2.99807512e+02, 1.53710895e+02, 1.62621282e+02,
-        3.23475882e+02, 1.19419458e+03, 1.45075052e+03, 4.53485543e+02,
-        1.92821797e+02, 4.46152356e+02, 4.42277574e+02, 2.59487930e+02,
-        1.31734226e+03, 1.86236803e+02, 6.83896153e+03, 3.20889036e+02,
-        1.58513658e+02, 3.59066579e+03, 1.78098079e+02, 2.64473078e+02,
-        5.04245957e+02, 1.59362864e+02, 1.16260243e+03, 1.20359205e+02,
-        4.20308199e+02, 7.02833351e+02, 2.91019535e+02, 4.41396227e+02,
-        1.20839659e+02, 1.21208230e+02, 1.34644773e+03, 2.58815431e+02,
-        3.98574188e+02, 9.58397078e+02, 1.36230488e+03, 1.78108096e+02,
-        3.51515588e+02, 1.66876380e+03, 9.39780610e+02, 2.20089046e+02,
-        8.42975894e+02, 4.51536732e+02, 1.81306886e+02, 1.05227613e+02,
-        2.70520643e+02, 2.71864562e+02, 2.28594277e+02, 2.81118532e+02,
-        6.78860066e+02, 2.57263459e+02, 3.73466646e+02, 2.87401921e+02,
-        1.60369465e+02, 1.59788960e+02, 2.13223356e+02, 3.02589229e+02,
-        2.03208274e+02, 5.04716500e+02, 1.60789914e+05, 1.24800129e+03,
-        2.19685165e+03, 1.22424610e+03, 8.41563717e+04, 2.76888249e+04,
-        9.27385988e+03, 5.51087867e+02, 1.42872470e+04, 1.15181175e+04,
-        4.06659577e+02, 1.12136867e+03, 1.21498462e+04, 5.18129790e+03,
-        4.61284945e+02, 4.75776903e+02, 1.02976886e+04, 3.99582598e+02,
-        4.09717088e+03, 3.17295644e+04, 6.25315281e+03, 2.10418469e+04,
-        7.15418376e+02, 2.78997991e+03, 4.97138102e+02, 8.62516403e+03,
-        1.31516329e+04, 2.77956411e+04, 4.80118425e+04, 2.48169009e+04,
-        2.23447961e+03, 2.39212831e+04, 5.51330759e+03, 1.62995400e+03,
-        2.60956972e+04, 6.38836650e+03, 3.01223239e+03, 4.29326872e+02])}
+{&#39;IC86_I&#39;: array([  188.64565779,  2838.69103169,   367.03045702,   302.86551638,
+         4041.54858527,   104.56850236,   522.75467614,   426.24773827,
+          484.33570281,   914.37828968,   284.48042369,   385.77928756,
+          305.09653451,   512.22894559,  4033.68565151,   827.09079631,
+         1059.19680016,   345.38516511,   685.74336857,   278.77527675,
+          117.99690533,   110.32573334,  1802.52451934,   778.4410995 ,
+          161.31934235,   423.99437872, 41263.84753565,   570.86216909,
+          620.64780466,   597.79735352,   957.76179785,   694.11484137,
+          184.95209007,   309.86561253,   116.95305688,   501.14146051,
+         2932.71252223,   147.56917441,  1447.49260734,   457.06727436,
+          404.93199983,   750.86366987,   247.89242896,   127.09485487,
+          305.99211461,   129.49500423,   182.51651381,  1066.13998262,
+          261.69269187,   641.28701347,   650.12902535,   164.81450688,
+          163.53010379,  1029.08167752,   450.77505447,   277.44953718,
+          670.65363765,   314.97978206,   258.4858178 ,  1059.98925543,
+         1220.68227825,   530.30995951,  1646.07310385,  3044.83223386,
+          827.79837771,   560.69996491,   275.41742031,   302.21602598,
+          148.95358241,  1512.00707072,   719.0062802 ,  1109.60521722,
+          189.48054451,   408.06317322,  1021.19858075,  1213.95201094,
+          694.71062439,  2079.26819735,   735.0578868 ,  2704.20119544,
+         1003.56221726,   167.2369306 , 25744.48204983, 36546.59337264,
+         9074.55922984,  7479.85693133,  1614.45914584,  7085.30665897,
+        13767.96493166,   774.95742683, 62746.83123524,  3962.12918635,
+         6214.93062513, 45855.05913768]),
+ &#39;IC86_II&#39;: array([1.59323877e+02, 3.81741447e+02, 9.62988295e+02, 4.00984486e+02,
+        2.10171395e+02, 3.21767941e+02, 1.06217717e+02, 2.00735487e+02,
+        1.16268257e+03, 2.97997709e+02, 3.24316790e+02, 4.02011083e+02,
+        2.91842080e+02, 2.11567051e+02, 4.80318064e+02, 1.56521406e+03,
+        6.86068788e+02, 2.59379206e+02, 1.00144005e+03, 1.14476618e+03,
+        1.65491687e+02, 3.81214108e+02, 8.24709899e+02, 1.13668495e+02,
+        2.51607529e+03, 3.33544877e+02, 1.11866026e+03, 3.00907799e+03,
+        6.03595872e+02, 5.17836858e+02, 2.03615617e+02, 1.85914114e+03,
+        6.58233916e+02, 6.86156668e+02, 1.49792233e+03, 6.48014004e+02,
+        5.14037912e+03, 7.77520524e+02, 4.85683512e+02, 3.14375554e+02,
+        2.75417420e+02, 1.02675601e+03, 2.08081656e+02, 9.88174506e+02,
+        1.96204729e+02, 2.34087613e+03, 1.00397823e+02, 2.64376290e+03,
+        6.19462865e+02, 5.22237147e+03, 2.52220227e+03, 1.13891278e+02,
+        1.00119781e+03, 2.59534732e+02, 1.30973494e+03, 3.00089430e+02,
+        1.04310789e+04, 3.04320259e+02, 1.23104678e+02, 1.81779976e+02,
+        1.70308710e+02, 5.65099493e+03, 1.04131081e+03, 3.27005845e+02,
+        3.30094188e+02, 6.76590957e+02, 1.31029121e+03, 2.72670591e+02,
+        4.20932988e+02, 1.04847667e+03, 2.36959681e+02, 1.18089792e+03,
+        1.26975274e+02, 1.92502476e+02, 7.08225183e+02, 3.25594625e+03,
+        1.55067439e+02, 1.65966191e+02, 4.66090336e+03, 7.08134640e+02,
+        2.56326181e+02, 3.79472395e+02, 3.63268623e+03, 2.76467422e+02,
+        2.53183177e+02, 1.01390798e+03, 5.76267020e+02, 3.20991352e+02,
+        1.51715603e+03, 2.48782213e+03, 4.62203222e+02, 1.74086568e+03,
+        1.84430970e+02, 2.11208941e+02, 2.68547399e+02, 1.61062819e+02,
+        7.16580758e+02, 4.09451456e+02, 2.39295424e+02, 1.48663078e+02,
+        1.58508336e+03, 5.06173047e+02, 1.36268559e+02, 9.72825356e+02,
+        2.17018557e+02, 1.46281094e+02, 2.43029725e+03, 1.27456647e+02,
+        6.69857184e+02, 2.19274186e+03, 2.05916832e+02, 2.08702107e+02,
+        1.84054099e+02, 2.86537156e+02, 3.18230846e+02, 7.52644531e+02,
+        1.95879084e+02, 1.25797580e+02, 7.17485580e+02, 1.76597855e+02,
+        1.20473330e+02, 2.11543378e+02, 8.28461622e+02, 5.21143844e+02,
+        2.04348900e+02, 1.62453212e+03, 1.61010505e+02, 2.00665845e+02,
+        5.69136591e+02, 5.89314850e+02, 5.37238154e+02, 4.57058975e+02,
+        3.56278995e+02, 2.02819324e+02, 6.90046169e+02, 3.18419745e+02,
+        2.57497610e+03, 4.65477835e+02, 2.18589326e+02, 1.35031348e+02,
+        2.87458044e+02, 3.78701103e+02, 7.81224555e+02, 1.68579440e+03,
+        2.86911716e+02, 4.10576212e+02, 2.35502615e+03, 1.71309128e+02,
+        1.70977453e+02, 2.87196258e+03, 5.91595330e+02, 4.30673371e+02,
+        1.94455667e+02, 5.81550700e+02, 1.95911854e+02, 5.55415973e+02,
+        2.13914938e+03, 2.31143364e+02, 5.44317658e+02, 1.69052361e+02,
+        6.46180994e+02, 3.07199342e+02, 1.99936534e+02, 3.45145882e+03,
+        3.56730128e+02, 2.97933686e+02, 3.94871752e+02, 1.17595432e+03,
+        4.08754869e+02, 1.69300530e+02, 1.19544407e+03, 9.93151450e+02,
+        1.60601584e+02, 1.01125877e+02, 2.68149491e+02, 2.10554685e+02,
+        8.59184686e+02, 2.72938083e+03, 1.83171080e+02, 6.88621681e+02,
+        5.07962061e+02, 1.00341324e+02, 4.65240954e+02, 4.37154394e+02,
+        1.05253682e+03, 1.05801366e+02, 2.88994246e+02, 1.59595964e+02,
+        1.05819004e+02, 1.01443459e+02, 3.65771614e+02, 1.66373182e+03,
+        3.36368321e+02, 2.64177898e+02, 4.21356569e+02, 3.09120445e+02,
+        8.52862535e+02, 1.00022660e+02, 6.33085657e+02, 1.61481844e+02,
+        2.45103583e+02, 1.71871600e+02, 3.32646324e+02, 2.92352233e+02,
+        3.94967947e+02, 1.98202738e+02, 1.60268481e+03, 1.99672905e+02,
+        1.77502278e+02, 9.85266144e+02, 1.98430635e+02, 1.74548624e+02,
+        2.00715075e+02, 2.81113996e+02, 1.41507422e+03, 1.80277767e+02,
+        8.36705736e+02, 1.47302146e+04, 8.16556108e+02, 2.70626805e+04,
+        1.24749765e+02, 2.79056575e+03, 6.35251197e+02, 5.48543169e+02,
+        2.84294944e+02, 4.40133787e+02, 1.15995704e+03, 3.33754058e+02,
+        1.55280403e+02, 2.90184603e+02, 2.62103955e+02, 1.20912549e+03,
+        6.03895622e+02, 1.20160550e+02, 2.87523081e+02, 2.87401921e+02,
+        1.93523631e+02, 1.41669227e+04, 6.83148406e+02, 1.65867448e+03,
+        1.61241233e+02, 1.93227375e+02, 5.67551749e+02, 1.22327132e+02,
+        3.17743442e+02, 3.05186594e+03, 5.71931011e+02, 4.10354388e+02,
+        4.37065609e+03, 2.55669992e+02, 3.15213042e+02, 1.65691721e+03,
+        1.34740974e+03, 7.64174973e+02, 5.81053915e+02, 4.32915092e+02,
+        4.42082343e+02, 3.23578053e+02, 1.64419896e+03, 2.95766511e+03,
+        1.38076551e+02, 1.71473926e+02, 2.66245568e+02, 1.65228394e+02,
+        3.33104086e+02, 2.88050234e+02, 1.59485879e+02, 3.48468644e+02,
+        1.67362854e+02, 6.59553509e+02, 9.28991248e+02, 1.62546281e+02,
+        1.95295819e+03, 5.24397041e+02, 3.37022112e+03, 1.30944198e+03,
+        9.77883749e+02, 7.12872851e+02, 3.03904344e+02, 1.80592808e+02,
+        2.81035498e+02, 3.07439996e+02, 1.06756266e+02, 5.50437566e+02,
+        2.75635823e+02, 2.23050735e+03, 1.39512039e+02, 2.11440957e+02,
+        2.68858330e+03, 2.80172757e+03, 5.21941566e+02, 1.81603238e+02,
+        4.01061601e+02, 4.79606634e+02, 6.34469320e+02, 1.27028920e+02,
+        3.03817155e+02, 5.04741898e+02, 3.65726877e+02, 1.27984240e+02,
+        6.30144157e+03, 5.22191489e+02, 4.13133477e+03, 1.38636473e+03,
+        5.96406789e+02, 1.34745494e+03, 1.31666007e+03, 1.49321928e+03,
+        1.31702146e+02, 1.94695018e+03, 1.06928738e+03, 4.07766477e+02,
+        3.40967608e+02, 2.66100378e+02, 2.17126630e+02, 1.86824809e+03,
+        3.29899279e+02, 3.67212432e+02, 2.02166956e+03, 1.05524348e+02,
+        4.83806758e+02, 1.83378482e+03, 6.36930795e+02, 3.26616101e+02,
+        8.73763802e+02, 2.27249068e+02, 4.32984613e+02, 1.17545591e+02,
+        4.87985937e+02, 2.76802242e+02, 1.10754785e+03, 1.59159598e+02,
+        2.93359310e+03, 1.96010409e+02, 2.52804192e+02, 2.77211875e+03,
+        2.99783738e+02, 4.74852374e+03, 4.16316265e+02, 2.64004011e+02,
+        1.39560926e+02, 1.12513167e+03, 2.66168323e+02, 1.61090115e+02,
+        5.60781477e+02, 5.52376781e+02, 2.56660762e+02, 4.39178640e+02,
+        5.42799974e+02, 1.22050658e+02, 1.24194903e+02, 1.24724404e+02,
+        7.79928900e+02, 2.09004211e+02, 2.87611626e+02, 4.03879687e+02,
+        1.80952904e+02, 1.11174699e+03, 1.65020518e+02, 4.10336023e+02,
+        7.50560904e+02, 3.35198534e+02, 2.77981008e+02, 2.54082327e+02,
+        5.12495665e+03, 5.86687599e+02, 1.71768138e+02, 1.60723964e+02,
+        5.10855057e+02, 4.45876421e+02, 3.32444285e+02, 7.20620523e+02,
+        1.63644529e+02, 2.98748728e+02, 3.81859842e+03, 3.47348490e+03,
+        1.47209105e+02, 1.34350764e+03, 1.29051489e+03, 1.18603003e+03,
+        3.41066716e+02, 2.44862561e+02, 5.37757712e+02, 2.16532664e+02,
+        4.44456477e+02, 1.04562480e+02, 1.97884135e+02, 8.26339848e+02,
+        4.16001867e+02, 5.22605718e+02, 1.77799442e+02, 1.68338806e+02,
+        3.59610298e+02, 8.28780294e+02, 1.59806658e+02, 2.89493926e+02,
+        4.29905711e+02, 4.33281022e+02, 1.87519178e+02, 1.18919877e+02,
+        3.52039218e+02, 4.26345419e+02, 8.96753237e+02, 3.97902755e+03,
+        1.03125251e+03, 5.76438458e+02, 2.44382158e+02, 3.50007828e+02,
+        2.67993277e+03, 1.05434487e+02, 3.26808970e+02, 4.22104029e+03,
+        1.88828728e+02, 4.25572849e+02, 6.67453662e+02, 4.79331170e+02,
+        6.49053688e+03, 2.75190191e+03, 4.51860437e+03, 1.91436026e+03,
+        2.94656923e+04, 3.38965650e+03, 4.44423912e+04, 9.21759593e+03,
+        7.08386015e+02, 4.83798920e+03, 7.93037927e+02, 1.40404536e+03,
+        1.83008398e+04, 4.52013589e+03, 5.10777850e+03, 1.99681363e+03,
+        1.94343103e+04, 6.51554728e+03, 2.23786498e+03, 5.51482263e+03,
+        5.74379966e+03, 2.26575784e+03, 2.57270546e+02, 5.14097569e+05,
+        1.20200138e+03, 7.56704756e+02, 4.49593609e+03, 1.98982493e+04,
+        6.02619632e+02, 5.33331582e+03, 1.59782001e+04, 5.56558803e+03,
+        5.51724489e+02, 1.85534451e+03, 3.87972065e+04, 2.67827236e+03,
+        2.90170244e+04, 4.16269376e+03, 1.65323263e+03, 1.49620876e+04,
+        3.76416730e+03, 4.48742658e+03, 3.10969459e+03, 8.98310040e+02,
+        7.35208900e+02, 3.09801595e+02, 6.27921222e+03, 2.61891309e+05,
+        1.39088312e+05, 5.68326225e+04, 1.83258433e+04, 4.32451022e+02,
+        1.43223339e+04, 3.39705494e+02, 1.07858042e+04, 2.92548784e+04,
+        5.52543959e+04, 1.74058099e+03, 4.23443919e+03, 4.40734078e+02,
+        1.52783232e+05, 2.42687594e+04, 1.51033840e+04, 1.25521981e+04,
+        5.45110292e+03, 1.26967892e+04, 1.04383107e+05, 1.23498668e+04,
+        1.89120940e+03, 1.06750211e+03])}
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
@@ -1238,148 +969,152 @@ Resetting rng
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-{&#39;IC86_I&#39;: array([1.31136354e+03, 4.27063531e+02, 2.30184376e+02, 1.06374367e+03,
-        9.65196547e+02, 6.03473714e+02, 3.18216255e+02, 1.11522099e+02,
-        1.10364467e+03, 3.98678374e+02, 3.25677732e+02, 2.64671131e+03,
-        1.82239810e+02, 6.81451624e+02, 1.03196805e+02, 7.52423746e+02,
-        6.91520129e+02, 3.43067451e+02, 1.32118104e+02, 5.03712664e+02,
-        1.65186094e+03, 2.22002832e+02, 4.05366906e+02, 1.19678467e+02,
-        2.15730519e+02, 3.03886656e+02, 1.09936544e+02, 1.60661190e+03,
-        2.55587051e+02, 1.89660972e+03, 3.36077369e+02, 8.94069020e+02,
-        6.95015316e+02, 1.64593963e+03, 4.77121640e+02, 2.97344866e+02,
-        1.04660493e+02, 3.84705606e+02, 1.17600587e+03, 6.17634418e+03,
-        3.71575557e+02, 1.88668614e+02, 3.26333895e+02, 3.28943364e+02,
-        9.14343772e+02, 1.61466056e+02, 2.81243362e+03, 1.00848477e+02,
-        4.71939113e+02, 2.59603872e+03, 1.15309446e+02, 7.95225683e+02,
-        1.96062714e+02, 6.89950356e+02, 3.14670130e+02, 1.62633405e+02,
-        2.56200449e+02, 4.34035676e+02, 2.00867160e+02, 2.52191398e+02,
-        7.44179973e+02, 6.79013026e+02, 1.38371178e+03, 2.61397527e+03,
-        4.55500288e+02, 4.40925778e+02, 6.02752350e+02, 3.01582267e+03,
-        1.27403042e+03, 6.98460586e+02, 3.27351230e+03, 1.02597142e+03,
-        4.22028261e+02, 9.21762382e+02, 8.65082757e+03, 4.97189647e+02,
-        6.67306896e+02, 1.77618163e+03, 4.87773883e+03, 3.43506584e+02,
-        2.16892914e+02, 4.39681806e+02, 3.64438999e+02, 2.83509111e+02,
-        7.89518630e+02, 5.98721867e+02, 1.03448768e+04, 1.71691251e+02,
-        8.60054826e+02, 8.67413296e+02, 1.07570854e+02, 3.05797689e+02,
-        2.41383308e+03, 1.04160275e+02, 3.68018893e+02, 4.94501917e+02,
-        2.04899927e+02, 6.37716590e+02, 2.79675306e+02, 4.78385125e+02,
-        4.85607169e+02, 3.27908624e+02, 1.47187045e+02, 1.65595047e+03,
-        2.74799475e+02, 1.00336502e+02, 3.89901431e+02, 9.20401865e+02,
-        3.50262569e+03, 1.08104945e+03, 5.39903226e+02, 2.93425123e+02,
-        3.03122414e+02, 6.87827202e+02, 1.35309920e+02, 1.06404398e+03,
-        2.18044984e+02, 1.09135233e+03, 1.14775033e+03, 5.35045771e+02,
-        1.69625181e+02, 1.22148038e+02, 6.57436699e+02, 1.88433529e+02,
-        4.49923211e+02, 1.09789994e+02, 5.86089797e+02, 1.73188280e+02,
-        1.56434551e+02, 1.08612781e+03, 5.05130666e+02, 3.19035391e+02,
-        4.14744644e+02, 2.92599180e+02, 1.49527817e+02, 1.47356073e+03,
-        1.62260871e+02, 7.20682832e+02, 4.21613742e+02, 2.56497041e+02,
-        3.64581285e+02, 3.10690887e+03, 1.27308238e+03, 2.00538171e+02,
-        2.57553628e+02, 4.31147649e+02, 6.55627515e+02, 3.86226818e+02,
-        6.14336084e+02, 3.35752350e+02, 5.86685847e+02, 2.67865948e+02,
-        1.97596114e+03, 2.56662069e+02, 1.73755000e+02, 4.01264792e+03,
-        4.10705983e+02, 5.47121261e+02, 2.67677531e+02, 2.91733044e+02,
-        1.39527126e+02, 6.07660575e+02, 1.44834814e+03, 1.40411247e+03,
-        5.64963499e+02, 1.31849372e+03, 3.52296123e+02, 1.01882969e+03,
-        2.20452151e+02, 3.45611444e+02, 5.34832674e+02, 4.06020957e+02,
-        1.68690190e+02, 1.32079954e+02, 4.04100023e+03, 1.00829682e+03,
-        1.32947097e+03, 7.63215097e+02, 4.46416889e+02, 5.49817949e+02,
-        2.51620230e+02, 1.07554975e+03, 2.97155843e+02, 4.06115294e+02,
-        2.73333851e+02, 4.44643730e+02, 2.83168259e+02, 1.37657150e+03,
-        4.68202977e+02, 1.62762010e+03, 1.94327723e+03, 4.49487711e+03,
-        4.15400038e+02, 4.94292322e+02, 1.78968186e+03, 2.97821088e+02,
-        1.45483083e+02, 1.40432099e+02, 5.52046974e+02, 4.14960589e+02,
-        5.77580909e+02, 9.18825008e+02, 7.24685475e+02, 1.14802878e+03,
-        1.30681333e+03, 4.35621652e+02, 3.44689882e+02, 2.61255964e+02,
-        3.10322536e+02, 7.04633570e+02, 1.18707019e+02, 1.28694916e+02,
-        4.71867442e+02, 2.14811254e+04, 4.47999666e+04, 8.48517378e+02,
-        3.60603910e+02, 4.39647640e+03, 2.14495503e+03, 5.52002343e+03,
-        1.10678300e+03, 1.11787563e+04, 2.12074202e+03, 4.41627692e+02,
-        1.58360071e+05, 7.12644388e+02, 4.59849238e+04, 1.86987749e+04,
-        7.95265458e+03, 4.23869706e+03, 4.66794955e+04, 6.18118246e+03,
-        3.98549555e+03, 7.80835409e+04, 1.22952939e+04, 2.52622559e+03,
-        1.01831238e+04, 6.30308516e+04, 1.71450854e+03, 1.27139255e+03,
-        2.20319102e+04, 2.43868826e+03, 4.09233699e+02, 1.35198787e+03,
-        7.58557236e+03, 1.20792431e+03, 5.88424225e+04, 3.87072127e+03,
-        3.02568463e+02]),
- &#39;IC86_II&#39;: array([6.65178000e+02, 1.69202240e+02, 2.70476857e+03, 2.22532330e+02,
-        7.19423381e+02, 1.13766385e+02, 1.30603424e+03, 5.58388205e+02,
-        3.68746173e+03, 2.15584938e+02, 2.80958796e+02, 1.33308733e+02,
-        3.01898389e+02, 1.39813514e+03, 7.67652790e+02, 1.18644139e+02,
-        1.60418667e+02, 1.18927673e+02, 1.94152348e+02, 1.20647657e+02,
-        1.84892419e+03, 1.23866437e+02, 1.85021692e+02, 3.27927993e+02,
-        1.03784105e+03, 2.66121847e+02, 1.59777184e+02, 4.30933676e+02,
-        5.18373462e+02, 7.50982951e+02, 1.66269575e+02, 6.58233916e+02,
-        1.51190325e+03, 1.04923778e+03, 2.64524340e+02, 4.41578550e+02,
-        4.07240880e+02, 9.32726469e+02, 2.17336905e+02, 3.32431860e+02,
-        1.23573757e+02, 1.03679164e+02, 6.94710624e+02, 6.68487094e+02,
-        8.40306955e+02, 2.21645235e+02, 1.29245283e+02, 6.85027143e+02,
-        8.13918448e+02, 1.65426683e+02, 2.39219345e+03, 3.06016722e+02,
-        2.61718003e+02, 3.05764700e+02, 2.69910452e+02, 1.83544528e+02,
-        4.44547025e+02, 2.86730873e+02, 1.10389935e+03, 1.25325297e+02,
-        4.22101626e+03, 6.15945017e+03, 2.55803767e+02, 1.79332883e+02,
-        2.06041240e+03, 1.61003224e+03, 1.37078069e+03, 1.07311171e+03,
-        1.20971758e+02, 2.02501494e+02, 1.07416230e+03, 7.07679778e+02,
-        1.67336806e+02, 3.04802866e+02, 4.56771151e+03, 8.05686417e+02,
-        3.14500483e+02, 4.82319658e+03, 2.60614850e+02, 7.04458465e+02,
-        1.12632500e+02, 3.74473349e+02, 4.36163409e+02, 8.67413296e+02,
-        2.06326990e+02, 1.76019722e+02, 2.41155015e+02, 1.13811219e+02,
-        9.43623635e+02, 3.29860664e+02, 1.79882873e+02, 3.34318148e+02,
-        1.31992586e+03, 1.22387036e+02, 1.43191147e+02, 3.79654559e+02,
-        3.36964460e+02, 3.11454875e+02, 2.19690931e+02, 2.95527443e+02,
-        3.10010525e+02, 1.29184104e+02, 1.10580317e+03, 1.16162187e+03,
-        3.11336792e+02, 7.92791991e+02, 1.59235278e+03, 1.09109480e+03,
-        3.72625488e+02, 6.33205453e+02, 4.14826408e+02, 2.46094264e+02,
-        3.03025149e+02, 1.40991119e+03, 5.77999371e+02, 1.18096043e+03,
-        1.63153742e+02, 7.16313845e+02, 4.50795084e+02, 3.29990283e+03,
-        1.43576711e+02, 4.22842253e+03, 5.24726757e+02, 1.90804542e+02,
-        3.55086622e+02, 6.27756534e+02, 2.17547649e+02, 2.80924909e+02,
-        2.79659122e+03, 7.09348154e+02, 8.28622010e+02, 6.41114406e+02,
-        1.00204918e+03, 3.05562157e+02, 2.90201108e+02, 5.30753736e+02,
-        1.16784633e+03, 3.40143344e+02, 3.05782600e+02, 3.47336744e+02,
-        6.67377164e+02, 5.37899181e+02, 6.44498454e+02, 1.53199925e+03,
-        4.19584638e+02, 3.56988825e+02, 6.28530741e+03, 3.56260211e+02,
-        7.12537477e+02, 8.33404942e+02, 2.34376557e+03, 2.65030333e+02,
-        1.20994627e+02, 2.78243043e+02, 2.98643778e+04, 1.11067402e+02,
-        1.79421774e+02, 1.07237060e+03, 4.81262508e+02, 9.19826281e+02,
-        1.42244149e+02, 4.97342678e+02, 4.18378362e+02, 2.00665845e+02,
-        2.34744288e+02, 2.16779097e+02, 9.20077893e+03, 1.22747649e+03,
-        1.20804514e+03, 2.50517919e+02, 4.02159228e+02, 2.24396126e+02,
-        5.54308513e+02, 2.88177352e+02, 3.68421049e+02, 8.76690657e+02,
-        5.10745881e+02, 1.25673248e+02, 1.76143720e+02, 3.96563266e+02,
-        1.03902719e+03, 9.91346700e+02, 1.38249539e+02, 1.88610588e+02,
-        1.42677589e+03, 1.16043776e+02, 2.34677986e+02, 2.81986011e+02,
-        1.22762033e+03, 1.04722061e+03, 2.34810333e+02, 2.95624720e+02,
-        3.27291700e+02, 1.19924757e+03, 1.94255656e+02, 2.43644485e+02,
-        4.93441800e+02, 1.73991933e+03, 1.08504026e+03, 3.07011748e+02,
-        1.87423935e+02, 1.35792754e+02, 5.39206242e+02, 4.06313620e+02,
-        2.09736205e+02, 1.53822175e+03, 2.31752024e+02, 4.50352595e+02,
-        4.24977180e+02, 1.30686690e+03, 1.04931223e+03, 3.02663294e+02,
-        1.44774795e+03, 1.91793551e+02, 2.23987098e+02, 6.37797383e+02,
-        1.68250239e+03, 1.69300530e+02, 3.35040745e+02, 1.60601584e+02,
-        2.61755687e+04, 2.99807512e+02, 1.53710895e+02, 1.62621282e+02,
-        3.23475882e+02, 1.19419458e+03, 1.45075052e+03, 4.53485543e+02,
-        1.92821797e+02, 4.46152356e+02, 4.42277574e+02, 2.59487930e+02,
-        1.31734226e+03, 1.86236803e+02, 6.83896153e+03, 3.20889036e+02,
-        1.58513658e+02, 3.59066579e+03, 1.78098079e+02, 2.64473078e+02,
-        5.04245957e+02, 1.59362864e+02, 1.16260243e+03, 1.20359205e+02,
-        4.20308199e+02, 7.02833351e+02, 2.91019535e+02, 4.41396227e+02,
-        1.20839659e+02, 1.21208230e+02, 1.34644773e+03, 2.58815431e+02,
-        3.98574188e+02, 9.58397078e+02, 1.36230488e+03, 1.78108096e+02,
-        3.51515588e+02, 1.66876380e+03, 9.39780610e+02, 2.20089046e+02,
-        8.42975894e+02, 4.51536732e+02, 1.81306886e+02, 1.05227613e+02,
-        2.70520643e+02, 2.71864562e+02, 2.28594277e+02, 2.81118532e+02,
-        6.78860066e+02, 2.57263459e+02, 3.73466646e+02, 2.87401921e+02,
-        1.60369465e+02, 1.59788960e+02, 2.13223356e+02, 3.02589229e+02,
-        2.03208274e+02, 5.04716500e+02, 1.60789914e+05, 1.24800129e+03,
-        2.19685165e+03, 1.22424610e+03, 8.41563717e+04, 2.76888249e+04,
-        9.27385988e+03, 5.51087867e+02, 1.42872470e+04, 1.15181175e+04,
-        4.06659577e+02, 1.12136867e+03, 1.21498462e+04, 5.18129790e+03,
-        4.61284945e+02, 4.75776903e+02, 1.02976886e+04, 3.99582598e+02,
-        4.09717088e+03, 3.17295644e+04, 6.25315281e+03, 2.10418469e+04,
-        7.15418376e+02, 2.78997991e+03, 4.97138102e+02, 8.62516403e+03,
-        1.31516329e+04, 2.77956411e+04, 4.80118425e+04, 2.48169009e+04,
-        2.23447961e+03, 2.39212831e+04, 5.51330759e+03, 1.62995400e+03,
-        2.60956972e+04, 6.38836650e+03, 3.01223239e+03, 4.29326872e+02])}
+{&#39;IC86_I&#39;: array([  188.64565779,  2838.69103169,   367.03045702,   302.86551638,
+         4041.54858527,   104.56850236,   522.75467614,   426.24773827,
+          484.33570281,   914.37828968,   284.48042369,   385.77928756,
+          305.09653451,   512.22894559,  4033.68565151,   827.09079631,
+         1059.19680016,   345.38516511,   685.74336857,   278.77527675,
+          117.99690533,   110.32573334,  1802.52451934,   778.4410995 ,
+          161.31934235,   423.99437872, 41263.84753565,   570.86216909,
+          620.64780466,   597.79735352,   957.76179785,   694.11484137,
+          184.95209007,   309.86561253,   116.95305688,   501.14146051,
+         2932.71252223,   147.56917441,  1447.49260734,   457.06727436,
+          404.93199983,   750.86366987,   247.89242896,   127.09485487,
+          305.99211461,   129.49500423,   182.51651381,  1066.13998262,
+          261.69269187,   641.28701347,   650.12902535,   164.81450688,
+          163.53010379,  1029.08167752,   450.77505447,   277.44953718,
+          670.65363765,   314.97978206,   258.4858178 ,  1059.98925543,
+         1220.68227825,   530.30995951,  1646.07310385,  3044.83223386,
+          827.79837771,   560.69996491,   275.41742031,   302.21602598,
+          148.95358241,  1512.00707072,   719.0062802 ,  1109.60521722,
+          189.48054451,   408.06317322,  1021.19858075,  1213.95201094,
+          694.71062439,  2079.26819735,   735.0578868 ,  2704.20119544,
+         1003.56221726,   167.2369306 , 25744.48204983, 36546.59337264,
+         9074.55922984,  7479.85693133,  1614.45914584,  7085.30665897,
+        13767.96493166,   774.95742683, 62746.83123524,  3962.12918635,
+         6214.93062513, 45855.05913768]),
+ &#39;IC86_II&#39;: array([1.59323877e+02, 3.81741447e+02, 9.62988295e+02, 4.00984486e+02,
+        2.10171395e+02, 3.21767941e+02, 1.06217717e+02, 2.00735487e+02,
+        1.16268257e+03, 2.97997709e+02, 3.24316790e+02, 4.02011083e+02,
+        2.91842080e+02, 2.11567051e+02, 4.80318064e+02, 1.56521406e+03,
+        6.86068788e+02, 2.59379206e+02, 1.00144005e+03, 1.14476618e+03,
+        1.65491687e+02, 3.81214108e+02, 8.24709899e+02, 1.13668495e+02,
+        2.51607529e+03, 3.33544877e+02, 1.11866026e+03, 3.00907799e+03,
+        6.03595872e+02, 5.17836858e+02, 2.03615617e+02, 1.85914114e+03,
+        6.58233916e+02, 6.86156668e+02, 1.49792233e+03, 6.48014004e+02,
+        5.14037912e+03, 7.77520524e+02, 4.85683512e+02, 3.14375554e+02,
+        2.75417420e+02, 1.02675601e+03, 2.08081656e+02, 9.88174506e+02,
+        1.96204729e+02, 2.34087613e+03, 1.00397823e+02, 2.64376290e+03,
+        6.19462865e+02, 5.22237147e+03, 2.52220227e+03, 1.13891278e+02,
+        1.00119781e+03, 2.59534732e+02, 1.30973494e+03, 3.00089430e+02,
+        1.04310789e+04, 3.04320259e+02, 1.23104678e+02, 1.81779976e+02,
+        1.70308710e+02, 5.65099493e+03, 1.04131081e+03, 3.27005845e+02,
+        3.30094188e+02, 6.76590957e+02, 1.31029121e+03, 2.72670591e+02,
+        4.20932988e+02, 1.04847667e+03, 2.36959681e+02, 1.18089792e+03,
+        1.26975274e+02, 1.92502476e+02, 7.08225183e+02, 3.25594625e+03,
+        1.55067439e+02, 1.65966191e+02, 4.66090336e+03, 7.08134640e+02,
+        2.56326181e+02, 3.79472395e+02, 3.63268623e+03, 2.76467422e+02,
+        2.53183177e+02, 1.01390798e+03, 5.76267020e+02, 3.20991352e+02,
+        1.51715603e+03, 2.48782213e+03, 4.62203222e+02, 1.74086568e+03,
+        1.84430970e+02, 2.11208941e+02, 2.68547399e+02, 1.61062819e+02,
+        7.16580758e+02, 4.09451456e+02, 2.39295424e+02, 1.48663078e+02,
+        1.58508336e+03, 5.06173047e+02, 1.36268559e+02, 9.72825356e+02,
+        2.17018557e+02, 1.46281094e+02, 2.43029725e+03, 1.27456647e+02,
+        6.69857184e+02, 2.19274186e+03, 2.05916832e+02, 2.08702107e+02,
+        1.84054099e+02, 2.86537156e+02, 3.18230846e+02, 7.52644531e+02,
+        1.95879084e+02, 1.25797580e+02, 7.17485580e+02, 1.76597855e+02,
+        1.20473330e+02, 2.11543378e+02, 8.28461622e+02, 5.21143844e+02,
+        2.04348900e+02, 1.62453212e+03, 1.61010505e+02, 2.00665845e+02,
+        5.69136591e+02, 5.89314850e+02, 5.37238154e+02, 4.57058975e+02,
+        3.56278995e+02, 2.02819324e+02, 6.90046169e+02, 3.18419745e+02,
+        2.57497610e+03, 4.65477835e+02, 2.18589326e+02, 1.35031348e+02,
+        2.87458044e+02, 3.78701103e+02, 7.81224555e+02, 1.68579440e+03,
+        2.86911716e+02, 4.10576212e+02, 2.35502615e+03, 1.71309128e+02,
+        1.70977453e+02, 2.87196258e+03, 5.91595330e+02, 4.30673371e+02,
+        1.94455667e+02, 5.81550700e+02, 1.95911854e+02, 5.55415973e+02,
+        2.13914938e+03, 2.31143364e+02, 5.44317658e+02, 1.69052361e+02,
+        6.46180994e+02, 3.07199342e+02, 1.99936534e+02, 3.45145882e+03,
+        3.56730128e+02, 2.97933686e+02, 3.94871752e+02, 1.17595432e+03,
+        4.08754869e+02, 1.69300530e+02, 1.19544407e+03, 9.93151450e+02,
+        1.60601584e+02, 1.01125877e+02, 2.68149491e+02, 2.10554685e+02,
+        8.59184686e+02, 2.72938083e+03, 1.83171080e+02, 6.88621681e+02,
+        5.07962061e+02, 1.00341324e+02, 4.65240954e+02, 4.37154394e+02,
+        1.05253682e+03, 1.05801366e+02, 2.88994246e+02, 1.59595964e+02,
+        1.05819004e+02, 1.01443459e+02, 3.65771614e+02, 1.66373182e+03,
+        3.36368321e+02, 2.64177898e+02, 4.21356569e+02, 3.09120445e+02,
+        8.52862535e+02, 1.00022660e+02, 6.33085657e+02, 1.61481844e+02,
+        2.45103583e+02, 1.71871600e+02, 3.32646324e+02, 2.92352233e+02,
+        3.94967947e+02, 1.98202738e+02, 1.60268481e+03, 1.99672905e+02,
+        1.77502278e+02, 9.85266144e+02, 1.98430635e+02, 1.74548624e+02,
+        2.00715075e+02, 2.81113996e+02, 1.41507422e+03, 1.80277767e+02,
+        8.36705736e+02, 1.47302146e+04, 8.16556108e+02, 2.70626805e+04,
+        1.24749765e+02, 2.79056575e+03, 6.35251197e+02, 5.48543169e+02,
+        2.84294944e+02, 4.40133787e+02, 1.15995704e+03, 3.33754058e+02,
+        1.55280403e+02, 2.90184603e+02, 2.62103955e+02, 1.20912549e+03,
+        6.03895622e+02, 1.20160550e+02, 2.87523081e+02, 2.87401921e+02,
+        1.93523631e+02, 1.41669227e+04, 6.83148406e+02, 1.65867448e+03,
+        1.61241233e+02, 1.93227375e+02, 5.67551749e+02, 1.22327132e+02,
+        3.17743442e+02, 3.05186594e+03, 5.71931011e+02, 4.10354388e+02,
+        4.37065609e+03, 2.55669992e+02, 3.15213042e+02, 1.65691721e+03,
+        1.34740974e+03, 7.64174973e+02, 5.81053915e+02, 4.32915092e+02,
+        4.42082343e+02, 3.23578053e+02, 1.64419896e+03, 2.95766511e+03,
+        1.38076551e+02, 1.71473926e+02, 2.66245568e+02, 1.65228394e+02,
+        3.33104086e+02, 2.88050234e+02, 1.59485879e+02, 3.48468644e+02,
+        1.67362854e+02, 6.59553509e+02, 9.28991248e+02, 1.62546281e+02,
+        1.95295819e+03, 5.24397041e+02, 3.37022112e+03, 1.30944198e+03,
+        9.77883749e+02, 7.12872851e+02, 3.03904344e+02, 1.80592808e+02,
+        2.81035498e+02, 3.07439996e+02, 1.06756266e+02, 5.50437566e+02,
+        2.75635823e+02, 2.23050735e+03, 1.39512039e+02, 2.11440957e+02,
+        2.68858330e+03, 2.80172757e+03, 5.21941566e+02, 1.81603238e+02,
+        4.01061601e+02, 4.79606634e+02, 6.34469320e+02, 1.27028920e+02,
+        3.03817155e+02, 5.04741898e+02, 3.65726877e+02, 1.27984240e+02,
+        6.30144157e+03, 5.22191489e+02, 4.13133477e+03, 1.38636473e+03,
+        5.96406789e+02, 1.34745494e+03, 1.31666007e+03, 1.49321928e+03,
+        1.31702146e+02, 1.94695018e+03, 1.06928738e+03, 4.07766477e+02,
+        3.40967608e+02, 2.66100378e+02, 2.17126630e+02, 1.86824809e+03,
+        3.29899279e+02, 3.67212432e+02, 2.02166956e+03, 1.05524348e+02,
+        4.83806758e+02, 1.83378482e+03, 6.36930795e+02, 3.26616101e+02,
+        8.73763802e+02, 2.27249068e+02, 4.32984613e+02, 1.17545591e+02,
+        4.87985937e+02, 2.76802242e+02, 1.10754785e+03, 1.59159598e+02,
+        2.93359310e+03, 1.96010409e+02, 2.52804192e+02, 2.77211875e+03,
+        2.99783738e+02, 4.74852374e+03, 4.16316265e+02, 2.64004011e+02,
+        1.39560926e+02, 1.12513167e+03, 2.66168323e+02, 1.61090115e+02,
+        5.60781477e+02, 5.52376781e+02, 2.56660762e+02, 4.39178640e+02,
+        5.42799974e+02, 1.22050658e+02, 1.24194903e+02, 1.24724404e+02,
+        7.79928900e+02, 2.09004211e+02, 2.87611626e+02, 4.03879687e+02,
+        1.80952904e+02, 1.11174699e+03, 1.65020518e+02, 4.10336023e+02,
+        7.50560904e+02, 3.35198534e+02, 2.77981008e+02, 2.54082327e+02,
+        5.12495665e+03, 5.86687599e+02, 1.71768138e+02, 1.60723964e+02,
+        5.10855057e+02, 4.45876421e+02, 3.32444285e+02, 7.20620523e+02,
+        1.63644529e+02, 2.98748728e+02, 3.81859842e+03, 3.47348490e+03,
+        1.47209105e+02, 1.34350764e+03, 1.29051489e+03, 1.18603003e+03,
+        3.41066716e+02, 2.44862561e+02, 5.37757712e+02, 2.16532664e+02,
+        4.44456477e+02, 1.04562480e+02, 1.97884135e+02, 8.26339848e+02,
+        4.16001867e+02, 5.22605718e+02, 1.77799442e+02, 1.68338806e+02,
+        3.59610298e+02, 8.28780294e+02, 1.59806658e+02, 2.89493926e+02,
+        4.29905711e+02, 4.33281022e+02, 1.87519178e+02, 1.18919877e+02,
+        3.52039218e+02, 4.26345419e+02, 8.96753237e+02, 3.97902755e+03,
+        1.03125251e+03, 5.76438458e+02, 2.44382158e+02, 3.50007828e+02,
+        2.67993277e+03, 1.05434487e+02, 3.26808970e+02, 4.22104029e+03,
+        1.88828728e+02, 4.25572849e+02, 6.67453662e+02, 4.79331170e+02,
+        6.49053688e+03, 2.75190191e+03, 4.51860437e+03, 1.91436026e+03,
+        2.94656923e+04, 3.38965650e+03, 4.44423912e+04, 9.21759593e+03,
+        7.08386015e+02, 4.83798920e+03, 7.93037927e+02, 1.40404536e+03,
+        1.83008398e+04, 4.52013589e+03, 5.10777850e+03, 1.99681363e+03,
+        1.94343103e+04, 6.51554728e+03, 2.23786498e+03, 5.51482263e+03,
+        5.74379966e+03, 2.26575784e+03, 2.57270546e+02, 5.14097569e+05,
+        1.20200138e+03, 7.56704756e+02, 4.49593609e+03, 1.98982493e+04,
+        6.02619632e+02, 5.33331582e+03, 1.59782001e+04, 5.56558803e+03,
+        5.51724489e+02, 1.85534451e+03, 3.87972065e+04, 2.67827236e+03,
+        2.90170244e+04, 4.16269376e+03, 1.65323263e+03, 1.49620876e+04,
+        3.76416730e+03, 4.48742658e+03, 3.10969459e+03, 8.98310040e+02,
+        7.35208900e+02, 3.09801595e+02, 6.27921222e+03, 2.61891309e+05,
+        1.39088312e+05, 5.68326225e+04, 1.83258433e+04, 4.32451022e+02,
+        1.43223339e+04, 3.39705494e+02, 1.07858042e+04, 2.92548784e+04,
+        5.52543959e+04, 1.74058099e+03, 4.23443919e+03, 4.40734078e+02,
+        1.52783232e+05, 2.42687594e+04, 1.51033840e+04, 1.25521981e+04,
+        5.45110292e+03, 1.26967892e+04, 1.04383107e+05, 1.23498668e+04,
+        1.89120940e+03, 1.06750211e+03])}
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">

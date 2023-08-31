@@ -11,10 +11,11 @@
     <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-        <script src="../_static/doctools.js"></script>
-        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=914a23ff"></script>
+        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
@@ -83,34 +84,10 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  
-<style>
-/* CSS overrides for sphinx_rtd_theme */
-
-/* 24px margin */
-.nbinput.nblast.container,
-.nboutput.nblast.container {
-    margin-bottom: 19px;  /* padding has already 5px */
-}
-
-/* ... except between code cells! */
-.nblast.container + .nbinput.container {
-    margin-top: -19px;
-}
-
-.admonition > p:before {
-    margin-right: 4px;  /* make room for the exclamation icon */
-}
-
-/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
-.math {
-    text-align: unset;
-}
-</style>
-<section id="icecube-tools-package">
-<h1>icecube_tools package<a class="headerlink" href="#icecube-tools-package" title="Permalink to this heading"></a></h1>
+  <section id="icecube-tools-package">
+<h1>icecube_tools package<a class="headerlink" href="#icecube-tools-package" title="Link to this heading"></a></h1>
 <section id="subpackages">
-<h2>Subpackages<a class="headerlink" href="#subpackages" title="Permalink to this heading"></a></h2>
+<h2>Subpackages<a class="headerlink" href="#subpackages" title="Link to this heading"></a></h2>
 <div class="toctree-wrapper compound">
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="icecube_tools.detector.html">icecube_tools.detector package</a><ul>
@@ -178,6 +155,7 @@
 <li class="toctree-l1"><a class="reference internal" href="icecube_tools.point_source_likelihood.html">icecube_tools.point_source_likelihood package</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="icecube_tools.point_source_likelihood.html#submodules">Submodules</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="icecube_tools.point_source_likelihood.energy_likelihood.html">icecube_tools.point_source_likelihood.energy_likelihood module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="icecube_tools.point_source_likelihood.energy_likelihood.html#icecube_tools.point_source_likelihood.energy_likelihood.DataDrivenBackgroundEnergyLikelihood"><code class="docutils literal notranslate"><span class="pre">DataDrivenBackgroundEnergyLikelihood</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="icecube_tools.point_source_likelihood.energy_likelihood.html#icecube_tools.point_source_likelihood.energy_likelihood.MarginalisedEnergyLikelihood"><code class="docutils literal notranslate"><span class="pre">MarginalisedEnergyLikelihood</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="icecube_tools.point_source_likelihood.energy_likelihood.html#icecube_tools.point_source_likelihood.energy_likelihood.MarginalisedEnergyLikelihood2021"><code class="docutils literal notranslate"><span class="pre">MarginalisedEnergyLikelihood2021</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="icecube_tools.point_source_likelihood.energy_likelihood.html#icecube_tools.point_source_likelihood.energy_likelihood.MarginalisedEnergyLikelihoodBraun2008"><code class="docutils literal notranslate"><span class="pre">MarginalisedEnergyLikelihoodBraun2008</span></code></a></li>
@@ -204,6 +182,7 @@
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="icecube_tools.point_source_likelihood.spatial_likelihood.html">icecube_tools.point_source_likelihood.spatial_likelihood module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="icecube_tools.point_source_likelihood.spatial_likelihood.html#icecube_tools.point_source_likelihood.spatial_likelihood.DataDrivenBackgroundSpatialLikelihood"><code class="docutils literal notranslate"><span class="pre">DataDrivenBackgroundSpatialLikelihood</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="icecube_tools.point_source_likelihood.spatial_likelihood.html#icecube_tools.point_source_likelihood.spatial_likelihood.EnergyDependentSpatialGaussianLikelihood"><code class="docutils literal notranslate"><span class="pre">EnergyDependentSpatialGaussianLikelihood</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="icecube_tools.point_source_likelihood.spatial_likelihood.html#icecube_tools.point_source_likelihood.spatial_likelihood.EventDependentSpatialGaussianLikelihood"><code class="docutils literal notranslate"><span class="pre">EventDependentSpatialGaussianLikelihood</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="icecube_tools.point_source_likelihood.spatial_likelihood.html#icecube_tools.point_source_likelihood.spatial_likelihood.SpatialGaussianLikelihood"><code class="docutils literal notranslate"><span class="pre">SpatialGaussianLikelihood</span></code></a></li>
@@ -220,11 +199,13 @@
 <li class="toctree-l3"><a class="reference internal" href="icecube_tools.source.flux_model.html">icecube_tools.source.flux_model module</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="icecube_tools.source.flux_model.html#icecube_tools.source.flux_model.BrokenPowerLawFlux"><code class="docutils literal notranslate"><span class="pre">BrokenPowerLawFlux</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="icecube_tools.source.flux_model.html#icecube_tools.source.flux_model.FluxModel"><code class="docutils literal notranslate"><span class="pre">FluxModel</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="icecube_tools.source.flux_model.html#icecube_tools.source.flux_model.PowerLawExpCutoffFlux"><code class="docutils literal notranslate"><span class="pre">PowerLawExpCutoffFlux</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="icecube_tools.source.flux_model.html#icecube_tools.source.flux_model.PowerLawFlux"><code class="docutils literal notranslate"><span class="pre">PowerLawFlux</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="icecube_tools.source.power_law.html">icecube_tools.source.power_law module</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="icecube_tools.source.power_law.html#icecube_tools.source.power_law.BoundedPowerLaw"><code class="docutils literal notranslate"><span class="pre">BoundedPowerLaw</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="icecube_tools.source.power_law.html#icecube_tools.source.power_law.BoundedPowerLawExpCutoff"><code class="docutils literal notranslate"><span class="pre">BoundedPowerLawExpCutoff</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="icecube_tools.source.power_law.html#icecube_tools.source.power_law.BrokenBoundedPowerLaw"><code class="docutils literal notranslate"><span class="pre">BrokenBoundedPowerLaw</span></code></a></li>
 </ul>
 </li>
@@ -260,6 +241,7 @@
 <li class="toctree-l4"><a class="reference internal" href="icecube_tools.utils.data.html#icecube_tools.utils.data.SimEvents"><code class="docutils literal notranslate"><span class="pre">SimEvents</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="icecube_tools.utils.data.html#icecube_tools.utils.data.Uptime"><code class="docutils literal notranslate"><span class="pre">Uptime</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="icecube_tools.utils.data.html#icecube_tools.utils.data.crawl_delay"><code class="docutils literal notranslate"><span class="pre">crawl_delay()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="icecube_tools.utils.data.html#icecube_tools.utils.data.dddict"><code class="docutils literal notranslate"><span class="pre">dddict</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="icecube_tools.utils.data.html#icecube_tools.utils.data.ddict"><code class="docutils literal notranslate"><span class="pre">ddict</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="icecube_tools.utils.data.html#icecube_tools.utils.data.find_files"><code class="docutils literal notranslate"><span class="pre">find_files()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="icecube_tools.utils.data.html#icecube_tools.utils.data.find_folders"><code class="docutils literal notranslate"><span class="pre">find_folders()</span></code></a></li>
@@ -279,7 +261,7 @@
 </div>
 </section>
 <section id="submodules">
-<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this heading"></a></h2>
+<h2>Submodules<a class="headerlink" href="#submodules" title="Link to this heading"></a></h2>
 <div class="toctree-wrapper compound">
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="icecube_tools.cosmology.html">icecube_tools.cosmology module</a><ul>
@@ -307,6 +289,7 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="icecube_tools.neutrino_calculator.html#icecube_tools.neutrino_calculator.PhiSolver"><code class="docutils literal notranslate"><span class="pre">PhiSolver</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="icecube_tools.neutrino_calculator.html#icecube_tools.neutrino_calculator.TimeDependentPhiSolver"><code class="docutils literal notranslate"><span class="pre">TimeDependentPhiSolver</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="icecube_tools.neutrino_calculator.html#icecube_tools.neutrino_calculator.zSolver"><code class="docutils literal notranslate"><span class="pre">zSolver</span></code></a><ul>
 <li class="toctree-l3"><a class="reference internal" href="icecube_tools.neutrino_calculator.html#icecube_tools.neutrino_calculator.zSolver.get_L"><code class="docutils literal notranslate"><span class="pre">zSolver.get_L()</span></code></a></li>
 </ul>
@@ -314,6 +297,10 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="icecube_tools.simulator.html">icecube_tools.simulator module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="icecube_tools.simulator.html#icecube_tools.simulator.BackgroundSimulator"><code class="docutils literal notranslate"><span class="pre">BackgroundSimulator</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="icecube_tools.simulator.html#icecube_tools.simulator.BackgroundSimulator.run"><code class="docutils literal notranslate"><span class="pre">BackgroundSimulator.run()</span></code></a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="icecube_tools.simulator.html#icecube_tools.simulator.Braun2008Simulator"><code class="docutils literal notranslate"><span class="pre">Braun2008Simulator</span></code></a><ul>
 <li class="toctree-l3"><a class="reference internal" href="icecube_tools.simulator.html#icecube_tools.simulator.Braun2008Simulator.run"><code class="docutils literal notranslate"><span class="pre">Braun2008Simulator.run()</span></code></a></li>
 </ul>
@@ -326,8 +313,14 @@
 <li class="toctree-l3"><a class="reference internal" href="icecube_tools.simulator.html#icecube_tools.simulator.Simulator.sources"><code class="docutils literal notranslate"><span class="pre">Simulator.sources</span></code></a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="icecube_tools.simulator.html#icecube_tools.simulator.TimeDependentBackgroundSimulator"><code class="docutils literal notranslate"><span class="pre">TimeDependentBackgroundSimulator</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="icecube_tools.simulator.html#icecube_tools.simulator.TimeDependentBackgroundSimulator.run"><code class="docutils literal notranslate"><span class="pre">TimeDependentBackgroundSimulator.run()</span></code></a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="icecube_tools.simulator.html#icecube_tools.simulator.TimeDependentSimulator"><code class="docutils literal notranslate"><span class="pre">TimeDependentSimulator</span></code></a><ul>
 <li class="toctree-l3"><a class="reference internal" href="icecube_tools.simulator.html#icecube_tools.simulator.TimeDependentSimulator.get_expected_number"><code class="docutils literal notranslate"><span class="pre">TimeDependentSimulator.get_expected_number()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="icecube_tools.simulator.html#icecube_tools.simulator.TimeDependentSimulator.max_cosz"><code class="docutils literal notranslate"><span class="pre">TimeDependentSimulator.max_cosz</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="icecube_tools.simulator.html#icecube_tools.simulator.TimeDependentSimulator.min_cosz"><code class="docutils literal notranslate"><span class="pre">TimeDependentSimulator.min_cosz</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="icecube_tools.simulator.html#icecube_tools.simulator.TimeDependentSimulator.run"><code class="docutils literal notranslate"><span class="pre">TimeDependentSimulator.run()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="icecube_tools.simulator.html#icecube_tools.simulator.TimeDependentSimulator.save"><code class="docutils literal notranslate"><span class="pre">TimeDependentSimulator.save()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="icecube_tools.simulator.html#icecube_tools.simulator.TimeDependentSimulator.sources"><code class="docutils literal notranslate"><span class="pre">TimeDependentSimulator.sources</span></code></a></li>
@@ -343,7 +336,7 @@
 </div>
 </section>
 <section id="module-icecube_tools">
-<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-icecube_tools" title="Permalink to this heading"></a></h2>
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-icecube_tools" title="Link to this heading"></a></h2>
 </section>
 </section>
 

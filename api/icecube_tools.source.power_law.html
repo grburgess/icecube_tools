@@ -11,10 +11,11 @@
     <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-        <script src="../_static/doctools.js"></script>
-        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=914a23ff"></script>
+        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
@@ -85,68 +86,77 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  
-<style>
-/* CSS overrides for sphinx_rtd_theme */
-
-/* 24px margin */
-.nbinput.nblast.container,
-.nboutput.nblast.container {
-    margin-bottom: 19px;  /* padding has already 5px */
-}
-
-/* ... except between code cells! */
-.nblast.container + .nbinput.container {
-    margin-top: -19px;
-}
-
-.admonition > p:before {
-    margin-right: 4px;  /* make room for the exclamation icon */
-}
-
-/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
-.math {
-    text-align: unset;
-}
-</style>
-<section id="module-icecube_tools.source.power_law">
-<span id="icecube-tools-source-power-law-module"></span><h1>icecube_tools.source.power_law module<a class="headerlink" href="#module-icecube_tools.source.power_law" title="Permalink to this heading"></a></h1>
+  <section id="module-icecube_tools.source.power_law">
+<span id="icecube-tools-source-power-law-module"></span><h1>icecube_tools.source.power_law module<a class="headerlink" href="#module-icecube_tools.source.power_law" title="Link to this heading"></a></h1>
 <dl class="py class">
 <dt class="sig sig-object py" id="icecube_tools.source.power_law.BoundedPowerLaw">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">icecube_tools.source.power_law.</span></span><span class="sig-name descname"><span class="pre">BoundedPowerLaw</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">gamma</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xmin</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xmax</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#icecube_tools.source.power_law.BoundedPowerLaw" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">icecube_tools.source.power_law.</span></span><span class="sig-name descname"><span class="pre">BoundedPowerLaw</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">gamma</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xmin</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xmax</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#icecube_tools.source.power_law.BoundedPowerLaw" title="Link to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>Definition of a bounded power law distribution.</p>
 <p>pdf ~ x^(-alpha) betweem xmin and xmax.</p>
 <p>Thanks to H. Niederhausen (&#64;HansN87) for this implementation.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="icecube_tools.source.power_law.BoundedPowerLaw.cdf">
-<span class="sig-name descname"><span class="pre">cdf</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#icecube_tools.source.power_law.BoundedPowerLaw.cdf" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">cdf</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#icecube_tools.source.power_law.BoundedPowerLaw.cdf" title="Link to this definition"></a></dt>
 <dd><p>Evaluate the cumulative distribution function at x.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="icecube_tools.source.power_law.BoundedPowerLaw.inv_cdf">
-<span class="sig-name descname"><span class="pre">inv_cdf</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#icecube_tools.source.power_law.BoundedPowerLaw.inv_cdf" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">inv_cdf</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#icecube_tools.source.power_law.BoundedPowerLaw.inv_cdf" title="Link to this definition"></a></dt>
 <dd><p>Evaluate the inverse cumulative distribution function at x.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="icecube_tools.source.power_law.BoundedPowerLaw.pdf">
-<span class="sig-name descname"><span class="pre">pdf</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#icecube_tools.source.power_law.BoundedPowerLaw.pdf" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">pdf</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#icecube_tools.source.power_law.BoundedPowerLaw.pdf" title="Link to this definition"></a></dt>
 <dd><p>Evaluate the probability distribution function at x.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="icecube_tools.source.power_law.BoundedPowerLaw.samples">
-<span class="sig-name descname"><span class="pre">samples</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nsamples</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#icecube_tools.source.power_law.BoundedPowerLaw.samples" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">samples</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nsamples</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#icecube_tools.source.power_law.BoundedPowerLaw.samples" title="Link to this definition"></a></dt>
 <dd><p>Inverse CDF sample from the bounded power law distribution.</p>
 </dd></dl>
 
 </dd></dl>
 
 <dl class="py class">
+<dt class="sig sig-object py" id="icecube_tools.source.power_law.BoundedPowerLawExpCutoff">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">icecube_tools.source.power_law.</span></span><span class="sig-name descname"><span class="pre">BoundedPowerLawExpCutoff</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">gamma</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xcut</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xmin</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xmax</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#icecube_tools.source.power_law.BoundedPowerLawExpCutoff" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Definition of a bounded power law with an exponential cutoff.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="icecube_tools.source.power_law.BoundedPowerLawExpCutoff.cdf">
+<span class="sig-name descname"><span class="pre">cdf</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#icecube_tools.source.power_law.BoundedPowerLawExpCutoff.cdf" title="Link to this definition"></a></dt>
+<dd><p>Evaluates the cumulative distribution function (CDF) at x.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="icecube_tools.source.power_law.BoundedPowerLawExpCutoff.inv_cdf">
+<span class="sig-name descname"><span class="pre">inv_cdf</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#icecube_tools.source.power_law.BoundedPowerLawExpCutoff.inv_cdf" title="Link to this definition"></a></dt>
+<dd><p>Evaluates the inverse cumulative distribution function at x.
+Only defined for gamma &lt; 1.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="icecube_tools.source.power_law.BoundedPowerLawExpCutoff.pdf">
+<span class="sig-name descname"><span class="pre">pdf</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#icecube_tools.source.power_law.BoundedPowerLawExpCutoff.pdf" title="Link to this definition"></a></dt>
+<dd><p>Evaluates the probability density function (PDF) at x.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="icecube_tools.source.power_law.BoundedPowerLawExpCutoff.samples">
+<span class="sig-name descname"><span class="pre">samples</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nsamples</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#icecube_tools.source.power_law.BoundedPowerLawExpCutoff.samples" title="Link to this definition"></a></dt>
+<dd><p>Inverse transform sampling from the bounded power law distribution
+with exponential cutoff. Works only for gamma &lt; 1.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
 <dt class="sig sig-object py" id="icecube_tools.source.power_law.BrokenBoundedPowerLaw">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">icecube_tools.source.power_law.</span></span><span class="sig-name descname"><span class="pre">BrokenBoundedPowerLaw</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gamma1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gamma2</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#icecube_tools.source.power_law.BrokenBoundedPowerLaw" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">icecube_tools.source.power_law.</span></span><span class="sig-name descname"><span class="pre">BrokenBoundedPowerLaw</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gamma1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gamma2</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#icecube_tools.source.power_law.BrokenBoundedPowerLaw" title="Link to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>Sampling from a broken power law.</p>
 <p>Based on:
@@ -154,7 +164,7 @@
 by J. M. Burgess (&#64;grburgess).</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="icecube_tools.source.power_law.BrokenBoundedPowerLaw.samples">
-<span class="sig-name descname"><span class="pre">samples</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">N</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#icecube_tools.source.power_law.BrokenBoundedPowerLaw.samples" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">samples</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">N</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#icecube_tools.source.power_law.BrokenBoundedPowerLaw.samples" title="Link to this definition"></a></dt>
 <dd><p>Sample from the broken power law.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>

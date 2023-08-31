@@ -11,10 +11,11 @@
     <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-        <script src="../_static/doctools.js"></script>
-        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=914a23ff"></script>
+        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
@@ -85,35 +86,19 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  
-<style>
-/* CSS overrides for sphinx_rtd_theme */
+  <section id="module-icecube_tools.point_source_likelihood.spatial_likelihood">
+<span id="icecube-tools-point-source-likelihood-spatial-likelihood-module"></span><h1>icecube_tools.point_source_likelihood.spatial_likelihood module<a class="headerlink" href="#module-icecube_tools.point_source_likelihood.spatial_likelihood" title="Link to this heading"></a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="icecube_tools.point_source_likelihood.spatial_likelihood.DataDrivenBackgroundSpatialLikelihood">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">icecube_tools.point_source_likelihood.spatial_likelihood.</span></span><span class="sig-name descname"><span class="pre">DataDrivenBackgroundSpatialLikelihood</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">period</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#icecube_tools.point_source_likelihood.spatial_likelihood.DataDrivenBackgroundSpatialLikelihood" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#icecube_tools.point_source_likelihood.spatial_likelihood.SpatialLikelihood" title="icecube_tools.point_source_likelihood.spatial_likelihood.SpatialLikelihood"><code class="xref py py-class docutils literal notranslate"><span class="pre">SpatialLikelihood</span></code></a></p>
+<p>Class using data to calculate the background spatial likelihood,
+instead of using 1 / (4pi) as one would naively use</p>
+</dd></dl>
 
-/* 24px margin */
-.nbinput.nblast.container,
-.nboutput.nblast.container {
-    margin-bottom: 19px;  /* padding has already 5px */
-}
-
-/* ... except between code cells! */
-.nblast.container + .nbinput.container {
-    margin-top: -19px;
-}
-
-.admonition > p:before {
-    margin-right: 4px;  /* make room for the exclamation icon */
-}
-
-/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
-.math {
-    text-align: unset;
-}
-</style>
-<section id="module-icecube_tools.point_source_likelihood.spatial_likelihood">
-<span id="icecube-tools-point-source-likelihood-spatial-likelihood-module"></span><h1>icecube_tools.point_source_likelihood.spatial_likelihood module<a class="headerlink" href="#module-icecube_tools.point_source_likelihood.spatial_likelihood" title="Permalink to this heading"></a></h1>
 <dl class="py class">
 <dt class="sig sig-object py" id="icecube_tools.point_source_likelihood.spatial_likelihood.EnergyDependentSpatialGaussianLikelihood">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">icecube_tools.point_source_likelihood.spatial_likelihood.</span></span><span class="sig-name descname"><span class="pre">EnergyDependentSpatialGaussianLikelihood</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">angular_resolution_list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">index_list</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#icecube_tools.point_source_likelihood.spatial_likelihood.EnergyDependentSpatialGaussianLikelihood" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">icecube_tools.point_source_likelihood.spatial_likelihood.</span></span><span class="sig-name descname"><span class="pre">EnergyDependentSpatialGaussianLikelihood</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">angular_resolution_list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">index_list</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#icecube_tools.point_source_likelihood.spatial_likelihood.EnergyDependentSpatialGaussianLikelihood" title="Link to this definition"></a></dt>
 <dd><p>Bases: <a class="reference internal" href="#icecube_tools.point_source_likelihood.spatial_likelihood.SpatialLikelihood" title="icecube_tools.point_source_likelihood.spatial_likelihood.SpatialLikelihood"><code class="xref py py-class docutils literal notranslate"><span class="pre">SpatialLikelihood</span></code></a></p>
 <p>Energy dependent spatial likelihood. Uses AngularResolution 
 specified for given spectral indicies. For example in the 2015 
@@ -122,7 +107,7 @@ data release angular resolution plots.</p>
 with a single spectral index.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="icecube_tools.point_source_likelihood.spatial_likelihood.EnergyDependentSpatialGaussianLikelihood.get_low_res">
-<span class="sig-name descname"><span class="pre">get_low_res</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#icecube_tools.point_source_likelihood.spatial_likelihood.EnergyDependentSpatialGaussianLikelihood.get_low_res" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">get_low_res</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#icecube_tools.point_source_likelihood.spatial_likelihood.EnergyDependentSpatialGaussianLikelihood.get_low_res" title="Link to this definition"></a></dt>
 <dd><p>Representative lower resolution 
 at fixed low energy and bg index.</p>
 <p>To be used in PointSourceLikelihood.</p>
@@ -132,13 +117,13 @@ at fixed low energy and bg index.</p>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="icecube_tools.point_source_likelihood.spatial_likelihood.EventDependentSpatialGaussianLikelihood">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">icecube_tools.point_source_likelihood.spatial_likelihood.</span></span><span class="sig-name descname"><span class="pre">EventDependentSpatialGaussianLikelihood</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sigma</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#icecube_tools.point_source_likelihood.spatial_likelihood.EventDependentSpatialGaussianLikelihood" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">icecube_tools.point_source_likelihood.spatial_likelihood.</span></span><span class="sig-name descname"><span class="pre">EventDependentSpatialGaussianLikelihood</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sigma</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#icecube_tools.point_source_likelihood.spatial_likelihood.EventDependentSpatialGaussianLikelihood" title="Link to this definition"></a></dt>
 <dd><p>Bases: <a class="reference internal" href="#icecube_tools.point_source_likelihood.spatial_likelihood.SpatialLikelihood" title="icecube_tools.point_source_likelihood.spatial_likelihood.SpatialLikelihood"><code class="xref py py-class docutils literal notranslate"><span class="pre">SpatialLikelihood</span></code></a></p>
 </dd></dl>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="icecube_tools.point_source_likelihood.spatial_likelihood.SpatialGaussianLikelihood">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">icecube_tools.point_source_likelihood.spatial_likelihood.</span></span><span class="sig-name descname"><span class="pre">SpatialGaussianLikelihood</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">angular_resolution</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#icecube_tools.point_source_likelihood.spatial_likelihood.SpatialGaussianLikelihood" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">icecube_tools.point_source_likelihood.spatial_likelihood.</span></span><span class="sig-name descname"><span class="pre">SpatialGaussianLikelihood</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">angular_resolution</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#icecube_tools.point_source_likelihood.spatial_likelihood.SpatialGaussianLikelihood" title="Link to this definition"></a></dt>
 <dd><p>Bases: <a class="reference internal" href="#icecube_tools.point_source_likelihood.spatial_likelihood.SpatialLikelihood" title="icecube_tools.point_source_likelihood.spatial_likelihood.SpatialLikelihood"><code class="xref py py-class docutils literal notranslate"><span class="pre">SpatialLikelihood</span></code></a></p>
 <p>Spatial part of the point source likelihood.</p>
 <p>P(x_i | x_s) where x is the direction (unit_vector).</p>
@@ -146,7 +131,7 @@ at fixed low energy and bg index.</p>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="icecube_tools.point_source_likelihood.spatial_likelihood.SpatialLikelihood">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">icecube_tools.point_source_likelihood.spatial_likelihood.</span></span><span class="sig-name descname"><span class="pre">SpatialLikelihood</span></span><a class="headerlink" href="#icecube_tools.point_source_likelihood.spatial_likelihood.SpatialLikelihood" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">icecube_tools.point_source_likelihood.spatial_likelihood.</span></span><span class="sig-name descname"><span class="pre">SpatialLikelihood</span></span><a class="headerlink" href="#icecube_tools.point_source_likelihood.spatial_likelihood.SpatialLikelihood" title="Link to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ABC</span></code></p>
 <p>Abstract base class for spatial likelihoods</p>
 </dd></dl>

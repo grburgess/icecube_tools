@@ -7,14 +7,16 @@
   <title>Point source likelihood &mdash; icecube_tools v3.2 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/nbsphinx-code-cells.css" type="text/css" />
   <!--[if lt IE 9]>
     <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-        <script src="../_static/doctools.js"></script>
-        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=914a23ff"></script>
+        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
         <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
         <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
@@ -90,287 +92,8 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  
-<style>
-/* CSS for nbsphinx extension */
-
-/* remove conflicting styling from Sphinx themes */
-div.nbinput.container div.prompt *,
-div.nboutput.container div.prompt *,
-div.nbinput.container div.input_area pre,
-div.nboutput.container div.output_area pre,
-div.nbinput.container div.input_area .highlight,
-div.nboutput.container div.output_area .highlight {
-    border: none;
-    padding: 0;
-    margin: 0;
-    box-shadow: none;
-}
-
-div.nbinput.container > div[class*=highlight],
-div.nboutput.container > div[class*=highlight] {
-    margin: 0;
-}
-
-div.nbinput.container div.prompt *,
-div.nboutput.container div.prompt * {
-    background: none;
-}
-
-div.nboutput.container div.output_area .highlight,
-div.nboutput.container div.output_area pre {
-    background: unset;
-}
-
-div.nboutput.container div.output_area div.highlight {
-    color: unset;  /* override Pygments text color */
-}
-
-/* avoid gaps between output lines */
-div.nboutput.container div[class*=highlight] pre {
-    line-height: normal;
-}
-
-/* input/output containers */
-div.nbinput.container,
-div.nboutput.container {
-    display: -webkit-flex;
-    display: flex;
-    align-items: flex-start;
-    margin: 0;
-    width: 100%;
-}
-@media (max-width: 540px) {
-    div.nbinput.container,
-    div.nboutput.container {
-        flex-direction: column;
-    }
-}
-
-/* input container */
-div.nbinput.container {
-    padding-top: 5px;
-}
-
-/* last container */
-div.nblast.container {
-    padding-bottom: 5px;
-}
-
-/* input prompt */
-div.nbinput.container div.prompt pre {
-    color: #307FC1;
-}
-
-/* output prompt */
-div.nboutput.container div.prompt pre {
-    color: #BF5B3D;
-}
-
-/* all prompts */
-div.nbinput.container div.prompt,
-div.nboutput.container div.prompt {
-    width: 4.5ex;
-    padding-top: 5px;
-    position: relative;
-    user-select: none;
-}
-
-div.nbinput.container div.prompt > div,
-div.nboutput.container div.prompt > div {
-    position: absolute;
-    right: 0;
-    margin-right: 0.3ex;
-}
-
-@media (max-width: 540px) {
-    div.nbinput.container div.prompt,
-    div.nboutput.container div.prompt {
-        width: unset;
-        text-align: left;
-        padding: 0.4em;
-    }
-    div.nboutput.container div.prompt.empty {
-        padding: 0;
-    }
-
-    div.nbinput.container div.prompt > div,
-    div.nboutput.container div.prompt > div {
-        position: unset;
-    }
-}
-
-/* disable scrollbars and line breaks on prompts */
-div.nbinput.container div.prompt pre,
-div.nboutput.container div.prompt pre {
-    overflow: hidden;
-    white-space: pre;
-}
-
-/* input/output area */
-div.nbinput.container div.input_area,
-div.nboutput.container div.output_area {
-    -webkit-flex: 1;
-    flex: 1;
-    overflow: auto;
-}
-@media (max-width: 540px) {
-    div.nbinput.container div.input_area,
-    div.nboutput.container div.output_area {
-        width: 100%;
-    }
-}
-
-/* input area */
-div.nbinput.container div.input_area {
-    border: 1px solid #e0e0e0;
-    border-radius: 2px;
-    /*background: #f5f5f5;*/
-}
-
-/* override MathJax center alignment in output cells */
-div.nboutput.container div[class*=MathJax] {
-    text-align: left !important;
-}
-
-/* override sphinx.ext.imgmath center alignment in output cells */
-div.nboutput.container div.math p {
-    text-align: left;
-}
-
-/* standard error */
-div.nboutput.container div.output_area.stderr {
-    background: #fdd;
-}
-
-/* ANSI colors */
-.ansi-black-fg { color: #3E424D; }
-.ansi-black-bg { background-color: #3E424D; }
-.ansi-black-intense-fg { color: #282C36; }
-.ansi-black-intense-bg { background-color: #282C36; }
-.ansi-red-fg { color: #E75C58; }
-.ansi-red-bg { background-color: #E75C58; }
-.ansi-red-intense-fg { color: #B22B31; }
-.ansi-red-intense-bg { background-color: #B22B31; }
-.ansi-green-fg { color: #00A250; }
-.ansi-green-bg { background-color: #00A250; }
-.ansi-green-intense-fg { color: #007427; }
-.ansi-green-intense-bg { background-color: #007427; }
-.ansi-yellow-fg { color: #DDB62B; }
-.ansi-yellow-bg { background-color: #DDB62B; }
-.ansi-yellow-intense-fg { color: #B27D12; }
-.ansi-yellow-intense-bg { background-color: #B27D12; }
-.ansi-blue-fg { color: #208FFB; }
-.ansi-blue-bg { background-color: #208FFB; }
-.ansi-blue-intense-fg { color: #0065CA; }
-.ansi-blue-intense-bg { background-color: #0065CA; }
-.ansi-magenta-fg { color: #D160C4; }
-.ansi-magenta-bg { background-color: #D160C4; }
-.ansi-magenta-intense-fg { color: #A03196; }
-.ansi-magenta-intense-bg { background-color: #A03196; }
-.ansi-cyan-fg { color: #60C6C8; }
-.ansi-cyan-bg { background-color: #60C6C8; }
-.ansi-cyan-intense-fg { color: #258F8F; }
-.ansi-cyan-intense-bg { background-color: #258F8F; }
-.ansi-white-fg { color: #C5C1B4; }
-.ansi-white-bg { background-color: #C5C1B4; }
-.ansi-white-intense-fg { color: #A1A6B2; }
-.ansi-white-intense-bg { background-color: #A1A6B2; }
-
-.ansi-default-inverse-fg { color: #FFFFFF; }
-.ansi-default-inverse-bg { background-color: #000000; }
-
-.ansi-bold { font-weight: bold; }
-.ansi-underline { text-decoration: underline; }
-
-
-div.nbinput.container div.input_area div[class*=highlight] > pre,
-div.nboutput.container div.output_area div[class*=highlight] > pre,
-div.nboutput.container div.output_area div[class*=highlight].math,
-div.nboutput.container div.output_area.rendered_html,
-div.nboutput.container div.output_area > div.output_javascript,
-div.nboutput.container div.output_area:not(.rendered_html) > img{
-    padding: 5px;
-    margin: 0;
-}
-
-/* fix copybtn overflow problem in chromium (needed for 'sphinx_copybutton') */
-div.nbinput.container div.input_area > div[class^='highlight'],
-div.nboutput.container div.output_area > div[class^='highlight']{
-    overflow-y: hidden;
-}
-
-/* hide copybtn icon on prompts (needed for 'sphinx_copybutton') */
-.prompt .copybtn {
-    display: none;
-}
-
-/* Some additional styling taken form the Jupyter notebook CSS */
-.jp-RenderedHTMLCommon table,
-div.rendered_html table {
-  border: none;
-  border-collapse: collapse;
-  border-spacing: 0;
-  color: black;
-  font-size: 12px;
-  table-layout: fixed;
-}
-.jp-RenderedHTMLCommon thead,
-div.rendered_html thead {
-  border-bottom: 1px solid black;
-  vertical-align: bottom;
-}
-.jp-RenderedHTMLCommon tr,
-.jp-RenderedHTMLCommon th,
-.jp-RenderedHTMLCommon td,
-div.rendered_html tr,
-div.rendered_html th,
-div.rendered_html td {
-  text-align: right;
-  vertical-align: middle;
-  padding: 0.5em 0.5em;
-  line-height: normal;
-  white-space: normal;
-  max-width: none;
-  border: none;
-}
-.jp-RenderedHTMLCommon th,
-div.rendered_html th {
-  font-weight: bold;
-}
-.jp-RenderedHTMLCommon tbody tr:nth-child(odd),
-div.rendered_html tbody tr:nth-child(odd) {
-  background: #f5f5f5;
-}
-.jp-RenderedHTMLCommon tbody tr:hover,
-div.rendered_html tbody tr:hover {
-  background: rgba(66, 165, 245, 0.2);
-}
-
-/* CSS overrides for sphinx_rtd_theme */
-
-/* 24px margin */
-.nbinput.nblast.container,
-.nboutput.nblast.container {
-    margin-bottom: 19px;  /* padding has already 5px */
-}
-
-/* ... except between code cells! */
-.nblast.container + .nbinput.container {
-    margin-top: -19px;
-}
-
-.admonition > p:before {
-    margin-right: 4px;  /* make room for the exclamation icon */
-}
-
-/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
-.math {
-    text-align: unset;
-}
-</style>
-<section id="Point-source-likelihood">
-<h1>Point source likelihood<a class="headerlink" href="#Point-source-likelihood" title="Permalink to this heading"></a></h1>
+  <section id="Point-source-likelihood">
+<h1>Point source likelihood<a class="headerlink" href="#Point-source-likelihood" title="Link to this heading"></a></h1>
 <p><code class="docutils literal notranslate"><span class="pre">icecube_tools</span></code> also provides an interface to the likelihoods often used in point source searches of the neutrino data (see <a class="reference external" href="https://arxiv.org/abs/0801.1604">this paper</a> by Braun et al.).</p>
 <div class="math notranslate nohighlight">
 \[\mathcal{L} = \prod_{i=1}^N \Bigg[ \frac{n_s}{N} \mathcal{S}(\theta_i, E_i, \gamma) + (1-\frac{n_s}{N}) \mathcal{B}(\theta_i, E_i) \Bigg],\]</div>
@@ -407,7 +130,7 @@ Also, there may be a temporal dependence added, but this is not yet implemented 
 </div>
 </div>
 <section id="Spatial-likelihood">
-<h2>Spatial likelihood<a class="headerlink" href="#Spatial-likelihood" title="Permalink to this heading"></a></h2>
+<h2>Spatial likelihood<a class="headerlink" href="#Spatial-likelihood" title="Link to this heading"></a></h2>
 <p>We can start with the spatial/directional term. Let’s use the energy dependent spatial likelihood. It is build from a Gaussian with an event-wise uncertainty sampled from the IRF data. The background case will simply be an isotropic distribution on the sphere.</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
@@ -444,7 +167,7 @@ Also, there may be a temporal dependence added, but this is not yet implemented 
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-&lt;matplotlib.legend.Legend at 0x7fa266f67f40&gt;
+&lt;matplotlib.legend.Legend at 0x7f6982fdd970&gt;
 </pre></div></div>
 </div>
 <div class="nboutput nblast docutils container">
@@ -456,11 +179,11 @@ Also, there may be a temporal dependence added, but this is not yet implemented 
 </div>
 </section>
 <section id="Energy-likelihood">
-<h2>Energy likelihood<a class="headerlink" href="#Energy-likelihood" title="Permalink to this heading"></a></h2>
+<h2>Energy likelihood<a class="headerlink" href="#Energy-likelihood" title="Link to this heading"></a></h2>
 <p>Now let’s think about the energy-dependent term. The way this is handled is to marginalise over the true neutrino energies, to directly connect the reconstructed neutrino energies to the spectral index of a simple power-law source model.</p>
 <p>Doing this properly requires a knowledge of the relationship between the true and reconstructed energies as well as the details of the power law model. The most straightforward way to implement this is to simulate the a large number of events using the <code class="docutils literal notranslate"><span class="pre">Simulator</span></code> and build a likelihood using the output of this simulation and <code class="docutils literal notranslate"><span class="pre">MarginalisedEnergyLikelihoodFromSim</span></code>. We do exactly this with pre-computed lists of events, to be found in the data subdirectory: <code class="docutils literal notranslate"><span class="pre">sim_output_{index}.h5</span></code>. These were
 simulated using point sources with spectral index <code class="docutils literal notranslate"><span class="pre">index</span></code> at 45 degrees declination. The likelihood is restricted to a small band of declination around the assumed source. Using the same declination for our test source, this is fine. For different source declinations further simulations would be needed to account for the declination dependence of the detector acceptance.</p>
-<div class="nbinput nblast docutils container">
+<div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
 </pre></div>
 </div>
@@ -470,12 +193,20 @@ simulated using point sources with spectral index <code class="docutils literal 
 <span class="n">new_reco_bins</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="n">num</span><span class="o">=</span><span class="mi">25</span><span class="p">)</span>
 <span class="n">detector</span> <span class="o">=</span> <span class="n">IceCube</span><span class="o">.</span><span class="n">from_period</span><span class="p">(</span><span class="s2">&quot;IC86_II&quot;</span><span class="p">)</span>
 <span class="n">energy_likelihood</span> <span class="o">=</span> <span class="n">MarginalisedIntegratedEnergyLikelihood</span><span class="p">(</span>
-    <span class="n">detector</span><span class="p">,</span> <span class="n">new_reco_bins</span><span class="p">,</span> <span class="n">max_index</span><span class="o">=</span><span class="mf">4.5</span>
+    <span class="s2">&quot;IC86_II&quot;</span><span class="p">,</span> <span class="n">new_reco_bins</span><span class="p">,</span> <span class="n">max_index</span><span class="o">=</span><span class="mf">4.5</span>
 <span class="p">)</span>
 <span class="c1"># energy_likelihood = MarginalisedEnergyLikelihood2021([1.5, 2.0, 2.5, 3.0, 3.5, 3.7, 4.0], &#39;data&#39;, &#39;sim_output&#39;, np.pi/4,)</span>
 <span class="c1"># the likelihood class is backwardscompatible with the &quot;older&quot; simulation-based energy likelihood</span>
 </pre></div>
 </div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area stderr docutils container">
+<div class="highlight"><pre>
+Resetting rng
+</pre></div></div>
 </div>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
@@ -526,7 +257,7 @@ array([1.        , 1.33333333, 1.66666667, 2.        , 2.33333333,
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-&lt;matplotlib.legend.Legend at 0x7fa261b06fa0&gt;
+&lt;matplotlib.legend.Legend at 0x7f697cfe16a0&gt;
 </pre></div></div>
 </div>
 <div class="nboutput nblast docutils container">
@@ -538,7 +269,7 @@ array([1.        , 1.33333333, 1.66666667, 2.        , 2.33333333,
 </div>
 </section>
 <section id="id1">
-<h2>Point source likelihood<a class="headerlink" href="#id1" title="Permalink to this heading"></a></h2>
+<h2>Point source likelihood<a class="headerlink" href="#id1" title="Link to this heading"></a></h2>
 <p>Now we can bring together the spatial and energy terms to build a full <code class="docutils literal notranslate"><span class="pre">PointSourceLikelihood</span></code>. First, let’s load some data from the simulation notebook to allow us to demonstrate.</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
@@ -553,7 +284,7 @@ array([1.        , 1.33333333, 1.66666667, 2.        , 2.33333333,
 </div>
 <div class="output_area stderr docutils container">
 <div class="highlight"><pre>
-Resetting rng
+WARNING:icecube_tools.utils.data:Resetting rng
 </pre></div></div>
 </div>
 <p>Now lets put our likelihood structure and data in together, along with a proposed source location:</p>
@@ -589,7 +320,7 @@ Resetting rng
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-(204, 175, 45)
+(204, 204, 35)
 </pre></div></div>
 </div>
 <p>We also note that the background likelihood is implemented automatically, for more information on the options here, check out the API docs. This is just a function of energy, with a constant factor to account for the isotropic directional likelihood.</p>
@@ -629,7 +360,7 @@ Text(0, 0.5, &#39;Background likelihood&#39;)
 </div>
 </section>
 <section id="Point-source-search">
-<h2>Point source search<a class="headerlink" href="#Point-source-search" title="Permalink to this heading"></a></h2>
+<h2>Point source search<a class="headerlink" href="#Point-source-search" title="Link to this heading"></a></h2>
 <p>A point source search is usually carried out by defining the likelihood ratio of source and background hypotheses, then maximising this ratio as a function of <span class="math notranslate nohighlight">\(n_s\)</span> and <span class="math notranslate nohighlight">\(\gamma\)</span>. The log likelihood ratio evaluated at the maximum likelihood values is then reffered to as the <em>test statistic</em>.</p>
 <p><code class="docutils literal notranslate"><span class="pre">icecube_tools</span></code> includes calculation of the test statistic, with optimisation performed by <code class="docutils literal notranslate"><span class="pre">iminuit</span></code>.</p>
 <div class="nbinput docutils container">
@@ -646,7 +377,7 @@ Text(0, 0.5, &#39;Background likelihood&#39;)
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-301.17329827041317
+353.2866257389607
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
@@ -663,7 +394,7 @@ Text(0, 0.5, &#39;Background likelihood&#39;)
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-45
+35
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
@@ -680,8 +411,8 @@ Text(0, 0.5, &#39;Background likelihood&#39;)
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-(&lt;ValueView ns=26.164480220465 index=2.559911647298123 weight=0.0 index_astro=2.5 index_atmo=3.7&gt;,
- &lt;ErrorView ns=4.7392060971310315 index=0.20978742337546707 weight=0.05 index_astro=0.1 index_atmo=0.1&gt;)
+(&lt;ValueView ns=25.97631852249549 index=2.302123151610149 weight=0.0 index_astro=2.5 index_atmo=3.7&gt;,
+ &lt;ErrorView ns=4.763945455294435 index=0.19067595835363327 weight=0.05 index_astro=0.1 index_atmo=0.1&gt;)
 </pre></div></div>
 </div>
 <p>To understand the significance of this results, we would have to calculate the test statistic for a large number of background-only simulations. These could then be used to calculate a p-value. Given there is a strong point source in the simulation we used, we can expect the test stastic to be lower if we remove the source events. Let’s try this:</p>
@@ -781,20 +512,20 @@ True
 ┌─────────────────────────────────────────────────────────────────────────┐
 │                                Migrad                                   │
 ├──────────────────────────────────┬──────────────────────────────────────┤
-│ FCN = -150.6                     │              Nfcn = 39               │
-│ EDM = 2.19e-07 (Goal: 0.0001)    │            time = 0.2 sec            │
+│ FCN = -176.6                     │              Nfcn = 44               │
+│ EDM = 1.92e-05 (Goal: 0.0001)    │            time = 0.2 sec            │
 ├──────────────────────────────────┼──────────────────────────────────────┤
-│          Valid Minimum           │        No Parameters at limit        │
+│          Valid Minimum           │   Below EDM threshold (goal x 10)    │
 ├──────────────────────────────────┼──────────────────────────────────────┤
-│ Below EDM threshold (goal x 10)  │           Below call limit           │
-├───────────────┬──────────────────┼───────────┬─────────────┬────────────┤
-│  Covariance   │     Hesse ok     │ Accurate  │  Pos. def.  │ Not forced │
-└───────────────┴──────────────────┴───────────┴─────────────┴────────────┘
+│      No parameters at limit      │           Below call limit           │
+├──────────────────────────────────┼──────────────────────────────────────┤
+│             Hesse ok             │         Covariance accurate          │
+└──────────────────────────────────┴──────────────────────────────────────┘
 ┌───┬─────────────┬───────────┬───────────┬────────────┬────────────┬─────────┬─────────┬───────┐
 │   │ Name        │   Value   │ Hesse Err │ Minos Err- │ Minos Err+ │ Limit-  │ Limit+  │ Fixed │
 ├───┼─────────────┼───────────┼───────────┼────────────┼────────────┼─────────┼─────────┼───────┤
-│ 0 │ ns          │    26     │     5     │            │            │    0    │   175   │       │
-│ 1 │ index       │   2.56    │   0.21    │            │            │   1.5   │   4.5   │       │
+│ 0 │ ns          │    26     │     5     │            │            │    0    │   204   │       │
+│ 1 │ index       │   2.30    │   0.19    │            │            │   1.5   │   4.5   │       │
 │ 2 │ weight      │   0.00    │   0.05    │            │            │    0    │    1    │  yes  │
 │ 3 │ index_astro │    2.5    │    0.1    │            │            │   1.5   │   4.5   │  yes  │
 │ 4 │ index_atmo  │    3.7    │    0.1    │            │            │   1.5   │   4.5   │  yes  │
@@ -802,15 +533,15 @@ True
 ┌─────────────┬─────────────────────────────────────────────────────────────┐
 │             │          ns       index      weight index_astro  index_atmo │
 ├─────────────┼─────────────────────────────────────────────────────────────┤
-│          ns │        22.5     0.00675           0           0           0 │
-│       index │     0.00675      0.0443           0           0           0 │
-│      weight │           0           0           0           0           0 │
-│ index_astro │           0           0           0           0           0 │
-│  index_atmo │           0           0           0           0           0 │
+│          ns │        22.7        0.00           0           0           0 │
+│       index │        0.00      0.0366        0.00        0.00        0.00 │
+│      weight │           0        0.00           0           0           0 │
+│ index_astro │           0        0.00           0           0           0 │
+│  index_atmo │           0        0.00           0           0           0 │
 └─────────────┴─────────────────────────────────────────────────────────────┘
 </pre></div></div>
 </div>
-<p>We can also draw the likelihood profiles for <code class="docutils literal notranslate"><span class="pre">ns</span></code> and <code class="docutils literal notranslate"><span class="pre">index</span></code> and compare to the inputted values (20 source events and an index of 2.5, cf. the simulation notebook)</p>
+<p>We can also draw the likelihood profiles for <code class="docutils literal notranslate"><span class="pre">ns</span></code> and <code class="docutils literal notranslate"><span class="pre">index</span></code> and compare to the inputted values (20 source events and an index of 2.5, cf. the simulation notebook)</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
 </pre></div>
@@ -921,7 +652,7 @@ Text(0, 0.5, &#39;ns&#39;)
 </div>
 </div>
 <p>For the simulation-based energy likelihood used in the following, the profile o <code class="docutils literal notranslate"><span class="pre">index</span></code> has some edges. This is due to the interpolation done by the energy likelihood. We fed it simulation for discreet values of <code class="docutils literal notranslate"><span class="pre">index</span></code>. We cannot sensibly interpolate the likelihood of a given energy to any index, this leads to Heaviside-like discontinuities in the global (spatial + energy) likelihood. Instead, <code class="docutils literal notranslate"><span class="pre">PointSourceLikelihood</span></code> calculates the likelihood for the next simulated values of <code class="docutils literal notranslate"><span class="pre">index</span></code>,
-e.g. asking for an index 2.3 would lead to 2.0 and 2.5, and interpolate linearly between the resulting likelihoods. The precision of this method can be improved by providing simulations on a denser grid of spectral indices.</p>
+e.g. asking for an index 2.3 would lead to 2.0 and 2.5, and interpolate linearly between the resulting likelihoods. The precision of this method can be improved by providing simulations on a denser grid of spectral indices.</p>
 <p>The error provided by <code class="docutils literal notranslate"><span class="pre">migrad()</span></code> is unreasonably small.</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[23]:
@@ -981,7 +712,7 @@ data/p_IC86_II_index_3.9.h5
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-332.0715258946012
+403.3478434215351
 </pre></div></div>
 </div>
 <div class="nbinput nblast docutils container">
@@ -1047,7 +778,7 @@ data/p_IC86_II_index_3.9.h5
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-Text(0.5, 1.0, &#39;index = 2.5 - 0.2 + 0.2&#39;)
+Text(0.5, 1.0, &#39;index = 2.3 - 0.2 + 0.2&#39;)
 </pre></div></div>
 </div>
 <div class="nboutput nblast docutils container">
@@ -1060,7 +791,7 @@ Text(0.5, 1.0, &#39;index = 2.5 - 0.2 + 0.2&#39;)
 </section>
 </section>
 <section id="Time-dependent-point-source-analysis">
-<h1>Time dependent point source analysis<a class="headerlink" href="#Time-dependent-point-source-analysis" title="Permalink to this heading"></a></h1>
+<h1>Time dependent point source analysis<a class="headerlink" href="#Time-dependent-point-source-analysis" title="Link to this heading"></a></h1>
 <p>Encompassing multiple data seasons, although shown only for one (the same as above), uses a single <code class="docutils literal notranslate"><span class="pre">ns</span></code>, which is distributed among the seasons with the number of expected events for <code class="docutils literal notranslate"><span class="pre">gamma</span></code> and the provided observational times (<code class="docutils literal notranslate"><span class="pre">times</span></code>) as relative weight.</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[28]:
@@ -1094,7 +825,10 @@ Text(0.5, 1.0, &#39;index = 2.5 - 0.2 + 0.2&#39;)
 </div>
 <div class="output_area stderr docutils container">
 <div class="highlight"><pre>
-Resetting rng
+WARNING:icecube_tools.utils.data:Resetting rng
+WARNING:icecube_tools.utils.data:Resetting rng
+WARNING:icecube_tools.utils.data:Resetting rng
+WARNING:icecube_tools.utils.data:Resetting rng
 </pre></div></div>
 </div>
 <div class="nboutput nblast docutils container">
@@ -1104,30 +838,27 @@ Resetting rng
 <div class="output_area rendered_html docutils container">
 <table>
     <tr>
-        <th colspan="5" style="text-align:center" title="Minimizer"> Migrad </th>
+        <th colspan="2" style="text-align:center" title="Minimizer"> Migrad </th>
     </tr>
     <tr>
-        <td colspan="2" style="text-align:left" title="Minimum value of function"> FCN = -142.8 </td>
-        <td colspan="3" style="text-align:center" title="Total number of function and (optional) gradient evaluations"> Nfcn = 56 </td>
+        <td style="text-align:left" title="Minimum value of function"> FCN = -165.1 </td>
+        <td style="text-align:center" title="Total number of function and (optional) gradient evaluations"> Nfcn = 68 </td>
     </tr>
     <tr>
-        <td colspan="2" style="text-align:left" title="Estimated distance to minimum and goal"> EDM = 2.36e-06 (Goal: 0.0001) </td>
-        <td colspan="3" style="text-align:center" title="Total run time of algorithms">  </td>
+        <td style="text-align:left" title="Estimated distance to minimum and goal"> EDM = 3.27e-06 (Goal: 0.0001) </td>
+        <td style="text-align:center" title="Total run time of algorithms"> time = 0.4 sec </td>
     </tr>
     <tr>
-        <td colspan="2" style="text-align:center;background-color:#92CCA6;color:black"> Valid Minimum </td>
-        <td colspan="3" style="text-align:center;background-color:#92CCA6;color:black"> No Parameters at limit </td>
+        <td style="text-align:center;background-color:#92CCA6;color:black"> Valid Minimum </td>
+        <td style="text-align:center;background-color:#92CCA6;color:black"> Below EDM threshold (goal x 10) </td>
     </tr>
     <tr>
-        <td colspan="2" style="text-align:center;background-color:#92CCA6;color:black"> Below EDM threshold (goal x 10) </td>
-        <td colspan="3" style="text-align:center;background-color:#92CCA6;color:black"> Below call limit </td>
+        <td style="text-align:center;background-color:#92CCA6;color:black"> No parameters at limit </td>
+        <td style="text-align:center;background-color:#92CCA6;color:black"> Below call limit </td>
     </tr>
     <tr>
-        <td style="text-align:center;background-color:#92CCA6;color:black"> Covariance </td>
         <td style="text-align:center;background-color:#92CCA6;color:black"> Hesse ok </td>
-        <td style="text-align:center;background-color:#92CCA6;color:black" title="Is covariance matrix accurate?"> Accurate </td>
-        <td style="text-align:center;background-color:#92CCA6;color:black" title="Is covariance matrix positive definite?"> Pos. def. </td>
-        <td style="text-align:center;background-color:#92CCA6;color:black" title="Was positive definiteness enforced by Minuit?"> Not forced </td>
+        <td style="text-align:center;background-color:#92CCA6;color:black"> Covariance accurate </td>
     </tr>
 </table><table>
     <tr>
@@ -1145,39 +876,105 @@ Resetting rng
         <th> 0 </th>
         <td> ns </td>
         <td> 26 </td>
-        <td> 4 </td>
+        <td> 5 </td>
         <td>  </td>
         <td>  </td>
         <td> 0 </td>
-        <td> 106 </td>
+        <td> 204 </td>
         <td>  </td>
     </tr>
     <tr>
         <th> 1 </th>
         <td> index </td>
-        <td> 2.55 </td>
-        <td> 0.21 </td>
+        <td> 2.30 </td>
+        <td> 0.19 </td>
         <td>  </td>
         <td>  </td>
         <td> 1.5 </td>
         <td> 5 </td>
         <td>  </td>
     </tr>
+    <tr>
+        <th> 2 </th>
+        <td> weight </td>
+        <td> 0.0 </td>
+        <td> 0.1 </td>
+        <td>  </td>
+        <td>  </td>
+        <td> 0 </td>
+        <td> 1 </td>
+        <td> yes </td>
+    </tr>
+    <tr>
+        <th> 3 </th>
+        <td> index_astro </td>
+        <td> 2.5 </td>
+        <td> 0.1 </td>
+        <td>  </td>
+        <td>  </td>
+        <td> 1.5 </td>
+        <td> 5 </td>
+        <td> yes </td>
+    </tr>
+    <tr>
+        <th> 4 </th>
+        <td> index_atmo </td>
+        <td> 3.7 </td>
+        <td> 0.1 </td>
+        <td>  </td>
+        <td>  </td>
+        <td> 1.5 </td>
+        <td> 5 </td>
+        <td> yes </td>
+    </tr>
 </table><table>
     <tr>
         <td></td>
         <th> ns </th>
         <th> index </th>
+        <th> weight </th>
+        <th> index_astro </th>
+        <th> index_atmo </th>
     </tr>
     <tr>
         <th> ns </th>
-        <td> 19.7 </td>
-        <td style="background-color:rgb(250,250,250);color:black"> 0.00193 </td>
+        <td> 22.7 </td>
+        <td style="background-color:rgb(250,250,250);color:black"> 0.00 </td>
+        <td style="background-color:rgb(250,250,250);color:black"> 0 </td>
+        <td style="background-color:rgb(250,250,250);color:black"> 0 </td>
+        <td style="background-color:rgb(250,250,250);color:black"> 0 </td>
     </tr>
     <tr>
         <th> index </th>
-        <td style="background-color:rgb(250,250,250);color:black"> 0.00193 </td>
-        <td> 0.0443 </td>
+        <td style="background-color:rgb(250,250,250);color:black"> 0.00 </td>
+        <td> 0.0366 </td>
+        <td style="background-color:rgb(250,250,250);color:black"> 0.00 </td>
+        <td style="background-color:rgb(250,250,250);color:black"> 0.00 </td>
+        <td style="background-color:rgb(250,250,250);color:black"> 0.00 </td>
+    </tr>
+    <tr>
+        <th> weight </th>
+        <td style="background-color:rgb(250,250,250);color:black"> 0 </td>
+        <td style="background-color:rgb(250,250,250);color:black"> 0.00 </td>
+        <td> 0 </td>
+        <td style="background-color:rgb(250,250,250);color:black"> 0 </td>
+        <td style="background-color:rgb(250,250,250);color:black"> 0 </td>
+    </tr>
+    <tr>
+        <th> index_astro </th>
+        <td style="background-color:rgb(250,250,250);color:black"> 0 </td>
+        <td style="background-color:rgb(250,250,250);color:black"> 0.00 </td>
+        <td style="background-color:rgb(250,250,250);color:black"> 0 </td>
+        <td> 0 </td>
+        <td style="background-color:rgb(250,250,250);color:black"> 0 </td>
+    </tr>
+    <tr>
+        <th> index_atmo </th>
+        <td style="background-color:rgb(250,250,250);color:black"> 0 </td>
+        <td style="background-color:rgb(250,250,250);color:black"> 0.00 </td>
+        <td style="background-color:rgb(250,250,250);color:black"> 0 </td>
+        <td style="background-color:rgb(250,250,250);color:black"> 0 </td>
+        <td> 0 </td>
     </tr>
 </table></div>
 </div>
@@ -1227,30 +1024,27 @@ Resetting rng
 <div class="output_area rendered_html docutils container">
 <table>
     <tr>
-        <th colspan="5" style="text-align:center" title="Minimizer"> Migrad </th>
+        <th colspan="2" style="text-align:center" title="Minimizer"> Migrad </th>
     </tr>
     <tr>
-        <td colspan="2" style="text-align:left" title="Minimum value of function"> FCN = 102.1 </td>
-        <td colspan="3" style="text-align:center" title="Total number of function and (optional) gradient evaluations"> Nfcn = 11 </td>
+        <td style="text-align:left" title="Minimum value of function"> FCN = 470.2 </td>
+        <td style="text-align:center" title="Total number of function and (optional) gradient evaluations"> Nfcn = 76 </td>
     </tr>
     <tr>
-        <td colspan="2" style="text-align:left" title="Estimated distance to minimum and goal"> EDM = 1.35e-05 (Goal: 0.0001) </td>
-        <td colspan="3" style="text-align:center" title="Total run time of algorithms">  </td>
+        <td style="text-align:left" title="Estimated distance to minimum and goal"> EDM = 0 (Goal: 0.0001) </td>
+        <td style="text-align:center" title="Total run time of algorithms">  </td>
     </tr>
     <tr>
-        <td colspan="2" style="text-align:center;background-color:#92CCA6;color:black"> Valid Minimum </td>
-        <td colspan="3" style="text-align:center;background-color:#92CCA6;color:black"> No Parameters at limit </td>
+        <td style="text-align:center;background-color:#c15ef7;color:black"> INVALID Minimum </td>
+        <td style="text-align:center;background-color:#92CCA6;color:black"> Below EDM threshold (goal x 10) </td>
     </tr>
     <tr>
-        <td colspan="2" style="text-align:center;background-color:#92CCA6;color:black"> Below EDM threshold (goal x 10) </td>
-        <td colspan="3" style="text-align:center;background-color:#92CCA6;color:black"> Below call limit </td>
+        <td style="text-align:center;background-color:#92CCA6;color:black"> No parameters at limit </td>
+        <td style="text-align:center;background-color:#92CCA6;color:black"> Below call limit </td>
     </tr>
     <tr>
-        <td style="text-align:center;background-color:#92CCA6;color:black"> Covariance </td>
-        <td style="text-align:center;background-color:#92CCA6;color:black"> Hesse ok </td>
-        <td style="text-align:center;background-color:#92CCA6;color:black" title="Is covariance matrix accurate?"> Accurate </td>
-        <td style="text-align:center;background-color:#92CCA6;color:black" title="Is covariance matrix positive definite?"> Pos. def. </td>
-        <td style="text-align:center;background-color:#92CCA6;color:black" title="Was positive definiteness enforced by Minuit?"> Not forced </td>
+        <td style="text-align:center;background-color:#c15ef7;color:black"> Hesse FAILED </td>
+        <td style="text-align:center;background-color:#c15ef7;color:black"> Covariance NOT pos. def. </td>
     </tr>
 </table><table>
     <tr>
@@ -1289,38 +1083,13 @@ Resetting rng
     <tr>
         <th> 2 </th>
         <td> index_atmo </td>
-        <td> 3.33 </td>
-        <td> 0.20 </td>
+        <td> 3.3 </td>
+        <td> 0.0 </td>
         <td>  </td>
         <td>  </td>
         <td> 1.5 </td>
         <td> 5 </td>
         <td>  </td>
-    </tr>
-</table><table>
-    <tr>
-        <td></td>
-        <th> weight </th>
-        <th> index_astro </th>
-        <th> index_atmo </th>
-    </tr>
-    <tr>
-        <th> weight </th>
-        <td> 0 </td>
-        <td style="background-color:rgb(250,250,250);color:black"> 0 </td>
-        <td style="background-color:rgb(250,250,250);color:black"> 0 </td>
-    </tr>
-    <tr>
-        <th> index_astro </th>
-        <td style="background-color:rgb(250,250,250);color:black"> 0 </td>
-        <td> 0 </td>
-        <td style="background-color:rgb(250,250,250);color:black"> 0 </td>
-    </tr>
-    <tr>
-        <th> index_atmo </th>
-        <td style="background-color:rgb(250,250,250);color:black"> 0 </td>
-        <td style="background-color:rgb(250,250,250);color:black"> 0 </td>
-        <td> 0.0383 </td>
     </tr>
 </table></div>
 </div>

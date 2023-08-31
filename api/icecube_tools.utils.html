@@ -11,10 +11,11 @@
     <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-        <script src="../_static/doctools.js"></script>
-        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=914a23ff"></script>
+        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
@@ -84,34 +85,10 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  
-<style>
-/* CSS overrides for sphinx_rtd_theme */
-
-/* 24px margin */
-.nbinput.nblast.container,
-.nboutput.nblast.container {
-    margin-bottom: 19px;  /* padding has already 5px */
-}
-
-/* ... except between code cells! */
-.nblast.container + .nbinput.container {
-    margin-top: -19px;
-}
-
-.admonition > p:before {
-    margin-right: 4px;  /* make room for the exclamation icon */
-}
-
-/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
-.math {
-    text-align: unset;
-}
-</style>
-<section id="icecube-tools-utils-package">
-<h1>icecube_tools.utils package<a class="headerlink" href="#icecube-tools-utils-package" title="Permalink to this heading"></a></h1>
+  <section id="icecube-tools-utils-package">
+<h1>icecube_tools.utils package<a class="headerlink" href="#icecube-tools-utils-package" title="Link to this heading"></a></h1>
 <section id="submodules">
-<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this heading"></a></h2>
+<h2>Submodules<a class="headerlink" href="#submodules" title="Link to this heading"></a></h2>
 <div class="toctree-wrapper compound">
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="icecube_tools.utils.bpl_sampling.html">icecube_tools.utils.bpl_sampling module</a><ul>
@@ -128,13 +105,18 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="icecube_tools.utils.data.html">icecube_tools.utils.data module</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="icecube_tools.utils.data.html#icecube_tools.utils.data.Events"><code class="docutils literal notranslate"><span class="pre">Events</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="icecube_tools.utils.data.html#icecube_tools.utils.data.Events.N"><code class="docutils literal notranslate"><span class="pre">Events.N</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="icecube_tools.utils.data.html#icecube_tools.utils.data.Events.N_restricted"><code class="docutils literal notranslate"><span class="pre">Events.N_restricted</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="icecube_tools.utils.data.html#icecube_tools.utils.data.Events.ang_err"><code class="docutils literal notranslate"><span class="pre">Events.ang_err</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="icecube_tools.utils.data.html#icecube_tools.utils.data.Events.data_periods"><code class="docutils literal notranslate"><span class="pre">Events.data_periods</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="icecube_tools.utils.data.html#icecube_tools.utils.data.Events.dec"><code class="docutils literal notranslate"><span class="pre">Events.dec</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="icecube_tools.utils.data.html#icecube_tools.utils.data.Events.irf_periods"><code class="docutils literal notranslate"><span class="pre">Events.irf_periods</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="icecube_tools.utils.data.html#icecube_tools.utils.data.Events.load_from_h5"><code class="docutils literal notranslate"><span class="pre">Events.load_from_h5()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="icecube_tools.utils.data.html#icecube_tools.utils.data.Events.period"><code class="docutils literal notranslate"><span class="pre">Events.period()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="icecube_tools.utils.data.html#icecube_tools.utils.data.Events.periods"><code class="docutils literal notranslate"><span class="pre">Events.periods</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="icecube_tools.utils.data.html#icecube_tools.utils.data.Events.ra"><code class="docutils literal notranslate"><span class="pre">Events.ra</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="icecube_tools.utils.data.html#icecube_tools.utils.data.Events.reco_energy"><code class="docutils literal notranslate"><span class="pre">Events.reco_energy</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="icecube_tools.utils.data.html#icecube_tools.utils.data.Events.restrict"><code class="docutils literal notranslate"><span class="pre">Events.restrict()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="icecube_tools.utils.data.html#icecube_tools.utils.data.Events.scramble_ra"><code class="docutils literal notranslate"><span class="pre">Events.scramble_ra()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="icecube_tools.utils.data.html#icecube_tools.utils.data.Events.seed"><code class="docutils literal notranslate"><span class="pre">Events.seed</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="icecube_tools.utils.data.html#icecube_tools.utils.data.Events.write_to_h5"><code class="docutils literal notranslate"><span class="pre">Events.write_to_h5()</span></code></a></li>
@@ -166,6 +148,7 @@
 </li>
 <li class="toctree-l2"><a class="reference internal" href="icecube_tools.utils.data.html#icecube_tools.utils.data.SimEvents"><code class="docutils literal notranslate"><span class="pre">SimEvents</span></code></a><ul>
 <li class="toctree-l3"><a class="reference internal" href="icecube_tools.utils.data.html#icecube_tools.utils.data.SimEvents.arrival_energy"><code class="docutils literal notranslate"><span class="pre">SimEvents.arrival_energy</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="icecube_tools.utils.data.html#icecube_tools.utils.data.SimEvents.ic86_ii_data_periods"><code class="docutils literal notranslate"><span class="pre">SimEvents.ic86_ii_data_periods</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="icecube_tools.utils.data.html#icecube_tools.utils.data.SimEvents.keys"><code class="docutils literal notranslate"><span class="pre">SimEvents.keys</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="icecube_tools.utils.data.html#icecube_tools.utils.data.SimEvents.load_from_h5"><code class="docutils literal notranslate"><span class="pre">SimEvents.load_from_h5()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="icecube_tools.utils.data.html#icecube_tools.utils.data.SimEvents.period"><code class="docutils literal notranslate"><span class="pre">SimEvents.period()</span></code></a></li>
@@ -176,12 +159,19 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="icecube_tools.utils.data.html#icecube_tools.utils.data.Uptime"><code class="docutils literal notranslate"><span class="pre">Uptime</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="icecube_tools.utils.data.html#icecube_tools.utils.data.Uptime.cumulative_time_obs"><code class="docutils literal notranslate"><span class="pre">Uptime.cumulative_time_obs()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="icecube_tools.utils.data.html#icecube_tools.utils.data.Uptime.data_periods"><code class="docutils literal notranslate"><span class="pre">Uptime.data_periods</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="icecube_tools.utils.data.html#icecube_tools.utils.data.Uptime.find_obs_time"><code class="docutils literal notranslate"><span class="pre">Uptime.find_obs_time()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="icecube_tools.utils.data.html#icecube_tools.utils.data.Uptime.time_obs"><code class="docutils literal notranslate"><span class="pre">Uptime.time_obs()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="icecube_tools.utils.data.html#icecube_tools.utils.data.Uptime.irf_periods"><code class="docutils literal notranslate"><span class="pre">Uptime.irf_periods</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="icecube_tools.utils.data.html#icecube_tools.utils.data.Uptime.time_span"><code class="docutils literal notranslate"><span class="pre">Uptime.time_span()</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="icecube_tools.utils.data.html#icecube_tools.utils.data.crawl_delay"><code class="docutils literal notranslate"><span class="pre">crawl_delay()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="icecube_tools.utils.data.html#icecube_tools.utils.data.dddict"><code class="docutils literal notranslate"><span class="pre">dddict</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="icecube_tools.utils.data.html#icecube_tools.utils.data.dddict.max"><code class="docutils literal notranslate"><span class="pre">dddict.max()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="icecube_tools.utils.data.html#icecube_tools.utils.data.dddict.min"><code class="docutils literal notranslate"><span class="pre">dddict.min()</span></code></a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="icecube_tools.utils.data.html#icecube_tools.utils.data.ddict"><code class="docutils literal notranslate"><span class="pre">ddict</span></code></a><ul>
 <li class="toctree-l3"><a class="reference internal" href="icecube_tools.utils.data.html#icecube_tools.utils.data.ddict.add"><code class="docutils literal notranslate"><span class="pre">ddict.add()</span></code></a></li>
 </ul>
@@ -199,7 +189,7 @@
 </div>
 </section>
 <section id="module-icecube_tools.utils">
-<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-icecube_tools.utils" title="Permalink to this heading"></a></h2>
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-icecube_tools.utils" title="Link to this heading"></a></h2>
 </section>
 </section>
 

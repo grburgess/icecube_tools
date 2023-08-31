@@ -11,10 +11,11 @@
     <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-        <script src="../_static/doctools.js"></script>
-        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=914a23ff"></script>
+        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
@@ -83,35 +84,22 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  
-<style>
-/* CSS overrides for sphinx_rtd_theme */
+  <section id="module-icecube_tools.simulator">
+<span id="icecube-tools-simulator-module"></span><h1>icecube_tools.simulator module<a class="headerlink" href="#module-icecube_tools.simulator" title="Link to this heading"></a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="icecube_tools.simulator.BackgroundSimulator">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">icecube_tools.simulator.</span></span><span class="sig-name descname"><span class="pre">BackgroundSimulator</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">period</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#icecube_tools.simulator.BackgroundSimulator" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="icecube_tools.utils.data.html#icecube_tools.utils.data.SimEvents" title="icecube_tools.utils.data.SimEvents"><code class="xref py py-class docutils literal notranslate"><span class="pre">SimEvents</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="icecube_tools.simulator.BackgroundSimulator.run">
+<span class="sig-name descname"><span class="pre">run</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">seed</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">42</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#icecube_tools.simulator.BackgroundSimulator.run" title="Link to this definition"></a></dt>
+<dd></dd></dl>
 
-/* 24px margin */
-.nbinput.nblast.container,
-.nboutput.nblast.container {
-    margin-bottom: 19px;  /* padding has already 5px */
-}
+</dd></dl>
 
-/* ... except between code cells! */
-.nblast.container + .nbinput.container {
-    margin-top: -19px;
-}
-
-.admonition > p:before {
-    margin-right: 4px;  /* make room for the exclamation icon */
-}
-
-/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
-.math {
-    text-align: unset;
-}
-</style>
-<section id="module-icecube_tools.simulator">
-<span id="icecube-tools-simulator-module"></span><h1>icecube_tools.simulator module<a class="headerlink" href="#module-icecube_tools.simulator" title="Permalink to this heading"></a></h1>
 <dl class="py class">
 <dt class="sig sig-object py" id="icecube_tools.simulator.Braun2008Simulator">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">icecube_tools.simulator.</span></span><span class="sig-name descname"><span class="pre">Braun2008Simulator</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">source</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">effective_area</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">reco_energy_sampler</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">angular_resolution</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#icecube_tools.simulator.Braun2008Simulator" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">icecube_tools.simulator.</span></span><span class="sig-name descname"><span class="pre">Braun2008Simulator</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">source</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">effective_area</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">reco_energy_sampler</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">angular_resolution</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#icecube_tools.simulator.Braun2008Simulator" title="Link to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>Simple simulator which uses the results
 given in Braun+2008.</p>
@@ -120,7 +108,7 @@ rather than source models to reflect the method
 in the paper.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="icecube_tools.simulator.Braun2008Simulator.run">
-<span class="sig-name descname"><span class="pre">run</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">N</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">show_progress</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#icecube_tools.simulator.Braun2008Simulator.run" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">run</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">N</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">show_progress</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#icecube_tools.simulator.Braun2008Simulator.run" title="Link to this definition"></a></dt>
 <dd><p>Run the simulation.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -133,16 +121,16 @@ in the paper.</p>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="icecube_tools.simulator.Simulator">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">icecube_tools.simulator.</span></span><span class="sig-name descname"><span class="pre">Simulator</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sources</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">detector</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">period</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#icecube_tools.simulator.Simulator" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">icecube_tools.simulator.</span></span><span class="sig-name descname"><span class="pre">Simulator</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sources</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">detector</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">period</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">seed</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1234</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#icecube_tools.simulator.Simulator" title="Link to this definition"></a></dt>
 <dd><p>Bases: <a class="reference internal" href="icecube_tools.utils.data.html#icecube_tools.utils.data.SimEvents" title="icecube_tools.utils.data.SimEvents"><code class="xref py py-class docutils literal notranslate"><span class="pre">SimEvents</span></code></a></p>
 <dl class="py property">
 <dt class="sig sig-object py" id="icecube_tools.simulator.Simulator.detector">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">detector</span></span><a class="headerlink" href="#icecube_tools.simulator.Simulator.detector" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">detector</span></span><a class="headerlink" href="#icecube_tools.simulator.Simulator.detector" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="icecube_tools.simulator.Simulator.run">
-<span class="sig-name descname"><span class="pre">run</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">N</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">seed</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1234</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">show_progress</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#icecube_tools.simulator.Simulator.run" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">run</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">N</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">seed</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1234</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">show_progress</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#icecube_tools.simulator.Simulator.run" title="Link to this definition"></a></dt>
 <dd><p>Run a simulation for the given set of sources
 and detector configuration.
 The expected number of neutrinos will be
@@ -155,7 +143,7 @@ accordingly.
 
 <dl class="py method">
 <dt class="sig sig-object py" id="icecube_tools.simulator.Simulator.run_energy">
-<span class="sig-name descname"><span class="pre">run_energy</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">N</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">seed</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1234</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#icecube_tools.simulator.Simulator.run_energy" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">run_energy</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">N</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">seed</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1234</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#icecube_tools.simulator.Simulator.run_energy" title="Link to this definition"></a></dt>
 <dd><p>Run a simulation of energy reconstruction for the given set of sources
 and detector configuration.
 The expected number of neutrinos will be
@@ -168,30 +156,51 @@ accordingly.
 
 <dl class="py method">
 <dt class="sig sig-object py" id="icecube_tools.simulator.Simulator.save">
-<span class="sig-name descname"><span class="pre">save</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#icecube_tools.simulator.Simulator.save" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">save</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#icecube_tools.simulator.Simulator.save" title="Link to this definition"></a></dt>
 <dd><p>Save the output to filename, for all but the R2021 release.</p>
 </dd></dl>
 
 <dl class="py property">
 <dt class="sig sig-object py" id="icecube_tools.simulator.Simulator.sources">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">sources</span></span><a class="headerlink" href="#icecube_tools.simulator.Simulator.sources" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">sources</span></span><a class="headerlink" href="#icecube_tools.simulator.Simulator.sources" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="icecube_tools.simulator.TimeDependentBackgroundSimulator">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">icecube_tools.simulator.</span></span><span class="sig-name descname"><span class="pre">TimeDependentBackgroundSimulator</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">periods</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#icecube_tools.simulator.TimeDependentBackgroundSimulator" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="icecube_tools.utils.data.html#icecube_tools.utils.data.SimEvents" title="icecube_tools.utils.data.SimEvents"><code class="xref py py-class docutils literal notranslate"><span class="pre">SimEvents</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="icecube_tools.simulator.TimeDependentBackgroundSimulator.run">
+<span class="sig-name descname"><span class="pre">run</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#icecube_tools.simulator.TimeDependentBackgroundSimulator.run" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 </dd></dl>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="icecube_tools.simulator.TimeDependentSimulator">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">icecube_tools.simulator.</span></span><span class="sig-name descname"><span class="pre">TimeDependentSimulator</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">periods</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sources</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#icecube_tools.simulator.TimeDependentSimulator" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">icecube_tools.simulator.</span></span><span class="sig-name descname"><span class="pre">TimeDependentSimulator</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">periods</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sources</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#icecube_tools.simulator.TimeDependentSimulator" title="Link to this definition"></a></dt>
 <dd><p>Bases: <a class="reference internal" href="icecube_tools.utils.data.html#icecube_tools.utils.data.SimEvents" title="icecube_tools.utils.data.SimEvents"><code class="xref py py-class docutils literal notranslate"><span class="pre">SimEvents</span></code></a></p>
 <p>Simulator-class for simulations spanning multiple data taking periods.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="icecube_tools.simulator.TimeDependentSimulator.get_expected_number">
-<span class="sig-name descname"><span class="pre">get_expected_number</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#icecube_tools.simulator.TimeDependentSimulator.get_expected_number" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">get_expected_number</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#icecube_tools.simulator.TimeDependentSimulator.get_expected_number" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="icecube_tools.simulator.TimeDependentSimulator.max_cosz">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">max_cosz</span></span><a class="headerlink" href="#icecube_tools.simulator.TimeDependentSimulator.max_cosz" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="icecube_tools.simulator.TimeDependentSimulator.min_cosz">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">min_cosz</span></span><a class="headerlink" href="#icecube_tools.simulator.TimeDependentSimulator.min_cosz" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="icecube_tools.simulator.TimeDependentSimulator.run">
-<span class="sig-name descname"><span class="pre">run</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">N</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dict</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">seed</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1234</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">show_progress</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#icecube_tools.simulator.TimeDependentSimulator.run" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">run</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">N</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dict</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">seed</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1234</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">show_progress</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#icecube_tools.simulator.TimeDependentSimulator.run" title="Link to this definition"></a></dt>
 <dd><p>Runs simulation for each period.
 :param N: Dict of Ns to be set as expected number of neutrinos in sample.
 :param seed: Random seed.
@@ -201,7 +210,7 @@ Currently not implemented.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="icecube_tools.simulator.TimeDependentSimulator.save">
-<span class="sig-name descname"><span class="pre">save</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">file_prefix</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#icecube_tools.simulator.TimeDependentSimulator.save" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">save</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">file_prefix</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#icecube_tools.simulator.TimeDependentSimulator.save" title="Link to this definition"></a></dt>
 <dd><p>Saves simulated data sets.
 :param path: Path to directory in which files should be saved.
 :param file_prefix: Actually suffix of filename, to be appended to all files.
@@ -210,12 +219,12 @@ Currently not implemented.</p>
 
 <dl class="py property">
 <dt class="sig sig-object py" id="icecube_tools.simulator.TimeDependentSimulator.sources">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">sources</span></span><a class="headerlink" href="#icecube_tools.simulator.TimeDependentSimulator.sources" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">sources</span></span><a class="headerlink" href="#icecube_tools.simulator.TimeDependentSimulator.sources" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py property">
 <dt class="sig sig-object py" id="icecube_tools.simulator.TimeDependentSimulator.time">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">time</span></span><a class="headerlink" href="#icecube_tools.simulator.TimeDependentSimulator.time" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">time</span></span><a class="headerlink" href="#icecube_tools.simulator.TimeDependentSimulator.time" title="Link to this definition"></a></dt>
 <dd><p>Returns dictionary of simulator times.
 :return: Dictionary of simulator times.</p>
 </dd></dl>
@@ -224,18 +233,18 @@ Currently not implemented.</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="icecube_tools.simulator.lists_to_tuple">
-<span class="sig-prename descclassname"><span class="pre">icecube_tools.simulator.</span></span><span class="sig-name descname"><span class="pre">lists_to_tuple</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">list1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">list2</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#icecube_tools.simulator.lists_to_tuple" title="Permalink to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">icecube_tools.simulator.</span></span><span class="sig-name descname"><span class="pre">lists_to_tuple</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">list1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">list2</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#icecube_tools.simulator.lists_to_tuple" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="icecube_tools.simulator.sphere_sample">
-<span class="sig-prename descclassname"><span class="pre">icecube_tools.simulator.</span></span><span class="sig-name descname"><span class="pre">sphere_sample</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">radius</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">v_min</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">-1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">v_max</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">N</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#icecube_tools.simulator.sphere_sample" title="Permalink to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">icecube_tools.simulator.</span></span><span class="sig-name descname"><span class="pre">sphere_sample</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">radius</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">v_min</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">-1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">v_max</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">N</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#icecube_tools.simulator.sphere_sample" title="Link to this definition"></a></dt>
 <dd><p>Sample points uniformly on a sphere.</p>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="icecube_tools.simulator.spherical_to_icrs">
-<span class="sig-prename descclassname"><span class="pre">icecube_tools.simulator.</span></span><span class="sig-name descname"><span class="pre">spherical_to_icrs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">theta</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">phi</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#icecube_tools.simulator.spherical_to_icrs" title="Permalink to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">icecube_tools.simulator.</span></span><span class="sig-name descname"><span class="pre">spherical_to_icrs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">theta</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">phi</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#icecube_tools.simulator.spherical_to_icrs" title="Link to this definition"></a></dt>
 <dd><p>convert spherical coordinates to ICRS
 ra, dec.</p>
 </dd></dl>

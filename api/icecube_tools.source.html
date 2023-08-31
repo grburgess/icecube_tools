@@ -11,10 +11,11 @@
     <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-        <script src="../_static/doctools.js"></script>
-        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=914a23ff"></script>
+        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
@@ -84,34 +85,10 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  
-<style>
-/* CSS overrides for sphinx_rtd_theme */
-
-/* 24px margin */
-.nbinput.nblast.container,
-.nboutput.nblast.container {
-    margin-bottom: 19px;  /* padding has already 5px */
-}
-
-/* ... except between code cells! */
-.nblast.container + .nbinput.container {
-    margin-top: -19px;
-}
-
-.admonition > p:before {
-    margin-right: 4px;  /* make room for the exclamation icon */
-}
-
-/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
-.math {
-    text-align: unset;
-}
-</style>
-<section id="icecube-tools-source-package">
-<h1>icecube_tools.source package<a class="headerlink" href="#icecube-tools-source-package" title="Permalink to this heading"></a></h1>
+  <section id="icecube-tools-source-package">
+<h1>icecube_tools.source package<a class="headerlink" href="#icecube-tools-source-package" title="Link to this heading"></a></h1>
 <section id="submodules">
-<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this heading"></a></h2>
+<h2>Submodules<a class="headerlink" href="#submodules" title="Link to this heading"></a></h2>
 <div class="toctree-wrapper compound">
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="icecube_tools.source.flux_model.html">icecube_tools.source.flux_model module</a><ul>
@@ -126,6 +103,13 @@
 <li class="toctree-l3"><a class="reference internal" href="icecube_tools.source.flux_model.html#icecube_tools.source.flux_model.FluxModel.integrated_spectrum"><code class="docutils literal notranslate"><span class="pre">FluxModel.integrated_spectrum()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="icecube_tools.source.flux_model.html#icecube_tools.source.flux_model.FluxModel.redshift_factor"><code class="docutils literal notranslate"><span class="pre">FluxModel.redshift_factor()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="icecube_tools.source.flux_model.html#icecube_tools.source.flux_model.FluxModel.spectrum"><code class="docutils literal notranslate"><span class="pre">FluxModel.spectrum()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="icecube_tools.source.flux_model.html#icecube_tools.source.flux_model.PowerLawExpCutoffFlux"><code class="docutils literal notranslate"><span class="pre">PowerLawExpCutoffFlux</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="icecube_tools.source.flux_model.html#icecube_tools.source.flux_model.PowerLawExpCutoffFlux.integrated_spectrum"><code class="docutils literal notranslate"><span class="pre">PowerLawExpCutoffFlux.integrated_spectrum()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="icecube_tools.source.flux_model.html#icecube_tools.source.flux_model.PowerLawExpCutoffFlux.redshift_factor"><code class="docutils literal notranslate"><span class="pre">PowerLawExpCutoffFlux.redshift_factor()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="icecube_tools.source.flux_model.html#icecube_tools.source.flux_model.PowerLawExpCutoffFlux.sample"><code class="docutils literal notranslate"><span class="pre">PowerLawExpCutoffFlux.sample()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="icecube_tools.source.flux_model.html#icecube_tools.source.flux_model.PowerLawExpCutoffFlux.spectrum"><code class="docutils literal notranslate"><span class="pre">PowerLawExpCutoffFlux.spectrum()</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="icecube_tools.source.flux_model.html#icecube_tools.source.flux_model.PowerLawFlux"><code class="docutils literal notranslate"><span class="pre">PowerLawFlux</span></code></a><ul>
@@ -144,6 +128,13 @@
 <li class="toctree-l3"><a class="reference internal" href="icecube_tools.source.power_law.html#icecube_tools.source.power_law.BoundedPowerLaw.inv_cdf"><code class="docutils literal notranslate"><span class="pre">BoundedPowerLaw.inv_cdf()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="icecube_tools.source.power_law.html#icecube_tools.source.power_law.BoundedPowerLaw.pdf"><code class="docutils literal notranslate"><span class="pre">BoundedPowerLaw.pdf()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="icecube_tools.source.power_law.html#icecube_tools.source.power_law.BoundedPowerLaw.samples"><code class="docutils literal notranslate"><span class="pre">BoundedPowerLaw.samples()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="icecube_tools.source.power_law.html#icecube_tools.source.power_law.BoundedPowerLawExpCutoff"><code class="docutils literal notranslate"><span class="pre">BoundedPowerLawExpCutoff</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="icecube_tools.source.power_law.html#icecube_tools.source.power_law.BoundedPowerLawExpCutoff.cdf"><code class="docutils literal notranslate"><span class="pre">BoundedPowerLawExpCutoff.cdf()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="icecube_tools.source.power_law.html#icecube_tools.source.power_law.BoundedPowerLawExpCutoff.inv_cdf"><code class="docutils literal notranslate"><span class="pre">BoundedPowerLawExpCutoff.inv_cdf()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="icecube_tools.source.power_law.html#icecube_tools.source.power_law.BoundedPowerLawExpCutoff.pdf"><code class="docutils literal notranslate"><span class="pre">BoundedPowerLawExpCutoff.pdf()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="icecube_tools.source.power_law.html#icecube_tools.source.power_law.BoundedPowerLawExpCutoff.samples"><code class="docutils literal notranslate"><span class="pre">BoundedPowerLawExpCutoff.samples()</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="icecube_tools.source.power_law.html#icecube_tools.source.power_law.BrokenBoundedPowerLaw"><code class="docutils literal notranslate"><span class="pre">BrokenBoundedPowerLaw</span></code></a><ul>
@@ -171,7 +162,7 @@
 </div>
 </section>
 <section id="module-icecube_tools.source">
-<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-icecube_tools.source" title="Permalink to this heading"></a></h2>
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-icecube_tools.source" title="Link to this heading"></a></h2>
 </section>
 </section>
 

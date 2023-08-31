@@ -11,10 +11,11 @@
     <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-        <script src="../_static/doctools.js"></script>
-        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=914a23ff"></script>
+        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
@@ -85,40 +86,16 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  
-<style>
-/* CSS overrides for sphinx_rtd_theme */
-
-/* 24px margin */
-.nbinput.nblast.container,
-.nboutput.nblast.container {
-    margin-bottom: 19px;  /* padding has already 5px */
-}
-
-/* ... except between code cells! */
-.nblast.container + .nbinput.container {
-    margin-top: -19px;
-}
-
-.admonition > p:before {
-    margin-right: 4px;  /* make room for the exclamation icon */
-}
-
-/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
-.math {
-    text-align: unset;
-}
-</style>
-<section id="module-icecube_tools.detector.angular_resolution">
-<span id="icecube-tools-detector-angular-resolution-module"></span><h1>icecube_tools.detector.angular_resolution module<a class="headerlink" href="#module-icecube_tools.detector.angular_resolution" title="Permalink to this heading"></a></h1>
+  <section id="module-icecube_tools.detector.angular_resolution">
+<span id="icecube-tools-detector-angular-resolution-module"></span><h1>icecube_tools.detector.angular_resolution module<a class="headerlink" href="#module-icecube_tools.detector.angular_resolution" title="Link to this heading"></a></h1>
 <dl class="py class">
 <dt class="sig sig-object py" id="icecube_tools.detector.angular_resolution.AngularResolution">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">icecube_tools.detector.angular_resolution.</span></span><span class="sig-name descname"><span class="pre">AngularResolution</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ret_ang_err_p</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.68</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">offset</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scale</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scatter</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">minimum</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">maximum</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#icecube_tools.detector.angular_resolution.AngularResolution" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">icecube_tools.detector.angular_resolution.</span></span><span class="sig-name descname"><span class="pre">AngularResolution</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ret_ang_err_p</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.68</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">offset</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scale</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scatter</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">minimum</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">maximum</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#icecube_tools.detector.angular_resolution.AngularResolution" title="Link to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>Generic angular resolution class.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="icecube_tools.detector.angular_resolution.AngularResolution.from_dataset">
-<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">from_dataset</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dataset_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fetch</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#icecube_tools.detector.angular_resolution.AngularResolution.from_dataset" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">from_dataset</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dataset_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fetch</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#icecube_tools.detector.angular_resolution.AngularResolution.from_dataset" title="Link to this definition"></a></dt>
 <dd><p>Load angular resolution from publicly
 available data.</p>
 <dl class="field-list simple">
@@ -133,54 +110,54 @@ available data.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="icecube_tools.detector.angular_resolution.AngularResolution.get_reader">
-<span class="sig-name descname"><span class="pre">get_reader</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#icecube_tools.detector.angular_resolution.AngularResolution.get_reader" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">get_reader</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#icecube_tools.detector.angular_resolution.AngularResolution.get_reader" title="Link to this definition"></a></dt>
 <dd><p>Define an IceCubeAeffReader based on the filename.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="icecube_tools.detector.angular_resolution.AngularResolution.get_ret_ang_err">
-<span class="sig-name descname"><span class="pre">get_ret_ang_err</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">E</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#icecube_tools.detector.angular_resolution.AngularResolution.get_ret_ang_err" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">get_ret_ang_err</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">E</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#icecube_tools.detector.angular_resolution.AngularResolution.get_ret_ang_err" title="Link to this definition"></a></dt>
 <dd><p>Get the median angular resolution for the
 given Etrue/Ereco, corresponsing to ret_ang_err_p.</p>
 </dd></dl>
 
 <dl class="py property">
 <dt class="sig sig-object py" id="icecube_tools.detector.angular_resolution.AngularResolution.ret_ang_err">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">ret_ang_err</span></span><a class="headerlink" href="#icecube_tools.detector.angular_resolution.AngularResolution.ret_ang_err" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">ret_ang_err</span></span><a class="headerlink" href="#icecube_tools.detector.angular_resolution.AngularResolution.ret_ang_err" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="icecube_tools.detector.angular_resolution.AngularResolution.sample">
-<span class="sig-name descname"><span class="pre">sample</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">Etrue</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">coord</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#icecube_tools.detector.angular_resolution.AngularResolution.sample" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">sample</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">Etrue</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">coord</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#icecube_tools.detector.angular_resolution.AngularResolution.sample" title="Link to this definition"></a></dt>
 <dd><p>Sample new ra, dec values given a true energy
 and direction.</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="icecube_tools.detector.angular_resolution.AngularResolution.supported_datasets">
-<span class="sig-name descname"><span class="pre">supported_datasets</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['20181018']</span></em><a class="headerlink" href="#icecube_tools.detector.angular_resolution.AngularResolution.supported_datasets" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">supported_datasets</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['20181018']</span></em><a class="headerlink" href="#icecube_tools.detector.angular_resolution.AngularResolution.supported_datasets" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 </dd></dl>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="icecube_tools.detector.angular_resolution.FixedAngularResolution">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">icecube_tools.detector.angular_resolution.</span></span><span class="sig-name descname"><span class="pre">FixedAngularResolution</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ang_err</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ang_err_p</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.68</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ret_ang_err_p</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.68</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#icecube_tools.detector.angular_resolution.FixedAngularResolution" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">icecube_tools.detector.angular_resolution.</span></span><span class="sig-name descname"><span class="pre">FixedAngularResolution</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ang_err</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ang_err_p</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.68</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ret_ang_err_p</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.68</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#icecube_tools.detector.angular_resolution.FixedAngularResolution" title="Link to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>Simple fixed angular resolution.</p>
 <dl class="py property">
 <dt class="sig sig-object py" id="icecube_tools.detector.angular_resolution.FixedAngularResolution.kappa">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">kappa</span></span><a class="headerlink" href="#icecube_tools.detector.angular_resolution.FixedAngularResolution.kappa" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">kappa</span></span><a class="headerlink" href="#icecube_tools.detector.angular_resolution.FixedAngularResolution.kappa" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py property">
 <dt class="sig sig-object py" id="icecube_tools.detector.angular_resolution.FixedAngularResolution.ret_ang_err">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">ret_ang_err</span></span><a class="headerlink" href="#icecube_tools.detector.angular_resolution.FixedAngularResolution.ret_ang_err" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">ret_ang_err</span></span><a class="headerlink" href="#icecube_tools.detector.angular_resolution.FixedAngularResolution.ret_ang_err" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="icecube_tools.detector.angular_resolution.FixedAngularResolution.sample">
-<span class="sig-name descname"><span class="pre">sample</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">coord</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#icecube_tools.detector.angular_resolution.FixedAngularResolution.sample" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">sample</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">coord</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#icecube_tools.detector.angular_resolution.FixedAngularResolution.sample" title="Link to this definition"></a></dt>
 <dd><p>Sample reconstructed coord given original position.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Coord<span class="colon">:</span></dt>
@@ -193,64 +170,64 @@ and direction.</p>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="icecube_tools.detector.angular_resolution.FromPlotAngResReader">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">icecube_tools.detector.angular_resolution.</span></span><span class="sig-name descname"><span class="pre">FromPlotAngResReader</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#icecube_tools.detector.angular_resolution.FromPlotAngResReader" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">icecube_tools.detector.angular_resolution.</span></span><span class="sig-name descname"><span class="pre">FromPlotAngResReader</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#icecube_tools.detector.angular_resolution.FromPlotAngResReader" title="Link to this definition"></a></dt>
 <dd><p>Bases: <a class="reference internal" href="#icecube_tools.detector.angular_resolution.IceCubeAngResReader" title="icecube_tools.detector.angular_resolution.IceCubeAngResReader"><code class="xref py py-class docutils literal notranslate"><span class="pre">IceCubeAngResReader</span></code></a></p>
 <p>Reader for the plots from the Aartsen+2018
 point source analysis paper.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="icecube_tools.detector.angular_resolution.FromPlotAngResReader.read">
-<span class="sig-name descname"><span class="pre">read</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#icecube_tools.detector.angular_resolution.FromPlotAngResReader.read" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">read</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#icecube_tools.detector.angular_resolution.FromPlotAngResReader.read" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 </dd></dl>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="icecube_tools.detector.angular_resolution.IceCubeAngResReader">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">icecube_tools.detector.angular_resolution.</span></span><span class="sig-name descname"><span class="pre">IceCubeAngResReader</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#icecube_tools.detector.angular_resolution.IceCubeAngResReader" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">icecube_tools.detector.angular_resolution.</span></span><span class="sig-name descname"><span class="pre">IceCubeAngResReader</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#icecube_tools.detector.angular_resolution.IceCubeAngResReader" title="Link to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ABC</span></code></p>
 <p>Abstract base class for different input files
 from the IceCube website.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="icecube_tools.detector.angular_resolution.IceCubeAngResReader.read">
-<em class="property"><span class="pre">abstract</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">read</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#icecube_tools.detector.angular_resolution.IceCubeAngResReader.read" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">abstract</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">read</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#icecube_tools.detector.angular_resolution.IceCubeAngResReader.read" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 </dd></dl>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="icecube_tools.detector.angular_resolution.R2015AngResReader">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">icecube_tools.detector.angular_resolution.</span></span><span class="sig-name descname"><span class="pre">R2015AngResReader</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#icecube_tools.detector.angular_resolution.R2015AngResReader" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">icecube_tools.detector.angular_resolution.</span></span><span class="sig-name descname"><span class="pre">R2015AngResReader</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#icecube_tools.detector.angular_resolution.R2015AngResReader" title="Link to this definition"></a></dt>
 <dd><p>Bases: <a class="reference internal" href="#icecube_tools.detector.angular_resolution.IceCubeAngResReader" title="icecube_tools.detector.angular_resolution.IceCubeAngResReader"><code class="xref py py-class docutils literal notranslate"><span class="pre">IceCubeAngResReader</span></code></a></p>
 <p>Reader for the 2015 release.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="icecube_tools.detector.angular_resolution.R2015AngResReader.read">
-<span class="sig-name descname"><span class="pre">read</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#icecube_tools.detector.angular_resolution.R2015AngResReader.read" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">read</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#icecube_tools.detector.angular_resolution.R2015AngResReader.read" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 </dd></dl>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="icecube_tools.detector.angular_resolution.R2018AngResReader">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">icecube_tools.detector.angular_resolution.</span></span><span class="sig-name descname"><span class="pre">R2018AngResReader</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#icecube_tools.detector.angular_resolution.R2018AngResReader" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">icecube_tools.detector.angular_resolution.</span></span><span class="sig-name descname"><span class="pre">R2018AngResReader</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#icecube_tools.detector.angular_resolution.R2018AngResReader" title="Link to this definition"></a></dt>
 <dd><p>Bases: <a class="reference internal" href="#icecube_tools.detector.angular_resolution.IceCubeAngResReader" title="icecube_tools.detector.angular_resolution.IceCubeAngResReader"><code class="xref py py-class docutils literal notranslate"><span class="pre">IceCubeAngResReader</span></code></a></p>
 <p>Reader for the 2018 Oct 18 release.
 Link: <a class="reference external" href="https://icecube.wisc.edu/science/data/PS-3years">https://icecube.wisc.edu/science/data/PS-3years</a>.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="icecube_tools.detector.angular_resolution.R2018AngResReader.read">
-<span class="sig-name descname"><span class="pre">read</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#icecube_tools.detector.angular_resolution.R2018AngResReader.read" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">read</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#icecube_tools.detector.angular_resolution.R2018AngResReader.read" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="icecube_tools.detector.angular_resolution.icrs_to_unit_vector">
-<span class="sig-prename descclassname"><span class="pre">icecube_tools.detector.angular_resolution.</span></span><span class="sig-name descname"><span class="pre">icrs_to_unit_vector</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ra</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dec</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#icecube_tools.detector.angular_resolution.icrs_to_unit_vector" title="Permalink to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">icecube_tools.detector.angular_resolution.</span></span><span class="sig-name descname"><span class="pre">icrs_to_unit_vector</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ra</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dec</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#icecube_tools.detector.angular_resolution.icrs_to_unit_vector" title="Link to this definition"></a></dt>
 <dd><p>Convert to unit vector.</p>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="icecube_tools.detector.angular_resolution.unit_vector_to_icrs">
-<span class="sig-prename descclassname"><span class="pre">icecube_tools.detector.angular_resolution.</span></span><span class="sig-name descname"><span class="pre">unit_vector_to_icrs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">unit_vector</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#icecube_tools.detector.angular_resolution.unit_vector_to_icrs" title="Permalink to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">icecube_tools.detector.angular_resolution.</span></span><span class="sig-name descname"><span class="pre">unit_vector_to_icrs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">unit_vector</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#icecube_tools.detector.angular_resolution.unit_vector_to_icrs" title="Link to this definition"></a></dt>
 <dd><p>Convert to ra, dec.</p>
 </dd></dl>
 

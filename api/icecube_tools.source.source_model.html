@@ -11,10 +11,11 @@
     <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-        <script src="../_static/doctools.js"></script>
-        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=914a23ff"></script>
+        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
@@ -85,35 +86,11 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  
-<style>
-/* CSS overrides for sphinx_rtd_theme */
-
-/* 24px margin */
-.nbinput.nblast.container,
-.nboutput.nblast.container {
-    margin-bottom: 19px;  /* padding has already 5px */
-}
-
-/* ... except between code cells! */
-.nblast.container + .nbinput.container {
-    margin-top: -19px;
-}
-
-.admonition > p:before {
-    margin-right: 4px;  /* make room for the exclamation icon */
-}
-
-/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
-.math {
-    text-align: unset;
-}
-</style>
-<section id="module-icecube_tools.source.source_model">
-<span id="icecube-tools-source-source-model-module"></span><h1>icecube_tools.source.source_model module<a class="headerlink" href="#module-icecube_tools.source.source_model" title="Permalink to this heading"></a></h1>
+  <section id="module-icecube_tools.source.source_model">
+<span id="icecube-tools-source-source-model-module"></span><h1>icecube_tools.source.source_model module<a class="headerlink" href="#module-icecube_tools.source.source_model" title="Link to this heading"></a></h1>
 <dl class="py class">
 <dt class="sig sig-object py" id="icecube_tools.source.source_model.DiffuseSource">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">icecube_tools.source.source_model.</span></span><span class="sig-name descname"><span class="pre">DiffuseSource</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">flux_model</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="icecube_tools.source.flux_model.html#icecube_tools.source.flux_model.FluxModel" title="icecube_tools.source.flux_model.FluxModel"><span class="pre">FluxModel</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">z</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0.0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#icecube_tools.source.source_model.DiffuseSource" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">icecube_tools.source.source_model.</span></span><span class="sig-name descname"><span class="pre">DiffuseSource</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">flux_model</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="icecube_tools.source.flux_model.html#icecube_tools.source.flux_model.FluxModel" title="icecube_tools.source.flux_model.FluxModel"><span class="pre">FluxModel</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">z</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0.0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#icecube_tools.source.source_model.DiffuseSource" title="Link to this definition"></a></dt>
 <dd><p>Bases: <a class="reference internal" href="#icecube_tools.source.source_model.Source" title="icecube_tools.source.source_model.Source"><code class="xref py py-class docutils literal notranslate"><span class="pre">Source</span></code></a></p>
 <p>A diffuse source. It is assumed to be isotropic
 over the full 4pi sky and has a spectrum described
@@ -122,41 +99,41 @@ by its flux model.</p>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="icecube_tools.source.source_model.PointSource">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">icecube_tools.source.source_model.</span></span><span class="sig-name descname"><span class="pre">PointSource</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">flux_model</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="icecube_tools.source.flux_model.html#icecube_tools.source.flux_model.FluxModel" title="icecube_tools.source.flux_model.FluxModel"><span class="pre">FluxModel</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">z</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">coord</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">(0.0,</span> <span class="pre">0.0)</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#icecube_tools.source.source_model.PointSource" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">icecube_tools.source.source_model.</span></span><span class="sig-name descname"><span class="pre">PointSource</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">flux_model</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="icecube_tools.source.flux_model.html#icecube_tools.source.flux_model.FluxModel" title="icecube_tools.source.flux_model.FluxModel"><span class="pre">FluxModel</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">z</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">coord</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">(0.0,</span> <span class="pre">0.0)</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#icecube_tools.source.source_model.PointSource" title="Link to this definition"></a></dt>
 <dd><p>Bases: <a class="reference internal" href="#icecube_tools.source.source_model.Source" title="icecube_tools.source.source_model.Source"><code class="xref py py-class docutils literal notranslate"><span class="pre">Source</span></code></a></p>
 <p>A point source is localised to a point
 on the sky and has a spectrum described
 by its flux model.</p>
 <dl class="py property">
 <dt class="sig sig-object py" id="icecube_tools.source.source_model.PointSource.coord">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">coord</span></span><a class="headerlink" href="#icecube_tools.source.source_model.PointSource.coord" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">coord</span></span><a class="headerlink" href="#icecube_tools.source.source_model.PointSource.coord" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 </dd></dl>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="icecube_tools.source.source_model.Source">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">icecube_tools.source.source_model.</span></span><span class="sig-name descname"><span class="pre">Source</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">flux_model</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="icecube_tools.source.flux_model.html#icecube_tools.source.flux_model.FluxModel" title="icecube_tools.source.flux_model.FluxModel"><span class="pre">FluxModel</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">z</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0.0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#icecube_tools.source.source_model.Source" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">icecube_tools.source.source_model.</span></span><span class="sig-name descname"><span class="pre">Source</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">flux_model</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="icecube_tools.source.flux_model.html#icecube_tools.source.flux_model.FluxModel" title="icecube_tools.source.flux_model.FluxModel"><span class="pre">FluxModel</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">z</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0.0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#icecube_tools.source.source_model.Source" title="Link to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ABC</span></code></p>
 <p>Abstract base class for neutrino sources.</p>
 <dl class="py property">
 <dt class="sig sig-object py" id="icecube_tools.source.source_model.Source.flux_model">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">flux_model</span></span><a class="headerlink" href="#icecube_tools.source.source_model.Source.flux_model" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">flux_model</span></span><a class="headerlink" href="#icecube_tools.source.source_model.Source.flux_model" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py property">
 <dt class="sig sig-object py" id="icecube_tools.source.source_model.Source.redshift_factor">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">redshift_factor</span></span><a class="headerlink" href="#icecube_tools.source.source_model.Source.redshift_factor" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">redshift_factor</span></span><a class="headerlink" href="#icecube_tools.source.source_model.Source.redshift_factor" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py property">
 <dt class="sig sig-object py" id="icecube_tools.source.source_model.Source.source_type">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">source_type</span></span><a class="headerlink" href="#icecube_tools.source.source_model.Source.source_type" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">source_type</span></span><a class="headerlink" href="#icecube_tools.source.source_model.Source.source_type" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py property">
 <dt class="sig sig-object py" id="icecube_tools.source.source_model.Source.z">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">z</span></span><a class="headerlink" href="#icecube_tools.source.source_model.Source.z" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">z</span></span><a class="headerlink" href="#icecube_tools.source.source_model.Source.z" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 </dd></dl>

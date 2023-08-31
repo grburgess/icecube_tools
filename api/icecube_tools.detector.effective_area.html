@@ -11,10 +11,11 @@
     <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-        <script src="../_static/doctools.js"></script>
-        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=914a23ff"></script>
+        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
@@ -85,35 +86,11 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  
-<style>
-/* CSS overrides for sphinx_rtd_theme */
-
-/* 24px margin */
-.nbinput.nblast.container,
-.nboutput.nblast.container {
-    margin-bottom: 19px;  /* padding has already 5px */
-}
-
-/* ... except between code cells! */
-.nblast.container + .nbinput.container {
-    margin-top: -19px;
-}
-
-.admonition > p:before {
-    margin-right: 4px;  /* make room for the exclamation icon */
-}
-
-/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
-.math {
-    text-align: unset;
-}
-</style>
-<section id="module-icecube_tools.detector.effective_area">
-<span id="icecube-tools-detector-effective-area-module"></span><h1>icecube_tools.detector.effective_area module<a class="headerlink" href="#module-icecube_tools.detector.effective_area" title="Permalink to this heading"></a></h1>
+  <section id="module-icecube_tools.detector.effective_area">
+<span id="icecube-tools-detector-effective-area-module"></span><h1>icecube_tools.detector.effective_area module<a class="headerlink" href="#module-icecube_tools.detector.effective_area" title="Link to this heading"></a></h1>
 <dl class="py class">
 <dt class="sig sig-object py" id="icecube_tools.detector.effective_area.Braun2008AeffReader">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">icecube_tools.detector.effective_area.</span></span><span class="sig-name descname"><span class="pre">Braun2008AeffReader</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#icecube_tools.detector.effective_area.Braun2008AeffReader" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">icecube_tools.detector.effective_area.</span></span><span class="sig-name descname"><span class="pre">Braun2008AeffReader</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#icecube_tools.detector.effective_area.Braun2008AeffReader" title="Link to this definition"></a></dt>
 <dd><p>Bases: <a class="reference internal" href="#icecube_tools.detector.effective_area.IceCubeAeffReader" title="icecube_tools.detector.effective_area.IceCubeAeffReader"><code class="xref py py-class docutils literal notranslate"><span class="pre">IceCubeAeffReader</span></code></a></p>
 <p>Reader for the Braun+2008 paper effective area
 Fig. 3, 140-150 deg.
@@ -122,7 +99,7 @@ analysis in high energy neutrino telescopes.
 Astroparticle Physics, 29(4), pp.299–305.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="icecube_tools.detector.effective_area.Braun2008AeffReader.read">
-<span class="sig-name descname"><span class="pre">read</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#icecube_tools.detector.effective_area.Braun2008AeffReader.read" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">read</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#icecube_tools.detector.effective_area.Braun2008AeffReader.read" title="Link to this definition"></a></dt>
 <dd><p>To be defined.</p>
 </dd></dl>
 
@@ -130,19 +107,19 @@ Astroparticle Physics, 29(4), pp.299–305.</p>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="icecube_tools.detector.effective_area.EffectiveArea">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">icecube_tools.detector.effective_area.</span></span><span class="sig-name descname"><span class="pre">EffectiveArea</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#icecube_tools.detector.effective_area.EffectiveArea" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">icecube_tools.detector.effective_area.</span></span><span class="sig-name descname"><span class="pre">EffectiveArea</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#icecube_tools.detector.effective_area.EffectiveArea" title="Link to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>IceCube effective area.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="icecube_tools.detector.effective_area.EffectiveArea.detection_probability">
-<span class="sig-name descname"><span class="pre">detection_probability</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">true_energy</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">true_cos_zenith</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_energy</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#icecube_tools.detector.effective_area.EffectiveArea.detection_probability" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">detection_probability</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">true_energy</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">true_cos_zenith</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_energy</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#icecube_tools.detector.effective_area.EffectiveArea.detection_probability" title="Link to this definition"></a></dt>
 <dd><p>Give the relative detection probability for
 a given true energy and arrival direction.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="icecube_tools.detector.effective_area.EffectiveArea.from_dataset">
-<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">from_dataset</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dataset_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">period</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'IC86_II'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fetch</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#icecube_tools.detector.effective_area.EffectiveArea.from_dataset" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">from_dataset</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dataset_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">period</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'IC86_II'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fetch</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#icecube_tools.detector.effective_area.EffectiveArea.from_dataset" title="Link to this definition"></a></dt>
 <dd><p>Build effective area from a public dataset.</p>
 <p>If relevant, uses the latest effective area
 within a dataset. Some datasets have multiple
@@ -160,27 +137,27 @@ effective areas.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="icecube_tools.detector.effective_area.EffectiveArea.get_reader">
-<span class="sig-name descname"><span class="pre">get_reader</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#icecube_tools.detector.effective_area.EffectiveArea.get_reader" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">get_reader</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#icecube_tools.detector.effective_area.EffectiveArea.get_reader" title="Link to this definition"></a></dt>
 <dd><p>Define an IceCubeAeffReader based on the filename.</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="icecube_tools.detector.effective_area.EffectiveArea.supported_datasets">
-<span class="sig-name descname"><span class="pre">supported_datasets</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['20131121',</span> <span class="pre">'20150820',</span> <span class="pre">'20181018',</span> <span class="pre">'20210126']</span></em><a class="headerlink" href="#icecube_tools.detector.effective_area.EffectiveArea.supported_datasets" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">supported_datasets</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['20131121',</span> <span class="pre">'20150820',</span> <span class="pre">'20181018',</span> <span class="pre">'20210126']</span></em><a class="headerlink" href="#icecube_tools.detector.effective_area.EffectiveArea.supported_datasets" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 </dd></dl>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="icecube_tools.detector.effective_area.IceCubeAeffReader">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">icecube_tools.detector.effective_area.</span></span><span class="sig-name descname"><span class="pre">IceCubeAeffReader</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#icecube_tools.detector.effective_area.IceCubeAeffReader" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">icecube_tools.detector.effective_area.</span></span><span class="sig-name descname"><span class="pre">IceCubeAeffReader</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#icecube_tools.detector.effective_area.IceCubeAeffReader" title="Link to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ABC</span></code></p>
 <p>Abstract base class for a file reader to handle
 the different types of data files provided
 on the IceCube website.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="icecube_tools.detector.effective_area.IceCubeAeffReader.read">
-<em class="property"><span class="pre">abstract</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">read</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#icecube_tools.detector.effective_area.IceCubeAeffReader.read" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">abstract</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">read</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#icecube_tools.detector.effective_area.IceCubeAeffReader.read" title="Link to this definition"></a></dt>
 <dd><p>To be defined.</p>
 </dd></dl>
 
@@ -188,7 +165,7 @@ on the IceCube website.</p>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="icecube_tools.detector.effective_area.R2013AeffReader">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">icecube_tools.detector.effective_area.</span></span><span class="sig-name descname"><span class="pre">R2013AeffReader</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#icecube_tools.detector.effective_area.R2013AeffReader" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">icecube_tools.detector.effective_area.</span></span><span class="sig-name descname"><span class="pre">R2013AeffReader</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#icecube_tools.detector.effective_area.R2013AeffReader" title="Link to this definition"></a></dt>
 <dd><p>Bases: <a class="reference internal" href="#icecube_tools.detector.effective_area.IceCubeAeffReader" title="icecube_tools.detector.effective_area.IceCubeAeffReader"><code class="xref py py-class docutils literal notranslate"><span class="pre">IceCubeAeffReader</span></code></a></p>
 <p>Reader for the 2013 Nov 21 release.
 Link: <a class="reference external" href="https://icecube.wisc.edu/data-releases/2013/11/">https://icecube.wisc.edu/data-releases/2013/11/</a>
@@ -196,7 +173,7 @@ search-for-contained-neutrino-events-at-energies-above
 -30-tev-in-2-years-of-data.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="icecube_tools.detector.effective_area.R2013AeffReader.read">
-<span class="sig-name descname"><span class="pre">read</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#icecube_tools.detector.effective_area.R2013AeffReader.read" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">read</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#icecube_tools.detector.effective_area.R2013AeffReader.read" title="Link to this definition"></a></dt>
 <dd><p>To be defined.</p>
 </dd></dl>
 
@@ -204,13 +181,13 @@ search-for-contained-neutrino-events-at-energies-above
 
 <dl class="py class">
 <dt class="sig sig-object py" id="icecube_tools.detector.effective_area.R2015AeffReader">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">icecube_tools.detector.effective_area.</span></span><span class="sig-name descname"><span class="pre">R2015AeffReader</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#icecube_tools.detector.effective_area.R2015AeffReader" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">icecube_tools.detector.effective_area.</span></span><span class="sig-name descname"><span class="pre">R2015AeffReader</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#icecube_tools.detector.effective_area.R2015AeffReader" title="Link to this definition"></a></dt>
 <dd><p>Bases: <a class="reference internal" href="#icecube_tools.detector.effective_area.IceCubeAeffReader" title="icecube_tools.detector.effective_area.IceCubeAeffReader"><code class="xref py py-class docutils literal notranslate"><span class="pre">IceCubeAeffReader</span></code></a></p>
 <p>Reader for the 2015 Aug 20 release.
 Link: <a class="reference external" href="https://icecube.wisc.edu/science/data/HE_NuMu_diffuse">https://icecube.wisc.edu/science/data/HE_NuMu_diffuse</a>.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="icecube_tools.detector.effective_area.R2015AeffReader.read">
-<span class="sig-name descname"><span class="pre">read</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#icecube_tools.detector.effective_area.R2015AeffReader.read" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">read</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#icecube_tools.detector.effective_area.R2015AeffReader.read" title="Link to this definition"></a></dt>
 <dd><p>Read input from the provided HDF5 file.</p>
 </dd></dl>
 
@@ -218,13 +195,13 @@ Link: <a class="reference external" href="https://icecube.wisc.edu/science/data/
 
 <dl class="py class">
 <dt class="sig sig-object py" id="icecube_tools.detector.effective_area.R2018AeffReader">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">icecube_tools.detector.effective_area.</span></span><span class="sig-name descname"><span class="pre">R2018AeffReader</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#icecube_tools.detector.effective_area.R2018AeffReader" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">icecube_tools.detector.effective_area.</span></span><span class="sig-name descname"><span class="pre">R2018AeffReader</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#icecube_tools.detector.effective_area.R2018AeffReader" title="Link to this definition"></a></dt>
 <dd><p>Bases: <a class="reference internal" href="#icecube_tools.detector.effective_area.IceCubeAeffReader" title="icecube_tools.detector.effective_area.IceCubeAeffReader"><code class="xref py py-class docutils literal notranslate"><span class="pre">IceCubeAeffReader</span></code></a></p>
 <p>Reader for the 2018 Oct 18 release.
 Link: <a class="reference external" href="https://icecube.wisc.edu/science/data/PS-3years">https://icecube.wisc.edu/science/data/PS-3years</a>.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="icecube_tools.detector.effective_area.R2018AeffReader.read">
-<span class="sig-name descname"><span class="pre">read</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#icecube_tools.detector.effective_area.R2018AeffReader.read" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">read</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#icecube_tools.detector.effective_area.R2018AeffReader.read" title="Link to this definition"></a></dt>
 <dd><p>To be defined.</p>
 </dd></dl>
 
@@ -232,13 +209,13 @@ Link: <a class="reference external" href="https://icecube.wisc.edu/science/data/
 
 <dl class="py class">
 <dt class="sig sig-object py" id="icecube_tools.detector.effective_area.R2021AeffReader">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">icecube_tools.detector.effective_area.</span></span><span class="sig-name descname"><span class="pre">R2021AeffReader</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#icecube_tools.detector.effective_area.R2021AeffReader" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">icecube_tools.detector.effective_area.</span></span><span class="sig-name descname"><span class="pre">R2021AeffReader</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#icecube_tools.detector.effective_area.R2021AeffReader" title="Link to this definition"></a></dt>
 <dd><p>Bases: <a class="reference internal" href="#icecube_tools.detector.effective_area.IceCubeAeffReader" title="icecube_tools.detector.effective_area.IceCubeAeffReader"><code class="xref py py-class docutils literal notranslate"><span class="pre">IceCubeAeffReader</span></code></a></p>
 <p>Reader for the 2021 January 26 release.
 Link: <a class="reference external" href="https://icecube.wisc.edu/data-releases/2021/01/all-sky-point-source-icecube-data-years-2008-2018/">https://icecube.wisc.edu/data-releases/2021/01/all-sky-point-source-icecube-data-years-2008-2018/</a></p>
 <dl class="py method">
 <dt class="sig sig-object py" id="icecube_tools.detector.effective_area.R2021AeffReader.read">
-<span class="sig-name descname"><span class="pre">read</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#icecube_tools.detector.effective_area.R2021AeffReader.read" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">read</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#icecube_tools.detector.effective_area.R2021AeffReader.read" title="Link to this definition"></a></dt>
 <dd><p>To be defined.</p>
 </dd></dl>
 

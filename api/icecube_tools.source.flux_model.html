@@ -11,10 +11,11 @@
     <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-        <script src="../_static/doctools.js"></script>
-        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=914a23ff"></script>
+        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
@@ -85,40 +86,16 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  
-<style>
-/* CSS overrides for sphinx_rtd_theme */
-
-/* 24px margin */
-.nbinput.nblast.container,
-.nboutput.nblast.container {
-    margin-bottom: 19px;  /* padding has already 5px */
-}
-
-/* ... except between code cells! */
-.nblast.container + .nbinput.container {
-    margin-top: -19px;
-}
-
-.admonition > p:before {
-    margin-right: 4px;  /* make room for the exclamation icon */
-}
-
-/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
-.math {
-    text-align: unset;
-}
-</style>
-<section id="module-icecube_tools.source.flux_model">
-<span id="icecube-tools-source-flux-model-module"></span><h1>icecube_tools.source.flux_model module<a class="headerlink" href="#module-icecube_tools.source.flux_model" title="Permalink to this heading"></a></h1>
+  <section id="module-icecube_tools.source.flux_model">
+<span id="icecube-tools-source-flux-model-module"></span><h1>icecube_tools.source.flux_model module<a class="headerlink" href="#module-icecube_tools.source.flux_model" title="Link to this heading"></a></h1>
 <dl class="py class">
 <dt class="sig sig-object py" id="icecube_tools.source.flux_model.BrokenPowerLawFlux">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">icecube_tools.source.flux_model.</span></span><span class="sig-name descname"><span class="pre">BrokenPowerLawFlux</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">normalisation</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">break_energy</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">index1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">index2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lower_energy</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">100.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">upper_energy</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">100000000.0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#icecube_tools.source.flux_model.BrokenPowerLawFlux" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">icecube_tools.source.flux_model.</span></span><span class="sig-name descname"><span class="pre">BrokenPowerLawFlux</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">normalisation</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">break_energy</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">index1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">index2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lower_energy</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">100.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">upper_energy</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">100000000.0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#icecube_tools.source.flux_model.BrokenPowerLawFlux" title="Link to this definition"></a></dt>
 <dd><p>Bases: <a class="reference internal" href="#icecube_tools.source.flux_model.FluxModel" title="icecube_tools.source.flux_model.FluxModel"><code class="xref py py-class docutils literal notranslate"><span class="pre">FluxModel</span></code></a></p>
 <p>Broken power law flux models.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="icecube_tools.source.flux_model.BrokenPowerLawFlux.integrated_spectrum">
-<span class="sig-name descname"><span class="pre">integrated_spectrum</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lower_energy_bound</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">upper_energy_bound</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#icecube_tools.source.flux_model.BrokenPowerLawFlux.integrated_spectrum" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">integrated_spectrum</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lower_energy_bound</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">upper_energy_bound</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#icecube_tools.source.flux_model.BrokenPowerLawFlux.integrated_spectrum" title="Link to this definition"></a></dt>
 <dd><p>int spectrum dE over finite energy bounds.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -132,12 +109,12 @@
 
 <dl class="py method">
 <dt class="sig sig-object py" id="icecube_tools.source.flux_model.BrokenPowerLawFlux.redshift_factor">
-<span class="sig-name descname"><span class="pre">redshift_factor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">z</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#icecube_tools.source.flux_model.BrokenPowerLawFlux.redshift_factor" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">redshift_factor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">z</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#icecube_tools.source.flux_model.BrokenPowerLawFlux.redshift_factor" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="icecube_tools.source.flux_model.BrokenPowerLawFlux.sample">
-<span class="sig-name descname"><span class="pre">sample</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">N</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#icecube_tools.source.flux_model.BrokenPowerLawFlux.sample" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">sample</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">N</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#icecube_tools.source.flux_model.BrokenPowerLawFlux.sample" title="Link to this definition"></a></dt>
 <dd><p>Sample energies from the power law.
 Uses inverse transform sampling.</p>
 <dl class="field-list simple">
@@ -149,7 +126,7 @@ Uses inverse transform sampling.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="icecube_tools.source.flux_model.BrokenPowerLawFlux.spectrum">
-<span class="sig-name descname"><span class="pre">spectrum</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">energy</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#icecube_tools.source.flux_model.BrokenPowerLawFlux.spectrum" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">spectrum</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">energy</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#icecube_tools.source.flux_model.BrokenPowerLawFlux.spectrum" title="Link to this definition"></a></dt>
 <dd><p>dN/dEdAdt or dN/dEdAdtdO depending on flux_type.</p>
 </dd></dl>
 
@@ -157,34 +134,68 @@ Uses inverse transform sampling.</p>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="icecube_tools.source.flux_model.FluxModel">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">icecube_tools.source.flux_model.</span></span><span class="sig-name descname"><span class="pre">FluxModel</span></span><a class="headerlink" href="#icecube_tools.source.flux_model.FluxModel" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">icecube_tools.source.flux_model.</span></span><span class="sig-name descname"><span class="pre">FluxModel</span></span><a class="headerlink" href="#icecube_tools.source.flux_model.FluxModel" title="Link to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ABC</span></code></p>
 <p>Abstract base class for flux models.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="icecube_tools.source.flux_model.FluxModel.integrated_spectrum">
-<em class="property"><span class="pre">abstract</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">integrated_spectrum</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#icecube_tools.source.flux_model.FluxModel.integrated_spectrum" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">abstract</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">integrated_spectrum</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#icecube_tools.source.flux_model.FluxModel.integrated_spectrum" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="icecube_tools.source.flux_model.FluxModel.redshift_factor">
-<em class="property"><span class="pre">abstract</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">redshift_factor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">z</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#icecube_tools.source.flux_model.FluxModel.redshift_factor" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">abstract</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">redshift_factor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">z</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#icecube_tools.source.flux_model.FluxModel.redshift_factor" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="icecube_tools.source.flux_model.FluxModel.spectrum">
-<em class="property"><span class="pre">abstract</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">spectrum</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#icecube_tools.source.flux_model.FluxModel.spectrum" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">abstract</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">spectrum</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#icecube_tools.source.flux_model.FluxModel.spectrum" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 </dd></dl>
 
 <dl class="py class">
+<dt class="sig sig-object py" id="icecube_tools.source.flux_model.PowerLawExpCutoffFlux">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">icecube_tools.source.flux_model.</span></span><span class="sig-name descname"><span class="pre">PowerLawExpCutoffFlux</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">normalisation</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">norm_energy</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">index</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cutoff_energy</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lower_energy</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">100.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">upper_energy</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">100000000.0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#icecube_tools.source.flux_model.PowerLawExpCutoffFlux" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#icecube_tools.source.flux_model.FluxModel" title="icecube_tools.source.flux_model.FluxModel"><code class="xref py py-class docutils literal notranslate"><span class="pre">FluxModel</span></code></a></p>
+<p>Power law flux models with an exponential cutoff.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="icecube_tools.source.flux_model.PowerLawExpCutoffFlux.integrated_spectrum">
+<span class="sig-name descname"><span class="pre">integrated_spectrum</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lower_energy_bound</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">upper_energy_bound</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#icecube_tools.source.flux_model.PowerLawExpCutoffFlux.integrated_spectrum" title="Link to this definition"></a></dt>
+<dd><p>Integrates the spectrum with respect to E over a finite energy interval.
+:param lower_energy_bound: in GeV
+:param upper_energy_bound: in GeV</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="icecube_tools.source.flux_model.PowerLawExpCutoffFlux.redshift_factor">
+<span class="sig-name descname"><span class="pre">redshift_factor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">z</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#icecube_tools.source.flux_model.PowerLawExpCutoffFlux.redshift_factor" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="icecube_tools.source.flux_model.PowerLawExpCutoffFlux.sample">
+<span class="sig-name descname"><span class="pre">sample</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">N</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#icecube_tools.source.flux_model.PowerLawExpCutoffFlux.sample" title="Link to this definition"></a></dt>
+<dd><p>Samples energies from the spectrum using inverse transform sampling.
+Works only if index &lt; 1.
+:param N: Number of samples.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="icecube_tools.source.flux_model.PowerLawExpCutoffFlux.spectrum">
+<span class="sig-name descname"><span class="pre">spectrum</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">energy</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#icecube_tools.source.flux_model.PowerLawExpCutoffFlux.spectrum" title="Link to this definition"></a></dt>
+<dd><p>dN/dEdAdt or dN/dEdAdtdO.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
 <dt class="sig sig-object py" id="icecube_tools.source.flux_model.PowerLawFlux">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">icecube_tools.source.flux_model.</span></span><span class="sig-name descname"><span class="pre">PowerLawFlux</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">normalisation</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">normalisation_energy</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">index</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lower_energy</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">100.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">upper_energy</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">inf</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#icecube_tools.source.flux_model.PowerLawFlux" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">icecube_tools.source.flux_model.</span></span><span class="sig-name descname"><span class="pre">PowerLawFlux</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">normalisation</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">normalisation_energy</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">index</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lower_energy</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">100.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">upper_energy</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">inf</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#icecube_tools.source.flux_model.PowerLawFlux" title="Link to this definition"></a></dt>
 <dd><p>Bases: <a class="reference internal" href="#icecube_tools.source.flux_model.FluxModel" title="icecube_tools.source.flux_model.FluxModel"><code class="xref py py-class docutils literal notranslate"><span class="pre">FluxModel</span></code></a></p>
 <p>Power law flux models.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="icecube_tools.source.flux_model.PowerLawFlux.integrated_spectrum">
-<span class="sig-name descname"><span class="pre">integrated_spectrum</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lower_energy_bound</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">upper_energy_bound</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#icecube_tools.source.flux_model.PowerLawFlux.integrated_spectrum" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">integrated_spectrum</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lower_energy_bound</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">upper_energy_bound</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#icecube_tools.source.flux_model.PowerLawFlux.integrated_spectrum" title="Link to this definition"></a></dt>
 <dd><p>int spectrum dE over finite energy bounds.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -198,12 +209,12 @@ Uses inverse transform sampling.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="icecube_tools.source.flux_model.PowerLawFlux.redshift_factor">
-<span class="sig-name descname"><span class="pre">redshift_factor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">z</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#icecube_tools.source.flux_model.PowerLawFlux.redshift_factor" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">redshift_factor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">z</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#icecube_tools.source.flux_model.PowerLawFlux.redshift_factor" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="icecube_tools.source.flux_model.PowerLawFlux.sample">
-<span class="sig-name descname"><span class="pre">sample</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">N</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#icecube_tools.source.flux_model.PowerLawFlux.sample" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">sample</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">N</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#icecube_tools.source.flux_model.PowerLawFlux.sample" title="Link to this definition"></a></dt>
 <dd><p>Sample energies from the power law.
 Uses inverse transform sampling.</p>
 <dl class="field-list simple">
@@ -218,13 +229,13 @@ Uses inverse transform sampling.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="icecube_tools.source.flux_model.PowerLawFlux.spectrum">
-<span class="sig-name descname"><span class="pre">spectrum</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">energy</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#icecube_tools.source.flux_model.PowerLawFlux.spectrum" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">spectrum</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">energy</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#icecube_tools.source.flux_model.PowerLawFlux.spectrum" title="Link to this definition"></a></dt>
 <dd><p>dN/dEdAdt or dN/dEdAdtdO depending on flux_type.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="icecube_tools.source.flux_model.PowerLawFlux.total_flux_density">
-<span class="sig-name descname"><span class="pre">total_flux_density</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#icecube_tools.source.flux_model.PowerLawFlux.total_flux_density" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">total_flux_density</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#icecube_tools.source.flux_model.PowerLawFlux.total_flux_density" title="Link to this definition"></a></dt>
 <dd><p>Total flux density in units of
 [GeV cm^-2 s^-1]</p>
 </dd></dl>
